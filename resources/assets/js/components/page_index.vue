@@ -115,10 +115,19 @@ div.page_index
   section.page_index_service
     .container.flex.full
       .col_left
+        .out_pic.slick
+          .item.item1
+          .item.item2
+
+        .slick_caption
+          .title 創新的科技、貼心的服務
+          .next
+            i.fa.fa-angle-right
       .col_right
     .container.flex
       .col_left
       .col_right
+
         h3.section_title 高品質尊榮服務
         h4.section_feature 
           span.brown 創新的科技 、 貼心的服務 、 人性化的專業是睿田生技三大核心價值 
@@ -203,15 +212,15 @@ div.page_index
             
             // console.log("slick integrated");
 
-            // $('.slicklogo1').slick({
-            //   autoplay: true,
-            //   autoplaySpeed: 3000,
-            //   slidesToShow: 4,
-            //   slidesToScroll: 1,
-            //   arrows: false,
-            //   dots: true,
-            //   easing: 'ease-in'
-            // });
+            $('.out_pic').slick({
+              autoplay: true,
+              autoplaySpeed: 3000,
+              slidesToShow: 4,
+              slidesToScroll: 1,
+              arrows: false,
+              dots: true,
+              easing: 'ease-in'
+            });
 
             
 

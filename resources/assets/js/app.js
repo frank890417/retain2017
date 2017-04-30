@@ -223,11 +223,32 @@ const store = new Vuex.Store({
       $.get("http://www.rapidsuretech.com/api/news").then((res)=>{
         console.log("news loaded (action)");
         context.commit("setNews",res);
-      });$.get("http://www.rapidsuretech.com/api/questions").then((res)=>{
-        console.log("questions loaded (action)");
-        context.commit("setQuestion",res);
       });
+      // $.get("http://www.rapidsuretech.com/api/questions").then((res)=>{
+      //   console.log("questions loaded (action)");
+      //   context.commit("setQuestion",res);
+      // });
+      context.commit("setQuestion",[
+        {
+          id: 1,
+          question: "集團技術優勢與跨界合作?",
+          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
+        },{
+          id: 2,
+          question: "秉持「希望科技，尖端創新，企業社會責任」的核心價值?",
+          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
+        },{
+          id: 3,
+          question: "三大目標方向包括為大中華地區醫療機構?",
+          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
+        },{
+          id: 4,
+          question: "我們的技術優勢與跨界合作?",
+          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
+        }
+      ]);
     }
+
   }
 })
 

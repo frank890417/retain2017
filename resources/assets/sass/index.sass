@@ -535,24 +535,95 @@ $color_brown: #BDB175
 
   //-------------------------
   .page_index_service
+
     .container.full
       position: absolute
       left: 0
       top: 0
       .col_left
-        background-image: url("../img/index/4f.jpg")
-        width: calc(50% - #{grid_sz(1,0)})
-
+        
+        width: calc(50%)
+        height: calc(100%)
+        .out_pic
+          height: 110%
+          width: calc(100% + #{grid_sz(1,1)})
+          .item
+            +size(100%,100%)
+          .item1
+            background-image: url("../img/index/4f.jpg")
+          .item2
+            background-image: url("../img/index/4g.jpg")
+        
       .col_right
-        width: calc(50% + #{grid_sz(1,0)})
+        width: calc(50%)
+        // height: calc(100% + #{grid_sz(0,4)})
         background-color: #F6F6F6
+
+
     .btns
       .inline_container
         margin: 0px grid_sz(0.5,0.5)
         display: inline-block
+    .container.flex
+      align-items: flex-start
+
+      .slick_caption
+        position: absolute
+        bottom: grid_sz(0,4)
+        left: 0
+        display: flex
+
+        .title,.next
+          background-color: rgba($color_grey_dark,0.8)
+          color: white
+          padding-top: grid_sz(0,1.5)
+          padding-bottom: grid_sz(0,1.5)
+          border-bottom: solid 2px $color_white
+          padding: grid_sz(0,1)
+          font-size: 20px
+          margin-right: 6px
+          font-weight: 300
+
+        .next
+          padding-left: grid_sz(0,2)
+          padding-right: grid_sz(0,2)
+          text-align: center
+          +flex_center
+          i
+            position: relative
+            color: white
+            margin-top: 10px
+            left: 5px
+
+      .col_left
+        padding: 0
+      .col_right
+        height: calc(100% - #{grid_sz(0,4)})
+        &:before
+          content: ""
+          display: block
+          position: absolute
+          left: 0
+          top: 0
+          height: 100%
+          width: grid_sz(1,1)
+          left: grid_sz(-1,-1)
+          background-color: #F6F6F6
+
+    .pan_box
+      .section_title
+        margin-top: 0px
+      margin-left: grid_sz(-1,-0.5)
+      background-color: #F6F6F6
+      height: auto
+      padding-top: grid_sz(0,11)
+      padding-bottom: grid_sz(0,7)
+
 
   //
   .page_index_compaign
+    h3 span,h4
+      font-weight: 300
     .container
       padding: 0px grid_sz(2.5,2)
       padding-top: grid_sz(0,12)
@@ -565,6 +636,7 @@ $color_brown: #BDB175
       opacity: 0.8
     h3
       font-size: 30px
+      letter-spacing: 4px
       margin-bottom: grid_sz(0,2)
     background-image: url("../img/index/6a.jpg")
     background-size: cover

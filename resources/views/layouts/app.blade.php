@@ -37,12 +37,14 @@
     @yield('blade_pass_variables')
     {{-- Script BEFORE app.js --}}
     @yield('require_js')
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/js/Rx.min.js"></script>
     <script src="/js/app.js"></script>
+    
+    <script type="text/javascript" src="/js/slick.min.js"></script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')
-    <script type="text/javascript" src="/js/slick.min.js"></script>
+    
   </body>
 
 </html>
