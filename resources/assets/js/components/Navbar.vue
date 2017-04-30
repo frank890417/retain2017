@@ -6,12 +6,12 @@ div
       img.headerimg(src="/img/Retain.png")
       ul.main_list
         li 
-          h4 關於睿軒
+          h4 關於睿田
           ul.sub_list
             li(@click="toggle_open")
-              router-link( to="/about#section_about_from") 睿軒源起
+              router-link( to="/about#section_about_from") 睿田源起
             li(@click="toggle_open")
-              router-link( to="/about#section_about_log") 睿軒大事紀
+              router-link( to="/about#section_about_log") 睿田大事紀
         li 
           h4 檢驗科技
           ul.sub_list
@@ -34,7 +34,7 @@ div
             li(@click="toggle_open") 
               router-link( to="/news/cata/全部新聞") 全部新聞
             li(@click="toggle_open") 
-              router-link( to="/news/cata/睿軒活動") 睿軒活動
+              router-link( to="/news/cata/睿田活動") 睿田活動
             li(@click="toggle_open") 
               router-link( to="/news/cata/新聞快訊") 新聞快訊
             li(@click="toggle_open") 
@@ -63,7 +63,7 @@ div
 
             // Branding Image
             router-link.navbar-brand(to="/")
-              img.logo(src="/img/Rapid.png")
+              img.logo(src="/img/Retain.png")
           .navbar-search-input
             section_search
 
@@ -76,9 +76,9 @@ div
                 .container.flex
                   div.options
                     li 
-                      router-link(to="/about#section_about_from") 睿軒源起
+                      router-link(to="/about#section_about_from") 睿田源起
                     li 
-                      router-link(to="/about#section_about_log") 睿軒大事紀
+                      router-link(to="/about#section_about_log") 睿田大事紀
             li
               a(href="#") 管理經營
               ul.subnav
@@ -101,7 +101,7 @@ div
                     li 
                       router-link(to="/news/cata/全部新聞") 全部新聞
                     li 
-                      router-link(to="/news/cata/睿軒活動") 睿軒活動
+                      router-link(to="/news/cata/睿田活動") 睿田活動
                     li 
                       router-link(to="/news/cata/新聞快訊") 新聞快訊
                     li 

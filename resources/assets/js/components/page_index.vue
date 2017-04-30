@@ -1,6 +1,8 @@
 <template lang="jade">
 div.page_index
   section.page_index_main.bg_parallax
+    .video_container
+      video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
     .container.index_slogan_area
       h1 
         span.brown 儲於
@@ -73,28 +75,61 @@ div.page_index
       .col_right
         
 
-  section.page_index_accurate
-    .container.flex
+  section.page_index_team
+    .container.flex.full
+      .col_left
+        .pic_left
+      .col_right
+    .container.flex.content
       .col_left
         h3.section_title 頂尖菁英團隊
-        h4.section_feature 串聯產、學、研三方資源投入的專業團隊! 
-        p.section_para.text-left 睿田生技為臺灣大學與永齡健康基金會共同合資的第一家產學新創公司。我們整合了臺灣大學的研發實力、台成幹細胞治療中心於幹細胞領域多年的豐富臨床經驗，及永齡健康基金會長期在預防醫學與癌症治療領域投注的強大資源，並搭配立立達診所的六星級高端健康管理規劃方案，提供客戶最為專業與完善的細胞儲存管理服務！
-        router-link.under_line_btn(to='tech') 了解更多
+        h4.section_feature
+          span.theme 串聯產、學、研三方資源投入的專業團隊! 
+        p.section_para 睿田生技為臺灣大學與永齡健康基金會共同合資的第一家產學新創公司。我們整合了臺灣大學的研發實力、台成幹細胞治療中心於幹細胞領域多年的豐富臨床經驗，及永齡健康基金會長期在預防醫學與癌症治療領域投注的強大資源，並搭配立立達診所的六星級高端健康管理規劃方案，提供客戶最為專業與完善的細胞儲存管理服務！
+        router-link.btn-underline.black(to='tech') 
+          span 了解更多
+
       .col_right
+        ul
+          li
+            img(src="/img/index/4c.jpg")
+            h5.title 永齡健康基金會
+          li
+            img(src="/img/index/4d.jpg")
+            h5.title 台灣大學
+          li
+            img(src="/img/index/4e.jpg")
+            h5.title 台成幹細胞<br>治療中心
+          li
+            img(src="/img/index/4f.jpg")
+            h5.title 利達診所
+
+
 
   section.page_index_service
-    .container
+    .container.flex.full
+      .col_left
+      .col_right
+    .container.flex
       .col_left
       .col_right
         h3.section_title 高品質尊榮服務
-        h4 創新的科技 、 貼心的服務 、 人性化的專業是睿田生技三大核心價值 
-        p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕。<br>以融合「創新的科技」、「貼心的服務」、「人性化的專業」三大核心價值，致力為客戶提供精確有效率，充滿溫馨感動的個人化健康管理中心，讓您在舒適、寧靜且隠密的環境下完成珍貴的細胞儲存！ 
+        h4.section_feature 
+          span.brown 創新的科技 、 貼心的服務 、 人性化的專業是睿田生技三大核心價值 
+        p.section_para 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕。<br>以融合「創新的科技」、「貼心的服務」、「人性化的專業」三大核心價值，致力為客戶提供精確有效率，充滿溫馨感動的個人化健康管理中心，讓您在舒適、寧靜且隠密的環境下完成珍貴的細胞儲存！ 
+        .btns
+          div.inline_container
+            router-link.btn-underline(to='tech') 
+              span 了解更多
+          div.inline_container
+            router-link.btn-underline.brown_bg(to='tech') 
+              span 聯繫我們
   section.page_index_compaign
     .container
       h1 DREAMER
       h3 
         span.brown 生命品質  由您決定
-      p 在生命的過程中，也許會有些無法預期的事情發生，唯有多一分準備才會有多一分的勝算！防患於未然，讓我們一起迎向這個未知的未來
+      h4.section_para 在生命的過程中，也許會有些無法預期的事情發生，唯有多一分準備才會有多一分的勝算！防患於未然，讓我們一起迎向這個未知的未來
 
   // section_solutions
 
@@ -124,19 +159,10 @@ div.page_index
         },
         mounted() {
 
-            // $(window).mousemove(function(e){
-            //   var xx=e.pageX;
-            //   var ww=$(window).outerWidth();
-            //   $(".cover1").css("transform","translateX("+(-(xx-ww/2)/3)+"px)");
-            //   $(".cover2").css("transform","translateX("+(-(xx-ww/2)/5)+"px)");
-            //   $(".cover3").css("transform","translateX("+(-(xx-ww/2)/7)+"px)");
-            // });
-
-            // console.log('index mounted.');
-            // $(".percent , .section_title , .section_para").addClass("initial");
-            // setTimeout(function(){
-            //   update_scroll(0);
-            // },200);
+            $(".play_btn").click(function(){
+              $(".page_index_main").addClass("playmovie");
+              $(".page_index_main video")[0].play();
+            });
             var vobj=this;
 
             // this.timer=setInterval(this.news_delta,this.news_change_time);
@@ -223,13 +249,6 @@ div.page_index
             // })(window,mCanvasSelector);
 
 
-
-
-
-
-
-
-            if (Ts) Ts.reload();
 
 
         },
