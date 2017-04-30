@@ -28,9 +28,13 @@ $color_brown: #BDB175
       font-size: 30px
     .section_feature 
       margin-bottom: grid_sz(0,1)
+      padding: 0px grid_sz(0,0.5)
+      letter-spacing: 3px
     .section_para
       margin-bottom: grid_sz(0,3)
+      padding: 0px grid_sz(0,0.5)
     .btn-underline
+      position: relative
       height: grid_sz(0,2)
       background-color: transparent
       color: $color_brown
@@ -44,6 +48,10 @@ $color_brown: #BDB175
         position: absolute
         right: -40px
         transform: scaleX(0.8)
+      &.white
+        color: $color_white
+        border-color: $color_white
+
 
   .page_index_info
     min-height: 0px
@@ -237,8 +245,9 @@ $color_brown: #BDB175
 
   .page_index_live
     background-image: url("../img/index/3a.jpg")
-    +bg_block('before','left',rgba($color_theme,0.9))
-
+    +bg_block('before','left',rgba($color_theme,0.9),grid_sz(1,2))
+    *
+      font-weight: 300
     .col_left
       h3,h4,p
         color: white
@@ -365,6 +374,14 @@ $color_brown: #BDB175
 
   //
   .page_index_compaign
+    h1
+      font-size: grid_sz(0,3)
+      margin-bottom: grid_sz(1,1)
+      color: #BBB288
+      letter-spacing: grid_sz(0,2)
+    h3
+      font-size: 30px
+      margin-bottom: grid_sz(0,2)
     background-image: url("../img/index/6a.jpg")
     background-size: cover
     text-align: center

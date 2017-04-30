@@ -8,7 +8,7 @@ div.footer
         h5 公司資訊
         h5 台北, 台灣
 
-        p 231 新北市新店區北新路三段207-2號 15樓<br>+886.2.5579-0123
+        p 台北市忠孝東路一段54號5樓<br>+886.2.5579-0123
         hr
         img.social_icon.fb(src="http://www.greenvalefarm.com.au/wp-content/themes/greenvale/images/fb-icon.png")
         img.social_icon(src="https://cdn4.iconfinder.com/data/icons/picons-social/57/40-google-plus-3-128.png")

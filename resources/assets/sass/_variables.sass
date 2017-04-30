@@ -133,11 +133,11 @@ $nav_height: 80px
   left: 50%
   transform: translateX(-50%)
 
-@mixin bg_block($el:'before',$place:'left',$color: $color_theme)
+@mixin bg_block($el:'before',$place:'left',$color: $color_theme,$pan: 0px)
   &:#{$el} 
     content: ""
     display: block
-    width: 50%
+    width: calc( 50% + #{$pan})
     height: 100%
     position: absolute
     @if ($place=='left')

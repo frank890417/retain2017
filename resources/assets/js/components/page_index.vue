@@ -68,7 +68,8 @@ div.page_index
         h3.section_title 細緻的服務流程
         h4.section_feature 睿田生技客服專員將會提供您完整的資訊與諮詢服務。 
         p.section_para.text-left 待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
-        router-link.btn.btn-primary(to='/tech') 了解更多
+        router-link.btn-underline.white(to='/tech')
+         span 了解更多
       .col_right
         
 
@@ -123,13 +124,13 @@ div.page_index
         },
         mounted() {
 
-            $(window).mousemove(function(e){
-              var xx=e.pageX;
-              var ww=$(window).outerWidth();
-              $(".cover1").css("transform","translateX("+(-(xx-ww/2)/3)+"px)");
-              $(".cover2").css("transform","translateX("+(-(xx-ww/2)/5)+"px)");
-              $(".cover3").css("transform","translateX("+(-(xx-ww/2)/7)+"px)");
-            });
+            // $(window).mousemove(function(e){
+            //   var xx=e.pageX;
+            //   var ww=$(window).outerWidth();
+            //   $(".cover1").css("transform","translateX("+(-(xx-ww/2)/3)+"px)");
+            //   $(".cover2").css("transform","translateX("+(-(xx-ww/2)/5)+"px)");
+            //   $(".cover3").css("transform","translateX("+(-(xx-ww/2)/7)+"px)");
+            // });
 
             // console.log('index mounted.');
             // $(".percent , .section_title , .section_para").addClass("initial");
@@ -168,58 +169,58 @@ div.page_index
 
             
 
-            var mCanvasSelector = "canvas.wave";
-            (function waveGenerator(window,mCanvasSelector){
-              var canvas = document.createElement('canvas');
-              var windowHeight=window.outerHeight;
-              canvas.height=windowHeight;
-              canvas.width=windowHeight;
-              var ctx = canvas.getContext("2d");
-              var len = windowHeight;
-              var panY=150;
-              var freq=100;
-              var time=0;
-              var mirror_list=[];
-              $(mCanvasSelector).each((index,obj)=>{
-                mirror_list.push(obj);
-              });
+            // var mCanvasSelector = "canvas.wave";
+            // (function waveGenerator(window,mCanvasSelector){
+            //   var canvas = document.createElement('canvas');
+            //   var windowHeight=window.outerHeight;
+            //   canvas.height=windowHeight;
+            //   canvas.width=windowHeight;
+            //   var ctx = canvas.getContext("2d");
+            //   var len = windowHeight;
+            //   var panY=150;
+            //   var freq=100;
+            //   var time=0;
+            //   var mirror_list=[];
+            //   $(mCanvasSelector).each((index,obj)=>{
+            //     mirror_list.push(obj);
+            //   });
               
-              mirror_list.forEach((mCtx)=>{
-                mCtx.height=300;
-                mCtx.width=windowHeight;
-              },20);
+            //   mirror_list.forEach((mCtx)=>{
+            //     mCtx.height=300;
+            //     mCtx.width=windowHeight;
+            //   },20);
               
-              ctx.strokeWidth=1;
-              //set timer
-              setInterval(function(){
-                ctx.clearRect(0,0,len,300);
-                ctx.beginPath();
-                function draw_wave(r,freq,pan,speed){
-                  for(var i=0;i<len;i++){
-                    var deg1=2*Math.PI*((i-1)/freq+pan+time*speed);
-                    var deg2=2*Math.PI*(i/freq+pan+time*speed);
-                    var opacity= Math.pow(Math.E,-Math.abs(i-len*0.75)/(len/8))*0.2;
-                    ctx.strokeStyle="rgba(63,191,187,"+opacity+")";
-                    ctx.beginPath();
-                    ctx.moveTo(i-1,panY+r*Math.sin(deg1));
-                    ctx.lineTo(i,panY+r*Math.sin(deg2));
-                    ctx.stroke();
-                  }
-                }
-                draw_wave( 30 , 600 , 0 , 0.0005 );
-                draw_wave( 30 , 800 , 20 , 0.00075 );
-                draw_wave( 30 , 1000 , 40 , 0.0009 );
+            //   ctx.strokeWidth=1;
+            //   //set timer
+            //   setInterval(function(){
+            //     ctx.clearRect(0,0,len,300);
+            //     ctx.beginPath();
+            //     function draw_wave(r,freq,pan,speed){
+            //       for(var i=0;i<len;i++){
+            //         var deg1=2*Math.PI*((i-1)/freq+pan+time*speed);
+            //         var deg2=2*Math.PI*(i/freq+pan+time*speed);
+            //         var opacity= Math.pow(Math.E,-Math.abs(i-len*0.75)/(len/8))*0.2;
+            //         ctx.strokeStyle="rgba(63,191,187,"+opacity+")";
+            //         ctx.beginPath();
+            //         ctx.moveTo(i-1,panY+r*Math.sin(deg1));
+            //         ctx.lineTo(i,panY+r*Math.sin(deg2));
+            //         ctx.stroke();
+            //       }
+            //     }
+            //     draw_wave( 30 , 600 , 0 , 0.0005 );
+            //     draw_wave( 30 , 800 , 20 , 0.00075 );
+            //     draw_wave( 30 , 1000 , 40 , 0.0009 );
 
-                time++;
+            //     time++;
 
-                mirror_list.forEach((mCtx)=>{
-                  var destCtx = mCtx.getContext('2d');
-                  destCtx.clearRect(0,0,len,1000)
-                  destCtx.drawImage(canvas, 0, 0);
-                },20);
-              });
+            //     mirror_list.forEach((mCtx)=>{
+            //       var destCtx = mCtx.getContext('2d');
+            //       destCtx.clearRect(0,0,len,1000)
+            //       destCtx.drawImage(canvas, 0, 0);
+            //     },20);
+            //   });
 
-            })(window,mCanvasSelector);
+            // })(window,mCanvasSelector);
 
 
 

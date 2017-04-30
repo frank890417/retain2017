@@ -256,15 +256,16 @@ var scroll = Rx.Observable.fromEvent(document,'scroll')
             .map(e => e.target.scrollingElement.scrollTop);
 // scroll.subscribe(obj=>console.log(obj));
 
-//Rx捲軸位置
-// scroll
-//   .map(top => top<=0)
-//   .subscribe((at_top)=>{
-//     if (at_top) 
-//       $("nav,.go_to_topbtn").addClass("at_top");
-//     else 
-//       $("nav,.go_to_topbtn").removeClass("at_top");
-//   });
+// Rx捲軸位置
+scroll
+  .map(top => top<=0)
+  .subscribe((at_top)=>{
+    if (at_top) 
+      $("nav,.go_to_topbtn").addClass("at_top");
+    else 
+      $("nav,.go_to_topbtn").removeClass("at_top");
+
+   });
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
@@ -273,6 +274,9 @@ window.update_scroll=function update_scroll(top_val){
     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
   }
 
+  $(".cover1").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/2)+"px)");
+  $(".cover2").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/5)+"px)");
+  // $(".cover3").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/20)+"px)");
   //percet nt init
   $(".percent.initial").each(function(index,obj){
     // console.log("test");

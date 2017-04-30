@@ -3,7 +3,7 @@ div
   div.fullnav(:class="open_full?'open':''")
     .close_btn(@click="toggle_open")
     .container
-      img.headerimg(src="/img/Rapid.png")
+      img.headerimg(src="/img/Retain.png")
       ul.main_list
         li 
           h4 關於睿軒
