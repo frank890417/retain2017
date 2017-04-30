@@ -4,8 +4,7 @@ div.page_index
     .video_container
       video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
       .btn_video_close
-        span
-          i.fa.fa-cross
+        i.fa.fa-cross
     .container.index_slogan_area
       h1 
         span.brown 儲於

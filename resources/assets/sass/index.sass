@@ -106,6 +106,15 @@ $color_brown: #BDB175
       +ab_center
       z-index: 10
       margin-left: 3px
+  
+  .btn_video_close
+    position: absolute
+    right: 50px
+    top: 50px
+    color: white
+    font-size: 50px
+    z-index: 30
+
 
   .page_index_info
     min-height: 0px
@@ -356,6 +365,7 @@ $color_brown: #BDB175
 
   .page_index_flow
     background-image: url("../img/index/3a.jpg")
+    background-size: cover
     +bg_block('before','left',rgba($color_theme,0.9),grid_sz(1,2))
     overflow: hidden
     &:before,.col_left
