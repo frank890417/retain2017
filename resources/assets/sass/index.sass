@@ -85,8 +85,11 @@ $color_brown: #BDB175
       border-radius: 50%
       +trans
 
+
     &:hover
       +size(55px)
+      margin-top: -2.5px
+
       &:before
         +size(64px)
     i
@@ -100,9 +103,11 @@ $color_brown: #BDB175
     .left,.right
       // border: solid 1px
       position: relative
-      +trans
+      transition: 0.8s
       +flex_center
       cursor: pointer
+      height: grid_sz(0,17)
+      flex-direction: column
       *
         color: $color_white
       &:before
@@ -111,33 +116,46 @@ $color_brown: #BDB175
       .infos
         padding: grid_sz(0,3) grid_sz(0,2)
         border: solid 1px white
-        max-width: grid_sz(6,6)
-        // display: inline-block
+        // max-width: grid_sz(3,4)
 
-        +trans
+        // display: inline-block
+        h2 
+          font-size: 38px
+          letter-spacing: 10px
+        h4
+          font-weight: 300
+
+        transition: 0.8s
+      .right .infos
+        // max-width: grid_sz(6,4)
+        width: 100%
+
       p
         margin-top: grid_sz(0,2)
         overflow: hidden
         max-height: 0px
-        max-width: 
+        max-width: grid_sz(5,5)
         opacity: 0
-        +trans
-        transition-delay: 0.5s
+        transition: 0.8s
+        font-weight: 100
 
       width: calc(50% + #{grid_sz(5,5)})
       &:hover
+        height: grid_sz(0,18)
         width: calc(50% + #{grid_sz(8,7)})
         .infos
           border-color: transparent
-          p
-            max-height: 400px
-            opacity: 1
+          padding: 0
+        p
+          max-height: 300px
+          opacity: 1
 
 
     .left
       background-image: url("../img/index/1b.jpg")
       // width: calc(50vw - 50% + #{grid_sz(5,5)})
       height: grid_sz(0,17)
+      border-right: solid 3px white
 
       .infos
         float: right
@@ -147,7 +165,8 @@ $color_brown: #BDB175
     .right
       background-image: url("../img/index/1c.jpg")
       // width: calc(50vw - 50% + #{grid_sz(8,7)})
-      height: grid_sz(0,18)
+      height: grid_sz(0,17)
+      border-left: solid 3px white
 
       .infos
         float: left
@@ -272,8 +291,15 @@ $color_brown: #BDB175
       +trans
       opacity: 0
       +ab_full
+      top: 0
+      left: 0
+
       video
-        +size(auto,100%)
+        top: 0
+        left: 0
+        margin-left: auto
+        margin-right: auto
+        +size(100vw,auto)
     &:after
       +pseudo_ab_full
       color: white
@@ -318,6 +344,7 @@ $color_brown: #BDB175
   .page_index_flow
     background-image: url("../img/index/3a.jpg")
     +bg_block('before','left',rgba($color_theme,0.9),grid_sz(1,2))
+    overflow: hidden
     &:before,.col_left
       transition: 0.7s 0.2s
       transform: translateX(0px)
@@ -326,7 +353,7 @@ $color_brown: #BDB175
       opacity: 0
       +ab_full
       video
-        +size(auto,100%)
+        +size(100vw,auto)
     *
       font-weight: 300
     .col_left
@@ -627,6 +654,7 @@ $color_brown: #BDB175
     .container
       padding: 0px grid_sz(2.5,2)
       padding-top: grid_sz(0,12)
+      padding-bottom: grid_sz(0,20)
 
     h1
       font-size: grid_sz(0,3)

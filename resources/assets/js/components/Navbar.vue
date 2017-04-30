@@ -7,21 +7,21 @@ div
       ul.main_list
         li 
           h4 關於睿田
-          ul.sub_list
+          // ul.sub_list
             li(@click="toggle_open")
               router-link( to="/about#section_about_from") 睿田源起
             li(@click="toggle_open")
               router-link( to="/about#section_about_log") 睿田大事紀
         li 
-          h4 檢驗科技
-          ul.sub_list
+          h4 管理經營
+          // ul.sub_list
             li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
             li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
         li 
-          h4 檢測方案
-          ul.sub_list
+          h4 產品方案與研發
+          //ul.sub_list
             li(@click="toggle_open") 
               router-link( to="/solution/0") 校園環境健檢
             li(@click="toggle_open")
@@ -32,15 +32,15 @@ div
           h4 最新消息
           ul.sub_list
             li(@click="toggle_open") 
-              router-link( to="/news/cata/全部新聞") 全部新聞
+              a(href="#") 全部新聞
             li(@click="toggle_open") 
-              router-link( to="/news/cata/睿田活動") 睿田活動
+              a(href="#") 睿田活動
             li(@click="toggle_open") 
-              router-link( to="/news/cata/新聞快訊") 新聞快訊
+              a(href="#") 研討會訊息
             li(@click="toggle_open") 
-              router-link( to="/news/cata/食安新知") 食安新知
+              a(href="#") 醫學新知
             li(@click="toggle_open") 
-              router-link( to="/news/cata/友善連結") 友善連結
+              a(href="#") 友善連結
         li(@click="toggle_open") 
           h4 
             a(href="#") 會員服務
@@ -72,7 +72,7 @@ div
             // Authentication Links
             li
               a(href="#") 關於睿田
-              ul.subnav
+              // ul.subnav
                 .container.flex
                   div.options
                     li 
@@ -81,14 +81,14 @@ div
                       router-link(to="/about#section_about_log") 睿田大事紀
             li
               a(href="#") 管理經營
-              ul.subnav
+              // ul.subnav
                 .container.flex
                   div.options
                     li 
                       router-link(to="/tech") 快檢平台
             li
               a(href="#") 產品方案與研發
-              ul.subnav
+              // ul.subnav
                 .container.flex
                   div.options
                     li(v-for='(sol,id) in solutions')
@@ -99,15 +99,15 @@ div
                 .container.flex
                   div.options
                     li 
-                      router-link(to="/news/cata/全部新聞") 全部新聞
+                      router-link(to="#") 全部新聞
                     li 
-                      router-link(to="/news/cata/睿田活動") 睿田活動
+                      router-link(to="#") 睿田活動
                     li 
-                      router-link(to="/news/cata/新聞快訊") 新聞快訊
+                      router-link(to="#") 研討會訊息
                     li 
-                      router-link(to="/news/cata/食安新知") 食安新知
+                      router-link(to="#") 醫學新知
                     li 
-                      router-link(to="/news/cata/友善連結") 友善連結
+                      router-link(to="#") 友善連結
                     
             // li
               router-link(to="/contact")  聯絡我們

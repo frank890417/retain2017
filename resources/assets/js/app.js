@@ -290,14 +290,16 @@ scroll
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
-  $(".bg_parallax").css("background-position","center "+top_val/1.50+"px");
+  $(".bg_parallax").each(function(index,obj){
+    $(this).css("background-position","center "+(top_val- $(this).offset().top)/1.50+"px");
+  }); 
   if ($(".mountain").length>0){
     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
   }
 
-  $(".cover1").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/2)+"px)");
-  $(".cover2").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/5)+"px)");
-  // $(".cover3").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/20)+"px)");
+  $(".cover1").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/2+50)+"px)");
+  $(".cover2").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/5+50)+"px)");
+  $(".cover3").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/9+86)+"px)");
   //percet nt init
   $(".percent.initial").each(function(index,obj){
     // console.log("test");

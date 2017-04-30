@@ -28,9 +28,9 @@ div.footer
         h5.text-left 合作夥伴
         .slicklogo2
           .item
-            img.company_icon(src="/img/cor_logo/cor_logo-01.png")
+            img.company_icon(src="/img/index/temp_cor_logo-01.png" style="width: 100%")
           .item
-            img.company_icon(src="/img/cor_logo/cor_logo-02.png")
+            img.company_icon(src="/img/index/temp_cor_logo-02.png" style="width: 100%")
          
   footer
     .container.flex
