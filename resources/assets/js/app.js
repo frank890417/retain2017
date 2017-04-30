@@ -6,7 +6,6 @@
  */
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
-import Slick from 'vue-slick';
 
 require('./bootstrap');
 Vue.use(VueRouter);
@@ -15,7 +14,7 @@ Vue.use(Vuex);
 
 //components
 
-Vue.component('slick', Slick);
+// Vue.component('slick', Slick);
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('Navbar', require('./components/Navbar.vue'));
@@ -236,7 +235,6 @@ const app = new Vue({
   el: "#app",
   router,
   store,
-  components: {Slick: Slick},
   computed: Vuex.mapState(['news','about_logs','big_font']),
   mounted(){
      store.dispatch("loadWebsite");
@@ -259,14 +257,14 @@ var scroll = Rx.Observable.fromEvent(document,'scroll')
 // scroll.subscribe(obj=>console.log(obj));
 
 //Rx捲軸位置
-scroll
-  .map(top => top<=0)
-  .subscribe((at_top)=>{
-    if (at_top) 
-      $("nav,.go_to_topbtn").addClass("at_top");
-    else 
-      $("nav,.go_to_topbtn").removeClass("at_top");
-  });
+// scroll
+//   .map(top => top<=0)
+//   .subscribe((at_top)=>{
+//     if (at_top) 
+//       $("nav,.go_to_topbtn").addClass("at_top");
+//     else 
+//       $("nav,.go_to_topbtn").removeClass("at_top");
+//   });
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
@@ -416,11 +414,11 @@ $( window ).ready(function(){
       scrolling=false;
     });
 
-    $(window).bind('mousewheel', function(event) {
-      if (router.history.current.fullPath=="/" && window_height>850 ){
-        event.preventDefault();
-      }
-    });
+    // $(window).bind('mousewheel', function(event) {
+    //   if (router.history.current.fullPath=="/" && window_height>850 ){
+    //     event.preventDefault();
+    //   }
+    // });
 }
 
 

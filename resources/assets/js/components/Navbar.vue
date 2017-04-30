@@ -71,7 +71,7 @@ div
           ul.navbar-nav.navbar-left.text-left
             // Authentication Links
             li
-              a(href="#") 關於睿軒
+              a(href="#") 關於睿田
               ul.subnav
                 .container.flex
                   div.options
@@ -80,14 +80,14 @@ div
                     li 
                       router-link(to="/about#section_about_log") 睿軒大事紀
             li
-              a(href="#") 檢驗科技
+              a(href="#") 管理經營
               ul.subnav
                 .container.flex
                   div.options
                     li 
                       router-link(to="/tech") 快檢平台
             li
-              a(href="#") 檢測方案
+              a(href="#") 產品方案與研發
               ul.subnav
                 .container.flex
                   div.options
@@ -109,7 +109,7 @@ div
                     li 
                       router-link(to="/news/cata/友善連結") 友善連結
                     
-            li
+            // li
               router-link(to="/contact")  聯絡我們
             
         ul.nav.navbar-nav.navbar-right

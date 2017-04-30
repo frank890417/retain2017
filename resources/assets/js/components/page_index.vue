@@ -1,20 +1,22 @@
 <template lang="jade">
 div.page_index
-  ul.slide_bullet
-    li(data-link=".page_index_main")
-    li(data-link=".page_index_grow")
-    li(data-link=".page_index_live")
-    li(data-link=".page_index_accurate")
-    li(data-link=".section_solution")
-    li(data-link=".detail_footer" style="display: none")
-
   section.page_index_main.bg_parallax
     .container.index_slogan_area
-      h1 為安全出發 
-        span.color_theme 讓生活更美好
-      h3.page_header_eng Better health, better life
+      h1 
+        span.brown 儲於
+        span 健康
+        span     
+        span 用於
+        span.theme 未來
+      
+      h3.page_header_eng Preserve in good health  apply in the future
 
-    .container.news_container
+      
+      div.play_btn
+        i.fa.fa-play
+      h6 了解我們的服務
+
+    // .container.news_container
       .slick
         .news.color_white(v-for='(a_news,id) in news')          
           .col_infos
@@ -30,25 +32,43 @@ div.page_index
       .timeline
         .value
 
-
+  section.page_index_info
+    .left
+      .infos
+        h2 認識幹細胞
+        h4 what is stem cells?
+        p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
+    .right
+      .infos
+        h2 認識免疫細胞?
+        h4 what is immune cells?
+        p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
 
   section.page_index_grow
+    img.cover.cover3(src="/img/index/2c.jpg")
+    img.cover.cover2(src="/img/index/2b.png")
+    img.cover.cover1(src="/img/index/2a.png")
+    
     canvas.wave
     .container.flex
       .col_left
       .col_right
-        h3.section_title 孩子成長的生活環境
-        p.section_para.text-left 我們的生活環境有許多食安風險與汙染問題直接影響健康，這些有毒的化學物質被不肖業者濫用，使得我們的飲食與環境到處充斥具有危害與累積性毒素。<br><br>全世界每天有約5,500位兒童死於污染的水、空氣與食物所導致的疾病。
-        .percent.text-right(data-target=5500) 5500
+        h3.section_title 儲存生命泉源
+        h4 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，還有疾病帶來的慢性威脅，
+          span.brown 預先儲存健康，是您最好的對策！ 
+
+        p.section_para.text-left 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。
+        router-link.btn.btn-primary(to='/tech') 
+          span.brown 了解更多
 
   section.page_index_live
     canvas.wave
     .container.flex
       .col_left
-        h3.section_title 從居家到工作環境
-        p.section_para.text-left 近年來食安問題層出不窮，引發全民對食品安全的恐慌與疑慮。有鑒於食安事件中不乏多家知名大廠，凸顯了業者自主管理的漏洞。食品安全須從源頭管理做起，以保障民眾得到安全的食物來源。<br><br>根據估計，每年食安事件導致的死亡人數高達200萬人。
+        h3.section_title 細緻的服務流程
+        h4 睿田生技客服專員將會提供您完整的資訊與諮詢服務。 
+        p.section_para.text-left 待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
         router-link.btn.btn-primary(to='/tech') 了解更多
-        .percent.text-right(data-target=200) 200
       .col_right
         
 
@@ -71,7 +91,21 @@ div.page_index
         .acc_sm_pic(data-type=4) 
           h4 資料庫比對
 
-  section_solutions
+  section.page_index_service
+    .container
+      .col_left
+      .col_right
+        h3.section_title 高品質尊榮服務
+        h4 創新的科技 、 貼心的服務 、 人性化的專業是睿田生技三大核心價值 
+        p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕。<br>以融合「創新的科技」、「貼心的服務」、「人性化的專業」三大核心價值，致力為客戶提供精確有效率，充滿溫馨感動的個人化健康管理中心，讓您在舒適、寧靜且隠密的環境下完成珍貴的細胞儲存！ 
+  section.page_index_compaign
+    .container
+      h1 DREAMER
+      h3 
+        span.brown 生命品質  由您決定
+      p 在生命的過程中，也許會有些無法預期的事情發生，唯有多一分準備才會有多一分的勝算！防患於未然，讓我們一起迎向這個未知的未來
+
+  // section_solutions
 
   section.page_index_sponsor(style="display: none")
     .container.flex.slicklogo1
@@ -98,40 +132,49 @@ div.page_index
 
         },
         mounted() {
-            console.log('index mounted.');
-            $(".percent , .section_title , .section_para").addClass("initial");
-            setTimeout(function(){
-              update_scroll(0);
-            },200);
+
+            $(window).mousemove(function(e){
+              var xx=e.pageX;
+              var ww=$(window).outerWidth();
+              $(".cover1").css("transform","translateX("+(-(xx-ww/2)/3)+"px)");
+              $(".cover2").css("transform","translateX("+(-(xx-ww/2)/5)+"px)");
+              $(".cover3").css("transform","translateX("+(-(xx-ww/2)/7)+"px)");
+            });
+
+            // console.log('index mounted.');
+            // $(".percent , .section_title , .section_para").addClass("initial");
+            // setTimeout(function(){
+            //   update_scroll(0);
+            // },200);
             var vobj=this;
 
-            this.timer=setInterval(this.news_delta,this.news_change_time);
+            // this.timer=setInterval(this.news_delta,this.news_change_time);
 
-            var loader = setInterval(function(){
-              if (vobj.news.length>0){
-                $('.slick').slick({
-                  autoplay: false,
-                  // dots: true,
-                  easing: 'ease-in',
-                  fade: true
-                });
-                clearInterval(loader);
-                vobj.news_delta();
-                Ts.reload();
-              }
-            },100);
+            // var loader = setInterval(function(){
+            //   if (vobj.news.length>0){
+            //     $('.slick').slick({
+            //       autoplay: false,
+            //       // dots: true,
+            //       easing: 'ease-in',
+            //       fade: true
+            //     });
+            //     clearInterval(loader);
+            //     vobj.news_delta();
+            //     Ts.reload();
+            //   }
+            // },100);
             
-            console.log("slick integrated");
+            // console.log("slick integrated");
 
-            $('.slicklogo1').slick({
-              autoplay: true,
-              autoplaySpeed: 3000,
-              slidesToShow: 4,
-              slidesToScroll: 1,
-              arrows: false,
-              dots: true,
-              easing: 'ease-in'
-            });
+            // $('.slicklogo1').slick({
+            //   autoplay: true,
+            //   autoplaySpeed: 3000,
+            //   slidesToShow: 4,
+            //   slidesToScroll: 1,
+            //   arrows: false,
+            //   dots: true,
+            //   easing: 'ease-in'
+            // });
 
             
 
