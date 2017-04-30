@@ -42,7 +42,7 @@ $color_brown: #BDB175
       background-color: transparent
       color: $color_brown
       font-size: 18px
-      letter-spacing: 4px
+      letter-spacing: 5px
       border-bottom: solid 2px $color_brown
       +flex_center
       &:after
@@ -61,20 +61,30 @@ $color_brown: #BDB175
         color: $color_white
         border-color: transparent
         background-color: $color_brown
-        padding-left: grid_sz(0,0.5)
-        padding-right: grid_sz(0,0.5)
+        padding-left: grid_sz(0,0.8)
+        padding-right: grid_sz(0,0.8)
         &:after
           color: $color_brown
   .play_btn
     margin-bottom: grid_sz(0,1)
     border-radius: 50%
-    background-color: $color_theme
+    // background-color: $color_theme
     color: $color_white
     +flex_center
-    +size(50px)
+    +size(65px)
     +trans
     opacity: 1
     cursor: pointer
+
+    &:after
+      content: ""
+      display: block
+      position: absolute
+      +ab_center
+      +size(50px)
+      background-color: $color_theme
+      border-radius: 50%
+      +trans
     &:before
       content: ""
       display: block
@@ -87,13 +97,16 @@ $color_brown: #BDB175
 
 
     &:hover
-      +size(55px)
-      margin-top: -2.5px
+      &:after
+        +size(55px)
 
       &:before
         +size(64px)
     i
-      padding-left: 5px
+      +ab_center
+      z-index: 10
+      margin-left: 3px
+
   .page_index_info
     min-height: 0px
     display: flex
@@ -649,15 +662,17 @@ $color_brown: #BDB175
 
   //
   .page_index_compaign
+    text-align: center
     h3 span,h4
       font-weight: 300
+
     .container
       padding: 0px grid_sz(2.5,2)
       padding-top: grid_sz(0,12)
       padding-bottom: grid_sz(0,20)
 
     h1
-      font-size: grid_sz(0,3)
+      font-size: 106px
       margin-bottom: grid_sz(1,1)
       color: #BBB288
       letter-spacing: grid_sz(0,2)
@@ -666,6 +681,13 @@ $color_brown: #BDB175
       font-size: 30px
       letter-spacing: 4px
       margin-bottom: grid_sz(0,2)
+
+    h4.section_para
+      max-width: grid_sz(9,9)
+      width: grid_sz(9,9)
+      line-height: 40px
+    h1,h3,h4
+      text-align: center
     background-image: url("../img/index/6a.jpg")
     background-size: cover
     text-align: center

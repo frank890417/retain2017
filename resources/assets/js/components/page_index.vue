@@ -3,6 +3,9 @@ div.page_index
   section.page_index_main.bg_parallax
     .video_container
       video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
+      .btn_video_close
+        span
+          i.fa.fa-cross
     .container.index_slogan_area
       h1 
         span.brown 儲於
@@ -63,9 +66,12 @@ div.page_index
         router-link.btn-underline(to='#h') 
           span.brown 了解更多
 
-  section.page_index_flow
+  section.page_index_flow.bg_parallax
     .video_container
       video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
+      .btn_video_close
+        span
+          i.fa.fa-cross
     .container.flex
       .col_left
         h3.section_title 細緻的服務流程
@@ -140,9 +146,9 @@ div.page_index
             router-link.btn-underline.brown_bg(to='tech') 
               span 聯繫我們
   section.page_index_compaign.bg_parallax
-    .container
-      h1 DREAMER
-      h3 
+    .container.flex.column
+      h1.section_title DREAMER
+      h3.section_feature
         span.brown 生命品質  由您決定
       h4.section_para 在生命的過程中，也許會有些無法預期的事情發生，唯有多一分準備才會有多一分的勝算！防患於未然，讓我們一起迎向這個未知的未來
       span
