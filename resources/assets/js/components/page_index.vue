@@ -14,7 +14,7 @@ div.page_index
       h3.page_header_eng Preserve in good health  apply in the future
 
       
-      div.play_btn
+      div.play_btn(data-target=".page_index_main")
         i.fa.fa-play
       h6 了解我們的服務
 
@@ -63,8 +63,9 @@ div.page_index
         router-link.btn-underline(to='/tech') 
           span.brown 了解更多
 
-  section.page_index_live
-    canvas.wave
+  section.page_index_flow
+    .video_container
+      video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
     .container.flex
       .col_left
         h3.section_title 細緻的服務流程
@@ -73,7 +74,12 @@ div.page_index
         router-link.btn-underline.white(to='/tech')
          span 了解更多
       .col_right
-        
+        .revive_box
+          h1 REVIVE
+          h4 服務療程介紹
+          .play_btn(data-target=".page_index_flow")
+            i.fa.fa-play
+          .other ▩ 睿田生技細胞儲存服務流程
 
   section.page_index_team
     .container.flex.full
@@ -159,10 +165,24 @@ div.page_index
         },
         mounted() {
 
+            
             $(".play_btn").click(function(){
-              $(".page_index_main").addClass("playmovie");
-              $(".page_index_main video")[0].play();
+              var target=$($(this).attr("data-target"));
+              var video=$($(this).attr("data-target")+" video")[0];
+              target.addClass("playmovie");
+              video.currentTime=0;
+              video.play();
+              function cancel_video(e){
+                console.log("end!");
+                target.removeClass("playmovie");
+              }
+              video.addEventListener('ended',cancel_video,false);
+
             });
+
+            
+
+
             var vobj=this;
 
             // this.timer=setInterval(this.news_delta,this.news_change_time);

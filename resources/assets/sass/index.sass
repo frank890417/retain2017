@@ -31,6 +31,8 @@ $color_brown: #BDB175
       padding: 0px grid_sz(0,0.5)
       letter-spacing: 3px
       line-height: 35px
+      width: 100%
+      text-align: left
     .section_para
       margin-bottom: grid_sz(0,3)
       padding: 0px grid_sz(0,0.5)
@@ -63,7 +65,32 @@ $color_brown: #BDB175
         padding-right: grid_sz(0,0.5)
         &:after
           color: $color_brown
+  .play_btn
+    margin-bottom: grid_sz(0,1)
+    border-radius: 50%
+    background-color: $color_theme
+    color: $color_white
+    +flex_center
+    +size(50px)
+    +trans
+    opacity: 1
+    cursor: pointer
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      +ab_center
+      +size(50px)
+      border: solid 1px $color_theme
+      border-radius: 50%
+      +trans
 
+    &:hover
+      +size(55px)
+      &:before
+        +size(64px)
+    i
+      padding-left: 5px
   .page_index_info
     min-height: 0px
     display: flex
@@ -139,31 +166,7 @@ $color_brown: #BDB175
     justify-content: center
     background-position: center 0px
 
-    .play_btn
-      margin-bottom: grid_sz(0,1)
-      border-radius: 50%
-      background-color: $color_theme
-      color: $color_white
-      +flex_center
-      +size(50px)
-      +trans
-      cursor: pointer
-      &:before
-        content: ""
-        display: block
-        position: absolute
-        +ab_center
-        +size(50px)
-        border: solid 1px $color_theme
-        border-radius: 50%
-        +trans
-
-      &:hover
-        +size(55px)
-        &:before
-          +size(64px)
-      i
-        padding-left: 5px
+    
     .row
       position: relative
     .index_slogan_area
@@ -270,15 +273,32 @@ $color_brown: #BDB175
       opacity: 0
       +ab_full
       video
-        +size(100%)
+        +size(auto,100%)
+    &:after
+      +pseudo_ab_full
+      color: white
+      opacity: 0
+      +trans
+      pointer-events: none
+      z-index: 10
     //播放首頁的影片
     &.playmovie
       background-color: $color_grey_dark
+      &:after
+        color: rgba(white,1)
+        transition: 0.3s 0.3s
+        opacity: 1
+      .play_btn
+        opacity: 0
+        transition: 0.3s 0.1s
+
       .index_slogan_area
-        +trans
+        
+        transition: 0.7s 0.2s
         opacity: 0
       .video_container
         opacity: 1
+        transition: 0.7s 0.7s
 
   //-----------------------------------------------
 
@@ -295,12 +315,22 @@ $color_brown: #BDB175
 
   //-----------------------------------------------
 
-  .page_index_live
+  .page_index_flow
     background-image: url("../img/index/3a.jpg")
     +bg_block('before','left',rgba($color_theme,0.9),grid_sz(1,2))
+    &:before,.col_left
+      transition: 0.7s 0.2s
+      transform: translateX(0px)
+    .video_container
+      +trans
+      opacity: 0
+      +ab_full
+      video
+        +size(auto,100%)
     *
       font-weight: 300
     .col_left
+      opacity: 1
       h3,h4,p
         color: white
     .btn
@@ -311,6 +341,50 @@ $color_brown: #BDB175
       right: 0
       left: auto
       bottom: grid_sz(0,5)
+
+    .revive_box
+      background-color: $color_grey
+      padding: grid_sz(0,2) grid_sz(1,1)
+      margin-left: grid_sz(0,-1)
+      text-align: center
+      border-radius: 30px
+      +trans
+      h1,h4
+        text-align: center
+      h1
+        font-size: 80px
+        letter-spacing: 10px
+        margin-bottom: grid_sz(1,0)
+        color: $color_brown
+        text-shadow: 12px 0px $color_theme
+      h4
+        font-size: 20px
+        letter-spacing: 10px
+        margin-bottom: grid_sz(0,2)
+        color: $color_brown
+      .other
+        position: absolute
+        bottom: grid_sz(0,-1.5)
+        left: grid_sz(0,0.5)
+        font-size: 14px
+        color: $color_grey
+      .play_btn
+        margin-left: auto
+        margin-right: auto
+        i:before
+          color: $color_white
+      
+    &.playmovie
+      
+      &:before
+        transform: translateX(-700px)
+      .revive_box,.col_left
+        transform: translateX(-10px)
+        opacity: 0
+      .video_container
+        opacity: 1
+        transition: 0.7s 0.7s
+  
 
   //----------------------------------------------
   .page_index_accurate
