@@ -44,19 +44,28 @@ $color_brown: #BDB175
       font-size: 18px
       letter-spacing: 5px
       border-bottom: solid 2px $color_brown
+      +trans
       +flex_center
+      
       &:after
         content: ">"
         display: block
         position: absolute
         right: -40px
         transform: scaleX(0.8)
+        +trans
       &.white
         color: $color_white
         border-color: $color_white
+        &:hover
+          color: $color_theme
+          background-color: $color_white
       &.black
         color: $color_grey_light
         border-color: $color_grey_light
+        &:hover
+          color: $color_white
+          background-color: $color_grey_light
       &.brown_bg
         color: $color_white
         border-color: transparent
@@ -65,6 +74,13 @@ $color_brown: #BDB175
         padding-right: grid_sz(0,0.8)
         &:after
           color: $color_brown
+      &:hover
+        color: $color_white
+        border-color: transparent
+        background-color: $color_brown
+        padding-left: grid_sz(0,0.8)
+        padding-right: grid_sz(0,0.8)
+        
   .play_btn
     margin-bottom: grid_sz(0,1)
     border-radius: 50%
@@ -110,11 +126,15 @@ $color_brown: #BDB175
   .btn_video_close
     position: absolute
     right: 50px
-    top: 50px
+    top: 100px
     color: white
-    font-size: 50px
+    font-size: 40px
     z-index: 30
-
+    cursor: pointer
+    +trans
+    &:hover
+      color: $color_theme
+    
 
   .page_index_info
     min-height: 0px
@@ -217,7 +237,14 @@ $color_brown: #BDB175
       .title_span
         display: inline-block
         width: grid_sz(1,2)
-
+    i.fa.fa-angle-down
+      font-size: 30px
+      margin-left: 5px
+      color: $color_theme
+      position: absolute
+      left: 50%
+      transform: translate(-50%,-50%)
+      bottom: grid_sz(0,3)
     h1
       letter-spacing: 20px
       margin-bottom: 0px

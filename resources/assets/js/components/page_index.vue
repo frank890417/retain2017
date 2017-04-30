@@ -3,8 +3,7 @@ div.page_index
   section.page_index_main.bg_parallax
     .video_container
       video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
-      .btn_video_close
-        i.fa.fa-cross
+      .btn_video_close ✕
     .container.index_slogan_area
       h1 
         span.brown 儲於
@@ -19,6 +18,7 @@ div.page_index
       div.play_btn(data-target=".page_index_main")
         i.fa.fa-play
       h6 了解我們的服務
+    i.fa.fa-angle-down
 
     // .container.news_container
       .slick
@@ -63,14 +63,13 @@ div.page_index
 
         p.section_para.text-left 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。
         router-link.btn-underline(to='#h') 
-          span.brown 了解更多
+          span 了解更多
 
   section.page_index_flow.bg_parallax
     .video_container
       video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
-      .btn_video_close
-        span
-          i.fa.fa-cross
+      .btn_video_close ✕
+        
     .container.flex
       .col_left
         h3.section_title 細緻的服務流程
@@ -142,7 +141,7 @@ div.page_index
             router-link.btn-underline(to='tech') 
               span 了解更多
           div.inline_container
-            router-link.btn-underline.brown_bg(to='tech') 
+            router-link.btn-underline(to='tech') 
               span 聯繫我們
   section.page_index_compaign.bg_parallax
     .container.flex.column
@@ -192,8 +191,11 @@ div.page_index
               function cancel_video(e){
                 console.log("end!");
                 target.removeClass("playmovie");
+                video.currentTime=0;
+                video.pause();
               }
               video.addEventListener('ended',cancel_video,false);
+              $($(this).attr("data-target")+" .btn_video_close").click(cancel_video);
 
             });
 
