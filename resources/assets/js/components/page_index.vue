@@ -5,7 +5,7 @@ div.page_index
       h1 
         span.brown 儲於
         span 健康
-        span     
+        .title_span
         span 用於
         span.theme 未來
       
@@ -54,11 +54,11 @@ div.page_index
       .col_left
       .col_right
         h3.section_title 儲存生命泉源
-        h4 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，還有疾病帶來的慢性威脅，
+        h4.section_feature 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，還有疾病帶來的慢性威脅，
           span.brown 預先儲存健康，是您最好的對策！ 
 
         p.section_para.text-left 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。
-        router-link.btn.btn-primary(to='/tech') 
+        router-link.btn-underline(to='/tech') 
           span.brown 了解更多
 
   section.page_index_live
@@ -66,7 +66,7 @@ div.page_index
     .container.flex
       .col_left
         h3.section_title 細緻的服務流程
-        h4 睿田生技客服專員將會提供您完整的資訊與諮詢服務。 
+        h4.section_feature 睿田生技客服專員將會提供您完整的資訊與諮詢服務。 
         p.section_para.text-left 待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
         router-link.btn.btn-primary(to='/tech') 了解更多
       .col_right
@@ -75,21 +75,11 @@ div.page_index
   section.page_index_accurate
     .container.flex
       .col_left
+        h3.section_title 頂尖菁英團隊
+        h4.section_feature 串聯產、學、研三方資源投入的專業團隊! 
+        p.section_para.text-left 睿田生技為臺灣大學與永齡健康基金會共同合資的第一家產學新創公司。我們整合了臺灣大學的研發實力、台成幹細胞治療中心於幹細胞領域多年的豐富臨床經驗，及永齡健康基金會長期在預防醫學與癌症治療領域投注的強大資源，並搭配立立達診所的六星級高端健康管理規劃方案，提供客戶最為專業與完善的細胞儲存管理服務！
+        router-link.under_line_btn(to='tech') 了解更多
       .col_right
-        h3.section_title 睿軒專注精準檢驗
-        p.section_para.text-left 在關懷台灣食品與環境安全問題的基礎上，我們與國立中山大學共同開發「快速檢驗平台」專利技術，只須5秒即可分析出有害化學物質，是你我守護居家生活安全的最佳快速幫手。
-        router-link.btn.btn-transparent(to='tech') 了解更多
-    .container.flex.type_container
-      .row
-        .acc_sm_pic(data-type=1)
-          h4 採集樣品
-        .acc_sm_pic(data-type=2)
-          h4 &nbsp;
-      .row
-        .acc_sm_pic(data-type=3) 
-          h4 進樣分析
-        .acc_sm_pic(data-type=4) 
-          h4 資料庫比對
 
   section.page_index_service
     .container

@@ -5,23 +5,46 @@ $color_brown: #BDB175
 .page_index
   opacity: 1
   text-align: left
+
+
+
   span.brown
     color: $color_brown
   span.theme
     color: $color_theme
-
+  
   .container.flex
     height: 100vh
 
   .col_left,.col_right
     h1,h2,h3,h4,h5,h6,p
       text-align: left
+
   section
     min-height: 900px
     .section_title
-      margin-bottom: $gutter_width*2
+      margin-bottom: $gutter_width*3
       letter-spacing: 3px
-  
+      font-size: 30px
+    .section_feature 
+      margin-bottom: grid_sz(0,1)
+    .section_para
+      margin-bottom: grid_sz(0,3)
+    .btn-underline
+      height: grid_sz(0,2)
+      background-color: transparent
+      color: $color_brown
+      font-size: 18px
+      letter-spacing: 4px
+      border-bottom: solid 2px $color_brown
+      +flex_center
+      &:after
+        content: ">"
+        display: block
+        position: absolute
+        right: -40px
+        transform: scaleX(0.8)
+
   .page_index_info
     min-height: 0px
     display: flex
@@ -100,20 +123,24 @@ $color_brown: #BDB175
       background-color: $color_theme
       color: $color_white
       +flex_center
-      +size(40px)
+      +size(50px)
     .row
       position: relative
     .index_slogan_area
       height: 100%
       +flex_center
       flex-direction: column
-      
+      .title_span
+        display: inline-block
+        width: grid_sz(1,2)
+
     h1
       letter-spacing: 15px
       margin-bottom: 0px
       margin-top: 0px
       animation: lspace_in 2s 1 both
       text-align: center
+      font-size: 48px
       span
         font-weight: 300
 
