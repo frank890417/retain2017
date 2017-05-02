@@ -1,28 +1,35 @@
 <template lang="jade">
 div.page_about
-  section#section_about_from.section_hero
-    .mountain
-    .container.flex.column
-      .col_hero
-        h1.section_title.text-center 理念與願景
-        p 在關懷台灣食品與環境安全的問題，我們看見自己的愛與責任。於是在一群熱愛這片土地的我們努力下，從學界研究走向產業應用，與國立中山大學共同開發「質譜快速檢驗平台」專利技術，於2015年成立了睿軒檢驗科技。<br><br>無論是在農畜產品、食品加工、環境分析等領域，都能創造獨特的檢驗效率，與無可取代的時間效益。守護民眾的健康期許，營造安心的生活環境。以嚴謹科研態度與前瞻先進技術，建構食的安心、用的放心，便利顧客並享有快速與安全的保障。<br><br>誠信 : 以正直嚴謹與崇法務實的科學方法，為客戶驗證食品與環境安全。<br>專業 : 應用先端研發的快篩技術與富有熱忱的服務態度，面對市場滿足客戶需求。<br>創新 : 挑戰新思維，持續研發潛在檢測項目及客戶解決方案，創造嶄新的商業價值。
+  section.section_hero
+    .container.full.flex
+      .col_left.bg_parallax
+      .col_right
+    .container.container_content
+      .col_left          
+        h1 關於睿田
+        h4.section_eng about Retain Biotech
+        h4.section_feature 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，預先儲存健康，是您最好的對策！ 
 
-  section#section_about_log.section_log
-    .container.flex.column
-      h1.section_title.text-center 大事記
-      ul.nav_line_split.text-center
-        li(@click="sel_year='year_2016'" v-bind:class="sel_year=='year_2016'?'active':''") 2016
-        li(@click="sel_year='year_2015'" v-bind:class="sel_year=='year_2015'?'active':''") 2015
-      .logs_area.top_out
-        transition(name="fade" mode="out-in")
-          div(v-if="sel_year==sel" v-for='sel in ["year_2015","year_2016"]' v-bind:key="sel")
-            router-link.row.log_box(v-for="log in about_logs[sel]" v-bind:key="log"  v-on:click='to_href(log)' v-bind:to="'/news/'+ log.news_id")
-              .col_cover
-                .cover_image(:style="'background-image:url('+log.cover+')'")
-              .col_info
-                h5.date {{log.date}}
-                h4.title {{log.title}}
-                p {{log.content}}
+        p 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗、以及永齡健康基金會長期以來在預防醫學與癌症治療領域投注的龐大資源。<br><br>睿田生技從預防醫學的角度出發，由前期的幹細胞、免疫細胞儲存與高端健康管理，全方面做到個人化的健康管理，以逹到精準醫療的目標！
+        .btn 認識睿田
+
+
+      .col_right
+
+  section.section_blocks
+    .container.flex.full
+      .block
+        .infos
+          h3.block_title 理念
+          p.block_para 提供高附加價值之個人化細胞儲存商業服務, 以期未來應用於免疫與再生臨床之精準醫療來造福人群。
+      .block
+        .infos
+          h3.block_title 願景
+          p.block_para 成為細胞儲存及細胞治療創新研發雙引擎之世界領導品牌。
+      .block
+        .infos
+          h3.block_title 核心價值
+          p.block_para 1. 誠信 : 堅持以誠待人、信用至上<br>2. 品質 : 強調追求卓越、精益求精<br>3. 專業 : 強化人員訓練、結合醫療團隊<br>4. 創新 : 重視技術開發、管理服務之創新
 </template>
 
 <script>

@@ -1,131 +1,83 @@
 @import "common";
 .page_about
-  .container
-    flex-direction: column
-    justify-content: center
-
-  *
-    // border: solid 1px
-  section
-    min-height: 0px
-    .section_title
-      padding-top: $gutter_width*0
-      margin-top: 0
-      margin-bottom: $gutter_width*2
-      opacity: 0.8
-      letter-spacing: 10px
-
-  a
-    text-decoration: none 
-
-  nav.navbar-default.at_top
-    background-color: #FFF
-  ul.nav_line_split
-    margin-bottom: grid_sz(0,2)
-
   .section_hero
-    min-height: 140vh
-    display: flex
-    overflow: hidden
-
-    .mountain
-      background: url("../img/homepage/About1B.jpg")
-      background-size: 100% auto
-      background-position: center bottom
-      width: 100%
+    padding-top: grid_sz(0,5)
+    .container.full
       position: absolute
-      bottom: 0
-      padding-top: 80%
-    // background-repeat: no-repeat
-    padding-bottom: grid_sz(0,23)
-    background-color: #0170c2
+      top: 0
+      .col_left
+        width: calc(50% + #{grid_sz(1,1.5)})
 
-    .section_title
-      margin-top: grid_sz(0,13)
-      +range_width(0px,800px)
-        margin-top: grid_sz(0,7)
+        background-image: url("/img/about/1.jpg")
+        background-size: cover
+        background-position: right top
 
+        &:before
+          +pseudo_ab_full
+          background-color: rgba($color_grey_dark,0.1)
 
-    &,h1
-      color: $color_white
-      opacity: 0.95
-    h1
-      margin-bottom: $gutter_width*2
-    p
-      color: $color_white
-      font-weight: 300
-      opacity: 0.9
+      .col_right
+        width: calc(50% - #{grid_sz(1,1.5)})
+        background-color: $color_grey_dark
 
+    .container_content
 
-  .section_title
-    padding-top: $gutter_width*4
+      .col_left
+        padding-top: grid_sz(0,7)
+        padding-bottom: grid_sz(0,7)
+        padding-right: grid_sz(0,2.5)
+        align-items: flex-start
+        width: calc(50% + #{grid_sz(1,1.5)})
+        h4
+          font-size: 20px
+        .section_feature
+          margin-top: grid_sz(0,3)
 
-  .section_log
-    
-    .logs_area
-      background-color: $color_white
-      padding: grid_sz(0,1)
-      width: 100%
-
-    .container
-      margin-top: grid_sz(0,-12)
-    
-
-    .log_box
-      margin-bottom: $gutter_width
-      display: flex
-      cursor: pointer
-      *
-        color: $color_grey_light
-
-      .title
-        color: $color_grey_dark
-        margin-bottom: grid_sz(0,1)
-
+        p
+          margin-top: grid_sz(0,3)
+        *
+          color: $color_white
+          font-weight: 300
+          text-align: left
+      .col_right
+        width: calc(50% - #{grid_sz(1,1.5)})
   
-    .col_cover
-      width: percent_grid(4,4,12,13)
-    .col_info
-      width: percent_grid(8,8,12,13)
-      padding: grid_sz(0,1)
-      padding-left: 0px
-      
-      margin-left: grid_sz(0,1)
-      border-bottom: solid 1px $color_theme
-      
-    +range_width(0px,800px)
-      .col_info,.col_cover
-        width: 100%
-      .col_info
-        padding-right: 0px
-        margin: 0
-      .col_cover
-        min-height: 120px
-      .cover_image
-        height: 100%
-
-        min-height: 120px
-      .log_box
-        flex-direction: column
-
-
-  .cover_image
-    min-height: 200px
+  //中間三個格子
+  .section_blocks
+    background-image: url("/img/about/2.jpg")
     background-size: cover
-    
-    &[data-log="1"]
-      background: url("../img/homepage/Post2.jpg")
-      background-size: cover
-    &[data-log="2"]
-      background: url("../img/homepage/Post3.jpg")
-      background-size: cover
-    &[data-log="3"]
-      background: url("../img/homepage/Post4.jpg")
-      background-size: cover
+    *
+      color: white
+      font-weight: 300
+    .block
+      width: calc(100% / 3) 
+      padding: grid_sz(0,4) 0px
+      height: grid_sz(5,0)
+      // +flex_center
+      flex-direction: column
+      &:before
+        +pseudo_ab_full
+        background-color: rgba($color_theme,0.7)
 
+      &:nth-child(1)
+        &:before
+          background-color: rgba($color_theme,0.8)
 
+      &:nth-child(2)
+        &:before
+          background-color: rgba( darken($color_theme,4) ,0.9)
+
+      &:nth-child(3)
+        &:before
+          background-color: rgba($color_theme,0.8)
+
+    .block_title
+      font-size: 24px
+      margin-bottom: grid_sz(0,2)
+    .infos
+      width: grid_sz(4,3)
+      margin: auto
   
-
 
   .person_box
     padding: $gutter_width*2 $gutter_width*1

@@ -6,7 +6,8 @@ div
       img.headerimg(src="/img/Retain.png")
       ul.main_list
         li 
-          h4 關於睿田
+          h4 
+            router-link(to="/about") 關於睿田
           // ul.sub_list
             li(@click="toggle_open")
               router-link( to="/about#section_about_from") 睿田源起
@@ -71,7 +72,7 @@ div
           ul.navbar-nav.navbar-left.text-left
             // Authentication Links
             li
-              a(href="#") 關於睿田
+              router-link(to="/about") 關於睿田
               // ul.subnav
                 .container.flex
                   div.options
