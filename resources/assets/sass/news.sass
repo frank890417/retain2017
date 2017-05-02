@@ -117,6 +117,7 @@ $color_bg_grey: #F1F3F5
 
         +trans
         &.active
+          padding-top: grid_sz(0,1)
           padding-bottom: grid_sz(0,1)
           border-bottom: solid 1px $color_theme
           color: $color_theme
@@ -135,7 +136,7 @@ $color_bg_grey: #F1F3F5
       background-image: url("/img/news2.jpg")
       margin: full_grid(0,0.5)
       padding: grid_sz(0,1)
-      min-height: grid_sz(0,14)
+      min-height: grid_sz(0,15)
       +flex_center
       flex-direction: column
       align-items: flex-start
@@ -144,12 +145,13 @@ $color_bg_grey: #F1F3F5
       padding-bottom: grid_sz(0,1)
       margin-left: full_grid(0,0.5)
       margin-right: full_grid(0,0.5)
-      cursor: pointer
+      
       text-align: left
       *
         color: $color_theme
       .title
         +trans
+        cursor: pointer
       .date,.describe
         font-weight: 300
       .describe
@@ -159,11 +161,31 @@ $color_bg_grey: #F1F3F5
         opacity: 0
         +trans
       .icon_more
+        height: 8px
+        width: 40px
+        text-align: center
+        // margin: auto
+        margin-top: grid_sz(0,2)
+        margin-left: auto
+        margin-right: auto
+        background: linear-gradient(90deg,$color_theme 0% ,$color_theme 20% ,transparent 20% ,transparent 40% ,$color_theme 40%,$color_theme 60%,transparent 60%,transparent 80%,$color_theme 80%,$color_theme 100%)
+        opacity: 1
+        +trans
       .date
         margin-top: grid_sz(0,1)
         opacity: 0
         +trans
-        
+
+
+      i.fa.fa-search  
+        position: absolute
+        right: grid_sz(0,1)
+        bottom: grid_sz(0,1)
+        font-size: grid_sz(0,1)
+        opacity: 0
+        cursor: pointer
+        +trans
+
       // display: inline-block
       &:before
         +pseudo_ab_full
@@ -180,3 +202,8 @@ $color_bg_grey: #F1F3F5
         .describe
           max-height: 200px
           opacity: 1
+        i.fa.fa-search
+          opacity: 1
+        .icon_more
+          opacity: 0
+          margin-top: -5px
