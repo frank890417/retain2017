@@ -95,7 +95,7 @@ div
                     li(v-for='(sol,id) in solutions')
                       router-link(:to="'/solution/'+id") {{sol.title.replace('計畫','')}}
             li
-              a(href="#") 最新消息
+              router-link(to="/news") 最新消息
               ul.subnav
                 .container.flex
                   div.options

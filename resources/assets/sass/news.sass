@@ -1,215 +1,182 @@
 @import "common";
+
+@function full_grid($c,$span,$fix: 0px)
+  @return calc( (100vw - 24px * 13) * #{$c} / 12 + 24px * #{$span} + #{$fix})
+
+$color_bg_grey: #F1F3F5
 .page_news
-  *
-    // border: solid 1px
-
-  section
-    min-height: 0px
-    position: relative
-    .section_title
-      opacity: 0.8
-
-  i.slick-arrow
-    +range_width(0px,800px)
-      display: none !important
-
-  .slick-dots
-    bottom: grid_sz(0,5)
-
   .section_hero
-    height: grid_sz(8,5)   
 
-    display: flex
-    align-items: flex-end
-    justify-content: flex-end
-    
-
-
-    .full
-      padding-top: grid_sz(0,9)
-
-      +range_width(0px,800px)
-        padding-top: grid_sz(0,6)
-
-    .bg
+    .container.full.flex
+      height: grid_sz(10,4)
+      text-align: left
+    .col_left,.col_right
+      padding-top: grid_sz(0,11)
+      padding-bottom: grid_sz(0,7)
+      height: 100%
+    .col_left
+      width: percent_grid(7,7)
+      background-color: $color_grey_dark
+      text-align: left
+      background-image: url("/img/news1.jpg")
       background-size: cover
-      background-position: center center
-      padding-bottom: $column_width*2
-      +ab_full
-
       &:before
         +pseudo_ab_full
-        background-color: rgba(black,0.5)
+        background-color: rgba($color_theme,0.8)
+      h1.title
+        margin-top: grid_sz(0,-2)
+        margin-bottom: grid_sz(0,4)
+        // transform: translateY(-10px)
+        letter-spacing: 6px
+        line-height: 1.5em
+      p
+        font-weight: 300
+      *
+        color: white
+      padding-left: full_grid(1,2)
+      padding-right: full_grid(1,2)
 
-    .container.flex
-      padding: 0 grid_sz(1,2) grid_sz(0,6) grid_sz(1,2) 
-      flex-direction: column
+    .col_right
+      width: percent_grid(5,6)
+      vertical-align: top
+      padding-left: 0
+      padding-right: 0
+
       align-items: flex-start
-      justify-content: flex-start
+      background-color: $color_bg_grey
 
-      +range_width(0px,800px)
-        padding: 0 grid_sz(0,1) grid_sz(0,6) grid_sz(0,1) 
+      .date,.title,.circle
+        display: inline-block
+        +trans
 
-    &:before
-      +cover_opacity(rgba(black,0.5))
-    &,.date,h1
-      color: white
-      margin: 0
-      font-weight: 300
-    .date
-      font-size: 16px
-      margin-bottom: -$gutter_width
-    .tag
-      font-weight: normal
-      height: 30px
-      margin-bottom: 12px
-      padding-left: 12px
-      padding-right: 12px
-      display: inline-block
-      font-size: 14px
-      background-color: rgba($color_white,0.8)
-    h1
-      font-weight: 300
-      margin-top: $gutter_width*2
-      margin-bottom: $gutter_width*1
-      font-size: 48px
-      letter-spacing: 5px
-      line-height: 60px
-      +trans
-      &:hover
-        text-decoration: underline
-      +range_width(0px,800px)
-        font-size: 30px
-        line-height: 40px
+        color: $color_grey
+      .date
+        width: grid_sz(1,0)
+        text-align: right
+        font-size: 15px
 
+      .circle
+        margin: 0px 14px
+        +size(12px)
+        background-color: #ccc
+        border-radius: 50%
+        +trans
+      .title
+        font-size: 20px
+      
+    ul
+      text-align: left
+      padding: 0
+      width: 100%
+      li
+        padding-left: grid_sz(0,1)
+        padding-top: grid_sz(0,2)
+        padding-bottom: grid_sz(0,2)
+        width: 100%
+        cursor: pointer
+        +trans
+        &:after
+          content: ""
+          display: block
+          position: absolute
+          +size(20px)
+          top: 50%
+          left: 0px
+          background-color: #F1F3F5
+          +trans
 
-    p
-      color: $color_white
-    .description
-      max-width: 80%
-
-      +range_width
-        max-width: 100%
-
+          transform: translate(-50%,-50%) rotate(45deg)
+        
+        &.active,&:hover
+          background-color: white
+          &:after
+            background-color: white
+          .title,.date
+            color: $color_theme
+          .circle
+            background-color: $color_theme
 
   .section_news
-    align-items: top
-
     .container
-      flex-wrap: wrap
-
-    .news_box
-      display: inline-block
-      margin: $gutter_width/2
-      width: percent_grid(4,3,12,12)
-      transition: 0s
-      border: solid 1px #eee
-      min-height: 480px
-      transition: 0s
-  
-      &.size_2
-        width: percent_grid(8,7,12,12)
-
-      +range_width(0px,800px)
-        &,&.size_2
-          width: calc( 100% - #{grid_sz(0,2)} )
-
-
-      a
-        text-decoration: none
+      padding: grid_sz(0,4) full_grid(1,1)
+      
+      align-items: flex-start
+    .catabar
+      width: full_grid(1,1)
+      font-size: 18px
+      color: $color_grey_light
+      height: 100%
+      li
+        margin-bottom: grid_sz(0,1)
+        border-bottom: solid 1px transparent
+        display: inline-block
         cursor: pointer
+      
         &:hover
-          text-decoration: none
-
-      &:before
-        +cover_opacity(rgba($color_theme,0))
-        transition: 0.5s
-        z-index: 10
-
-      .btn
-        opacity: 0
-        transition: 0.5s
-        z-index: 20
-
-        +range_width(0px,800px)
-          +ab_full
-          +ab_center
-      
-      &:hover
-        &:before
-          +cover_opacity(rgba($color_theme,0.8))
-        .btn
-          opacity: 1
-
-      .info
-        padding: $gutter_width*0.8
-        color: $color_grey_light
-        
-        h5.date
-          margin: 0
-          font-size: 16px
-          color: $color_grey_light
-
-        h3.title
-          margin-top: 0
-          margin-bottom: $gutter_width/3
           color: $color_theme
-          font-weight: 300
-    
-    .nav_line_split
-      margin-bottom: grid_sz(0,3)
-      margin-left: auto
-      margin-right: auto
-      text-align: center
-      width: 100%
 
-      &.page_nav
-        li
-          padding-left: 18px
-          padding-right: 18px
-          // height: 16px
-          margin-bottom: 0px
-          margin-top: grid_sz(0,2)
-          text-align: center
-          vertical-align: middle
-          border: none
+        +trans
+        &.active
+          padding-bottom: grid_sz(0,1)
+          border-bottom: solid 1px $color_theme
+          color: $color_theme
+      .active
+        font-size: 24px
 
-          &:before
-            content: ""
-            display: block
-            position: absolute
-            right: 0
-            top: 50%
-            transform: translateY(-50%)
-            height: 16px
-            width: 0px
-            border-left: solid 1px $color_theme
+    .area_news
+      padding-left: full_grid(0,0.5)
+      padding-right: full_grid(0,0.5)
+      width: full_grid(9,10)
+      display: flex
+      flex-wrap: wrap
+    .news_box
+      float: left
+      background-color: $color_bg_grey
+      background-image: url("/img/news2.jpg")
+      margin: full_grid(0,0.5)
+      padding: grid_sz(0,1)
+      min-height: grid_sz(0,14)
+      +flex_center
+      flex-direction: column
+      align-items: flex-start
+      // justify-content: flex-start
+      width: full_grid(3,2,-5px)
+      padding-bottom: grid_sz(0,1)
+      margin-left: full_grid(0,0.5)
+      margin-right: full_grid(0,0.5)
+      cursor: pointer
+      text-align: left
+      *
+        color: $color_theme
+      .title
+        +trans
+      .date,.describe
+        font-weight: 300
+      .describe
+        overflow: hidden
+        max-height: 0px
+        margin-top: grid_sz(0,1)
+        opacity: 0
+        +trans
+      .icon_more
+      .date
+        margin-top: grid_sz(0,1)
+        opacity: 0
+        +trans
+        
+      // display: inline-block
+      &:before
+        +pseudo_ab_full
+        background-color: rgba(white,0.9)
+        +trans
 
-          &:first-child,&:last-child
-            color: $color_grey
-          &:last-child
-            &:before
-              opacity: 0
-
-
-            // margin-bottom: grid_sz(0,6)
-
-
-    .cover
-      min-height: grid_sz(0,9)
-      +bg_theme
-      &[data-img="1"]
-        background-image: url("../img/homepage/News1.jpg")
-      &[data-img="2"]
-        background-image: url("../img/homepage/News2.jpg")
-      &[data-img="3"]
-        background-image: url("../img/homepage/News3.jpg")
-      &[data-img="4"]
-        background-image: url("../img/homepage/Post1.jpg")
-      &[data-img="5"]
-        background-image: url("../img/homepage/Post2.jpg")
-      &[data-img="6"]
-        background-image: url("../img/homepage/Post3.jpg")
-      &[data-img="7"]
-        background-image: url("../img/homepage/Post4.jpg")
-      
+      &:hover
+        *
+          color: white
+        .date
+          opacity: 1
+        &:before
+          background-color: rgba($color_theme,0.9)
+        .describe
+          max-height: 200px
+          opacity: 1
