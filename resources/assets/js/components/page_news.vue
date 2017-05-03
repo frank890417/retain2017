@@ -3,7 +3,8 @@ div.page_news
   section.section_hero
     .container.full.flex
       .col_left
-        h1.title 永齡基金會玩具義診 搜出8種有害塑化劑
+        h1.title 
+          router-link(to="/news/0") 永齡基金會玩具義診 搜出8種有害塑化劑
         p 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
 
       .col_right
@@ -32,37 +33,37 @@ div.page_news
           li 醫學新知
           li 友善聯結
       .area_news
-        .news_box
+        router-link(to="/news/0").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
           .icon_more
           p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        .news_box
+        router-link(to="/news/0").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
           .icon_more
           p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        .news_box
+        router-link(to="/news/0").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
           .icon_more
           p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        .news_box
+        router-link(to="/news/0").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
           .icon_more
           p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        .news_box
+        router-link(to="/news/0").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
           .icon_more
           p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        .news_box
+        router-link(to="/news/0").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
