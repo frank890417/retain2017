@@ -22,7 +22,7 @@ Vue.component('Navbar', require('./components/Navbar.vue'));
 var page_index = Vue.component('page_index', require('./components/page_index.vue'));
 var page_about = Vue.component('page_about', require('./components/page_about.vue'));
 var page_news = Vue.component('page_news', require('./components/page_news.vue'));
-var page_solution = Vue.component('page_solution', require('./components/page_solution.vue'));
+var page_product = Vue.component('page_product', require('./components/page_product.vue'));
 var page_tech = Vue.component('page_tech', require('./components/page_tech.vue'));
 var page_post = Vue.component('page_post', require('./components/page_post.vue'));
 var page_job = Vue.component('page_job', require('./components/page_job.vue'));
@@ -39,7 +39,7 @@ const routes = [
   { path: '/', component: page_index },
   { path: '/about', component: page_about },
   { path: '/tech', component: page_tech },
-  { path: '/solution/:id', component: page_solution , props: true},
+  { path: '/solution/:id', component: page_product , props: true},
   { path: '/solution/0', alias: '/solution'},
   { path: '/news', component: page_news },
   { path: '/news/:id', component: page_post , props: true},
@@ -368,7 +368,7 @@ function update_bullet(st){
 //頁面還原初始狀態
 function init_element(){
 
-  $(".percent , .section_title , .section_para").addClass("initial");
+  // $(".percent , .section_title , .section_para").addClass("initial");
   setTimeout(function(){
     update_scroll(0);
   },50);

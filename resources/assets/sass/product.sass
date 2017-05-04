@@ -1,0 +1,186 @@
+@import "common";
+.page_solution
+  .section_hero
+    padding-top: grid_sz(0,11)
+    background-image: url("/img/product/1.jpg")
+    background-size: 1200px auto
+    background-position: left bottom
+    background-repeat: no-repeat
+    height: 100vh
+    .section_title
+      margin-bottom: grid_sz(0,3)
+    .section_para
+      margin-bottom: grid_sz(0,6)
+    .col_left
+      align-items: flex-start
+  
+  //soluiton 專案
+    //program 各種方案
+      //service 各項服務
+  
+  .btn_expand.cross
+    +size(46px)
+    float: right
+    position: relative
+    cursor: pointer
+    &:after,&:before
+      content: ''
+      display: block
+      transform-origin: center center
+      +ab_center
+      width: 100%
+      height: 2px
+      background-color: #FFF
+
+    &:after
+      transform: translate(-50%,-50%) rotate(90deg) 
+    &.open
+      &:after,&:before
+        background-color: $color_grey
+        transform: translate(-50%,-50%)  rotate(45deg)
+      &:after
+        transform: translate(-50%,-50%)  rotate(135deg)
+      
+
+  .section_solution
+    display: flex
+    flex-direction: column
+    padding-top: 0px
+    padding-bottom: 0px
+    min-height: initial
+  
+    
+
+    &.active
+      .main_info
+        border-bottom: none
+        .info *
+          color: $color_grey
+        &:before
+          background-color: white
+
+    .main_info
+      background-image: url("/img/product/2.jpg")
+      background-size: auto 100%
+      background-position: right top
+      background-color: $color_brown
+      border-bottom: solid 3px darken($color_brown,16)
+      box-sizing: border-box
+      &:before
+        +pseudo_ab_full
+        background-color: transparent
+        +trans
+
+      .container.flex
+        justify-content: flex-start
+        min-height: initial
+        padding-top: grid_sz(0,2)
+        padding-bottom: grid_sz(0,2)
+        
+      .cover
+        +size(140px)
+        border-radius: 50%
+      .info
+        margin-left: grid_sz(0,2)
+        text-align: left
+        *
+          color: white
+
+    //方案清單
+    .program_list
+      & > li
+        vertical-align: middle
+        text-align: left
+        padding: grid_sz(0,1)
+        border-top: rgba($color_grey,0.4)
+        border-bottom: rgba($color_grey,0.4)
+
+        .tag
+          display: inline-block
+          margin-right: grid_sz(0,1)
+          background-color: $color_grey_dark
+          // +flex_center
+          border-radius: 50%
+          color: white
+          +size(36px)
+          vertical-align: middle
+          position: relative
+          span
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%,-50%)
+
+        .program_title
+          display: inline-block
+          vertical-align: middle
+        .btn_expand
+          margin-right: grid_sz(1,0)
+          font-size: 26px
+          float: right
+          +size(30px)
+          +flex_center
+          transform-origin: center center
+          +trans
+          cursor: pointer
+      
+        &.active 
+          background-color: $color_brown
+          .program_title 
+            color: white
+          .tag
+            background-color: white
+            color: $color_brown
+          .btn_expand
+            transform: rotate(180deg)
+            color: white
+
+    //方案詳細內容
+    .program_box
+      background-color: white
+      margin-top: grid_sz(0,1)
+      margin-left: grid_sz(0,-1)
+      margin-right: grid_sz(0,-1)
+      & > .container.flex
+        align-items: flex-start
+        padding-left: 0px
+        padding-right: 0px
+      .col_left,.col_right
+        align-items: flex-start
+
+        .program_sub_title
+          margin-bottom: grid_sz(0,2)
+          &:after
+            content: ""
+            margin-top: grid_sz(0,1)
+            display: block
+            width: 30px
+            border-bottom: solid 1px $color_grey
+        p
+          margin-bottom: grid_sz(0,2)
+      .col_right
+        background-color: #E8ECEF
+      .service_type
+        li
+          .toggle_part
+            height: grid_sz(0,2)
+            background-color: $color_brown
+            display: flex
+            align-items: center
+            color: white
+            padding-left: grid_sz(0,1)
+            padding-right: grid_sz(0,1)
+
+
+          .info_part
+            padding: grid_sz(0,1)
+            text-align: left
+
+          &.active
+            .toggle_part
+              border-bottom: solid 4px lighten($color_brown,7)
+      .more_info
+        background-color: $color_brown
+        color: white
+        padding-top: grid_sz(0,1)
+        padding-bottom: grid_sz(0,1)

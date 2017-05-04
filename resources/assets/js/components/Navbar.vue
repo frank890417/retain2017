@@ -88,7 +88,7 @@ div
                     li 
                       router-link(to="/tech") 快檢平台
             li
-              a(href="#") 產品方案與研發
+              router-link(to="/solution") 產品方案與研發
               // ul.subnav
                 .container.flex
                   div.options

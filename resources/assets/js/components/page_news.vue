@@ -33,42 +33,13 @@ div.page_news
           li 醫學新知
           li 友善聯結
       .area_news
-        router-link(to="/news/0").news_box
+        router-link(to="/news/0" v-for="index in 6").news_box
           i.fa.fa-search  
           .date 05.21
           h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
           .icon_more
           p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        router-link(to="/news/0").news_box
-          i.fa.fa-search  
-          .date 05.21
-          h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
-          .icon_more
-          p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        router-link(to="/news/0").news_box
-          i.fa.fa-search  
-          .date 05.21
-          h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
-          .icon_more
-          p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        router-link(to="/news/0").news_box
-          i.fa.fa-search  
-          .date 05.21
-          h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
-          .icon_more
-          p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        router-link(to="/news/0").news_box
-          i.fa.fa-search  
-          .date 05.21
-          h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
-          .icon_more
-          p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-        router-link(to="/news/0").news_box
-          i.fa.fa-search  
-          .date 05.21
-          h5.title 成為細胞儲存及細胞治療創新研發雙引擎知識界領導品牌
-          .icon_more
-          p.describe 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
+        
   // section.section_news
     .container.flex.top_out
       ul.nav_line_split.text-center
