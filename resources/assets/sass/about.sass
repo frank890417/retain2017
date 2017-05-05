@@ -78,29 +78,91 @@
       width: grid_sz(4,3)
       margin: auto
   
+  .section_member
+    .section_title
+      margin-top: grid_sz(0,8)
+      margin-bottom: grid_sz(0,5)
+      text-align: center
+      font-weight: 400
+      letter-spacing: 5px
+      color: $color_grey
 
-  .person_box
-    padding: $gutter_width*2 $gutter_width*1
-    position: relative
-    display: flex
-    .row
+    .person_box
+      padding: $gutter_width*2 $gutter_width*1
       position: relative
       display: flex
-    font-weight: 800
-    color: rgba(black,0.6)
-    h4
-      font-weight: bold
-    .bigger_text
-      font-size: 1.1em
-    ul
-      list-style: none
-      padding: 0
-      li
-        padding-top: 3px
-        padding-bottom: 3px
-        &:before
-          content: "."
-          position: relative
-          display: inline-block
-          top: -5px
-          margin-right: 15px  
+      text-align: left
+
+      &.big.container.flex
+        height: grid_sz(0,22)
+        padding: 0
+        // margin: grid_sz(0,0.5)
+        .cover
+          +full
+          background-image: url("/img/about/3.jpg")
+        .col_left,.col_right
+          +trans
+        .col_left
+          width: grid_sz(4,3)
+          
+          padding: 0
+          height: 100%
+
+        .col_right
+          width: grid_sz(8,7)
+          padding: grid_sz(0,2) grid_sz(0,1)
+          display: block
+          height: 100%
+          text-align: left
+
+      
+          
+      .bigger_text
+        font-size: 1.1em
+
+      font-weight: 800
+      
+      h4
+        font-weight: bold
+      p
+        margin-top: grid_sz(0,1)
+        margin-bottom: grid_sz(0,1)
+      p,li
+        color: rgba(black,0.6)
+
+      ul
+        list-style: none
+        padding: 0
+        li
+          padding-top: 3px
+          padding-bottom: 3px
+          &:before
+            content: "."
+            position: relative
+            display: inline-block
+            top: -5px
+            margin-right: 15px  
+      
+      .experience
+        +ab_full
+        opacity: 0
+        +trans
+        padding: grid_sz(0,1)
+
+        +flex_center
+        
+        h5,li,p
+          color: white
+        p
+          letter-spacing: 2px
+          font-weight: 300
+    
+      &:hover
+        .col_left,.col_right
+          filter: blur(6px)
+
+        .experience
+          opacity: 1
+          background-color: rgba($color_theme,0.8)
+        // p,li,h4
+        //   color: rgba(white,0.8)

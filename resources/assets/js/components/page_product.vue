@@ -35,7 +35,7 @@ div.page_solution
         .info
           h3.title 鴻海三心專案
           .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross
+        .btn_expand.cross.btn_soluton_expand
   section.section_solution.active
     .main_info
       .container.flex
@@ -43,7 +43,7 @@ div.page_solution
         .info
           h3.title 企業尊榮專案
           .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross
+        .btn_expand.cross.btn_soluton_expand
     .container
       ul.program_list
         li 
@@ -103,7 +103,7 @@ div.page_solution
         .info
           h3.title 海外服務專案
           .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross
+        .btn_expand.cross.btn_soluton_expand
 
 
   
@@ -125,7 +125,10 @@ div.page_solution
           }
         },
         mounted() {
-            
+          $(".btn_soluton_expand").click(function(){
+            window.temp=$(this);
+            $(this).closest(".section_solution").toggleClass('active');
+          })
         },beforeDestroy() {
         },
         props: ['id'],

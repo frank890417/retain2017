@@ -32,7 +32,6 @@ div.section_search
       },
       mounted() {
           console.log('section_search mounted.');
-          if (Ts) Ts.reload();
       },
       methods: {
         ...mapMutations(['toggle_search']),
