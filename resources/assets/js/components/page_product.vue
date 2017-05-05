@@ -7,13 +7,27 @@ div.page_solution
         h4.section_eng premium solutions
         p.section_para 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將會安排儲存前的健康評估。
         
-        button 服務流程介紹
+        .btn_full.brown 
+          i.fa.fa-play-circle
+          span &nbsp;&nbsp;服務流程介紹
       .col_right
         ul
-          li 高品質尊榮服務
-          li 國際認證
-          li 專業服務
-          li 量身定做
+          li 
+            .btn_expand.plus
+            h4 高品質尊榮服務
+            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
+          li.active   
+            .btn_expand.plus
+            h4 國際認證
+            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
+          li   
+            .btn_expand.plus
+            h4 專業服務
+            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
+          li   
+            .btn_expand.plus
+            h4 量身定做
+            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
   section.section_solution
     .main_info
       .container.flex

@@ -1,38 +1,46 @@
 <template lang="jade">
 div.page_contact
-  section.section_hero.bg_theme.before_black_mask.bg_parallax
-    .container.flex.column
-      h1.section_title 聯絡我們
-      p.description 我們專注於提供優質的檢驗服務，以前瞻先進科技守護企業與民眾的健康。若您有任何產品疑問、客製化服務需求等，歡迎與我們聯絡，我們將竭誠為您服務。
-
+  section.section_hero
+    .container.flex
+      .col_left
+        h1.section_title 聯絡我們
+        h4.section_eng Contact us
+        p.section_para 服務專線  +886.2.55967898<br>服務時間  週一 ~ 週五 10:00 ~ 17:00<br><br>若您有任何疑問、服務需求等，歡迎與我們聯絡，我們將竭誠為您服務。
+        hr
   section.section_form
-    .container.row.top_out
-      ul.nav_line_split
-        li.active 台灣
-      .container.flex.row
-        .col_left
-          iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.4484040096263!2d121.53777491497817!3d24.984874983995326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346801fed5f7da89%3A0x7bc696c73a47d7bf!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5YyX5paw6Lev5LiJ5q61MjA36Jmf!5e0!3m2!1szh-TW!2stw!4v1490774552681" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen)
-        .col_right
-          .form-group
-            label 姓名
-            input
-          .form-group
-            label 信箱
-            input
-          .form-group
-            label 諮詢
-            select#select_contact
-              option(value="1") &nbsp;&nbsp;&nbsp;校園環境健檢檢測計畫
-              option(value="2") &nbsp;&nbsp;&nbsp;校園食材健檢檢測計畫
-              option(value="3") &nbsp;&nbsp;&nbsp;農場作物自主管理檢測計畫
+    .container.flex
+      .col_left
+        h4 連絡信箱
+        .form-group
+          label 姓名
+          input(placeholder="請輸入姓名")
+        .form-group
+          label 信箱
+          input(placeholder="請輸入聯絡信箱")
+        .form-group
+          label 諮詢
+          select#select_contact(placeholder="請選擇諮詢項目")
+            option(value="") 請選擇諮詢項目
+            option(value="1") 鴻海三心專案
+            option(value="2") 企業尊榮專案
+            option(value="3") 海外服務專案
 
-          .form-group
-            textarea.form-control(rows=14 placeholder="訊息...")
-          .form-group.text-right
-            .btn.btn-primary 送出表單
-         
+        .form-group
+          label 諮詢內容
+          .right
+            textarea.form-control(rows=1 placeholder="訊息...")
+            .btn.btn-primary.btn-submit 送出
+              //i.fa.fa-angle-right
+      .col_right
+        h4 常見問題
+        ul.question_list(v-if="questions.length>0")
+          li(v-for='(qa,id) in questions' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
+            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
+            .question {{qa.question}}
+            p.answer {{qa.answer}}   
+    .container
       hr.footer_line
-
+    
   
 
 </template>
@@ -42,8 +50,38 @@ div.page_contact
     export default {
         mounted() {
             console.log('contact mounted.');
-            if (Ts) Ts.reload();
-            
+
+            //text area auto expand
+            var textarea = document.querySelector('textarea');
+
+            textarea.addEventListener('keydown', autosize);
+                         
+            function autosize(){
+              var el = this;
+              setTimeout(function(){
+                el.style.cssText = 'height:auto; padding:0';
+                // for box-sizing other than "content-box" use:
+                // el.style.cssText = '-moz-box-sizing:content-box';
+                el.style.cssText = 'height:' + (el.scrollHeight+5) + 'px';
+              },0);
+            }
         },
+        data(){
+          return {
+            qa_state: [{open:true},{open:false},{open:false},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},]
+          };
+        },
+        computed: mapState(['questions']),
+        methods: {
+          toggle (id){
+            this.qa_state.forEach((op,index)=>{
+              if (index==id) {
+                op.open = !op.open;
+              }else{ 
+                op.open = false;
+              }
+            });
+          }
+        }
     }
 </script>

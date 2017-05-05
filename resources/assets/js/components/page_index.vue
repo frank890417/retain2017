@@ -121,7 +121,7 @@ div.page_index
       .col_left
         .out_pic.slick
           .item.item1
-          .item.item2
+          .item.item1
 
         .slick_caption
           .title 創新的科技、貼心的服務
@@ -228,6 +228,7 @@ div.page_index
               slidesToShow: 1,
               slidesToScroll: 1,
               arrows: false,
+              fade: true,
               dots: true,
               easing: 'ease-in'
             });
