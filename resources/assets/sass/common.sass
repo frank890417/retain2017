@@ -141,6 +141,12 @@ hr
   border: none
   border-bottom: solid 1px #eee
   
+  &.short
+    width: 30px
+
+  &.left
+    margin-left: 0
+
 
 body
   +paragraph_size_leading(16px,27px,3px)
@@ -323,9 +329,9 @@ section
     color: $color_theme
     border-color: $color_white
 
-.btn_full.brown
-  background-color: $color_brown
-  color: white
+.btn_full
+  
+  
   font-size: 24px
   padding: grid_sz(0,1)
   letter-spacing: 5px
@@ -333,8 +339,19 @@ section
     font-weight: 300
   cursor: pointer
   +trans
-  &:hover
-    background-color: lighten($color_brown,5)
+ 
+
+  &.brown
+    background-color: $color_brown
+    color: white
+    &:hover
+      background-color: lighten($color_brown,5)
+
+  &.green
+    background-color: $color_theme
+    color: white
+    &:hover
+      background-color: lighten($color_theme,5)
 
 
 @mixin cover_opacity($color: black)

@@ -79,6 +79,11 @@
       margin: auto
   
   .section_member
+  
+    .person_area
+      display: flex
+      flex-wrap: wrap
+
     .section_title
       margin-top: grid_sz(0,8)
       margin-bottom: grid_sz(0,5)
@@ -92,50 +97,76 @@
       position: relative
       display: flex
       text-align: left
+      height: grid_sz(0,15)
+      margin: grid_sz(0,0.5) 0
+      
+      .cover
+        +full
+        background-image: url("/img/about/3.jpg")
+  
+      .col_left,.col_right
+        +trans
+
+      .col_left
+        width: grid_sz(2,1)
+        padding: 0
+        height: 100%
+
+      .col_right
+        width: grid_sz(4,3)
+        padding: grid_sz(0,2) grid_sz(0,1)
+        display: block
+        height: 100%
+        text-align: left
+
+      &.small
+        width: grid_sz(6,5)
+        
+        height: grid_sz(5,1)
+        padding: 0
+
 
       &.big.container.flex
-        height: grid_sz(0,22)
+        height: grid_sz(0,23)
         padding: 0
         // margin: grid_sz(0,0.5)
-        .cover
-          +full
-          background-image: url("/img/about/3.jpg")
-        .col_left,.col_right
-          +trans
+
         .col_left
           width: grid_sz(4,3)
           
-          padding: 0
-          height: 100%
+          
 
         .col_right
           width: grid_sz(8,7)
-          padding: grid_sz(0,2) grid_sz(0,1)
-          display: block
-          height: 100%
-          text-align: left
-
-      
           
       .bigger_text
         font-size: 1.1em
 
       font-weight: 800
       
-      h4
-        font-weight: bold
+      h5
+        margin-top: grid_sz(0,1)
+        font-size: 18px
+        &:first
+          margin-top: 0px
+
+      h5.name
+        margin-top: 0px
+        
       p
         margin-top: grid_sz(0,1)
         margin-bottom: grid_sz(0,1)
+
       p,li
         color: rgba(black,0.6)
 
       ul
         list-style: none
         padding: 0
+        padding-top: grid_sz(0,1)
         li
-          padding-top: 3px
-          padding-bottom: 3px
+          // padding-top: 3px
+          // padding-bottom: 3px
           &:before
             content: "."
             position: relative

@@ -11,7 +11,8 @@ div.page_about
         h4.section_feature 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，預先儲存健康，是您最好的對策！ 
 
         p 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗、以及永齡健康基金會長期以來在預防醫學與癌症治療領域投注的龐大資源。<br><br>睿田生技從預防醫學的角度出發，由前期的幹細胞、免疫細胞儲存與高端健康管理，全方面做到個人化的健康管理，以逹到精準醫療的目標！
-        .btn 認識睿田
+        hr.short.left
+        .btn_full.green 認識睿田
 
 
       .col_right
@@ -63,7 +64,33 @@ div.page_about
               li 美國加州大學聖地牙哥校區(UCSD) 醫學院骨關放射學研究員
               li 長庚醫院放射診斷科臨床助理教授級主治醫師
               li 中臺醫專放射技術科，大仁藥專藥學科、護理科兼任講師
-      .card.small.container.flex
+      .person_area
+        .person_box.small.container.flex(v-for="i in 4")
+          .col_left
+            .cover(:style="'background-image: url(\"/img/about/4.jpg\")'")
+          .col_right
+
+            h5.name 醫師
+              span.bigger_text | 李岳庭
+            h5.title 專長
+            ul
+              li 內科疾病之診療與治療
+              li 健檢報告之判讀
+              li 血液病及整合性化療
+            h5.title 學歷
+            ul
+              li 台北醫學院醫學系畢業
+              li 長庚大學臨床醫學研究所碩士
+          .experience
+            div
+              h5.title 經歷
+              ul
+                li 台北國泰醫院外科住院醫師
+                li 高雄長庚醫院放射診斷科住院醫師、總住院醫師、主
+                li 治醫師
+                li 美國加州大學聖地牙哥校區(UCSD) 醫學院骨關放射學研究員
+                li 長庚醫院放射診斷科臨床助理教授級主治醫師
+                li 中臺醫專放射技術科，大仁藥專藥學科、護理科兼任講師
 
       
 
