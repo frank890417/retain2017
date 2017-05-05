@@ -120,18 +120,28 @@
       &:before
         +pseudo_ab_full
         background-color: rgba($color_theme,0.7)
-
+        +trans
       &:nth-child(1)
         &:before
           background-color: rgba($color_theme,0.8)
+        &:hover
+          &:before
+            background-color: rgba($color_theme,0.85)
+
 
       &:nth-child(2)
         &:before
           background-color: rgba( darken($color_theme,4) ,0.9)
+        &:hover
+          &:before
+            background-color: rgba($color_theme,0.95)
 
       &:nth-child(3)
         &:before
-          background-color: rgba($color_theme,0.8)
+          background-color: rgba($color_theme,0.85)
+        &:hover
+          &:before
+            background-color: rgba($color_theme,0.9)
 
     .block_title
       font-size: 24px
