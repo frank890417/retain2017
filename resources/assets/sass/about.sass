@@ -15,10 +15,72 @@
         &:before
           +pseudo_ab_full
           background-color: rgba($color_grey_dark,0.1)
-
+    
       .col_right
         width: calc(50% - #{grid_sz(1,1.5)})
         background-color: $color_grey_dark
+  
+    .container_content
+      .col_right
+        padding-left: grid_sz(1.5,1)
+
+      .timelog
+        position: relative
+        
+
+        .month,.title
+          position: absolute
+          right: calc(100% + #{grid_sz(0,1)})
+          width: grid_sz(1,0)
+          text-align: right
+          +trans
+      
+        .title          
+          left: initial
+          top: grid_sz(0,-1)
+          // right: calc(100% + #{grid_sz(1,0)})
+          font-weight: 300
+          color: $color_grey_light
+        
+        &.active
+          .title
+            top:  grid_sz(0,-3)
+            color: $color_theme
+            
+  
+        li
+          list-style: none
+          width: grid_sz(3,4)
+          border-left: solid 1px $color_theme
+          position: relative
+          vertical-align: middle
+          min-height: grid_sz(0,2)
+          span
+            color: $color_grey_light
+            margin-top: -10px
+          span.content
+            top: -10px
+
+          text-align: left
+          padding-bottom: grid_sz(0,1)
+          padding-left: grid_sz(0.5,0)
+          
+
+          &:before
+            content: ''
+            display: block
+            +size(10px)
+            transform: translate(-5px)
+            border-radius: 50%
+            background-color: $color_theme
+            position: absolute
+            left: 0
+            top: 0
+
+          &.active
+            span.content
+              color: $color_theme
+
 
     .container_content
 

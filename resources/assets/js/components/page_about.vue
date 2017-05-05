@@ -4,7 +4,7 @@ div.page_about
     .container.full.flex
       .col_left.bg_parallax
       .col_right
-    .container.container_content
+    .container.container_content.flex
       .col_left          
         h1 關於睿田
         h4.section_eng about Retain Biotech
@@ -16,6 +16,28 @@ div.page_about
 
 
       .col_right
+
+        .timelog.active 
+          h4.title 2017
+          li.active 
+            span.month 12
+            span.content 一個沒有疾病的新世界
+          li 
+            span.month 03
+            span.content 成為細胞儲存及細胞治療創新研發雙引擎之世界領導品牌
+          li 
+            span.month 01
+            span.content 永齡健康基金會長期以來再預防醫學與癌症治療領域
+        .timelog
+          h4.title 2016
+          li
+        .timelog
+          h4.title 2015
+          li
+        .timelog
+          h4.title 2014
+          li
+  
 
   section.section_blocks
     .container.flex.full
