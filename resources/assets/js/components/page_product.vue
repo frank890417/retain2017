@@ -11,7 +11,8 @@ div.page_solution
           i.fa.fa-play-circle
           span &nbsp;&nbsp;服務流程介紹
       .col_right
-        ul
+
+        ul.hero_right_list
           li 
             .btn_expand.plus
             h4 高品質尊榮服務
@@ -43,9 +44,9 @@ div.page_solution
         .info
           h3.title 企業尊榮專案
           .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross.btn_soluton_expand
+        .btn_expand.cross.btn_soluton_expand(data-target="#pl2")
     .container
-      ul.program_list
+      ul.program_list.active#pl2
         li 
           .tag 
             span A
@@ -63,9 +64,9 @@ div.page_solution
           .tag 
             span C
           h4.program_title 父親節方案
-          .btn_expand
+          .btn_expand.btn_program_expand(data-target="#pgboxc")
             i.fa.fa-angle-down
-          .program_box
+          .program_box.active#pgboxc
             .top.container.flex
               .col_left
                 h5.program_sub_title 方案介紹
@@ -128,7 +129,17 @@ div.page_solution
           $(".btn_soluton_expand").click(function(){
             window.temp=$(this);
             $(this).closest(".section_solution").toggleClass('active');
+            $($(this).attr("data-target")).toggleClass('active');
           })
+          $(".btn_program_expand").click(function(){
+            window.temp=$(this);
+            $(this).closest("li").toggleClass('active');
+            $($(this).attr("data-target")).toggleClass('active');
+          })
+          $(".hero_right_list .btn_expand").click(function(){
+            $(".hero_right_list li").removeClass("active");
+            $(this).parent().toggleClass("active");
+          });
         },beforeDestroy() {
         },
         props: ['id'],
