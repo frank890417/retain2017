@@ -214,6 +214,24 @@ $nav_height: 80px
     margin-top: 0
     margin-bottom: 0
 
+@mixin toggle_height_hide($h: 1500px)
+  max-height: 0px
+  // height: 0px
+
+  margin-top: 0px
+  margin-bottom: 0px
+  +trans
+  overflow: hidden
+  opacity: 0
+
+@mixin toggle_height_active($h: 1500px)
+  max-height: $h
+  height: auto
+  +trans
+  overflow: hidden
+  opacity: 1
+  margin-top: 0
+  margin-bottom: 0
 // @for $i from 1 through 20
 //   @for $o from 1 through 20
 //     .grid_sz_mx_#{$i}_#{$o}

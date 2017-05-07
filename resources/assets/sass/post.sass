@@ -54,15 +54,19 @@
   .section_post
     background: url("../img/homepage/Post_bg.jpg") no-repeat left bottom
     background-size: 100% auto
-    .container.flex
-      justify-content: center
 
+    .top
+      .col_left
+        width: grid_sz(3,4)
+      .col_right
+        width: grid_sz(9,10)
+        text-align: left
 
 
     .post_box
       +grid_sz_mx(10,11)
 
-    .container
+    .container.flex
       background-color: $color_white
       margin-top: grid_sz(0,-3)
       // width: grid_sz(12,15)
@@ -71,6 +75,13 @@
       padding: grid_sz(0,1)
       flex-wrap: wrap
       padding-top: grid_sz(0,3)
+      flex-direction: column
+
+    .top
+      display: flex
+      flex-direction: row
+    .top,.bottom
+      width: 100%
 
     .share
       margin-top: $gutter_width*2

@@ -30,7 +30,7 @@ var page_contact = Vue.component('page_contact', require('./components/page_cont
 var page_tern = Vue.component('page_tern', require('./components/page_tern.vue'));
 
 var section_footer = Vue.component('section_footer', require('./components/section_footer.vue'));
-var section_solutions = Vue.component('section_solutions', require('./components/section_solutions.vue'));
+// var section_solutions = Vue.component('section_solutions', require('./components/section_solutions.vue'));
 var section_search = Vue.component('section_search', require('./components/section_search.vue'));
 
 //routes
@@ -121,81 +121,75 @@ const store = new Vuex.Store({
       ],
 
     },
-    solutions: [
+    products: [
       {
-        id: 0,
-        title: "校園環境健檢檢測計畫",
-        sub_title: "健康安全的成長環境",
-        sub_content: "塑膠產品使用狀況趨多，學子成長環境隱藏潛在風險，特別是常用的文玩具。我們提供塑化劑檢測服務，為各式塑膠類生活用品進行檢測分析，排除幼兒與兒童成長環境安全憂慮，為下一代健康把關。",
-        test_item: "塑化劑：(8種)<br><br><ul style='list-style: initial;margin-left: 20px'><li>DEHP：鄰苯二甲酸二(2-乙基己基)酯</li><li>DNOP：鄰苯二甲酸二正辛酯</li><li>BBP：鄰苯二甲酸丁基苯酯</li><li>DINP：鄰苯二甲酸二異壬酯</li><li>DIDP：鄰苯二甲酸二異癸酯</li><li>DEP：鄰苯二甲酸二乙酯</li><li>DMP：鄰苯二甲酸二甲酯</li><li>DBP：鄰苯二甲酸二丁酯</li>",
-        env: "各級學校、補習班、幼兒園、托育中心等孩童活動空間。",
-        schedule: "本檢驗方案可以單次或週期性執行，歡迎與我們聯繫討論適合您的方案。",
-        talk: [
+          name: "鴻海三心專案",
+          description: "睿田提供國際認證品質之際包檢驗、運送與儲存服務",
+           programs: []
+      },
+      {
+        name: "企業尊榮專案",
+        description: "睿田提供國際認證品質之際包檢驗、運送與儲存服務",
+        programs: [
           {
-            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
-            name: "-阿里巴巴集團主席 馬雲"
-          },{
-            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
-            name: "-阿里巴巴集團主席 馬雲"
-          }
-        ],
-        solution_area_slogan: "我們為您制定周全的環境健檢計畫"
-      },{
-        id: 1,
-        title: "校園食材健檢檢測計畫",
-        sub_title: "營養美味的安心食材",
-        sub_content: "協助每日校園營養午餐食材的農藥殘留檢測服務，加強用餐安全。有效管理不符規定的食材進行監控，以提供學子兼具營養與美味的安心食材",
-        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。<br>殺蟲劑：谷速松、陶斯松、普伏松、賽滅寧、護賽寧<br>殺蹣劑：必芬松、蟎離丹、大克蟎、芬普寧、得芬瑞...等<br>殺菌劑：比多農、滅普寧、賽福座、亞托敏、達滅芬...等<br>除草劑：拉草、復祿芬、必芬諾、比達寧、伏寄普...等",
-        env: "各級學校、幼兒園、托育中心提供營養午餐的中央廚房、團膳供應商或學校合作社。",
-        schedule: "本檢驗方案可以單次或週期性執行，歡迎與我們聯繫討論適合您的方案。",
-        talk: [
-          {
-            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
-            name: "-阿里巴巴集團主席 馬雲"
-          },{
-            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
-            name: "-阿里巴巴集團主席 馬雲"
-          }
-        ],
-        solution_area_slogan: "我們為您制定周全的食材健檢計畫"
-      },{
-        id: 2,
-        title: "農場作物自主管理檢測計畫",
-        sub_title: "自主管理從源頭做起",
-        sub_content: "農產品從田間到通路鋪售過程需要追蹤農藥殘留狀況。我們藉由農藥測項分析，在產銷供應鏈上協助自主農殘檢測管理，可降低風險、保證品質，以確保農產符合法規標準為守護民眾食安問題。",
-        test_item: "常見殺蟲劑、殺蹣劑、殺菌劑及除草劑等共計259種農藥檢測。<br>殺蟲劑：谷速松、陶斯松、普伏松、賽滅寧、護賽寧<br>殺蹣劑：必芬松、蟎離丹、大克蟎、芬普寧、得芬瑞...等<br>殺菌劑：比多農、滅普寧、賽福座、亞托敏、達滅芬...等<br>除草劑：拉草、復祿芬、必芬諾、比達寧、伏寄普...等",
-        env: "果菜園、茶園等各式農場、蔬果產銷中心、合作社及批發通路",
-        schedule: "本檢驗方案可以單次或週期性執行，歡迎與我們聯繫討論適合您的方案。",
-        talk: [
-          {
-            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
-            name: "-阿里巴巴集團主席 馬雲"
-          },{
-            title: "針對食物安全研發出的快速質譜儀，重視養生的馬雲大為驚艷，當場表示也想在家裡放一台。",
-            name: "-阿里巴巴集團主席 馬雲"
-          }
-        ],
-        solution_area_slogan: "我們為您制定周全的健檢計畫"
-      }
-    ],
-    techs: [
-      { id: 0,
-        title: "睿軒快篩平台",
-        description: "與國立中山大學共同開發「快速檢驗平台」專利技術為基礎，以建構食的安心、用的放心，便利顧客享有快速與安全的保障為出發點，守護民眾的健康期許，營造安心的生活環境。同時創造獨特的檢驗效率，與無可取代的時間效益。",
-        sections: [
-          {
-            title: "五秒高效快篩",
-            content: "不需任何前處理，也不需破壞待測物件。 快速採樣、即時檢測，立即與資料庫進行比對作業，完成一次分析的時間只需5秒。"
+            tag: "A",
+            name: "健康早鳥組合方案",
+            description: "",
+            client: ""
           },
           {
-            title: "獨家探針，多樣檢測",
-            content: "獨家開發的採樣探針可利用高溫處理被重複使用，不需分析耗材，單次單件分析費用只需傳統檢測的 1/6。可針對有疑慮的物件進行快速分析的檢測作業。"
+            tag: "B",
+            name: "資深好鳥組合方案",
+            description: "",
+            client: ""
           },
           {
-            title: "雲端即時報告",
-            content: "同時搭配手機App與網頁檢測報告系統，檢測前掃描探針上的QR code並上傳，在完成檢測後便可即時看到檢測報告。在接觸日用品或食用蔬果之前，就為您的安全環境、安心食材層層把關。"
+            tag: "C",
+            name: "父親節方案",
+            description: "細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。",
+            client: "細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。",
+            contents: [
+              {
+                name: "免疫細胞儲存",
+                description: "細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化"
+              },
+              {
+                name: "幹細胞儲存",
+                description: "細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化"
+              },
+              {
+                name: "健康假期",
+                description: ""
+              }
+            ]
+          },
+          {
+            tag: "D",
+            name: "美麗無限方案"
           }
         ]
+      },
+      {
+          name: "海外服務專案",
+          description: "睿田提供國際認證品質之際包檢驗、運送與儲存服務",
+           programs: []
+      },
+     
+
+    ],
+    service_infos: [
+      {
+        title: "高品質尊榮服務",
+        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
+      },{
+        title: "國際認證",
+        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
+      },{
+        title: "專業服務",
+        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
+      },{
+        title: "量身定做",
+        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
       }
     ]
   },
@@ -297,10 +291,13 @@ window.update_scroll=function update_scroll(top_val){
     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
   }
 
-  $(".cover1").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/2+50)+"px)");
-  $(".cover2").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/5+50)+"px)");
-  $(".cover3").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/9+86)+"px)");
-  //percet nt init
+  if ($(".cover1").length>0){
+    $(".cover1").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/2+50)+"px)");
+    $(".cover2").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/5+50)+"px)");
+    $(".cover3").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/9+86)+"px)");
+ 
+  }
+   //percet nt init
   $(".percent.initial").each(function(index,obj){
     // console.log("test");
     // update element enter animation

@@ -13,102 +13,46 @@ div.page_solution
       .col_right
 
         ul.hero_right_list
-          li 
+          li(v-for="sinfo in service_infos")
             .btn_expand.plus
-            h4 高品質尊榮服務
-            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
-          li.active   
-            .btn_expand.plus
-            h4 國際認證
-            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
-          li   
-            .btn_expand.plus
-            h4 專業服務
-            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
-          li   
-            .btn_expand.plus
-            h4 量身定做
-            .detail 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務
-  section.section_solution
-    .main_info
-      .container.flex
-        .cover(:style="bg_css('/img/product/3.jpg')")
-        .info
-          h3.title 鴻海三心專案
-          .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross.btn_soluton_expand
-  section.section_solution.active
-    .main_info
-      .container.flex
-        .cover(:style="bg_css('/img/product/3.jpg')")
-        .info
-          h3.title 企業尊榮專案
-          .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross.btn_soluton_expand(data-target="#pl2")
-    .container
-      ul.program_list.active#pl2
-        li 
-          .tag 
-            span A
-          h4.program_title 健康早鳥組合方案
-          .btn_expand
-            i.fa.fa-angle-down
+            h4 {{sinfo.title}}
+            .detail {{sinfo.content}}
 
-        li 
+  section.section_solution(v-for="(product,product_id) in products",:class="'section_solution_'+product_id")
+    .main_info
+      .container.flex
+        .cover(:style="bg_css('/img/product/3.jpg')")
+        .info
+          h3.title {{product.name}}
+          .description(v-html="product.description")
+        .btn_expand.cross.btn_soluton_expand(@click="toggleActive('.section_solution_'+product_id)")
+    .container
+      ul.program_list
+
+        li(v-for="(program,prog_id) in product.programs" ,:class="'program_'+prog_id")
           .tag 
-            span B
-          h4.program_title 資深好鳥組合方案
-          .btn_expand
+            span {{program.tag}}
+          h4.program_title {{program.name}}
+          .btn_expand.btn_program_expand(@click="toggleActive('.program_'+prog_id)")
             i.fa.fa-angle-down
-        li.active 
-          .tag 
-            span C
-          h4.program_title 父親節方案
-          .btn_expand.btn_program_expand(data-target="#pgboxc")
-            i.fa.fa-angle-down
-          .program_box.active#pgboxc
+          .program_box(:class="'program_box_'+prog_id")
             .top.container.flex
               .col_left
                 h5.program_sub_title 方案介紹
-                p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。
+                p(v-html="program.description")
               
                 h5.program_sub_title 建議對象
-                p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。
+                p(v-html="program.client")
               .col_right
                 h5.program_sub_title 方案內容
                 ul.service_type
-                  li 
-                    .toggle_part 免疫細胞儲存
+                  li(v-for="content in program.contents")
+                    .toggle_part {{content.name}}
                       .btn_expand.cross
                     .info_part
-                      p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化
-                  li.active
-                    .toggle_part 幹細胞儲存
-                      .btn_expand.cross
-                    .info_part
-                      p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化
-                    // .btn_full 了解更多
-                  li 
-                    .toggle_part 健康假期
-                      .btn_expand.cross
+                      p(v-html="content.description")
             .more_info 預約及諮詢本方案內容，請直撥客服中心 0800-080688
-        li 
-          .tag 
-            span D
-          h4.program_title 美麗無限方案
-          .btn_expand
-            i.fa.fa-angle-down
 
-  section.section_solution
-    .main_info
-      .container.flex
-        .cover(:style="bg_css('/img/product/3.jpg')")
-        .info
-          h3.title 海外服務專案
-          .description 睿田提供國際認證品質之際包檢驗、運送與儲存服務
-        .btn_expand.cross.btn_soluton_expand
-      .program_list
-        
   
 </template>
 
@@ -125,19 +69,14 @@ div.page_solution
             return {
               'background-image': "url("+url+")"
             }
+          },
+          toggleActive(el){
+            console.log(el);
+            $(el).toggleClass("active");
           }
         },
         mounted() {
-          $(".btn_soluton_expand").click(function(){
-            window.temp=$(this);
-            $(this).closest(".section_solution").toggleClass('active');
-            $($(this).attr("data-target")).toggleClass('active');
-          })
-          $(".btn_program_expand").click(function(){
-            window.temp=$(this);
-            $(this).closest("li").toggleClass('active');
-            $($(this).attr("data-target")).toggleClass('active');
-          })
+          
           $(".hero_right_list .btn_expand").click(function(){
             $(".hero_right_list li").removeClass("active");
             $(this).parent().toggleClass("active");
@@ -148,6 +87,6 @@ div.page_solution
         },beforeDestroy() {
         },
         props: ['id'],
-        computed: mapState(['solutions'])
+        computed: mapState(['solutions','products','service_infos'])
     }
 </script>

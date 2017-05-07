@@ -126,9 +126,20 @@
         &:after,&:before
           background-color: $color_grey
         &:before
-          transform: translate(-50%,-50%)  rotate(45deg)
-        &:after
           transform: translate(-50%,-50%)  rotate(135deg)
+        &:after
+          transform: translate(-50%,-50%)  rotate(225deg)
+
+      .program_list
+        +toggle_height_active
+        margin-top: grid_sz(0,1)
+        
+
+      
+
+      +toggle_height
+      &.active
+        // margin-top: grid_sz(0,1)
 
     .main_info
       background-image: url("/img/product/2.jpg")
@@ -169,6 +180,7 @@
         border-top: rgba($color_grey,0.4)
         border-bottom: rgba($color_grey,0.4)
         +trans
+        position: relative
 
         .tag
           display: inline-block
@@ -192,36 +204,43 @@
 
         .btn_expand
           // margin-right: grid_sz(1,0)
-          font-size: 26px
+          
           // float: right
           position: absolute
           right: 30px
           +size(24px)
-          +flex_center
-          transform-origin: center center
-          +trans
+          top: 30px
           cursor: pointer
+          transform: translateY(-50%)
+
+          i
+            transform-origin: center center
+            font-size: 26px
+            +ab_center
+            +trans
       
+        //方案展開中
         &.active 
           background-color: $color_brown
+          .program_box
+            +toggle_height_active
+            margin-top: grid_sz(0,1)
           .program_title 
             color: white
           .tag
             background-color: white
             color: $color_brown
           .btn_expand
-            transform: translate(-50%,-50%) rotate(180deg)
-            color: white
+            i
+              transform: translate(-50%,-50%) rotate(180deg)
+              color: white
 
     //方案詳細內容
     .program_box
       background-color: white
       margin-left: grid_sz(0,-1)
       margin-right: grid_sz(0,-1)
-  
-      +toggle_height
-      &.active
-        margin-top: grid_sz(0,1)
+      +toggle_height_hide
 
       & > .container.flex
         align-items: flex-start
@@ -263,7 +282,7 @@
         li
           .toggle_part
             height: grid_sz(0,2)
-
+            
             background-color: $color_brown
             display: flex
             align-items: center
@@ -284,6 +303,8 @@
 
 
           &.active
+            +toggle_height_active
+
             .toggle_part
               border-bottom: solid 4px lighten($color_brown,7)
             .info_part

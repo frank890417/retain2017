@@ -90,29 +90,15 @@ div.section_search
                   ))
                   
           },{
-            type: "檢測方案",
-            data: this.turn_match(this.solutions
+            type: "產品方案",
+            data: this.turn_match(this.products
                   .map(
                     (obj)=>(
                       {
                          id: obj.id,
                          title: obj.title,
-                         content: obj.title+obj.sub_content+obj.test_item+obj.env+obj.schedule+(obj.talk.map((t)=>(t.title))).join("   "),
+                         content: obj.name+obj.description+obj.schedule+(obj.programs.map((t)=>(t.tag+t.name+t.description+t.client))).join("   "),
                          link: "/solution/"+obj.id
-                      }
-                    )
-                  ))
-                  
-          },{
-            type: "檢驗科技",
-            data: this.turn_match(this.techs
-                  .map(
-                    (obj)=>(
-                      {
-                         id: obj.id,
-                         title: obj.title,
-                         content: obj.title+obj.description+(obj.sections.map((t)=>(t.title+t.content))).join("   "),
-                         link: "/tech"
                       }
                     )
                   ))
@@ -136,7 +122,7 @@ div.section_search
         has_match(){
           return this.matches.map(obj=>obj.data.length).reduce((a,b)=>(a+b));
         },
-        ...Vuex.mapState(['solutions','news','techs','questions'])
+        ...Vuex.mapState(['products','news','techs','questions'])
       }
   }
 </script>
