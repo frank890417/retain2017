@@ -57,11 +57,13 @@ div.page_about
   section.section_member
     h2.section_title 董監事
     .container
+
       .person_box.big.container.flex
+        .btn_expand.cross
         .col_left
           .cover
         .col_right
-
+          
           h5.name 院長
             span.bigger_text | 黃成鴻
           p 鴻海集團近年來不斷為旗下所有辛勤付出的員工與親友們，創造最專業的健康管理專家，因此成立康聯預防醫學，提供360度專業照護
@@ -88,10 +90,11 @@ div.page_about
               li 中臺醫專放射技術科，大仁藥專藥學科、護理科兼任講師
       .person_area
         .person_box.small.container.flex(v-for="i in 4")
+          .btn_expand.cross
           .col_left
             .cover(:style="'background-image: url(\"/img/about/4.jpg\")'")
           .col_right
-
+            
             h5.name 醫師
               span.bigger_text | 李岳庭
             h5.title 專長
@@ -126,10 +129,10 @@ div.page_about
       }},
       mounted() {
           console.log('about mounted.')
-          if (Ts) Ts.reload();
-          // if (document.location.hash=="#section_about_log"){
-          //   $("html, body").animate({ scrollTop: $(".section_about_log") }, "slow");
-          // }
+          $(".btn_expand").click(function(){
+            console.log(this);
+            $(this).parent().toggleClass("active");
+          });
       },
       methods: {
         to_href: function(obj) {

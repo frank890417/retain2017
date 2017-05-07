@@ -79,16 +79,18 @@ div.page_solution
                 ul.service_type
                   li 
                     .toggle_part 免疫細胞儲存
+                      .btn_expand.cross
                     .info_part
                       p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化
-                    .btn_expand
                   li.active
                     .toggle_part 幹細胞儲存
+                      .btn_expand.cross
                     .info_part
                       p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化
-                    .btn_more 了解更多
+                    // .btn_full 了解更多
                   li 
-                    .toggle_part健康假期
+                    .toggle_part 健康假期
+                      .btn_expand.cross
             .more_info 預約及諮詢本方案內容，請直撥客服中心 0800-080688
         li 
           .tag 
@@ -139,6 +141,9 @@ div.page_solution
           $(".hero_right_list .btn_expand").click(function(){
             $(".hero_right_list li").removeClass("active");
             $(this).parent().toggleClass("active");
+          });
+          $(".service_type .btn_expand").click(function(){
+            $(this).closest("li").toggleClass('active');
           });
         },beforeDestroy() {
         },

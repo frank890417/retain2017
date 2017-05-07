@@ -1,5 +1,12 @@
 @import "common";
 .page_about
+  
+  .btn_expand.cross
+    position: absolute
+    right: 20px
+    top: 20px
+    
+  
   .section_hero
     padding-top: grid_sz(0,5)
     .container.full
@@ -260,12 +267,21 @@
           letter-spacing: 2px
           font-weight: 300
     
-      &:hover
+      &.active
         .col_left,.col_right
           filter: blur(6px)
 
         .experience
           opacity: 1
           background-color: rgba($color_theme,0.8)
+          
+        .btn_expand.cross
+          &:before,&:after
+            background-color: white
+          &:before
+            transform: translate(-50%,-50%) rotate(45deg)
+          &:after
+            transform: translate(-50%,-50%) rotate(135deg)
+
         // p,li,h4
         //   color: rgba(white,0.8)

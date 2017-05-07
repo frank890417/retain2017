@@ -72,8 +72,12 @@
       background-color: $color_grey
       +ab_center
       transform-origin: center center
-    &:after
+      +trans
+    &:before
       transform: translate(-50%,-50%) rotate(90deg)
+
+    &:after
+      transform: translate(-50%,-50%) rotate(180deg)
 
 
 
@@ -91,14 +95,15 @@
       height: 2px
       background-color: #FFF
       transition: 0.5s
+      +trans
     &:after
-      transform: translate(-50%,-50%) rotate(90deg) 
+      transform: translate(-50%,-50%) rotate(270deg) 
     &.open
       &:after,&:before
         background-color: $color_grey
-        transform: translate(-50%,-50%)  rotate(45deg)
-      &:after
         transform: translate(-50%,-50%)  rotate(135deg)
+      &:after
+        transform: translate(-50%,-50%)  rotate(225deg)
       
 
   .section_solution
@@ -184,11 +189,14 @@
         .program_title
           display: inline-block
           vertical-align: middle
+
         .btn_expand
-          margin-right: grid_sz(1,0)
+          // margin-right: grid_sz(1,0)
           font-size: 26px
-          float: right
-          +size(30px)
+          // float: right
+          position: absolute
+          right: 30px
+          +size(24px)
           +flex_center
           transform-origin: center center
           +trans
@@ -202,7 +210,7 @@
             background-color: white
             color: $color_brown
           .btn_expand
-            transform: rotate(180deg)
+            transform: translate(-50%,-50%) rotate(180deg)
             color: white
 
     //方案詳細內容
@@ -235,6 +243,23 @@
       .col_right
         background-color: #E8ECEF
       .service_type
+
+        .btn_expand
+          position: absolute
+          right: 20px
+          top: 50%
+          // transform: translateY(-50%)
+          +size(16px)
+
+          &:before,&:after
+            background-color: white
+          &:before
+            transform: translate(-50%,-50%) rotate(90deg)
+          &:after
+            transform: translate(-50%,-50%) rotate(180deg)
+
+
+
         li
           .toggle_part
             height: grid_sz(0,2)
@@ -250,11 +275,28 @@
 
           .info_part
             padding: grid_sz(0,1)
+            padding-top: 8px
+            padding-bottom: 0px
             text-align: left
+            max-height: 0px
+            overflow: hidden
+            +trans
+
 
           &.active
             .toggle_part
               border-bottom: solid 4px lighten($color_brown,7)
+            .info_part
+              max-height: 400px
+              padding: grid_sz(0,1)
+            .btn_expand
+              &:before
+                transform: translate(-50%,-50%) rotate(45deg)
+              &:after
+                transform: translate(-50%,-50%) rotate(135deg)
+
+
+
       .more_info
         background-color: $color_brown
         color: white
