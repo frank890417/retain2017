@@ -21,7 +21,8 @@ div
             li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
         li 
-          h4 產品方案與研發
+          h4 
+            router-link(to="/solution") 產品方案與研發
           //ul.sub_list
             li(@click="toggle_open") 
               router-link( to="/solution/0") 校園環境健檢
@@ -30,7 +31,8 @@ div
             li(@click="toggle_open") 
               router-link( to="/solution/2") 農場作物自主管理
         li 
-          h4 最新消息
+          h4 
+            router-link(to="/news") 最新消息
           ul.sub_list
             li(@click="toggle_open") 
               a(href="#") 全部新聞

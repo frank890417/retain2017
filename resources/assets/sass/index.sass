@@ -817,7 +817,33 @@
             margin-top: 0px
 
 
+//----------------------------
+.page_index
+  +range_width(0px,800px)
+    h3.section_title
+      margin-top: grid_sz(1,0)
+    .col_left,.col_right
+      width: 100%
+    .page_index_main
+      background-position: 40% center
+      .index_slogan_area
+        margin-top: 150px
+        .title_span
+          display: block
+          width: 0px
+        h1
+          font-size: 40px
+        h3.page_header_eng
+          font-size: 16px
 
+    .page_index_info
+      flex-direction: column
+      .left,.right
+        width: 100%
+        padding: 15px
+        height: auto
+        &:hover
+          width: 100%
 
 
 

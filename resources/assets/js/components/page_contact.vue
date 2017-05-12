@@ -60,15 +60,15 @@ div.page_contact
               var el = this;
               setTimeout(function(){
                 el.style.cssText = 'height:auto; padding:0';
-                // for box-sizing other than "content-box" use:
-                // el.style.cssText = '-moz-box-sizing:content-box';
                 el.style.cssText = 'height:' + (el.scrollHeight+5) + 'px';
               },0);
             }
         },
         data(){
           return {
-            qa_state: [{open:true},{open:false},{open:false},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},{open:true},]
+            qa_state: Array(20).fill(0).map(
+              (obj,id)=>( id <= 2 ? {open: true} : {open: false} )
+            )
           };
         },
         computed: mapState(['questions']),
