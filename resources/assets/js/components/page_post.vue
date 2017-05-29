@@ -20,7 +20,7 @@ div.page_post
             // h4.tag
               router-link(v-text='newsset.tag' v-bind:to="'/news/cata/'+newsset.tag")
             h1.section_title(v-text='newsset.title')
-            p 文章來源 
+            p.source 文章來源 
               a(v-html='newsset.author' href="#")
             br
             p(v-html='newsset.content')

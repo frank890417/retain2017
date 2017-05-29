@@ -125,7 +125,7 @@ div.page_index
 
         .slick_caption
           .title 創新的科技、貼心的服務
-          .next
+          .next(onclick="$('.out_pic').slick('slickNext');")
             i.fa.fa-angle-right
       .col_right
     .container.flex

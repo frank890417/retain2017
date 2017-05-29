@@ -660,6 +660,8 @@
         .out_pic
           height: 110%
           width: calc(100% + #{grid_sz(1,1)})
+          top: 0
+          position: absolute
           .item
             +size(100%,100%)
           .item1
@@ -712,6 +714,8 @@
         padding: 0
       .col_right
         height: calc(100% - #{grid_sz(0,4)})
+        .section_title
+          margin-top: grid_sz(0,11)
         &:before
           content: ""
           display: block

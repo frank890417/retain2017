@@ -3,13 +3,14 @@ div.page_news
   section.section_hero
     .container.full.flex
       .col_left
-        h1.title 
-          router-link(to="/news/1") 永齡基金會玩具義診 搜出8種有害塑化劑
-        p 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗
-
+        transition-group(name="fade", mode="out-in")
+          div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")
+            h1.title 
+              router-link(to="/news/1") {{headnews.title}}
+            p {{headnews.content.replace(/\<.*?\>/g,"").slice(0,100)+"..."}}
       .col_right
         ul 
-          li(v-for="a_news in news.slice(0,3)")
+          li(v-for="(a_news,newsid) in news.slice(0,3)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
             .date {{a_news.date.slice(-5) }}
             .circle
             h4.title {{a_news.title}}
@@ -90,6 +91,7 @@ export default {
     data() {
       return {
         filter: "全部消息",
+        head_id: 0,
         catas: ["全部消息","睿田活動","研討會訊息","醫學新知","友善聯結"]
       }
     },
@@ -103,7 +105,9 @@ export default {
         this.filter=(this.cataname=="全部新聞")?"全部新聞":this.cataname;
       }
     },methods: {
-      
+      change_head(id){
+        this.head_id=id;
+      },
       is_double(id){
         return [0,6,10].indexOf(id)!=-1;
       },bg_css(url){
