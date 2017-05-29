@@ -8,8 +8,9 @@ div.page_solution
         p.section_para 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將會安排儲存前的健康評估。
         
         .btn_full.brown 
-          i.fa.fa-play-circle
-          span &nbsp;&nbsp;服務流程介紹
+          div.icon_inline_wrapper
+            .icon_play_circle
+          div 服務流程介紹
       .col_right
 
         ul.hero_right_list
@@ -25,17 +26,17 @@ div.page_solution
         .info
           h3.title {{product.name}}
           .description(v-html="product.description")
-        .btn_expand.cross.btn_soluton_expand(@click="toggleActive('.section_solution_'+product_id)")
-    .container
+        .btn_expand.cross.btn_soluton_expand(@click="toggleActive('.section_solution_'+product_id)",:class="{no_content: product.programs.length==0}")
+    .container.program_list_container
       ul.program_list
 
         li(v-for="(program,prog_id) in product.programs" ,:class="'program_'+prog_id")
           .tag 
             span {{program.tag}}
           h4.program_title {{program.name}}
-          .btn_expand.btn_program_expand(@click="toggleActive('.program_'+prog_id)")
+          .btn_expand.btn_program_expand(@click="toggleActive('.program_'+prog_id)", :class="{no_content: !program.description}")
             i.fa.fa-angle-down
-          .program_box(:class="'program_box_'+prog_id")
+          .program_box(:class="'program_box_'+prog_id" , v-if="program.description")
             .top.container.flex
               .col_left
                 h5.program_sub_title 方案介紹

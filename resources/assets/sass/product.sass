@@ -40,6 +40,12 @@
           opacity: 0
           +trans
 
+        .btn_expand.plus
+          &:before
+            transform: translate(-50%, -50%) rotate(-180deg)
+          &:after
+            transform: translate(-50%, -50%) rotate(90deg)
+
         &.active
           h4
             color: $color_brown
@@ -51,6 +57,12 @@
           .btn_expand.plus
             &:before,&:after
               background-color: $color_brown
+              // width: 20px
+            &:before
+              transform: translate(-50%, -50%) rotate(0deg)
+            &:after
+              transform: translate(-50%, -50%) rotate(180deg)
+
 
     +range_width(0px,800px)
       .col_left,.col_right
@@ -106,7 +118,7 @@
     padding-bottom: 0px
     min-height: initial
     
-
+  
     &.active
       .main_info
         border-bottom: none
@@ -132,6 +144,8 @@
       +toggle_height
       &.active
         // margin-top: grid_sz(0,1)
+    
+
 
     .main_info
       background-image: url("/img/product/2.jpg")
@@ -140,10 +154,16 @@
       background-color: $color_brown
       border-bottom: solid 3px darken($color_brown,16)
       box-sizing: border-box
+
+
       &:before
         +pseudo_ab_full
         background-color: transparent
         +trans
+
+      .btn_expand.no_content
+        opacity: 0.3
+        cursor: initial
 
       .container.flex
         justify-content: flex-start
@@ -178,6 +198,7 @@
           display: inline-block
           margin-right: grid_sz(0,1)
           background-color: $color_grey_dark
+
           // +flex_center
           border-radius: 50%
           color: white
@@ -188,7 +209,7 @@
             position: absolute
             left: 50%
             top: 50%
-            transform: translate(-50%,-50%)
+            transform: translate(-35%,-50%)
 
         .program_title
           display: inline-block
@@ -201,10 +222,13 @@
           position: absolute
           right: 30px
           +size(24px)
-          top: 30px
+          top: 36px
           cursor: pointer
           transform: translateY(-50%)
 
+          &.no_content
+            opacity: 0.3
+            cursor: initial
           i
             transform-origin: center center
             font-size: 26px
@@ -214,6 +238,7 @@
         //方案展開中
         &.active 
           background-color: $color_brown
+          padding-bottom: 0px //底部有more info 的文字塊
           .program_box
             +toggle_height_active
             margin-top: grid_sz(0,1)
@@ -224,7 +249,7 @@
             color: $color_brown
           .btn_expand
             i
-              transform: translate(-50%,-50%) rotate(180deg)
+              transform: translate(-70%,-50%) rotate(180deg)
               color: white
 
     //方案詳細內容
@@ -313,5 +338,4 @@
       .more_info
         background-color: $color_brown
         color: white
-        padding-top: grid_sz(0,1)
-        padding-bottom: grid_sz(0,1)
+        padding: grid_sz(0,1) grid_sz(0,2)

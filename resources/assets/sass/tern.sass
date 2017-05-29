@@ -7,28 +7,73 @@
     padding-bottom: grid_sz(0,3)
     .section_title
       margin-top: grid_sz(0,13)
+      margin-bottom: grid_sz(0,1)
+    .section_eng
+      font-size: 24px
+      font-weight: 300
+      margin-bottom: grid_sz(0,3)
+      margin-top: -10px
+
+    .section_feature
+      font-size: 18px
+      margin-top: 0
+      margin-bottom: grid_sz(0,5)
+      max-width: grid_sz(7,6)
+
     .container
-      +grid_sz_mx(8,7)
+      // +grid_sz_mx(,7)
       padding-left: grid_sz(0,1)
       padding-right: grid_sz(0,1)
 
-    h4
+    .section_feature
       margin-top: grid_sz(0,3)
       margin-bottom: grid_sz(0,1)
-      color: $color_theme
+      // color: $color_theme
       font-weight: 400
       
-      &:after
-        content: ""
-        display: block
-        margin-top: grid_sz(0,1)
-        border-bottom: solid 1px $color_theme
-        width: grid_sz(0,2)
-    ul li,ol li
-      padding-left: grid_sz(0,1)
+      // &:after
+      //   content: ""
+      //   display: block
+      //   margin-top: grid_sz(0,1)
+      //   border-bottom: solid 1px $color_theme
+      //   width: grid_sz(0,2)
+    .title
+      color: $color_theme
+      font-size: 24px
       margin-bottom: grid_sz(0,1)
-      &:before
-        content: "• "
+      margin-top: grid_sz(0,1)
+      +trans
+      // padding-left: grid_sz(1,2)
+
+      .btn_expand
+        // top: grid_sz(0,4)
+        display: inline-block
+        margin-left: grid_sz(0,1)
+        margin-right: grid_sz(1,0)
+      span
+        display: inline-block
+
+
+    li:first-child
+      .title
+        margin-top: grid_sz(0,4)
+
+    li.active
+      p
+        max-height: 2000px
+      .title
+        margin-bottom: grid_sz(0,2)
+        margin-top: grid_sz(0,3)
+
+    p
+      padding-left: grid_sz(1,2)
+      max-height: 0px
+      overflow: hidden
+      font-size: 16px
+      +trans
+    ul
+      padding-left: 0
+
 
     p
       margin-top: grid_sz(0,1)

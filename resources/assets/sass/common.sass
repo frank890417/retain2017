@@ -54,7 +54,9 @@ a
   vertical-align: top
   background-repeat: no-repeat
   font-weight: 400
-
+  
+  +range_width(0px,800px)
+    box-sizing: initial
 
   // font-family: '新黑體 R'
 
@@ -210,6 +212,34 @@ h3,h4,h5,h6
     transform: translate(-50%,-50%) rotate(0deg)
   &:after
     transform: translate(-50%,-50%) rotate(90deg)
+  &.active
+    &:before
+      transform: translate(-50%,-50%) rotate(180deg)
+    &:after
+      transform: translate(-50%,-50%) rotate(180deg)
+
+
+
+.icon_inline_wrapper
+  display: inline-block
+  vertical-align: middle
+  margin-right: 20px
+
+.icon_play_circle
+  // margin-right: 20px
+  &:before
+    content: "▶"
+    color: $color_theme
+    font-size: 12px
+    text-align: center
+    width: 12px
+    padding-left: 2px
+
+  +flex_center
+  background-color: #FFF
+  +size(30px)
+  border-radius: 50%
+
 
 
 //----
@@ -323,6 +353,10 @@ section
   text-decoration: none !important
   cursor: pointer
   display: inline-block
+  vertical-align: middle
+  & > div
+    display: inline-block
+
 
   +trans
 
@@ -354,10 +388,13 @@ section
 
 .btn_full
   
-  
   font-size: 24px
   padding: grid_sz(0,1)
   letter-spacing: 5px
+  display: inline-block
+  vertical-align: middle
+  &>div
+    display: inline-block
   *
     font-weight: 300
   cursor: pointer
@@ -367,12 +404,16 @@ section
   &.brown
     background-color: $color_brown
     color: white
+    .icon_play_circle:before
+      color: $color_brown
     &:hover
       background-color: lighten($color_brown,5)
 
   &.green
     background-color: $color_theme
     color: white
+    .icon_play_circle:before
+      color: $color_theme
     &:hover
       background-color: lighten($color_theme,5)
 
@@ -385,6 +426,27 @@ section
   left: 0
   top: 0
   background-color: $color
+
+
+//----------------
+.page_contact,.page_tern,.page_job
+  .section_hero
+    .section_title
+      margin-top: grid_sz(0,13)
+      margin-bottom: grid_sz(0,1)
+    .section_eng
+      font-size: 24px
+      font-weight: 300
+    .section_para
+      font-size: 18px
+      margin-top: grid_sz(0,3)
+      margin-bottom: grid_sz(0,5)
+      &:after
+        content: ""
+        display: block
+        width: 24px
+        border-bottom: solid 1px #333
+        margin-top: grid_sz(0,3)
 
 //----------------
 // canvas

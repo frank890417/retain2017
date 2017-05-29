@@ -27,11 +27,7 @@ div.page_news
     .container.full.flex
       .catabar
         ul.catalist
-          li 全部消息
-          li.active 睿田活動
-          li 研討會訊息
-          li 醫學新知
-          li 友善聯結
+          li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata}}
       .area_news
         router-link(:to="'/news/'+a_news.id" v-for="a_news in news.slice(0,6)").news_box
           i.fa.fa-search  
@@ -65,6 +61,9 @@ div.page_news
 </template>
 
 <script>
+import jquery from 'jquery'
+window.$=jquery
+import slick from 'slick-carousel'
 import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
     mounted() {
@@ -86,12 +85,12 @@ export default {
         }
       },100);
       this.filter=this.cataname;
-      if (Ts) Ts.reload();
+      // if (Ts) Ts.reload();
     },
     data() {
       return {
-        filter: "全部新聞",
-        catas: ["全部新聞","睿軒活動","新聞快訊","食安新知","友善連結"]
+        filter: "全部消息",
+        catas: ["全部消息","睿田活動","研討會訊息","醫學新知","友善聯結"]
       }
     },
     computed: {

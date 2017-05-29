@@ -17,7 +17,7 @@ div.footer
         h5 常見問題
         ul.question_list
           li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
-            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
+            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'")
             .question {{qa.question}}
             p.answer {{qa.answer}}
           
@@ -62,10 +62,10 @@ div.footer
               dots: true,
               easing: 'ease-in'
             });
-            if (Ts) Ts.reload();
+            // if (Ts) Ts.reload();
         },data(){
           return {
-            qa_state: [{open:true},{open:false},{open:false}]
+            qa_state: new Array(5).fill({}).map((d,i)=>({open: i==1}))
           };
         },
         methods: {

@@ -3,22 +3,25 @@
   opacity: 1
   text-align: left
 
-
-
+  
   span.brown
     color: $color_brown
   span.theme
     color: $color_theme
   
   .container.flex
-    height: 100vh
+    // height: 100vh
+    min-height: 100vh
+    +range_width(0px,800px)
+      height: auto
 
   .col_left,.col_right
     h1,h2,h3,h4,h5,h6,p
       text-align: left
 
   section
-    min-height: 900px
+    min-height: 100vh
+
     .section_title
       margin-bottom: $gutter_width*3
       letter-spacing: 3px
@@ -28,7 +31,7 @@
       padding: 0px grid_sz(0,0.5)
       letter-spacing: 3px
       line-height: 35px
-      width: 100%
+      // width: 100%
       text-align: left
     .section_para
       margin-bottom: grid_sz(0,3)
@@ -77,10 +80,33 @@
         background-color: $color_brown
         padding-left: grid_sz(0,0.8)
         padding-right: grid_sz(0,0.8)
-        
+
+    +range_width(0px,800px)
+      padding: 50px 0px
+
+      .container
+        width: 100%
+        padding-left: 0px
+        padding-right: 0px
+        flex-direction: column
+        box-sizing: border-box
+
+        .col_left, .col_right
+          width: 100%
+          box-sizing: border-box
+          
+          padding: 20px
+
+          .section_title , .section_para , .section_feature
+            padding-left: 0px
+            padding-right: 0px
+            box-sizing: border-box
+            width: 100%
+
+
   .play_btn
     margin-bottom: grid_sz(0,1)
-    border-radius: 50%
+    border-radius: 50%k
     // background-color: $color_theme
     color: $color_white
     +flex_center
@@ -138,6 +164,8 @@
     display: flex
     flex-direction: row
 
+    .container
+      text-align: center
 
     .left,.right
       // border: solid 1px
@@ -147,6 +175,9 @@
       cursor: pointer
       height: grid_sz(0,17)
       flex-direction: column
+      box-sizing: border-box
+      width: calc(50% + #{grid_sz(5,5)})
+
       *
         color: $color_white
       &:before
@@ -155,6 +186,7 @@
       .infos
         padding: grid_sz(0,3) grid_sz(0,2)
         border: solid 1px white
+        margin-top: grid_sz(0,2)
         // max-width: grid_sz(3,4)
 
         // display: inline-block
@@ -178,7 +210,7 @@
         transition: 0.8s
         font-weight: 100
 
-      width: calc(50% + #{grid_sz(5,5)})
+      
       &:hover
         height: grid_sz(0,18)
         width: calc(50% + #{grid_sz(8,7)})
@@ -382,8 +414,7 @@
       width: 100%  
       left: 0
       bottom: 0
-   
-    
+
 
   //-----------------------------------------------
 
@@ -458,7 +489,12 @@
       .video_container
         opacity: 1
         transition: 0.7s 0.7s
-  
+    
+    +range_width(0px,800px)
+      &:before
+        +pseudo_ab_full
+        background-color: rgba($color_theme,0.9)
+
 
   //----------------------------------------------
   .page_index_accurate
@@ -567,6 +603,9 @@
     height: auto
     .container.full
       height: grid_sz(0,18)
+      min-height: 0px
+      .pic_left,.col_right
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.2)
       .col_left
         padding: 0
         justify-content: flex-start
@@ -718,13 +757,20 @@
 
     h4.section_para
       max-width: grid_sz(9,9)
-      width: grid_sz(9,9)
+      // width: grid_sz(9,9)
+      width: 100%
       line-height: 40px
     h1,h3,h4
       text-align: center
     background-image: url("../img/index/6a.jpg")
     background-size: cover
     text-align: center
+
+
+    +range_width(0px,800px)
+      .container
+        padding: 12px
+
   
   //------------------------------------------------------
   .page_index_sponsor
@@ -753,8 +799,8 @@
   +range_width(0px, 800px)
 
     section
-      min-height: 100vh
-      height: auto
+      // min-height: 100vh
+      // height: 100vh
     
     .percent
       font-size: 100px  
@@ -762,11 +808,13 @@
         font-size: 60px  
 
     .page_index_main
-      min-height: 150vh
+      // min-height: 150vh
       background-size: cover
 
       .index_slogan_area
-        height: 70vh
+        // height: 70vh
+        
+
       .news_container
         width: 100%
         height: auto

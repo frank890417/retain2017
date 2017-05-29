@@ -34,7 +34,7 @@ div
           h4 
             router-link(to="/news") 最新消息
           ul.sub_list
-            li(@click="toggle_open") 
+            //li(@click="toggle_open") 
               a(href="#") 全部新聞
             li(@click="toggle_open") 
               a(href="#") 睿田活動
@@ -101,7 +101,7 @@ div
               ul.subnav
                 .container.flex
                   div.options
-                    li 
+                    //li 
                       router-link(to="#") 全部新聞
                     li 
                       router-link(to="#") 睿田活動

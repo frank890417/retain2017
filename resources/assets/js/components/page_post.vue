@@ -49,6 +49,9 @@ div.page_post
 </template>
 
 <script>
+import jquery from 'jquery'
+window.$=jquery
+import slick from 'slick-carousel'
 import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
     mounted() {
@@ -68,7 +71,7 @@ export default {
           console.log("news_slick_loaded");
         }
       },100);
-      if (Ts) Ts.reload();
+      // if (Ts) Ts.reload();
     },
     methods: {
       bg_css(url){
