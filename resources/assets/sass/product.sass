@@ -111,6 +111,27 @@
       transform: translate(-50%,-50%) rotate(90deg) 
    
 
+
+  .section_other
+    padding-top: grid_sz(0,4)
+    padding-bottom: grid_sz(0,4)
+    background-color: #F2F2F2
+    text-align: left
+
+    h4
+      margin-bottom: grid_sz(0,1.5)
+
+    li
+      margin-bottom: grid_sz(0,1)
+      padding-left: grid_sz(0,1.5)
+      .fa-info-circle
+        position: absolute
+        left: grid_sz(0,0)
+        font-size: 24px
+      &:before
+        content: ""
+
+
   .section_solution
     display: flex
     flex-direction: column
@@ -137,16 +158,15 @@
       .program_list
         +toggle_height_active
         margin-top: grid_sz(0,1)
-        
-
+     
       
 
       +toggle_height
       &.active
         // margin-top: grid_sz(0,1)
-    
+  
 
-
+  
     .main_info
       background-image: url("/img/product/2.jpg")
       background-size: auto 100%

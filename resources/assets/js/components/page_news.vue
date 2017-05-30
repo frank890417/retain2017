@@ -85,7 +85,9 @@ export default {
           console.log("news_slick_loaded");
         }
       },100);
-      this.filter=this.cataname;
+      if (this.cataname){
+        this.filter=this.cataname;
+      }
       // if (Ts) Ts.reload();
     },
     data() {

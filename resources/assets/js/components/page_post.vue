@@ -8,13 +8,13 @@ div.page_post
   section.section_post
     .container.flex.column(v-if='newsset')
       .top
-        .col_left
-          h4 研討會訊息
-          h4(v-text='newsset.date')
+        .col_left.col_fixed
+          h4.info 研討會訊息
+          h4.info(v-text='newsset.date')
           .logos
-            img.logo(alt="fb" src="https://www.facebook.com/images/fb_icon_325x325.png")
-            img.logo(alt="tweeter" src="http://idleac.co.uk/wp-content/uploads/2016/02/Social-Media-Icons_Twitter.png")
-            img.logo(alt="google+" src="http://www.icons101.com/icon_png/size_512/id_15844/Google.png")
+            i.logo.fa.fa-facebook-square
+            i.logo.fa.fa-google-plus-square
+            i.logo.fa.fa-linkedin-square
         .col_right
           .post_box
             // h4.tag
@@ -71,6 +71,16 @@ export default {
           console.log("news_slick_loaded");
         }
       },100);
+      $(window).scroll((evt)=>{
+        var st = $(window).scrollTop();
+        var delta= (st>$(".post_box").offset().top?(st-24*33):0) ;
+        var content_end=$(".post_box").height()+$(".post_box").offset().top-24*22;
+        if (st>content_end){
+          delta=content_end-st+24*22;
+        }
+        $(".col_fixed").css("transform","translateY("+delta+"px)");
+        console.log(delta);
+      });
       // if (Ts) Ts.reload();
     },
     methods: {

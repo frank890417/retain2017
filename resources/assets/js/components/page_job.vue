@@ -6,7 +6,7 @@ div.page_job
         h1.section_title 人才招募
         h4.section_eng Join Retain
         p.section_para 誠摯歡迎您加入我們的團隊
-        hr
+        //hr
 
 
   section.section_job

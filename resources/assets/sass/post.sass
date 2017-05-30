@@ -17,7 +17,7 @@
 
   
   .section_hero
-    height: 600px
+    height: grid_sz(0,32)
     align-items: center
     justify-content: center
     padding-top: $column_width*1.5+$nav_height
@@ -62,17 +62,43 @@
     .top
       .col_left
         width: grid_sz(3,4)
+        text-align: left
+        align-items: flex-start
+        padding-top: grid_sz(0,11)
       .col_right
         width: grid_sz(9,10)
         text-align: left
 
+    .col_left
+      .info
+        text-align: center
+        font-size: 18px
+        color: $color_theme
+        margin-bottom: grid_sz(0,2)
+        cursor: pointer
+        //font-weight: 300
+        &:before
+          content: ""
+          display: inline-block
+          +size(12px)
+          background-color: #ccc
+          border-radius: 50%
+          margin-right: grid_sz(0,1)
+      .logo
+        font-size: 40px
+        color: $color_theme
+        margin-right: grid_sz(0,0.6)
+        cursor: pointer
+        +trans
+        &:hover
+          color: #333
 
     .post_box
       +grid_sz_mx(10,11)
 
     .container.flex
       background-color: $color_white
-      margin-top: grid_sz(0,-3)
+      // margin-top: grid_sz(0,-3)
       // width: grid_sz(12,15)
       width: 100%
       max-width: grid_sz(12,15)
@@ -120,14 +146,7 @@
 
     .post_block_btn
       padding: $gutter_width*3
-    .logos
-      margin-left: $gutter_width/2
-      display: inline-block
-    .logo
-      margin-left: $gutter_width/2
-      cursor: pointer
-      width: 30px
-    
+
     .nav_end
       padding: 0
       width: calc(100%  + #{grid_sz(0,2)} )

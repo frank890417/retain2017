@@ -22,12 +22,12 @@ div.page_solution
   section.section_solution(v-for="(product,product_id) in products",:class="'section_solution_'+product_id")
     .main_info
       .container.flex
-        .cover(:style="bg_css('/img/product/3.jpg')")
+        .cover(:style="bg_css(product.cover)")
         .info
           h3.title {{product.name}}
           .description(v-html="product.description")
         .btn_expand.cross.btn_soluton_expand(@click="toggleActive('.section_solution_'+product_id)",:class="{no_content: product.programs.length==0}")
-    .container.program_list_container
+    .container.program_list_container(v-if="product.type !='text'")
       ul.program_list
 
         li(v-for="(program,prog_id) in product.programs" ,:class="'program_'+prog_id")
@@ -54,6 +54,14 @@ div.page_solution
                       p(v-html="content.description")
             .more_info 預約及諮詢本方案內容，請直撥客服中心 0800-080688
 
+  section.section_other
+    .program_text_container
+      .container
+        h4 {{product_other.title}}
+        ul
+          li(v-for="t in product_other.content")
+            i.fa.fa-info-circle
+            span {{t}}
   
 </template>
 
@@ -88,6 +96,6 @@ div.page_solution
         },beforeDestroy() {
         },
         props: ['id'],
-        computed: mapState(['solutions','products','service_infos'])
+        computed: mapState(['solutions','products','service_infos','product_other'])
     }
 </script>
