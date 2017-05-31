@@ -9,8 +9,10 @@ div.page_post
     .container.flex.column(v-if='newsset')
       .top
         .col_left.col_fixed
-          h4.info 研討會訊息
+          h4.info
+            router-link(:to="'/news/cata/'+newsset.tag") 研討會訊息
           h4.info(v-text='newsset.date')
+
           .logos
             i.logo.fa.fa-facebook-square
             i.logo.fa.fa-google-plus-square
@@ -79,7 +81,7 @@ export default {
           delta=content_end-st+24*22;
         }
         $(".col_fixed").css("transform","translateY("+delta+"px)");
-        console.log(delta);
+        // console.log(delta);
       });
       // if (Ts) Ts.reload();
     },

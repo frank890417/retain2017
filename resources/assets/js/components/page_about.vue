@@ -23,17 +23,28 @@ div.page_about
         .timelog.active 
           h4.title 2017
           li.active 
-            span.month 12
-            span.content 一個沒有疾病的新世界
+            span.month 04
+            span.content 通過ISO9001認證
           li 
             span.month 03
-            span.content 成為細胞儲存及細胞治療創新研發雙引擎之世界領導品牌
+            span.content 正式營運
+          li 
+            span.month 03
+            span.content 試營運
+          li 
+            span.month 03
+            span.content 上市記者會
           li 
             span.month 01
-            span.content 永齡健康基金會長期以來再預防醫學與癌症治療領域
+            span.content 簽約記者會
         .timelog
           h4.title 2016
-          li
+          li 
+            span.month 12
+            span.content 與台大完成簽約
+          li 
+            span.month 03
+            span.content 公司營業登記
         .timelog
           h4.title 2015
           li

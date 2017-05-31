@@ -65,7 +65,7 @@ div.footer
             // if (Ts) Ts.reload();
         },data(){
           return {
-            qa_state: new Array(5).fill({}).map((d,i)=>({open: i==1}))
+            qa_state: new Array(5).fill({}).map((d,i)=>({open: i==0}))
           };
         },
         methods: {

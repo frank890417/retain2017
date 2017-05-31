@@ -150,7 +150,7 @@ div.page_index
         span.brown 生命品質  由您決定
       h4.section_para 在生命的過程中，也許會有些無法預期的事情發生，唯有多一分準備才會有多一分的勝算！防患於未然，讓我們一起迎向這個未知的未來
       span
-        router-link.btn-underline.brown_bg(to='#') 
+        router-link.btn-underline.brown_bg(to='/contact') 
           span 預約專人諮詢
 
   // section_solutions

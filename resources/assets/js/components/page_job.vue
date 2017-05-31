@@ -12,38 +12,16 @@ div.page_job
   section.section_job
 
     .container.flex.row.wrap
-      .job_box
+      .job_box(v-for="i in 4")
         .job_box_inner
-          h4.title 工程師-1
-            i.fa.fa-link
+          h4.title 系統工程師
           p 需求人數: 2 人 | 3~5 年以上經驗
           .cover.flex.column 
             p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將安排儲存前的健康評估。<br><br>1. 需求人數 : 2人<br>2. 熟悉LC / MS /MS儀器操作 (分析方法確效及<br>    分析方法開發)<br>3. 有儀器分析或食品檢測領域工作經驗
             // a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08f&jobsource=n104bank1") 更多資訊
-      .job_box
-        .job_box_inner
-          h4.title 工程師-2
-            i.fa.fa-link
-          p 需求人數: 2 人 | 3~5 年以上經驗
-          .cover.flex.column 
-            p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將安排儲存前的健康評估。<br><br>1. 需求人數 : 2人<br>2. 熟悉LC / MS /MS儀器操作 (分析方法確效及<br>    分析方法開發)<br>3. 有儀器分析或食品檢測領域工作經驗
-            // a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08g&jobsource=n104bank1") 更多資訊
-      .job_box
-        .job_box_inner
-          h4.title 工程師-1
-            i.fa.fa-link
-          p 需求人數: 2 人 | 3~5 年以上經驗
-          .cover.flex.column 
-            p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將安排儲存前的健康評估。<br><br>1. 需求人數 : 2人<br>2. 熟悉LC / MS /MS儀器操作 (分析方法確效及<br>    分析方法開發)<br>3. 有儀器分析或食品檢測領域工作經驗
-            // a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08f&jobsource=n104bank1") 更多資訊
-      .job_box
-        .job_box_inner
-          h4.title 工程師-2
-            i.fa.fa-link
-          p 需求人數: 2 人 | 3~5 年以上經驗
-          .cover.flex.column 
-            p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將安排儲存前的健康評估。<br><br>1. 需求人數 : 2人<br>2. 熟悉LC / MS /MS儀器操作 (分析方法確效及<br>    分析方法開發)<br>3. 有儀器分析或食品檢測領域工作經驗
-            // a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08g&jobsource=n104bank1") 更多資訊
+            a.logo_link_wrapper(href="#")
+              img.logo_link(src="/img/logo_link.svg")
+
       .row
         .col-sm-12
          

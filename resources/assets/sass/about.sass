@@ -49,6 +49,7 @@
           // right: calc(100% + #{grid_sz(1,0)})
           font-weight: 300
           color: $color_grey_light
+
         
         &.active
           .title
@@ -69,8 +70,13 @@
           span
             color: $color_grey_light
             margin-top: -10px
+            +trans
           span.content
             top: -10px
+
+          &:hover
+            span
+              color: rgba(#fff,0.5)
 
           text-align: left
           padding-bottom: grid_sz(0,1)
