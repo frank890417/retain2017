@@ -9,7 +9,7 @@
     
   
   .section_hero
-    padding-top: grid_sz(0,5)
+    // padding-top: grid_sz(0,5)
     .container.full
       position: absolute
       top: 0
@@ -32,8 +32,9 @@
       +rwd_md
         display: block
         .col_left,.col_right
-
-           width: 100%
+          padding: grid_sz(0,1)
+          width: 100%
+          display: none
   
     .container_content
       .col_right
@@ -112,8 +113,7 @@
 
           &:first-child
             padding-top: grid_sz(0,1)
-
-    .container_content
+ 
 
       .col_left
         padding-top: grid_sz(0,7)
@@ -134,7 +134,30 @@
           text-align: left
       .col_right
         width: calc(50% - #{grid_sz(1,1.5)})
-  
+
+      +rwd_md
+        display: block
+        padding: 0
+        .col_left
+          background-image: url("/img/about/1.jpg")
+          background-size: cover
+          background-position: middle top
+        .col_left,.col_right
+          margin: 0
+          padding: grid_sz(0,1)
+          width: 100%
+          background-color: $color_grey_dark
+        .col_left
+          padding-top: grid_sz(0,5)
+          padding-bottom: grid_sz(0,5)
+        .col_right
+          padding: grid_sz(0,1)
+          padding-top: grid_sz(0,5)
+          padding-left: grid_sz(1,2)
+          .timelog
+            width: 100%
+
+
   //中間三個格子
   .section_blocks
     background-image: url("/img/about/2.jpg")
@@ -173,19 +196,23 @@
         &:hover
           &:before
             background-color: rgba($color_theme,0.9)
-
+  
     .block_title
       font-size: 24px
       margin-bottom: grid_sz(0,2)
     .infos
       width: grid_sz(4,3)
       margin: auto
-    +range_width(0px,800px)
+    +rwd_sm
       .block
         width: 100%
         height: auto
-        padding: 50px
-  
+        padding: grid_sz(0,2)
+        .infos
+          width: 100%
+          padding: grid_sz(0,1)
+          box-sizing: border-box
+
   .section_member
   
     .person_area
