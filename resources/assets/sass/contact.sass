@@ -7,12 +7,21 @@
     background-size: cover
     background-repeat: no-repeat
     // height: 100vh
-        
-    .col_left
-      align-items: flex-start
-      max-width: grid_sz(8,7)
-      padding-right: grid_sz(1,0)
-    
+    +rwd_sm
+      background-position: 70% 0
+    .container
+      .col_left
+        align-items: flex-start
+        max-width: grid_sz(8,7)
+        padding-right: grid_sz(1,0)
+        +rwd_sm
+           padding-right: grid_sz(0,1)
+        .section_title
+          margin-top: grid_sz(0,13)
+          margin-bottom: grid_sz(0,1)
+          +rwd_sm
+            margin-top: grid_sz(0,6)
+
     +range_width(0px,800px)
       .col_left,.col_right
         width: 100%
@@ -113,7 +122,15 @@
       // letter-spacing: 2px
       // font-size: 15px !important
 
-    +range_width(0px,800px)
+    +rwd_sm
       .col_left,.col_right
         width: 100%
         min-height: 50vh
+      .form-group
+        flex-direction: column
+
+      label,input
+        display: block
+        width: 100%
+        text-align: left
+

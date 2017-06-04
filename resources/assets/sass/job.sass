@@ -6,9 +6,7 @@
   section
     min-height: 0px
     position: relative
-    .section_title
-      // padding-top: $gutter_width*4
-      opacity: 0.8
+
 
   .section_hero
     // padding-top: grid_sz(0,11)
@@ -16,17 +14,24 @@
     background-size: cover
     background-repeat: no-repeat
     // height: 100vh
-    .section_title
-      margin-bottom: grid_sz(0,1)
-    .section_eng
-      font-weight: 300
-    .section_para
-      margin-top: grid_sz(0,3)
-      margin-bottom: grid_sz(0,6)
-    .col_left
-      align-items: flex-start
-      max-width: grid_sz(8,7)
-      padding-right: grid_sz(1,0)
+    .container
+      .col_left
+        align-items: flex-start
+        max-width: grid_sz(8,7)
+        padding-right: grid_sz(0,1)
+        // +rwd_sm
+          // padding-right: 0
+        .section_title
+          margin-top: grid_sz(0,13)
+          margin-bottom: grid_sz(0,1)
+          +rwd_sm
+            margin-top: grid_sz(0,6)
+            
+        .section_eng
+          font-weight: 300
+        .section_para
+          margin-top: grid_sz(0,3)
+          margin-bottom: grid_sz(0,6)
 
 
   .section_job
