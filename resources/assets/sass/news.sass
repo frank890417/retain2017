@@ -7,9 +7,20 @@ $color_bg_grey: #F1F3F5
 .page_news
   .section_hero
 
-    .container.full.flex
+    .container.full
       height: grid_sz(10,4)
       text-align: left
+      +rwd_sm
+        height: auto
+        .col_left
+          padding-top: grid_sz(0,9)
+          padding-bottom: grid_sz(0,6)
+        .col_right
+          display: none
+          height: auto
+          padding-top: grid_sz(0,2)
+          padding-bottom: grid_sz(0,2)
+
     .col_left,.col_right
       padding-top: grid_sz(0,11)
       padding-bottom: grid_sz(0,7)
@@ -38,6 +49,7 @@ $color_bg_grey: #F1F3F5
         color: white
       padding-left: full_grid(1,2)
       padding-right: full_grid(1,2)
+      
 
     .col_right
       width: percent_grid(5,6)
@@ -129,6 +141,18 @@ $color_bg_grey: #F1F3F5
           padding-bottom: grid_sz(0,1)
           border-bottom: solid 1px $color_theme
           color: $color_theme
+
+      +rwd_sm
+        width: 100%
+        padding: 0 0 0 grid_sz(0,1)
+        white-space: nowrap
+        overflow-x: scroll
+        li
+          margin-bottom: 0
+          font-size: 20px
+          .active
+            padding-bottom: 0
+
       .active
         font-size: 24px
 
