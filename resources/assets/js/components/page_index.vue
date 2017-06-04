@@ -138,10 +138,10 @@ div.page_index
         p.section_para 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕。<br>以融合「創新的科技」、「貼心的服務」、「人性化的專業」三大核心價值，致力為客戶提供精確有效率，充滿溫馨感動的個人化健康管理中心，讓您在舒適、寧靜且隠密的環境下完成珍貴的細胞儲存！ 
         .btns
           div.inline_container
-            router-link.btn-underline(to='tech') 
+            router-link.btn-underline(to='/solution') 
               span 了解更多
           div.inline_container
-            router-link.btn-underline(to='tech') 
+            router-link.btn-underline(to='/contact') 
               span 聯繫我們
   section.page_index_compaign.bg_parallax
     .container.flex.column

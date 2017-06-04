@@ -490,10 +490,17 @@
         opacity: 1
         transition: 0.7s 0.7s
     
-    +range_width(0px,800px)
+    +rwd_md
+      padding-bottom: 0
       &:before
         +pseudo_ab_full
         background-color: rgba($color_theme,0.9)
+      .other
+        display: none
+
+      .container
+        .col_right
+          padding-bottom: 0
 
 
   //----------------------------------------------
@@ -610,16 +617,16 @@
         padding: 0
         justify-content: flex-start
         align-items: flex-end
-        .pic_left
-          float: right
-          width: 100%
-          max-width: grid_sz(7,6)
-          background-image: url("../img/index/4a.jpg")
-          height: grid_sz(0,14)
+      .pic_left
+        float: right
+        width: 100%
+        max-width: grid_sz(7,6)
+        background-image: url("../img/index/4a.jpg")
+        height: grid_sz(0,14)
       .col_right
         background-image: url("../img/index/4b.jpg")
     
-    .container.flex.content
+    .container.content
       padding-bottom: grid_sz(0,6)
       height: auto
       .col_left
@@ -644,8 +651,29 @@
         h5
           color: $color_theme
           text-align: center
+    
+    +rwd_md
+      padding-top: 0
+      .container.full
+        align-items: flex-end
+        height: auto
+        .pic_left,.col_left,.pic_right,.col_right
+          height: grid_sz(0,10)
+          min-height: initial
+        .col_right
+          width: 50%
+          display: none
 
+      .container.content
+        // padding-top: grid_sz(0,0)
+        padding-bottom: grid_sz(0,0)
 
+        .col_left
+          padding-top: grid_sz(0,0)   
+        .col_right
+          h5
+            font-size: 16px
+  
   //-------------------------
   .page_index_service
 
@@ -654,7 +682,7 @@
       left: 0
       top: 0
       .col_left
-        
+
         width: calc(50%)
         height: calc(100%)
         .out_pic
@@ -674,11 +702,21 @@
         // height: calc(100% + #{grid_sz(0,4)})
         background-color: #F6F6F6
 
+      +rwd_md
+        .col_left,.col_right
+          width: 100%
+        .col_right
+          display: none
+        
+
 
     .btns
       .inline_container
         margin: 0px grid_sz(0.5,0.5)
         display: inline-block
+        +rwd_md
+          margin-left: 0px
+
     .container.flex
       align-items: flex-start
 
@@ -727,6 +765,16 @@
           left: grid_sz(-1,-1)
           background-color: #F6F6F6
 
+      +rwd_md
+        .slick_caption
+          bottom: 0
+        .col_left
+          margin-bottom: grid_sz(0,-1)
+        .col_right
+          background-color: #F6F6F6
+          .section_title
+            margin-top: grid_sz(0,3)
+
     .pan_box
       .section_title
         margin-top: 0px
@@ -736,6 +784,8 @@
       padding-top: grid_sz(0,11)
       padding-bottom: grid_sz(0,7)
 
+    +rwd_md
+      padding-bottom: 0
 
   //
   .page_index_compaign
@@ -754,6 +804,10 @@
       color: #BBB288
       letter-spacing: grid_sz(0,2)
       opacity: 0.8
+
+      +rwd_md
+        font-size: 8vw
+        letter-spacing: 20px
     h3
       font-size: 30px
       letter-spacing: 4px
