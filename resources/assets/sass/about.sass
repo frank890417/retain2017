@@ -234,6 +234,8 @@
       text-align: left
       height: grid_sz(0,15)
       margin: grid_sz(0,0.5) 0
+
+      
       
       .cover
         +full
@@ -254,26 +256,45 @@
         height: 100%
         text-align: left
 
+
+
       &.small
         width: grid_sz(6,5)
         
         height: grid_sz(5,1)
         padding: 0
 
-
-      &.big.container.flex
+      
+      &.big
         height: grid_sz(0,23)
         padding: 0
         // margin: grid_sz(0,0.5)
 
         .col_left
           width: grid_sz(4,3)
-          
-          
-
         .col_right
           width: grid_sz(8,7)
-          
+
+        +rwd_sm
+          .col_left,.col_right
+            width: 100%
+            padding: grid_sz(0,1)
+            box-sizing: border-box
+
+      +rwd_sm
+        border-bottom: solid 1px rgba(0,0,0,0.1)
+       
+        &.small , &.big
+          height: auto
+          .col_left
+            height: auto
+            .cover
+              height: grid_sz(5,0)
+          .col_left , .col_right
+            box-sizing: border-box
+            padding: grid_sz(0,1) 
+            width: 100%
+
       .bigger_text
         font-size: 1.1em
 
@@ -310,6 +331,7 @@
             margin-right: 15px  
       
       .experience
+        box-sizing: border-box
         +ab_full
         opacity: 0
         +trans
