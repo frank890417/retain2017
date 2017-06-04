@@ -87,9 +87,9 @@ div.page_solution
         },
         mounted() {
           
-          $(".hero_right_list .btn_expand").click(function(){
+          $(".hero_right_list li").click(function(){
             $(".hero_right_list li").removeClass("active");
-            $(this).parent().toggleClass("active");
+            $(this).toggleClass("active");
           });
           $(".service_type .btn_expand").click(function(){
             $(this).closest("li").toggleClass('active');
