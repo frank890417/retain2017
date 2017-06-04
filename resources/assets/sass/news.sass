@@ -117,8 +117,10 @@ $color_bg_grey: #F1F3F5
       
       align-items: flex-start
 
-      +range_width(0px,800px)
+      +rwd_sm
         flex-direction: column
+        padding: 0px
+
     .catabar
       width: full_grid(1,1)
       min-width: grid_sz(2,2)
@@ -241,7 +243,7 @@ $color_bg_grey: #F1F3F5
           opacity: 0
           margin-top: -5px
 
-  +range_width(0px,800px)
+  +rwd_sm
     .section_hero
       .col_left,.col_right
         width: 100%
@@ -250,6 +252,8 @@ $color_bg_grey: #F1F3F5
       padding: 0px
       .container
         padding: 0px
+        .top .col_right
+          padding: 0px grid_sz(0,1)
       .area_news
         padding: 0px
         width: 100%

@@ -66,10 +66,17 @@
         align-items: flex-start
         padding-top: grid_sz(0,11)
       .col_right
+        padding:
+          left: grid_sz(0,1)
+          right: grid_sz(0,1)
         width: grid_sz(9,10)
         text-align: left
 
+     
+
+
     .col_left
+      padding-left: grid_sz(0,1)
       .info
         text-align: center
         font-size: 18px
@@ -105,10 +112,12 @@
       // width: grid_sz(12,15)
       width: 100%
       max-width: grid_sz(12,15)
-      padding: grid_sz(0,1)
+      // padding: grid_sz(0,1)
       flex-wrap: wrap
       padding-top: grid_sz(0,3)
       flex-direction: column
+
+
 
     .top
       display: flex
