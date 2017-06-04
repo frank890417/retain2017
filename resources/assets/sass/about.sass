@@ -27,6 +27,13 @@
       .col_right
         width: calc(50% - #{grid_sz(1,1.5)})
         background-color: $color_grey_dark
+
+
+      +rwd_md
+        display: block
+        .col_left,.col_right
+
+           width: 100%
   
     .container_content
       .col_right
@@ -35,7 +42,8 @@
       .timelog
         position: relative
         
-        
+
+
         .month,.title
           position: absolute
           right: calc(100% + #{grid_sz(0,1)})
@@ -60,6 +68,8 @@
           li
             border-left: none
 
+           
+
         li
           list-style: none
           width: grid_sz(3,4)
@@ -73,6 +83,8 @@
             +trans
           span.content
             top: -10px
+
+
 
           &:hover
             span
@@ -98,6 +110,8 @@
             span.content
               color: $color_theme
 
+          &:first-child
+            padding-top: grid_sz(0,1)
 
     .container_content
 

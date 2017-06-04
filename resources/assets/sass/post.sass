@@ -29,8 +29,8 @@
     padding-bottom: 20vh
     display: flex
 
-    +range_width(0px,800px)
-      height: 450px
+    +rwd_sm
+      height: grid_sz(0,10)
       background-size: cover
       background-position: center center
 
@@ -92,6 +92,9 @@
         +trans
         &:hover
           color: #333
+
+      +rwd_sm
+        display: none
 
     .post_box
       +grid_sz_mx(10,11)

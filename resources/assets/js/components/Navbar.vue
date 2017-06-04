@@ -6,7 +6,7 @@ div
       img.headerimg(src="/img/Retain.png")
       ul.main_list
         li 
-          h4 
+          h4(@click="toggle_open")
             router-link(to="/about") 關於睿田
           // ul.sub_list
             li(@click="toggle_open")
@@ -21,7 +21,7 @@ div
             li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
         li 
-          h4 
+          h4(@click="toggle_open")
             router-link(to="/solution") 產品方案與研發
           //ul.sub_list
             li(@click="toggle_open") 
@@ -31,7 +31,7 @@ div
             li(@click="toggle_open") 
               router-link( to="/solution/2") 農場作物自主管理
         li 
-          h4 
+          h4(@click="toggle_open")
             router-link(to="/news") 最新消息
           ul.sub_list
             //li(@click="toggle_open") 
@@ -44,8 +44,8 @@ div
               a(href="#") 醫學新知
             li(@click="toggle_open") 
               a(href="#") 友善連結
-        li(@click="toggle_open") 
-          h4 
+        li
+          h4(@click="toggle_open") 
             a(href="#") 會員服務
         li(@click="toggle_open") 
           h4 
@@ -180,6 +180,8 @@ div
         methods:{
           toggle_open(){
             this.open_full=!this.open_full;
+            console.log(this.open_full);
+
           },
           ...mapMutations(['toggle_size','toggle_search'])
         },

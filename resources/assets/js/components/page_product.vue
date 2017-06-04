@@ -82,6 +82,7 @@ div.page_solution
           toggleActive(el){
             console.log(el);
             $(el).toggleClass("active");
+
           }
         },
         mounted() {
@@ -93,6 +94,7 @@ div.page_solution
           $(".service_type .btn_expand").click(function(){
             $(this).closest("li").toggleClass('active');
           });
+          $(".hero_right_list li:first-child").toggleClass("active");
         },beforeDestroy() {
         },
         props: ['id'],
