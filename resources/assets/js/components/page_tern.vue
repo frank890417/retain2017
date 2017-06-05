@@ -61,7 +61,7 @@ div.page_tern
           this.item_status[id].open=!this.item_status[id].open
         }
       },
-      computed: Vuex.mapState(['about_logs'])
+      computed: mapState(['about_logs'])
 
   }
 </script>

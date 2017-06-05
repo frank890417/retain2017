@@ -20,7 +20,8 @@ require('bootstrap-sass');
 window.Vue = require('vue');
 window.VueRouter = require('vue-router');
 window.Vuex = require('vuex');
-
+// Vue.use(VueRouter);
+// Vue.use(Vuex);
 
 window.Dropzone = require('dropzone');
 /**
