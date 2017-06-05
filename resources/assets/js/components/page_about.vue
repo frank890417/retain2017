@@ -152,11 +152,11 @@ div.page_about
         to_href: function(obj) {
           console.log(this);
           if (obj.news_id!=1){
-            this$route.router.go("/news/"+obj.news_id);
+            this.$route.router.go("/news/"+obj.news_id);
           }
         }
       },
-      computed: Vuex.mapState(['about_logs'])
+      computed: mapState(['about_logs'])
 
   }
 </script>
