@@ -68,7 +68,7 @@ div.page_about
           h3.block_title 核心價值
           p.block_para 1. 誠信 : 堅持以誠待人、信用至上<br>2. 品質 : 強調追求卓越、精益求精<br>3. 專業 : 強化人員訓練、結合醫療團隊<br>4. 創新 : 重視技術開發、管理服務之創新
 
-  section.section_member
+  section.section_member#section_member
     h2.section_title 董監事
     .container
 
@@ -147,6 +147,9 @@ div.page_about
             console.log(this);
             $(this).parent().toggleClass("active");
           });
+          if (window.location.hash=="#section_member"){
+            $("html,body").animate({scrollTop: $("#section_member").offset().top-100});
+          }
       },
       methods: {
         to_href: function(obj) {

@@ -25,6 +25,7 @@ var section_search = Vue.component('section_search', require('../components/sect
 const routes = [
   { path: '/', component: page_index },
   { path: '/about', component: page_about },
+  { path: '/team', component: page_about },
   { path: '/tech', component: page_tech },
   { path: '/solution/:id', component: page_product , props: true},
   { path: '/solution/0', alias: '/solution'},

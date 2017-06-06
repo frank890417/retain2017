@@ -49,39 +49,24 @@ scroll
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
-  $(".bg_parallax").each(function(index,obj){
-    $(this).css("background-position","center "+(top_val- $(this).offset().top)/1.50+"px");
-  }); 
+  if ($(".bg_parallax").length>0){
+    $(".bg_parallax").each(function(index,obj){
+      if ($(this).offset().top+$(this).outerHeight()>top_val)
+        $(this).css("background-position","center "+(top_val- $(this).offset().top)/2.2+"px");
+    }); 
+  }
   if ($(".mountain").length>0){
     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");
   }
 
   if ($(".cover1").length>0){
-    $(".cover1").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/2+50)+"px)");
-    $(".cover2").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/5+50)+"px)");
-    $(".cover3").css("transform","translateY("+(-(top_val-$(".page_index_grow").offset().top)/9+86)+"px)");
- 
+    var grow_top=$(".page_index_grow").offset().top;
+    if (grow_top+$(".page_index_grow").outerHeight()>top_val){
+      $(".cover1").css("transform","translateY("+(-(top_val-grow_top)/2.2+50)+"px)");
+      $(".cover2").css("transform","translateY("+(-(top_val-grow_top)/5.2+50)+"px)");
+      $(".cover3").css("transform","translateY("+(-(top_val-grow_top)/9.2+86)+"px)");
+   }
   }
-   //percet nt init
-  $(".percent.initial").each(function(index,obj){
-    // console.log("test");
-    // update element enter animation
-    if ($(obj).offset().top<top_val+window_height*0.9){
-      $(obj).removeClass("initial");
-      
-      var ed_val=1.0*$(obj).attr("data-target");
-
-      var nowval=0;
-      var timer=setInterval(function(){
-        $(obj).html(Math.round(nowval));
-        if (nowval>=ed_val-0.2){
-          clearInterval(timer);
-        }else{
-          nowval+=(ed_val-nowval)*0.05;
-        }
-      },30);
-    }
-  });
 
     //update section content fadeIn
     $(".section_title.initial,.section_para").each(function(index,obj){
@@ -90,8 +75,25 @@ window.update_scroll=function update_scroll(top_val){
       }
     });
 
-    //update right side bullet
-    update_bullet(top_val);
+
+    //post box float
+
+    var postbox=$(".post_box");
+    if (postbox.length>0){
+      var pt=postbox.offset().top , ph=postbox.height();
+      var st = top_val;
+      var delta= (st>pt?(st-24*33):0) ;
+      var content_end=ph+pt-24*22;
+      if (st>content_end){
+        delta=content_end-st+24*22;
+      }
+      $(".col_fixed").css("transform","translateY("+delta+"px)");
+      // console.log(delta);
+    }
+
+
+    // //update right side bullet
+    // update_bullet(top_val);
 }
 
 //subscribe parallax top

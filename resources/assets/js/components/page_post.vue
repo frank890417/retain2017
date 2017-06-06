@@ -2,7 +2,7 @@
 div.page_post
   .slick
     section.section_hero(v-if='newsset' v-for='id in 2')
-      .bg.bg_parallax(:style="bg_css(newsset.cover)") 
+      .bg.bg_parallax(:style="bg_css('http://retain2017.dev/img/news2.jpg')") 
       .container.flex
   
   section.section_post
@@ -73,16 +73,7 @@ export default {
           console.log("news_slick_loaded");
         }
       },100);
-      $(window).scroll((evt)=>{
-        var st = $(window).scrollTop();
-        var delta= (st>$(".post_box").offset().top?(st-24*33):0) ;
-        var content_end=$(".post_box").height()+$(".post_box").offset().top-24*22;
-        if (st>content_end){
-          delta=content_end-st+24*22;
-        }
-        $(".col_fixed").css("transform","translateY("+delta+"px)");
-        // console.log(delta);
-      });
+      
       // if (Ts) Ts.reload();
     },
     methods: {

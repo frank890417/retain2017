@@ -358,6 +358,7 @@ section
 
 .bg_parallax
   background-size: auto 100%
+  transition: 0.1s
 .bg_parallax_about
   background-size: 100% auto
 .cover_image
@@ -527,7 +528,7 @@ a
 nav
   $nav_height: grid_sz(0,3)
   +size(100%,$nav_height)
-
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
 
   position: fixed
   top: 0
@@ -710,6 +711,7 @@ nav
       $nav_height_at_top: grid_sz(0,5)
       height: $nav_height_at_top
       padding: grid_sz(0,1)
+      box-shadow: none
 
       .navbar-search-input
         top: grid_sz(0,1)

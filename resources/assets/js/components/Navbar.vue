@@ -14,7 +14,8 @@ div
             li(@click="toggle_open")
               router-link( to="/about#section_about_log") 睿田大事紀
         li 
-          h4 管理經營
+          h4(@click="toggle_open")
+            router-link(to="/team#section_member") 管理經營
           // ul.sub_list
             li(@click="toggle_open") 
               router-link( to="/tech") 快檢平台
@@ -37,16 +38,16 @@ div
             //li(@click="toggle_open") 
               a(href="#") 全部新聞
             li(@click="toggle_open") 
-              a(href="#") 睿田活動
+              router-link(to="/news/cata/睿田活動") 睿田活動
             li(@click="toggle_open") 
-              a(href="#") 研討會訊息
+              router-link(to="/news/cata/研討會訊息") 研討會訊息
             li(@click="toggle_open") 
-              a(href="#") 醫學新知
+              router-link(to="/news/cata/醫學新知") 醫學新知
             li(@click="toggle_open") 
-              a(href="#") 友善連結
+              router-link(to="/news/cata/友善連結") 友善連結
         li
           h4(@click="toggle_open") 
-            a(href="#") 會員服務
+            a(href="#") 會員登入
         li(@click="toggle_open") 
           h4 
             router-link(to="/job") 人才招募
@@ -83,7 +84,7 @@ div
                     li 
                       router-link(to="/about#section_about_log") 睿田大事紀
             li
-              a(href="#") 管理經營
+              router-link(to="/team#section_member") 管理經營
               // ul.subnav
                 .container.flex
                   div.options
@@ -104,13 +105,13 @@ div
                     //li 
                       router-link(to="#") 全部新聞
                     li 
-                      router-link(to="#") 睿田活動
+                      router-link(to="/news/cata/睿田活動") 睿田活動
                     li 
-                      router-link(to="#") 研討會訊息
+                      router-link(to="/news/cata/研討會訊息") 研討會訊息
                     li 
-                      router-link(to="#") 醫學新知
+                      router-link(to="/news/cata/醫學新知") 醫學新知
                     li 
-                      router-link(to="#") 友善連結
+                      router-link(to="/news/cata/友善連結") 友善連結
                     
             // li
               router-link(to="/contact")  聯絡我們
