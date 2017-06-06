@@ -10,6 +10,9 @@ require('./bootstrap');
 import store from "./store"
 import router from "./router"
 import {mapState} from "vuex"
+import {TweenMax} from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin"
+window.TweenMax=TweenMax
 
 const app = new Vue({
   el: "#app",
@@ -21,6 +24,29 @@ const app = new Vue({
   }
 });
 
+
+$(function(){ 
+
+  var $window = $(window);
+  var scrollTime = 1;
+  var scrollDistance = 120;
+
+  $window.on("mousewheel DOMMouseScroll", function(event){
+
+    event.preventDefault(); 
+
+    var delta = event.originalEvent.wheelDelta/130 || -event.originalEvent.detail/3;
+    var scrollTop = $window.scrollTop();
+    var finalScroll = scrollTop - parseInt(delta*scrollDistance);
+
+    TweenMax.to($window, scrollTime, {
+      scrollTo : { y: finalScroll, autoKill:true },
+        ease: Power2.easeOut,
+        overwrite: 5              
+      });
+    console.log(finalScroll);
+  });
+});
 
 //---------------------
 
