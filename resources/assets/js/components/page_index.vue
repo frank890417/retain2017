@@ -121,7 +121,7 @@ div.page_index
       .col_left
         .out_pic.slick
           .item.item1
-          .item.item1
+          .item.item2
 
         .slick_caption
           .title 創新的科技、貼心的服務

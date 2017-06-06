@@ -39,7 +39,7 @@ div.footer
         li
           router-link(to="/job") 人才招募
         li
-          a(href="#") 會員管理
+          a(href="#") 會員登入
         li
          router-link(to="/tern") 各項聲明
         li
