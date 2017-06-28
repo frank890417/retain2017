@@ -1,191 +1,147 @@
 <template lang="jade">
 div
-  div.fullnav(:class="open_full?'open':''")
-    .close_btn(@click="toggle_open")
-    .container
-      img.headerimg(src="/img/Retain.png")
-      ul.main_list
-        li 
-          h4(@click="toggle_open")
-            router-link(to="/about") 關於睿田
-          // ul.sub_list
-            li(@click="toggle_open")
-              router-link( to="/about#section_about_from") 睿田源起
-            li(@click="toggle_open")
-              router-link( to="/about#section_about_log") 睿田大事紀
-        li 
-          h4(@click="toggle_open")
-            router-link(to="/team#section_member") 管理經營
-          // ul.sub_list
-            li(@click="toggle_open") 
-              router-link( to="/tech") 快檢平台
-            li(@click="toggle_open") 
-              router-link( to="/tech") 快檢平台
-        li 
-          h4(@click="toggle_open")
-            router-link(to="/solution") 產品方案與研發
-          //ul.sub_list
-            li(@click="toggle_open") 
-              router-link( to="/solution/0") 校園環境健檢
-            li(@click="toggle_open")
-              router-link( to="/solution/1") 校園食材健檢
-            li(@click="toggle_open") 
-              router-link( to="/solution/2") 農場作物自主管理
-        li 
-          h4(@click="toggle_open")
-            router-link(to="/news") 最新消息
-          ul.sub_list
-            //li(@click="toggle_open") 
-              a(href="#") 全部新聞
-            li(@click="toggle_open") 
-              router-link(to="/news/cata/睿田活動") 睿田活動
-            li(@click="toggle_open") 
-              router-link(to="/news/cata/研討會訊息") 研討會訊息
-            li(@click="toggle_open") 
-              router-link(to="/news/cata/醫學新知") 醫學新知
-            li(@click="toggle_open") 
-              router-link(to="/news/cata/友善連結") 友善連結
-        li
-          h4(@click="toggle_open") 
-            a(href="#") 會員登入
-        li(@click="toggle_open") 
-          h4 
-            router-link(to="/job") 人才招募
-        li(@click="toggle_open") 
-          h4 
-            router-link(to="/tern") 各項聲明
-        li(@click="toggle_open") 
-          h4
-            router-link(to="/contact") 聯絡我們
-  nav.navbar.at_top(:class="search?'search':''")
+  transition(name="fade")
+    .fullnav(v-if="open_full")
+      .close_btn(@click="toggle_open", :class="{open: open_full}")
+      .container
+        img.headerimg(src="/img/Rapid.png")
+        ul.functions
+          li.function.func_lang
+            a(href="#")
+            div.lang_options
+              li(v-for = "l in lang")
+                router-link(to="#") {{l.name}}
+          li.function.func_size(@click='toggle_size')
+            img.icon_big(src="/img/icon_word_big.svg", v-show="!big_font")
+            img.icon_small(src="/img/icon_word_small.svg", v-show="big_font")
+        ul.main_list
+          li(v-for="main_tag in maked_nav_structure")
+            //沒有連結的主選單
+            h4(v-if="main_tag.link=='#'")
+              span {{main_tag.tag}}
+            h4(@click="toggle_open", v-else)
+              router-link(v-if="",:to="main_tag.link" ) {{main_tag.tag}}
+            //子項目
+            ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
+              li(@click="toggle_open" v-for="sub_tag in main_tag.childs")
+                router-link( :to="sub_tag.link") {{sub_tag.tag}}
+
+  nav.navbar(:class="{search: search,at_top: scrollTop<=0}")
     .container
       .row
         div.nav-leftpart
-          
+          //logo          
           .navbar-header.col-sm-3
-            // Collapsed Hamburger
-
-            // Branding Image
             router-link.navbar-brand(to="/")
-              img.logo(src="/img/Retain.png")
+              img.logo(src="/img/Rapid.png")
           .navbar-search-input
             section_search
 
-          // Left Side Of Navbar
+          // 使用 nav_structure自動產生選單
           ul.navbar-nav.navbar-left.text-left
-            // Authentication Links
-            li
-              router-link(to="/about") 關於睿田
-              // ul.subnav
+            li(v-for = "main_tag in maked_nav_structure"
+               v-if = "!main_tag.hide_navbar")
+
+              //選擇性產生router-link或a(#)
+              a(v-if = "main_tag.link=='#'",href = "#") {{main_tag.tag}}
+
+              router-link(:to = "main_tag.link" v-if = "main_tag.link!='#'") {{main_tag.tag}}
+
+              //子選單
+              ul.subnav(v-if = "main_tag.childs && main_tag.childs.length>0")
                 .container.flex
                   div.options
-                    li 
-                      router-link(to="/about#section_about_from") 睿田源起
-                    li 
-                      router-link(to="/about#section_about_log") 睿田大事紀
-            li
-              router-link(to="/team#section_member") 管理經營
-              // ul.subnav
-                .container.flex
-                  div.options
-                    li 
-                      router-link(to="/tech") 快檢平台
-            li
-              router-link(to="/solution") 產品方案與研發
-              // ul.subnav
-                .container.flex
-                  div.options
-                    li(v-for='(sol,id) in solutions')
-                      router-link(:to="'/solution/'+id") {{sol.title.replace('計畫','')}}
-            li
-              router-link(to="/news") 最新消息
-              ul.subnav
-                .container.flex
-                  div.options
-                    //li 
-                      router-link(to="#") 全部新聞
-                    li 
-                      router-link(to="/news/cata/睿田活動") 睿田活動
-                    li 
-                      router-link(to="/news/cata/研討會訊息") 研討會訊息
-                    li 
-                      router-link(to="/news/cata/醫學新知") 醫學新知
-                    li 
-                      router-link(to="/news/cata/友善連結") 友善連結
-                    
-            // li
-              router-link(to="/contact")  聯絡我們
-            
+                    li(v-for = "(sub_tag,sub_id) in main_tag.childs")
+                      router-link(:to = "sub_tag.link") {{sub_tag.tag}}
+
+        //右半部語言跟功能選單
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
             a(href="#")
               span 繁
               i.fa.fa-angle-down 
-            ul.subnav(style="display: none")
+            ul.lang_subnav
               .container
                 div.options
-                  li 
-                    router-link(to="#") 繁
-                  li 
-                    router-link(to="#") 简
-                  li 
-                    router-link(to="#") EN
-
+                  li(v-for = "l in lang")
+                    a(href="#") {{l.name}}
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
-            img.icon_big(src="/img/icon_word_big.svg" style="width: 22px" v-if="!big_font")
-            img.icon_small(src="/img/icon_word_small.svg" style="width: 22px" v-if="big_font")
+            img.icon_big(src="/img/icon_word_big.svg", v-show="!big_font")
+            img.icon_small(src="/img/icon_word_small.svg", v-show="big_font")
 
           li.nav_open.func_burger(@click="toggle_open")
             i.fa.fa-bars
+
 </template>
 
 <script>
     import {mapState,mapMutations} from 'vuex'
+    import nav_structure from '../nav_structure'
     export default {
         mounted() {
             console.log('navbar mounted.');
 
             //update subnav position
-            function place_sub_nav(){
-              $(".navbar-nav > li").each(function(index,obj){
-                // console.log(index);
-                var li_width=$(obj).width();
-                var container=$(obj).children(".subnav").children(".container");
-                var content=container.children(".options");
-                // var align_obj=$(obj);
-                var align_obj=$(".navbar-nav > li:first");
-                
-                container.css("padding-left",(align_obj.offset().left-$(".navbar .container").offset().left-10)+"px");
-                // if (index>=2 && index<=5){
-                //   content.css("margin-left",(-content.width()/2)+"px");
+            
+            this.place_sub_nav();
+            window.place_sub_nav=this.place_sub_nav;
+            $(window).resize(this.place_sub_nav);
 
-                // }
-
-                // if (index>2){
-                //   content.css("margin-left",(-content.width()+li_width)+"px");
-                //   content.children("li").css("margin-left","24px").css("margin-right","0px");
-                // }
-                
-              });
-            }
-            place_sub_nav();
-            $(window).resize(place_sub_nav);
+            
         },
         data(){
           return {
             open_full: false,
+            open_lang: false,
+            nav_structure,
+            lang: [{name: "繁"},{name: "简"},{name: "EN"}]
           }
+        },
+        watch:{
+          scrollTop(){
+            this.place_sub_nav();
+            if (this.scrollTop<=0){
+              setInterval(function(){
+                
+                this.place_sub_nav();
+              },500);
+            }
+          }
+
         },
         methods:{
           toggle_open(){
             this.open_full=!this.open_full;
-            console.log(this.open_full);
+          },
+          place_sub_nav(){
+            $(".navbar-nav > li").each(function(index,obj){
+              // console.log(index);
+              var li_width=$(obj).width();
+              var container=$(obj).children(".subnav").children(".container");
+              var content=container.children(".options");
+              // var align_obj=$(obj);
+              var align_obj=$(".navbar-nav > li:first");
+              
+              container.css("padding-left",(align_obj.offset().left)+"px");
+              container.css("margin-left","0px");
+              container.css("white-space","nowrap");
 
+              if (content.width()>600){
+                container.css("padding-left","calc(50vw - "+li_width+"px)");
+                content.css("transform","translateX(-50%)")
+              }
+            });
           },
           ...mapMutations(['toggle_size','toggle_search'])
         },
-        computed: mapState(["solutions","big_font","search"])
-    }
+        computed: {
+          ...mapState(["solutions","big_font","search","scrollTop"]),
+
+          maked_nav_structure(){
+            return this.nav_structure
+        }
+      }
+  }
 </script>

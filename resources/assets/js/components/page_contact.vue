@@ -31,7 +31,7 @@ div.page_contact
             .btn.btn-primary.btn-submit 
               span 送出
               i.fa.fa-angle-right
-      .col_right
+      .col_right#questions
         h4 常見問題
         ul.question_list(v-if="questions.length>0")
           li(v-for='(qa,id) in questions' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
@@ -63,6 +63,9 @@ div.page_contact
                 el.style.cssText = 'height:' + (el.scrollHeight+5) + 'px';
               },0);
             }
+            if (window.location.hash){
+            $("html,body").animate({scrollTop: $(window.location.hash).offset().top-100});
+          }
         },
         data(){
           return {

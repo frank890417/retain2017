@@ -1,6 +1,6 @@
 <template lang="jade">
 div.page_solution
-  section.section_hero
+  section.section_hero.bg_parallax
     .container.flex
       .col_left
         h1.section_title 產品方案與研發
@@ -20,21 +20,23 @@ div.page_solution
             .detail {{sinfo.content}}
 
   section.section_solution(v-for="(product,product_id) in products",:class="'section_solution_'+product_id")
-    .main_info
+    .main_info(@click="toggleActive('.section_solution_'+product_id)")
       .container.flex
         .cover(:style="bg_css(product.cover)")
         .info
           h3.title {{product.name}}
           .description(v-html="product.description")
-        .btn_expand.cross.btn_soluton_expand(@click="toggleActive('.section_solution_'+product_id)",:class="{no_content: product.programs.length==0}")
+        .btn_expand.cross.btn_soluton_expand(:class="{no_content: product.programs.length==0}")
     .container.program_list_container(v-if="product.type !='text'")
       ul.program_list
 
-        li(v-for="(program,prog_id) in product.programs" ,:class="'program_'+prog_id")
+        li(v-for="(program,prog_id) in product.programs" ,
+          :class="'program_'+prog_id",
+          @click="toggleActive('.program_'+prog_id)")
           .tag 
             span {{program.tag}}
           h4.program_title {{program.name}}
-          .btn_expand.btn_program_expand(@click="toggleActive('.program_'+prog_id)", :class="{no_content: !program.description}")
+          .btn_expand.btn_program_expand(:class="{no_content: !program.description}")
             i.fa.fa-angle-down
           .program_box(:class="'program_box_'+prog_id" , v-if="program.description")
             .top.container.flex
