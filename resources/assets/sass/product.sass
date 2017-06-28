@@ -2,7 +2,7 @@
   .section_hero
     padding-top: grid_sz(0,11)
     background-image: url("/img/product/1.jpg")
-    background-size: 1000px auto
+    background-size: auto 100%
     background-position: left bottom
     background-repeat: no-repeat
     min-height: 100vh
@@ -184,6 +184,7 @@
       background-color: $color_brown
       border-bottom: solid 3px darken($color_brown,16)
       box-sizing: border-box
+      cursor: pointer
 
 
       &:before
@@ -192,7 +193,7 @@
         +trans
 
       .btn_expand.no_content
-        opacity: 0.3
+        opacity: 0
         cursor: initial
 
       .container.flex
@@ -267,7 +268,7 @@
           transform: translateY(-50%)
 
           &.no_content
-            opacity: 0.3
+            opacity: 0
             cursor: initial
           i
             transform-origin: center center

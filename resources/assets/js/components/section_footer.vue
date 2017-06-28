@@ -6,8 +6,8 @@ div.footer
         img(src="/img/icon_arrow_up.svg")
       .col_address
         h5 公司資訊
-        h5 台北, 台灣
-
+        p 台北, 台灣
+        br
         p 台北市忠孝東路一段54號5樓<br>+886.2.5579-0123
         hr
         img.social_icon.fb(src="http://www.greenvalefarm.com.au/wp-content/themes/greenvale/images/fb-icon.png")
@@ -22,7 +22,7 @@ div.footer
             p.answer {{qa.answer}}
           
           li 
-            a.more 更多問題...
+            router-link(to="/contact#questions").more 更多問題...
 
       .col_corp
         h5.text-left 合作夥伴

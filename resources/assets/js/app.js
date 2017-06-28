@@ -35,7 +35,7 @@ $(function(){
 
     event.preventDefault(); 
 
-    var delta = event.originalEvent.wheelDelta/130 || -event.originalEvent.detail/3;
+    var delta = event.originalEvent.wheelDelta/100 || -event.originalEvent.detail/3;
     var scrollTop = $window.scrollTop();
     var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
@@ -75,11 +75,21 @@ scroll
 
 //使用卷軸位置更新元件
 window.update_scroll=function update_scroll(top_val){
-  if ($(".bg_parallax").length>0){
-    $(".bg_parallax").each(function(index,obj){
-      if ($(this).offset().top+$(this).outerHeight()>top_val)
-        $(this).css("background-position","center "+(top_val- $(this).offset().top)/2.2+"px");
-    }); 
+  //update parallax backgrounds
+  let bg_px = Array.from(document.getElementsByClassName("bg_parallax"))
+  if ( bg_px.length ){
+    bg_px.forEach((obj,index)=>{
+      let $obj=$(obj)
+      if ( !obj.classList.contains("no_attach") ){
+        if ($obj.offset().top+$obj.outerHeight()>top_val)
+          $obj.css("background-position","center "+ -(top_val-$obj.offset().top)/12+"px");
+        
+      }else{
+        if ($obj.offset().top+$obj.outerHeight()>top_val){
+          $obj.css("background-position","center "+ (top_val-$obj.offset().top)/1.6+"px");
+        };   
+      }
+    });
   }
   if ($(".mountain").length>0){
     $(".mountain").css("bottom",(+(-(top_val+window_height*0.85-$("#section_about_log").offset().top)/4))+"px");

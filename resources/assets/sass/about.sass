@@ -11,12 +11,12 @@
     .container.full
       position: absolute
       top: 0
+
+      background-image: url("/img/about/1.jpg")
+      background-size: cover
+      background-position: center top
       .col_left
         width: calc(50% + #{grid_sz(1,1.5)})
-
-        background-image: url("/img/about/1.jpg")
-        background-size: cover
-        background-position: right top
 
         &:before
           +pseudo_ab_full
@@ -24,7 +24,7 @@
     
       .col_right
         width: calc(50% - #{grid_sz(1,1.5)})
-        background-color: #eee
+        background-color: rgba(#fff,0.7)
 
 
       +rwd_md
@@ -198,8 +198,9 @@
             background-color: rgba($color_theme,0.9)
   
     .block_title
-      font-size: 24px
+      font-size: 30px
       margin-bottom: grid_sz(0,2)
+      text-align: center
     .infos
       width: grid_sz(4,3)
       margin: auto
