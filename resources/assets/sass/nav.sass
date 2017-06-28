@@ -14,7 +14,7 @@ nav
   border-top: solid 3px $color_theme
   box-shadow: 0px 0px 10px rgba(0,0,0,0.1)
   z-index: 200
-  +trans
+  transition: top 0s,box-shadow 0.5s , height 0.5s
 
   *,a
     color: $color_grey
@@ -188,25 +188,63 @@ nav
       &,i,span
         color: $color_theme
 
-  .func_lang:hover,.func_lang
-    .subnav
-      width: 50px
+  .func_lang
+ 
+    .lang_subnav
       position: absolute
+      overflow: hidden
+      max-height: 0
       top: 35px
       height: auto
-      color: white
-      .container
-        padding: 0 !important
-        height: auto
-        .options
-          display: flex
-          flex-direction: column
-          height: auto
-          padding: 0
-          li
-            padding: 0
-            margin: 0
-            position: grid_sz(0,0.5)
+      background-color: $color_theme
+      margin-left: -15px
+      padding:
+        left: 10px
+        right: 10px
+      +trans
+      li
+        padding: 5px
+        margin-right: 0
+      a
+        color: white
+        cursor: pointer
+        opacity: 0.8
+        &:hover
+          
+          opacity: 1
+        &.router-link-active
+          color: white
+          opacity: 1
+          border-bottom: solid 1px white
+
+    &:hover
+
+      .lang_subnav
+        max-height: 200px
+        padding-top: 10px
+        padding-bottom: 10px
+
+  &.search
+    .navbar-search-input
+      pointer-events: initial
+      opacity: 1
+    .navbar-left
+      pointer-events: none
+      opacity: 0
+
+
+
+  .func_size
+    padding-top: 3px
+    filter: saturate(100%) brightness(1) contrast(1)
+    +trans
+    .icon_big,.icon_small
+      cursor: pointer
+      width: 22px
+      height: 22px
+    &:hover
+      filter: saturate(0%) brightness(0.7) contrast(5)
+    
 
 
 
@@ -260,24 +298,7 @@ nav
       .navbar-nav li
         & ul.subnav
           +pos(0,$nav_height_at_top)
-  &.search
-    .navbar-search-input
-      pointer-events: initial
-      opacity: 1
-    .navbar-left
-      pointer-events: none
-      opacity: 0
-
-
-
-  .func_size
-    padding-top: 3px
-    filter: saturate(100%) brightness(1) contrast(1)
-    +trans
-    &:hover
-      filter: saturate(0%) brightness(0.7) contrast(5)
-    .icon_big,.icon_small
-      cursor: pointer
+  
 
 
 .section_search
