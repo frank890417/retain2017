@@ -26,12 +26,18 @@
 
 
   .section_form
-    
+    label,input,select,div,p
+      font-size: 18px
+
+    select
+      fo
     .container.flex
       align-items: flex-start
       padding-top: grid_sz(1,1)
     h4
       margin-bottom: grid_sz(1,0)
+      text-align: left
+      width: 100%
     .col_left
       width: grid_sz(6,7)
       height: 100%
@@ -39,6 +45,7 @@
       width: grid_sz(6,6)
       text-align: left
       height: 100%
+      padding-left: grid_sz(1,1)
 
 
 
@@ -58,7 +65,7 @@
       width: grid_sz(1,2)
       padding-right: grid_sz(0,1)
       white-space: nowrap
-      font-weight: 300
+      font-weight: 500
       color: $color_grey_light
       padding-top: grid_sz(0,1)
       padding-bottom: grid_sz(0,1)
@@ -123,6 +130,12 @@
       .col_left,.col_right
         width: 100%
         min-height: 50vh
+        padding:
+          left: grid_sz(0,1)
+          right: grid_sz(0,1)
+        box-sizing: border-box  
+      .col_right
+        // padding-left: grid_sz(0,1)
       .form-group
         flex-direction: column
 

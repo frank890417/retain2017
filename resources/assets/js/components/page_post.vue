@@ -8,7 +8,7 @@ div.page_post
   section.section_post
     .container.flex.column(v-if='newsset')
       .top
-        .col_left.col_fixed
+        .col_left
           h4.info
             router-link(:to="'/news/cata/'+newsset.tag") 研討會訊息
           h4.info(v-text='newsset.date')

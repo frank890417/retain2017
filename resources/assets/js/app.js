@@ -82,7 +82,7 @@ window.update_scroll=function update_scroll(top_val){
       let $obj=$(obj)
       if ( !obj.classList.contains("no_attach") ){
         if ($obj.offset().top+$obj.outerHeight()>top_val)
-          $obj.css("background-position","center "+ -(top_val-$obj.offset().top)/12+"px");
+          $obj.css("background-position","center "+ -(top_val-$obj.offset().top)/11+"px");
         
       }else{
         if ($obj.offset().top+$obj.outerHeight()>top_val){

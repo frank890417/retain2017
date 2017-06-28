@@ -5,7 +5,11 @@ div.page_contact
       .col_left
         h1.section_title 聯絡我們
         h4.section_eng Contact us
-        p.section_para 服務專線  +886.2.55967898<br>服務時間  週一 ~ 週五 10:00 ~ 17:00<br><br>若您有任何疑問、服務需求等，歡迎與我們聯絡，我們將竭誠為您服務。
+        p.section_para 服務專線  
+          span.color_theme +886.2.55967898
+          span <br>服務時間  
+          span.color_theme 週一 ~ 週五 10:00 ~ 17:00<br><br>
+          span 若您有任何疑問、服務需求等，歡迎與我們聯絡，我們將竭誠為您服務。
   section.section_form
     .container.flex
       .col_left
