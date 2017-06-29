@@ -32,13 +32,13 @@ div.page_solution
       ul.program_list
 
         li(v-for="(program,prog_id) in product.programs" ,
-          :class="['program_'+prog_id , program.description?'enable':'' ]",
-          @click="toggleActive('.program_'+prog_id,program.description)")
-          .tag 
-            span {{program.tag}}
-          h4.program_title {{program.name}}
-          .btn_expand.btn_program_expand(:class="{no_content: !program.description}")
-            i.fa.fa-angle-down
+          :class="['program_'+prog_id , program.description?'enable':'' ]")
+          .program_top.flex( @click="toggleActive('.program_'+prog_id,program.description)")
+            .tag
+              span {{program.tag}}
+            h4.program_title {{program.name}}
+            .btn_expand.btn_program_expand(:class="{no_content: !program.description}")
+              i.fa.fa-angle-down
           .program_box(:class="'program_box_'+prog_id" , v-if="program.description")
             .top.container.flex
               .col_left
@@ -50,8 +50,11 @@ div.page_solution
               .col_right
                 h5.program_sub_title 方案內容
                 ul.service_type
-                  li(v-for="content in program.contents")
-                    .toggle_part {{content.name}}
+                  li(v-for="(content,content_id) in program.contents")
+                    .toggle_part 
+                      .tag 
+                        span {{content_id+1}}
+                      span {{content.name}}
                       .btn_expand.cross
                     .info_part
                       p(v-html="content.description")
@@ -97,7 +100,7 @@ div.page_solution
             $(".hero_right_list li").removeClass("active");
             $(this).toggleClass("active");
           });
-          $(".service_type .btn_expand").click(function(){
+          $(".service_type .toggle_part").click(function(){
             $(this).closest("li").toggleClass('active');
           });
           $(".hero_right_list li:first-child").toggleClass("active");

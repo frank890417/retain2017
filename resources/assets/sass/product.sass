@@ -149,9 +149,18 @@
     padding-top: 0px
     padding-bottom: 0px
     min-height: initial
-    
+    .description
+      max-height: 0px
+      overflow: hidden
+      opacity: 0
+      +trans
+
   
     &.active
+      .description
+        max-height: 100px
+        opacity: 1
+
       .main_info
         border-bottom: none
         .info *
@@ -185,10 +194,9 @@
       background-color: $color_brown
       border-bottom: solid 3px darken($color_brown,16)
       box-sizing: border-box
+
       &.enable
         cursor: pointer
-
-
 
       &:before
         +pseudo_ab_full
@@ -202,8 +210,8 @@
       .container.flex
         justify-content: flex-start
         min-height: initial
-        padding-top: grid_sz(0,2)
-        padding-bottom: grid_sz(0,2)
+        padding-top: grid_sz(0,1)
+        padding-bottom: grid_sz(0,1)
         
       .cover
         +size(140px)
@@ -229,6 +237,8 @@
       
       +toggle_height
 
+
+  
       & > li
         vertical-align: middle
         text-align: left
@@ -241,8 +251,12 @@
         +trans
         position: relative
 
+        .program_top
+          position: relative
+
         &.enable
-          cursor: pointer
+          .program_top
+            cursor: pointer
 
         .tag
           display: inline-block
@@ -272,7 +286,7 @@
           position: absolute
           right: 30px
           +size(24px)
-          top: 36px
+          top: 20px
           cursor: pointer
           transform: translateY(-50%)
 
@@ -320,16 +334,19 @@
         padding-right: 0px
 
       .col_left,.col_right
-        align-items: flex-start
+        // align-items: flex-start
         padding-top: 50px
+        align-items: stretch
+        display: flex
 
         +rwd_sm
           box-sizing: border-box
-
+    
 
 
         .program_sub_title
           margin-bottom: grid_sz(0,2)
+          text-align: left
           &:after
             content: ""
             margin-top: grid_sz(0,1)
@@ -337,9 +354,12 @@
             width: 30px
             border-bottom: solid 1px $color_grey
         p
-          margin-bottom: grid_sz(0,2)
+          margin-bottom: 85px
       .col_right
-        background-color: #E8ECEF
+        background-color: #ECECEC
+        .tag
+          +size(20px)
+          font-size: 14px
       .service_type
 
         .btn_expand
@@ -361,6 +381,7 @@
         li
           .toggle_part
             height: grid_sz(0,2)
+            cursor: pointer
             
             background-color: $color_brown
             display: flex
@@ -402,4 +423,4 @@
         background-color: $color_brown
         color: white
         width: 100%
-        padding: grid_sz(0,1) grid_sz(0,1)
+        padding: grid_sz(0,0.5) grid_sz(0,0.5)
