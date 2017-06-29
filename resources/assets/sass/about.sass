@@ -340,6 +340,7 @@
         padding: grid_sz(0,1)
 
         +flex_center
+        align-items: flex-start
         
         h5,li,p
           color: white
@@ -347,13 +348,14 @@
           letter-spacing: 2px
           font-weight: 300
     
-      &.active
+      &:hover
         .col_left,.col_right
           filter: blur(6px)
 
         .experience
           opacity: 1
           background-color: rgba($color_theme,0.8)
+          overflow-y: auto
           
         .btn_expand.cross
           &:before,&:after
