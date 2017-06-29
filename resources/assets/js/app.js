@@ -13,11 +13,15 @@ import {mapState} from "vuex"
 import {TweenMax} from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 window.TweenMax=TweenMax
+import VueI18n from 'vue-i18n'
+
+import custom_i18n from './i18n'
 
 const app = new Vue({
   el: "#app",
   router,
   store,
+  i18n: custom_i18n.i18n,
   computed: mapState(['news','about_logs','big_font']),
   mounted(){
      store.dispatch("loadWebsite");

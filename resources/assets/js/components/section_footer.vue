@@ -2,38 +2,39 @@
 div.footer
   section.detail_footer
     .container.flex
-      .go_to_topbtn.at_top
+      .go_to_topbtn(:class="{at_top: scrollTop<=0}")
         img(src="/img/icon_arrow_up.svg")
       .col_address
-        h5 公司資訊
-        p 台北, 台灣
-        br
-        p 台北市忠孝東路一段54號5樓<br>+886.2.5579-0123
-        hr
-        img.social_icon.fb(src="http://www.greenvalefarm.com.au/wp-content/themes/greenvale/images/fb-icon.png")
-        img.social_icon(src="https://cdn4.iconfinder.com/data/icons/picons-social/57/40-google-plus-3-128.png")
+        h5(v-text="$t('footer.section_company.title')")
+        div(v-for="loc in $t('footer.section_company.locations')")
+          p {{loc.county}}, {{loc.location}}
+          br
+          p {{loc.address}}<br>{{loc.phone}}
+          hr
 
+         a(v-for="social in $t('footer.section_company.social')" ,:href="social.url?social.url:'#'", target="_blank")
+          i.social_icon(v-if="social.icon.indexOf('fa.')==0" ,:class="social.icon.indexOf('fa.')==0?[social.icon.split('fa.')[1],'fa']:[]")
+          img.social_icon(v-else, :src="social.icon")
       .col_question
-        h5 常見問題
+        h5(v-text="$t('footer.section_question.title')")
         ul.question_list
           li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
-            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'")
-            .question {{qa.question}}
+            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
+            p.question {{qa.question}}
             p.answer {{qa.answer}}
           
           li 
-            router-link(to="/contact#questions").more 更多問題...
+            router-link.more(to="/contact#section_qa") {{$t('footer.section_question.more')}}
 
       .col_corp
-        h5.text-left 合作夥伴
+        h5.text-left(v-text="$t('footer.section_partner.title')")
         .slicklogo2
-          .item
-            img.company_icon(src="/img/lida-logo.png" style="width: 100%")
-     
-         
+          .item(v-for="partner in $t('footer.section_partner.partners')")
+            img.company_icon(:src="partner.icon", :title="partner.name")
+
   footer
     .container.flex
-      .info Copyright 2017 © 睿田生技 Retain Biotech, All right reserved.
+      .info {{$t('footer.bottom.copyright')}}
       ul.footer_nav
         li
           router-link(to="/job") 人才招募
