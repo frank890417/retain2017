@@ -233,8 +233,11 @@
         vertical-align: middle
         text-align: left
         padding: grid_sz(0,1)
-        border-top: rgba($color_grey,0.4)
-        border-bottom: rgba($color_grey,0.4)
+        padding:
+          left: 60px
+          right: 60px
+        // border-top: solid 1px rgba($color_grey,0.4)
+        border-bottom: solid 1px rgba($color_grey,0.2)
         +trans
         position: relative
 
@@ -286,6 +289,7 @@
         &.active 
           background-color: $color_brown
           padding-bottom: 0px //底部有more info 的文字塊
+          margin-top: 50px
           .program_box
             +toggle_height_active
             
@@ -304,8 +308,10 @@
     //方案詳細內容
     .program_box
       background-color: white
-      margin-left: grid_sz(0,-1)
-      margin-right: grid_sz(0,-1)
+      // margin-left: grid_sz(0,-1)
+      // margin-right: grid_sz(0,-1)
+      margin-left: -60px
+      margin-right: -60px
       +toggle_height_hide
 
       & > .container.flex
@@ -315,6 +321,7 @@
 
       .col_left,.col_right
         align-items: flex-start
+        padding-top: 50px
 
         +rwd_sm
           box-sizing: border-box
