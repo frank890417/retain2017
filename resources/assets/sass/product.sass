@@ -1,6 +1,6 @@
 .page_solution
   .section_hero
-    padding-top: grid_sz(0,11)
+    padding-top: grid_sz(0,6)
     background-image: url("/img/product/1.jpg")
     background-size: auto 100%
     background-position: left bottom
@@ -22,12 +22,13 @@
     .col_right
       align-items: flex-start
       width: grid_sz(5,5)
+      padding-top: grid_sz(0,13)
       text-align: left
       border-left: solid 1px $color_grey_light
       padding-left: grid_sz(1,1)
       
 
-
+      
       li
         margin-top: grid_sz(0,0.5)
         margin-bottom: grid_sz(0,0.5)
@@ -184,7 +185,8 @@
       background-color: $color_brown
       border-bottom: solid 3px darken($color_brown,16)
       box-sizing: border-box
-      cursor: pointer
+      &.enable
+        cursor: pointer
 
 
 
@@ -235,6 +237,9 @@
         border-bottom: rgba($color_grey,0.4)
         +trans
         position: relative
+
+        &.enable
+          cursor: pointer
 
         .tag
           display: inline-block
@@ -390,4 +395,4 @@
         background-color: $color_brown
         color: white
         width: 100%
-        padding: grid_sz(0,1) grid_sz(0,2)
+        padding: grid_sz(0,1) grid_sz(0,1)

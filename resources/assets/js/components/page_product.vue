@@ -20,7 +20,8 @@ div.page_solution
             .detail {{sinfo.content}}
 
   section.section_solution(v-for="(product,product_id) in products",:class="'section_solution_'+product_id")
-    .main_info(@click="toggleActive('.section_solution_'+product_id)")
+    .main_info(@click="toggleActive('.section_solution_'+product_id,product.programs.length)",
+    :class="{enable: product.programs.length}")
       .container.flex
         .cover(:style="bg_css(product.cover)")
         .info
@@ -31,8 +32,8 @@ div.page_solution
       ul.program_list
 
         li(v-for="(program,prog_id) in product.programs" ,
-          :class="'program_'+prog_id",
-          @click="toggleActive('.program_'+prog_id)")
+          :class="['program_'+prog_id , program.description?'enable':'' ]",
+          @click="toggleActive('.program_'+prog_id,program.description)")
           .tag 
             span {{program.tag}}
           h4.program_title {{program.name}}
@@ -81,9 +82,12 @@ div.page_solution
               'background-image': "url("+url+")"
             }
           },
-          toggleActive(el){
-            console.log(el);
-            $(el).toggleClass("active");
+          toggleActive(el,enable){
+            if (enable){
+              console.log(el);
+              $(el).toggleClass("active");
+            }
+            
 
           }
         },
