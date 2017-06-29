@@ -31,7 +31,7 @@ $color_bg_grey: #F1F3F5
       background-size: cover
       &:before
         +pseudo_ab_full
-        background-color: rgba($color_theme,0.8)
+        background-color: rgba(#333,0.5)
       h1.title
         margin-top: grid_sz(0,-2)
         margin-bottom: grid_sz(0,4)
@@ -56,7 +56,7 @@ $color_bg_grey: #F1F3F5
       padding-right: 0
 
       align-items: flex-start
-      background-color: $color_bg_grey
+      background-color: #FAFAFA
 
       .date,.title,.circle
         display: inline-block
@@ -101,14 +101,13 @@ $color_bg_grey: #F1F3F5
           transform: translate(-50%,-50%) rotate(45deg)
         
         &.active,&:hover
-          background-color: white
+          background-color: $color_theme
           &:after
-            background-color: white
-          .title,.date
-            color: $color_theme
-          .circle
             background-color: $color_theme
-
+          .title,.date
+            color: white
+          .circle
+            background-color: white
   .section_news
     .container
       padding: grid_sz(0,4) full_grid(1,1)

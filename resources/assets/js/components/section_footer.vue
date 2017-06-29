@@ -28,9 +28,8 @@ div.footer
         h5.text-left 合作夥伴
         .slicklogo2
           .item
-            img.company_icon(src="/img/index/temp_cor_logo-01.png" style="width: 100%")
-          .item
-            img.company_icon(src="/img/index/temp_cor_logo-02.png" style="width: 100%")
+            img.company_icon(src="/img/lida-logo.png" style="width: 100%")
+     
          
   footer
     .container.flex
@@ -39,7 +38,7 @@ div.footer
         li
           router-link(to="/job") 人才招募
         li
-          a(href="#") 會員登入
+          a() 會員登入
         li
          router-link(to="/tern") 各項聲明
         li

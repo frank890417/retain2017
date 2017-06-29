@@ -8,9 +8,10 @@ div.page_news
             h1.title 
               router-link(to="/news/1") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").slice(0,100)+"..."}}
+            .btn.btn-default 了解更多
       .col_right
         ul 
-          li(v-for="(a_news,newsid) in news.slice(0,3)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
+          li(v-for="(a_news,newsid) in news.slice(0,5)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
             .date {{a_news.date.slice(-5) }}
             .circle
             h4.title {{a_news.title}}

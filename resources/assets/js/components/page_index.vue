@@ -62,7 +62,7 @@ div.page_index
           span.brown 預先儲存健康，是您最好的對策！ 
 
         p.section_para.text-left 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。
-        router-link.btn-underline(to='#h') 
+        router-link.btn-underline(to='/solution') 
           span 了解更多
 
   section.page_index_flow.bg_parallax
@@ -75,7 +75,7 @@ div.page_index
         h3.section_title 細緻的服務流程
         h4.section_feature 睿田生技客服專員將會提供您完整的資訊與諮詢服務。 
         p.section_para.text-left 待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
-        router-link.btn-underline.white(to='#h')
+        router-link.btn-underline.white(to='/contact')
          span 了解更多
       .col_right
         .revive_box
@@ -96,21 +96,21 @@ div.page_index
         h4.section_feature
           span.theme 串聯產、學、研三方資源投入的專業團隊! 
         p.section_para 睿田生技為臺灣大學與永齡健康基金會共同合資的第一家產學新創公司。我們整合了臺灣大學的研發實力、台成幹細胞治療中心於幹細胞領域多年的豐富臨床經驗，及永齡健康基金會長期在預防醫學與癌症治療領域投注的強大資源，並搭配立立達診所的六星級高端健康管理規劃方案，提供客戶最為專業與完善的細胞儲存管理服務！
-        router-link.btn-underline.black(to='#') 
+        router-link.btn-underline.black(to='/about') 
           span 了解更多
 
       .col_right
-        ul
-          li
+        ul.slicklogo_team
+          li.item
             img(src="/img/index/4c.jpg")
             h5.title 永齡健康基金會
-          li
+          li.item
             img(src="/img/index/4d.jpg")
             h5.title 台灣大學
-          li
+          li.item
             img(src="/img/index/4e.jpg")
             h5.title 台成幹細胞<br>治療中心
-          li
+          li.item
             img(src="/img/index/4f.jpg")
             h5.title 立達診所
 
@@ -233,6 +233,19 @@ div.page_index
               dots: true,
               easing: 'ease-in'
             });
+
+            $('.slicklogo_team').slick({
+              autoplay: true,
+              autoplaySpeed: 3000,
+              slidesToShow: 2,
+              slidesToScroll: -1,
+              arrows: false,
+              // rtl: true,
+              // fade: true,
+              // dots: true,
+              easing: 'ease-in'
+            });
+
 
             
 
