@@ -40,7 +40,7 @@ div.page_solution
             .btn_expand.btn_program_expand(:class="{no_content: !program.description}")
               i.fa.fa-angle-down
           .program_box(:class="'program_box_'+prog_id" , v-if="program.description")
-            .top.container.flex
+            .top.container.flex.strech_height
               .col_left
                 h5.program_sub_title 方案介紹
                 p(v-html="program.description")

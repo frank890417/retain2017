@@ -11,7 +11,7 @@ div.page_news
             .btn.btn-default 了解更多
       .col_right
         ul 
-          li(v-for="(a_news,newsid) in news.slice(0,5)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
+          li.container.flex(v-for="(a_news,newsid) in news.slice(0,5)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
             .date {{a_news.date.slice(-5) }}
             .circle
             h4.title {{a_news.title}}

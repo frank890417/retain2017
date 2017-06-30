@@ -4,7 +4,7 @@ div
     .fullnav(v-if="open_full")
       .close_btn(@click="toggle_open", :class="{open: open_full}")
       .container
-        img.headerimg(src="/img/Rapid.png")
+        img.headerimg(src="/img/Retain.png")
         ul.functions
           li.function.func_lang
             a(href="#")
@@ -33,7 +33,7 @@ div
           //logo          
           .navbar-header.col-sm-3
             router-link.navbar-brand(to="/")
-              img.logo(src="/img/Rapid.png")
+              img.logo(src="/img/Retain.png")
           .navbar-search-input
             section_search
 
