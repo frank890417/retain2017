@@ -3,40 +3,36 @@ div.page_contact
   section.section_hero
     .container.flex
       .col_left
-        h1.section_title 聯絡我們
-        h4.section_eng Contact us
-        p.section_para 服務專線  
-          span.color_theme +886.2.55967898
-          span <br>服務時間  
-          span.color_theme 週一 ~ 週五 10:00 ~ 17:00<br><br>
-          span 若您有任何疑問、服務需求等，歡迎與我們聯絡，我們將竭誠為您服務。
+        h1.section_title {{$t('page_contact.title')}}
+        h4.section_eng {{$t('page_contact.eng')}}
+        p.section_para(v-html="$t('page_contact.content')")
   section.section_form
     .container.flex
       .col_left
-        h4 連絡信箱
+        h4 {{$t('page_contact.section_form.title')}}
         .form-group
-          label 姓名
-          input(placeholder="請輸入姓名")
+          label {{$t('page_contact.section_form.label_name')}}
+          input(:placeholder="$t('page_contact.section_form.place_holder_name')")
         .form-group
-          label 信箱
-          input(placeholder="請輸入聯絡信箱")
+          label {{$t('page_contact.section_form.label_mail')}}
+          input(:placeholder="$t('page_contact.section_form.place_holder_mail')")
         .form-group
-          label 諮詢
-          select#select_contact(placeholder="請選擇諮詢項目")
-            option(value="") 請選擇諮詢項目
+          label {{$t('page_contact.section_form.label_item')}}
+          select#select_contact(:placeholder="$t('page_contact.section_form.place_holder_item')")
             option(value="1") 鴻海三心專案
             option(value="2") 企業尊榮專案
             option(value="3") 海外服務專案
+            option(value="-1") {{$t('page_contact.section_form.option_none')}}
 
         .form-group
-          label 諮詢內容
+          label {{$t('page_contact.section_form.label_item')}}
           .right
-            textarea.form-control(rows=1 placeholder="訊息...")
+            textarea.form-control(rows=1 ,:placeholder="$t('page_contact.section_form.place_holder_content')")
             .btn.btn-primary.btn-submit 
-              span 送出
+              span {{$t('page_contact.section_form.btn_send')}}
               i.fa.fa-angle-right
       .col_right#questions
-        h4 常見問題
+        h4 {{$t('footer.section_question.title')}}
         ul.question_list(v-if="questions.length>0")
           li(v-for='(qa,id) in questions' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
             .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'")

@@ -2,6 +2,7 @@
 div.page_news
   section.section_hero
     .container.full.flex
+      
       .col_left
         transition-group(name="fade", mode="out-in")
           div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")

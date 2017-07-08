@@ -3,23 +3,23 @@ div.page_solution
   section.section_hero.bg_parallax
     .container.flex
       .col_left
-        h1.section_title 產品方案與研發
-        h4.section_eng premium solutions
-        p.section_para 睿田生技公司客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將會安排儲存前的健康評估。
+        h1.section_title {{$t("page_product.title")}}
+        h4.section_eng {{$t("page_product.eng")}}
+        p.section_para(v-html="$t('page_product.content')")
         
-        .btn_full.brown 
+        .btn_full.brown(v-if="$t('page_product.btn.show')")
           div.icon_inline_wrapper
             .icon_play_circle
-          div 服務流程介紹
+          div {{$t("page_product.btn.label")}}
       .col_right
 
         ul.hero_right_list
-          li(v-for="sinfo in service_infos")
+          li(v-for="feature in $t('page_product.features')")
             .btn_expand.plus
-            h4 {{sinfo.title}}
-            .detail {{sinfo.content}}
+            h4 {{feature.title}}
+            .detail {{feature.content}}
 
-  section.section_solution(v-for="(product,product_id) in products",:class="'section_solution_'+product_id")
+  section.section_solution(v-for="(product,product_id) in $t('page_product.products')",:class="'section_solution_'+product_id")
     .main_info(@click="toggleActive('.section_solution_'+product_id,product.programs.length)",
     :class="{enable: product.programs.length}")
       .container.flex
@@ -42,13 +42,13 @@ div.page_solution
           .program_box(:class="'program_box_'+prog_id" , v-if="program.description")
             .top.container.flex.strech_height
               .col_left
-                h5.program_sub_title 方案介紹
+                h5.program_sub_title {{$t("page_product.label_intro")}}
                 p(v-html="program.description")
               
-                h5.program_sub_title 建議對象
+                h5.program_sub_title {{$t("page_product.label_target")}}
                 p(v-html="program.client")
               .col_right
-                h5.program_sub_title 方案內容
+                h5.program_sub_title {{$t("page_product.label_content")}}
                 ul.service_type
                   li(v-for="(content,content_id) in program.contents")
                     .toggle_part 
@@ -58,14 +58,14 @@ div.page_solution
                       .btn_expand.cross
                     .info_part
                       p(v-html="content.description")
-            .more_info 預約及諮詢本方案內容，請直撥客服中心 0800-080688
+            .more_info {{$t("page_product.label_more")}}
 
   section.section_other
     .program_text_container
       .container
-        h4 {{product_other.title}}
+        h4 {{$t("page_product.product_inform.title")}}
         ul
-          li(v-for="t in product_other.content")
+          li(v-for="t in $t('page_product.product_inform.content')")
             i.fa.fa-info-circle
             span {{t}}
   

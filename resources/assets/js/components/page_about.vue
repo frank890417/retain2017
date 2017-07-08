@@ -6,73 +6,41 @@ div.page_about
       .col_right
     .container.container_content.flex
       .col_left          
-        h1 關於睿田
-        h4.section_eng about Retain Biotech
-        h4.section_feature 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，預先儲存健康，是您最好的對策！ 
+        h1 {{$t("page_about.title")}}
+        h4.section_eng {{$t("page_about.eng")}}
+        h4.section_feature {{$t("page_about.feature")}} 
 
-        p 睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗、以及永齡健康基金會長期以來在預防醫學與癌症治療領域投注的龐大資源。<br><br>睿田生技從預防醫學的角度出發，由前期的幹細胞、免疫細胞儲存與高端健康管理，全方面做到個人化的健康管理，以逹到精準醫療的目標！
+        p(v-html="$t('page_about.content')")
         hr.short.left
-        .btn_full.green 
+        .btn_full.green(v-if="$t('page_about.btn.show')")
           div.icon_inline_wrapper
             .icon_play_circle
-          div 認識睿田
+          div {{$t("page_about.btn.label")}}
 
 
       .col_right
 
-        .timelog.active 
-          h4.title 2017
-          li.active 
-            span.month 04
-            span.content 通過ISO9001認證
-          li 
-            span.month 03
-            span.content 正式營運
-          li 
-            span.month 03
-            span.content 試營運
-          li 
-            span.month 03
-            span.content 上市記者會
-          li 
-            span.month 01
-            span.content 簽約記者會
-        .timelog
-          h4.title 2016
-          li 
-            span.month 12
-            span.content 與台大完成簽約
-          li 
-            span.month 03
-            span.content 公司營業登記
-        .timelog
-          h4.title 2015
-          li
-        .timelog
-          h4.title 2014
-          li
-  
+        .timelog.active(v-for="y in ['2020','2019','2018','2017','2016','2015']", v-if="get_yearlog(y).length>0 || y=='2015'")
+          h4.title {{y}}
+          ul
+            li(v-for= "log in get_yearlog(y)")
+              span.month {{log.month}}
+              span.content {{log.content}} 
+            li
 
   section.section_blocks
     .container.flex.full
-      .block
+      .block(v-for="b in $t('page_about.blocks')")
         .infos
-          h3.block_title 理念
-          p.block_para 提供高附加價值之個人化細胞儲存商業服務, 以期未來應用於免疫與再生臨床之精準醫療來造福人群。
-      .block
-        .infos
-          h3.block_title 願景
-          p.block_para 成為細胞儲存及細胞治療創新研發雙引擎之世界領導品牌。
-      .block
-        .infos
-          h3.block_title 核心價值
-          p.block_para 1. 誠信 : 堅持以誠待人、信用至上<br>2. 品質 : 強調追求卓越、精益求精<br>3. 專業 : 強化人員訓練、結合醫療團隊<br>4. 創新 : 重視技術開發、管理服務之創新
+          h3.block_title {{b.title}}
+          p.block_para(v-html="b.content")
+      
 
-  section.section_member#section_member
-    h2.section_title 董監事
+  section.section_member#section_member(v-for="team in $t('page_about.teams')")
+    h2.section_title {{team.title}}
     .container
 
-      .person_box.big.container.flex
+      //.person_box.big.container.flex
         .btn_expand.cross
         .col_left
           .cover
@@ -103,35 +71,22 @@ div.page_about
               li 長庚醫院放射診斷科臨床助理教授級主治醫師
               li 中臺醫專放射技術科，大仁藥專藥學科、護理科兼任講師
       .person_area
-        .person_box.small.container.flex(v-for="i in 4")
+        .person_box.small.container.flex(v-for="member in team.members")
           .btn_expand.cross
           .col_left
-            .cover(:style="'background-image: url(\"/img/about/4.jpg\")'")
+            .cover(:style="`background-image: url('${member.cover}')`")
           .col_right
             
-            h5.name 醫師
-              span.bigger_text | 李岳庭
-            h5.title 專長
-            ul
-              li 內科疾病之診療與治療
-              li 健檢報告之判讀
-              li 血液病及整合性化療
-            h5.title 學歷
-            ul
-              li 台北醫學院醫學系畢業
-              li 長庚大學臨床醫學研究所碩士
+            h5.name {{member.role}}
+              span.bigger_text | {{member.name}}
+            div(v-html="member.card_front")
+          
           .experience
-            div
-              h5.title 經歷
-              ul
+            div(v-html="member.card_back")
+              //h5.title 經歷
+              //ul
                 li 台北國泰醫院外科住院醫師
-                li 高雄長庚醫院放射診斷科住院醫師、總住院醫師、主
-                li 治醫師
-                li 美國加州大學聖地牙哥校區(UCSD) 醫學院骨關放射學研究員
-                li 長庚醫院放射診斷科臨床助理教授級主治醫師
-                li 中臺醫專放射技術科，大仁藥專藥學科、護理科兼任講師
-
-      
+              
 
 </template>
 
@@ -157,9 +112,32 @@ div.page_about
           if (obj.news_id!=1){
             this.$route.router.go("/news/"+obj.news_id);
           }
+        },
+        get_yearlog(year){
+          return this.computed_tearlog.filter(o=>o.year==year)
         }
       },
-      computed: mapState(['about_logs'])
+      computed: {
+        ...mapState(['about_logs']),
+        computed_tearlog(){
+          return this.$t("page_about.yearlog")
+                 .map( o=>({
+                  year: o.year ,
+                  month: o.date.split("/")[0], 
+                  day: o.date.split("/")[1] ,
+                  content: o.content ,
+                  link: o.link ,
+
+                 }) )
+                 .sort((a,b)=>{
+                   return (a.year >b.year) ||
+                         (a.year ==b.year && a.month>b.month)  ||
+                         (a.year ==b.year && a.month==b.month && a.day>b.day)
+        
+                 })
+
+        }
+      }
 
   }
 </script>

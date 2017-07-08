@@ -48,7 +48,7 @@ $(function(){
         ease: Power2.easeOut,
         overwrite: 5              
       });
-    console.log(finalScroll);
+    // console.log(finalScroll);
   });
 });
 

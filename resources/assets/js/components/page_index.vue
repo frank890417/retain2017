@@ -12,41 +12,25 @@ div.page_index
         span 用於
         span.theme 未來
       
-      h3.page_header_eng Preserve in good health  apply in the future
+      h3.page_header_eng {{$t("page_index.section_hero.eng")}}
 
       
       div.play_btn(data-target=".page_index_main")
         i.fa.fa-play
-      h6 了解我們的服務
+      h6 {{$t("page_index.section_hero.btn_more")}}
     i.fa.fa-angle-down
-
-    // .container.news_container
-      .slick
-        .news.color_white(v-for='(a_news,id) in news')          
-          .col_infos
-            .texts
-              h4 {{a_news.title}}
-              h5 {{a_news.date}}
-              p {{a_news.content.replace(/<[^>]*>/g, '').substr(0,70)+'...'}}
-            .btns
-              router-link.btn.btn-default.btn-primary-lighter.btn_more(:to="'/news/'+a_news.id") 了解更多
-              a.btn.btn-default.btn-transparent.btn_next(@click="news_delta" ) 下一則  > 
-          
-          .col_img(:style="bg_css(a_news.cover)")
-      .timeline
-        .value
 
   section.page_index_info
     .left
       .infos
-        h2 為什麼儲存幹細胞?
-        h4 what is stem cells?
-      p 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症，視網膜黃斑部色素層細胞及感光細胞病變造成的視力退化，心血管細胞老化造成的心血管疾病等。幹細胞在這一些退化性疾病的應用仍處於試驗階段尚未應用到臨床，但其發展性是可以預期與期待的。
+        h2 {{$t("page_index.section_1.left.title")}}
+        h4 {{$t("page_index.section_1.left.eng")}}
+      p(v-html="$t('page_index.section_1.left.content')")
     .right
       .infos
-        h2 認識免疫細胞?
-        h4 what is immune cells?
-      p 兩種免疫系統都會隨年紀、工作壓力、生活習慣而造成變化，人體的免疫系統在20歲的時候達到高峰，40歲青壯年會逐漸低落，到了70歲的免疫功能大概僅剩下20歲時的1/10，也是長輩仍容易生病的原因之一。<br>我們無法阻止時間前進、也無法停止老化、更無法保證不生生病，但是我們可以將相對於未來更為年輕的細胞凍存，保持細胞狀態在儲存的當下，未來需要使用的時候得以有多一項工具可以使用。
+        h2 {{$t("page_index.section_1.right.title")}}
+        h4 {{$t("page_index.section_1.right.eng")}}
+      p(v-html="$t('page_index.section_1.right.content')")
 
   section.page_index_grow
     img.cover.cover3(src="/img/index/2c.jpg")
@@ -57,13 +41,13 @@ div.page_index
     .container.flex
       .col_left
       .col_right
-        h3.section_title 儲存生命泉源
-        h4.section_feature 當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，還有疾病帶來的慢性威脅，
-          span.brown 預先儲存健康，是您最好的對策！ 
+        h3.section_title {{$t('page_index.section_2.title')}}
+        h4.section_feature(v-html="$t('page_index.section_2.feature')") 
 
-        p.section_para.text-left 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕，可怕的是因為老化而衍生出的疾病，例如:神經細胞退化造成的阿茲默症…等。我們無法阻止時間前進、也無法停止老化、但是我們將年輕的細胞凍存，保持細胞狀態在儲存的當下，在未來有需要的時候能有多一項工具可以使用。
-        router-link.btn-underline(to='/solution') 
-          span 了解更多
+        p.section_para.text-left(v-html="$t('page_index.section_2.content')") 
+ 
+        router-link.btn-underline(v-if="$t('page_index.section_2.btn.show')",:to="$t('page_index.section_2.btn.link')") 
+          span {{$t('page_index.section_2.btn.label')}}
 
   section.page_index_flow.bg_parallax
     .video_container
@@ -72,18 +56,18 @@ div.page_index
         
     .container.flex
       .col_left
-        h3.section_title 細緻的服務流程
-        h4.section_feature 睿田生技客服專員將會提供您完整的資訊與諮詢服務。 
-        p.section_para.text-left 待您完全了解儲存過程後，將會安排儲存前的健康評估，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，確認健康狀態後即與您安排簽約、醫師約診與細胞抽取時間。
-        router-link.btn-underline.white(to='/contact')
-         span 了解更多
+        h3.section_title {{$t('page_index.section_3.title')}}
+        h4.section_feature(v-html="$t('page_index.section_3.feature')") 
+        p.section_para.text-left(v-html="$t('page_index.section_3.content')") 
+        router-link.btn-underline.white(v-if="$t('page_index.section_3.btn.show')",:to="$t('page_index.section_3.btn.link')") 
+          span {{$t('page_index.section_3.btn.label')}}
       .col_right
         .revive_box
-          h1 REVIVE
-          h4 服務流程介紹
+          h1 {{$t('page_index.section_3.revive_box.eng')}}
+          h4 {{$t('page_index.section_3.revive_box.title')}}
           .play_btn(data-target=".page_index_flow")
             i.fa.fa-play
-          .other ▩ 睿田生技細胞儲存服務流程
+          .other {{$t('page_index.section_3.revive_box.info')}}
 
   section.page_index_team
     .container.flex.full
@@ -92,39 +76,29 @@ div.page_index
       .col_right
     .container.flex.content
       .col_left
-        h3.section_title 頂尖菁英團隊
-        h4.section_feature
-          span.theme 串聯產、學、研三方資源投入的專業團隊! 
-        p.section_para 睿田生技為臺灣大學與永齡健康基金會共同合資的第一家產學新創公司。我們整合了臺灣大學的研發實力、台成幹細胞治療中心於幹細胞領域多年的豐富臨床經驗，及永齡健康基金會長期在預防醫學與癌症治療領域投注的強大資源，並搭配立立達診所的六星級高端健康管理規劃方案，提供客戶最為專業與完善的細胞儲存管理服務！
-        router-link.btn-underline.black(to='/about') 
-          span 了解更多
+        h3.section_title {{$t('page_index.section_4.title')}}
+        h4.section_feature(v-html="$t('page_index.section_4.feature')") 
+        p.section_para(v-html="$t('page_index.section_4.content')") 
+        router-link.btn-underline.black(v-if="$t('page_index.section_4.btn.show')",:to="$t('page_index.section_4.btn.link')") 
+          span {{$t('page_index.section_4.btn.label')}}
 
       .col_right
         ul.slicklogo_team
-          li.item
-            img(src="/img/index/4c.jpg")
-            h5.title 永齡健康基金會
-          li.item
-            img(src="/img/index/4d.jpg")
-            h5.title 台灣大學
-          li.item
-            img(src="/img/index/4e.jpg")
-            h5.title 台成幹細胞<br>治療中心
-          li.item
-            img(src="/img/index/4f.jpg")
-            h5.title 立達診所
-
-
+          li.item(v-for="member in $t('page_index.section_4.team')")
+            img(:src = "member.logo")
+            h5.title(v-html="member.name")
+        
 
   section.page_index_service
     .container.flex.full
       .col_left
         .out_pic.slick
-          .item.item1
-          .item.item2
+          .item.item1(v-for="service in $t('page_index.section_5.carousel')", style="{'background-image': 'url('+service.cover+')'}")
 
-        .slick_caption
-          .title 創新的科技、貼心的服務
+        .slick_caption()
+          transition-group(name="fade",tag="span")
+            .title(v-for="(service,sid) in $t('page_index.section_5.carousel')",
+            v-if="sid==0") {{service.text}}
           .next(onclick="$('.out_pic').slick('slickNext');")
             i.fa.fa-angle-right
       .col_right
@@ -132,39 +106,21 @@ div.page_index
       .col_left
       .col_right
 
-        h3.section_title 高品質尊榮服務
-        h4.section_feature 
-          span.brown 創新的科技 、 貼心的服務 、 人性化的專業是睿田生技三大核心價值 
-        p.section_para 細胞的健康狀況隨著年紀增長、生活型態、工作壓力而受影響，也就是俗稱的老化現象。老化並不可怕。<br>以融合「創新的科技」、「貼心的服務」、「人性化的專業」三大核心價值，致力為客戶提供精確有效率，充滿溫馨感動的個人化健康管理中心，讓您在舒適、寧靜且隠密的環境下完成珍貴的細胞儲存！ 
-        //.btns
-          div.inline_container
-            router-link.btn-underline(to='/solution') 
-              span 了解更多
-          div.inline_container
-            router-link.btn-underline(to='/contact') 
-              span 聯繫我們
+        h3.section_title {{$t('page_index.section_5.title')}}
+        h4.section_feature(v-html="$t('page_index.section_5.feature')") 
+        p.section_para(v-html="$t('page_index.section_5.content')")  
+        router-link.btn-underline.brown_bg(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") 
+          span {{$t('page_index.section_5.btn.label')}}
+
   section.page_index_compaign.bg_parallax
     .container.flex.column
-      h1.section_title DREAMER
-      h3.section_feature
-        span.brown 生命品質  由您決定
-      h4.section_para 在生命的過程中，也許會有些無法預期的事情發生，唯有多一分準備才會有多一分的勝算！防患於未然，讓我們一起迎向這個未知的未來
+      h1.section_title {{$t('page_index.section_6.title')}}
+      h3.section_feature(v-html="$t('page_index.section_6.feature')") 
+      h4.section_para(v-html="$t('page_index.section_6.content')") 
       span
-        router-link.btn-underline.brown_bg(to='/contact') 
-          span 預約專人諮詢
+        router-link.btn-underline.brown_bg(v-if="$t('page_index.section_6.btn.show')",:to="$t('page_index.section_6.btn.link')") 
+          span {{$t('page_index.section_6.btn.label')}}
 
-  // section_solutions
-
-  section.page_index_sponsor(style="display: none")
-    .container.flex.slicklogo1
-      .item
-        img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png" style="opacity: 0")
-      .item
-        img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png")
-      .item
-        img.sponsorlogo(src="/img/cor_logo/cor_logo-02.png")
-      .item
-        img.sponsorlogo(src="/img/cor_logo/cor_logo-01.png" style="opacity: 0")
 </template>
 
 <script>
