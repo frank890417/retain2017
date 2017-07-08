@@ -19,9 +19,7 @@ div.page_contact
         .form-group
           label {{$t('page_contact.section_form.label_item')}}
           select#select_contact(:placeholder="$t('page_contact.section_form.place_holder_item')")
-            option(value="1") 鴻海三心專案
-            option(value="2") 企業尊榮專案
-            option(value="3") 海外服務專案
+            option(v-for="(p,id) in $t('page_product.products')" ,:value="id") {{p.name}} 
             option(value="-1") {{$t('page_contact.section_form.option_none')}}
 
         .form-group
@@ -33,11 +31,11 @@ div.page_contact
               i.fa.fa-angle-right
       .col_right#questions
         h4 {{$t('footer.section_question.title')}}
-        ul.question_list(v-if="questions.length>0")
-          li(v-for='(qa,id) in questions' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
-            .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'")
+        ul.question_list(v-if="$t('footer.section_question.questions').length>0")
+          li(v-for="(qa,id) in $t('footer.section_question.questions')" ,:class="{open: qa_state[id].open}"  @click="toggle(id)")
+            .icon.icon_minus(:class="{icon_plus:  !qa_state[id].open}" )
             .question {{qa.question}}
-            p.answer {{qa.answer}}   
+            p.answer(v-html="qa.answer")   
     .container
       hr.footer_line
     
@@ -72,7 +70,7 @@ div.page_contact
             qa_state: new Array(20).fill({}).map((d,i)=>({open: i==0}))
           };
         },
-        computed: mapState(['questions']),
+        computed: mapState([]),
         methods: {
           toggle (id){
             var item=this.qa_state.filter((d,i)=>i==id)[0];

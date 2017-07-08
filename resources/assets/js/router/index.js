@@ -9,6 +9,7 @@ Vue.component('Navbar', require('../components/Navbar.vue'));
 
 var page_index = Vue.component('page_index', require('../components/page_index.vue'));
 var page_about = Vue.component('page_about', require('../components/page_about.vue'));
+var page_member = Vue.component('page_member', require('../components/page_member.vue'));
 var page_news = Vue.component('page_news', require('../components/page_news.vue'));
 var page_product = Vue.component('page_product', require('../components/page_product.vue'));
 var page_tech = Vue.component('page_tech', require('../components/page_tech.vue'));
@@ -25,6 +26,7 @@ var section_search = Vue.component('section_search', require('../components/sect
 const routes = [
   { path: '/', component: page_index },
   { path: '/about', component: page_about },
+  { path: '/member', component: page_member },
   { path: '/team', component: page_about },
   { path: '/tech', component: page_tech },
   { path: '/solution/:id', component: page_product , props: true},

@@ -22,21 +22,47 @@ Route::resource('manage/news','NewsController');
 Route::resource('manage/question','QuestionController');
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+$website_routes=function(){
+  Route::get('/', 'HomeController@index');
+  Route::get('/member', 'HomeController@index');
+  Route::get('/tech', 'HomeController@index');
+  Route::get('/about', 'HomeController@index');
+  Route::get('/news', 'HomeController@index');
+  Route::get('/news/{id}', 'HomeController@index');
+  Route::get('/news/cata/{name}', 'HomeController@index');
+  Route::get('/solution/{id}', 'HomeController@index');
+  Route::get('/solution', 'HomeController@index');
+  Route::get('/job', 'HomeController@index');
+  Route::get('/contact', 'HomeController@index');
+  Route::get('/search', 'HomeController@index');
+  Route::get('/tern', 'HomeController@index');
+};
 
-Route::get('/tech', 'HomeController@index');
 
-Route::get('/about', 'HomeController@index');
+$domains=[
+  'www.retain2017.dev',
+  'retain2017.dev',
+  'en.retain2017.dev',
+  'zh.retain2017.dev',
+  'cn.retain2017.dev',
 
-Route::get('/news', 'HomeController@index');
-Route::get('/news/{id}', 'HomeController@index');
-Route::get('/news/cata/{name}', 'HomeController@index');
-Route::get('/solution/{id}', 'HomeController@index');
-Route::get('/solution', 'HomeController@index');
+  'retainbiotech.com',
+  'www.retainbiotech.com',
+  'en.retainbiotech.com',
+  'zh.retainbiotech.com',
+  'cn.retainbiotech.com',
 
-Route::get('/job', 'HomeController@index');
 
-Route::get('/contact', 'HomeController@index');
+  'manage.retainbiotech.com',
+  'www.retainbiotech.com',
+  'en.manage.retainbiotech.com',
+  'zh.manage.retainbiotech.com',
+  'cn.manage.retainbiotech.com'
 
-Route::get('/search', 'HomeController@index');
-Route::get('/tern', 'HomeController@index');
+];
+
+foreach ($domains as $key => $value) {
+  Route::group(['domain'=>$value,'middleware'=>['lang','seoinfo'] ],$website_routes);
+}
+
+

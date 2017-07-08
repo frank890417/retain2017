@@ -18,10 +18,10 @@ div.footer
       .col_question
         h5(v-text="$t('footer.section_question.title')")
         ul.question_list
-          li(v-for='(qa,id) in questions.slice(0,3)' v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
+          li(v-for="(qa,id) in $t('footer.section_question.questions').slice(0,3)" v-bind:class="qa_state[id].open ?'open':''"  @click="toggle(id)")
             .icon.icon_minus(v-bind:class="qa_state[id].open ?'':'icon_plus'"  @click="toggle(id)")
             p.question {{qa.question}}
-            p.answer {{qa.answer}}
+            p.answer(v-html="qa.answer")
           
           li 
             router-link.more(to="/contact#section_qa") {{$t('footer.section_question.more')}}

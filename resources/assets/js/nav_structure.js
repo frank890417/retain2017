@@ -15,7 +15,7 @@ export default [
     ]
   },{
     tag: "管理經營" , 
-    link: "/team#section_member" , 
+    link: "/member" , 
     hide_navbar: false,
     childs: [
       // {
