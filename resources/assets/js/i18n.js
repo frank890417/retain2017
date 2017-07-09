@@ -2,6 +2,73 @@
 const messages = {
   // zh: window.lang.zh
   zh: {
+    nav_structure: [
+      {
+        tag: "關於睿田" , 
+        link: "/about" , 
+        hide_navbar: false,
+        childs: [
+        ]
+      },{
+        tag: "管理經營" , 
+        link: "/member" , 
+        hide_navbar: false,
+        childs: [
+        ]
+      },{
+        tag: "產品方案與研發" , 
+        link: "/solution" , 
+        hide_navbar: false,
+        childs: [
+        ]
+      },{
+        tag: "最新消息" , 
+        link: "#" , 
+        hide_navbar: false,
+        childs: [
+          {
+            tag: "睿田活動", 
+            link: "/news/cata/睿田活動"
+          },
+          {
+            tag: "研討會訊息", 
+            link: "/news/cata/研討會訊息"
+          },
+          {
+            tag: "醫學新知", 
+            link: "/news/cata/醫學新知"
+          },
+          {
+            tag: "友善連結", 
+            link: "/news/cata/友善連結"
+          }
+        ]
+      },{
+        tag: "會員服務" , 
+        link: "#" , 
+        hide_navbar: true,
+        childs: [
+        ]
+      },{
+        tag: "人才招募" , 
+        link: "/job" , 
+        hide_navbar: true,
+        childs: [
+        ]
+      },{
+        tag: "各項聲明" , 
+        link: "/tern" , 
+        hide_navbar: true,
+        childs: [
+        ]
+      },{
+        tag: "聯絡我們" , 
+        link: "/contact" , 
+        childs: [
+        ]
+      }
+
+    ],
     footer: {
       "section_company": {
         "title": "公司資訊",
@@ -386,7 +453,17 @@ const messages = {
 
     },
     page_job: {
-      
+      title: "人才招募",
+      eng: "Join Retain",
+      content: "誠摯歡迎您加入我們的團隊",
+
+      jobs: [
+        {
+          title: "系統工程師",
+          requirement: "需求人數: 2 人 | 3~5 年以上經驗",
+          content: "睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將安排儲存前的健康評估。<br><br>1. 需求人數 : 2人<br>2. 熟悉LC / MS /MS儀器操作 (分析方法確效及<br>    分析方法開發)<br>3. 有儀器分析或食品檢測領域工作經驗"
+        }
+      ]
     },
     page_tern: {
       title: "各項聲明",

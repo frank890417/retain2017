@@ -78,7 +78,6 @@ div
 
 <script>
     import {mapState,mapMutations} from 'vuex'
-    import nav_structure from '../nav_structure'
     export default {
         mounted() {
             console.log('navbar mounted.');
@@ -95,7 +94,6 @@ div
           return {
             open_full: false,
             open_lang: false,
-            nav_structure,
             lang: [{name: "繁"},{name: "简"},{name: "EN"}]
           }
         },
@@ -140,7 +138,7 @@ div
           ...mapState(["solutions","big_font","search","scrollTop"]),
 
           maked_nav_structure(){
-            return this.nav_structure
+            return this.$t("nav_structure")
         }
       }
   }

@@ -3,21 +3,21 @@ div.page_job
   section.section_hero.bg_parallax
     .container.flex
       .col_left
-        h1.section_title 人才招募
-        h4.section_eng Join Retain
-        p.section_para 誠摯歡迎您加入我們的團隊
+        h1.section_title {{$t('page_job.title')}}
+        h4.section_eng {{$t('page_job.eng')}}
+        p.section_para(v-html="$t('page_job.content')") 
         //hr
 
 
   section.section_job
 
     .container.flex.row.wrap
-      .job_box(v-for="i in 4")
+      .job_box(v-for="job in $t('page_job.jobs')")
         .job_box_inner
-          h4.title 系統工程師
-          p 需求人數: 2 人 | 3~5 年以上經驗
+          h4.title {{job.title}}
+          p {{job.requirement}}
           .cover.flex.column 
-            p 睿田生技客服專員將會提供您完整的資訊與諮詢服務，待您完全了解儲存過程後，將安排儲存前的健康評估。<br><br>1. 需求人數 : 2人<br>2. 熟悉LC / MS /MS儀器操作 (分析方法確效及<br>    分析方法開發)<br>3. 有儀器分析或食品檢測領域工作經驗
+            p(v-html="job.content")
             // a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08f&jobsource=n104bank1") 更多資訊
             a.logo_link_wrapper(href="#")
               img.logo_link(src="/img/logo_link.svg")

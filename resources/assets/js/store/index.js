@@ -7,48 +7,6 @@ const store = new Vuex.Store({
     questions: [],
     big_font: false,
     search: false,
-    about_logs: {
-      year_2015: [
-        {
-          date: "03/01",
-          title: "成立睿軒檢驗",
-          news_id: 2,
-          cover: "/img/homepage/Post2.jpg",
-          content: "鴻海樂活養生健康事業群與中山大學技術合作，合資設立了睿軒檢驗科技股份有限公司。"
-        },
-        {
-          date: "05/01",
-          title: "貴陽大數據博覽會參展",
-          news_id: 3,
-          cover: "/img/homepage/Post3.jpg",
-          content: "參與5/26-29於貴陽舉辦之2015貴陽國際大數據產業博覽會暨全球大數據時代貴陽鋒會。"
-        },
-        {
-          date: "12/01",
-          title: "全台幼兒環境大義診",
-          news_id: 1,
-          cover: "/img/homepage/Home-news-2.jpg",
-          content: "受邀於永齡健康基金會，睿軒檢驗深入全台偏鄉幼兒園，展開玩具義診活動。"
-        }
-      ],
-      year_2016: [
-        {
-          date: "03/01",
-          title: "鴻海和中山合資技轉記者會",
-          news_id: 4,
-          cover: "/img/homepage/Post1.jpg",
-          content: "鴻海樂活養生健康事業群宣佈與中山大學技術合作。"
-        },
-        {
-          date: "05/01",
-          title: "貴陽大數據博覽會參展",
-          news_id: 5,
-          cover: "/img/homepage/Post4.jpg",
-          content: "參與5/26-29於貴陽舉辦之2016貴陽國際大數據產業博覽會，多位國內外企業家與國家領導人受邀出席。"
-        }
-      ],
-
-    },
     products: [
       {
           name: "鴻海三心專案",
@@ -116,21 +74,6 @@ const store = new Vuex.Store({
         "由於您的細胞須經多項檢測，相關的檢驗報告會在細抽取日往後推算六週後寄送，並會有客服專員與您聯繫，解釋報告成果"
       ]
     },
-    service_infos: [
-      {
-        title: "高品質尊榮服務",
-        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
-      },{
-        title: "國際認證",
-        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
-      },{
-        title: "專業服務",
-        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
-      },{
-        title: "量身定做",
-        content: "睿田生技公司客服專員將會提供您完整的資訊與諮詢服務"
-      }
-    ]
   },
   mutations: {
     increment (state) {
@@ -157,29 +100,7 @@ const store = new Vuex.Store({
         console.log("news loaded (action)");
         context.commit("setNews",res);
       });
-      // $.get("http://www.rapidsuretech.com/api/questions").then((res)=>{
-      //   console.log("questions loaded (action)");
-      //   context.commit("setQuestion",res);
-      // });
-      context.commit("setQuestion",[
-        {
-          id: 1,
-          question: "集團技術優勢與跨界合作?",
-          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
-        },{
-          id: 2,
-          question: "秉持「希望科技，尖端創新，企業社會責任」的核心價值?",
-          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
-        },{
-          id: 3,
-          question: "三大目標方向包括為大中華地區醫療機構?",
-          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
-        },{
-          id: 4,
-          question: "我們的技術優勢與跨界合作?",
-          answer: "聚焦的三大目標方向包括為大中華地區醫療機構、老年長照及日間照護體系"
-        }
-      ]);
+
     }
 
   }
