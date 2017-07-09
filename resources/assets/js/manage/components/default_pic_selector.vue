@@ -15,7 +15,7 @@
 
 <script>
     export default {
-        props: ['output'],
+        props: ['output','update_obj'],
         name: "default_pic_selector",
         data(){
           return {
@@ -53,6 +53,10 @@
              var imgurl=res;
              console.log(imgurl);
              vobj.$emit("update:output",imgurl)
+             if (vobj.update_obj){
+               console.log(vobj.update_obj)
+               vobj.update_obj.obj[vobj.update_obj.tagkey]=imgurl
+             }
           });
         },
         methods:{

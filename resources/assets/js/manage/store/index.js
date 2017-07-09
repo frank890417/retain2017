@@ -17,10 +17,25 @@ const store = new Vuex.Store({
   state: {
     locale: window.locale,
     lang: window.lang,
-    mce_settings
+    mce_settings,
+    remind_save_when_exit: false
   },
   mutations: {
-    
+    save_website_info(state,updated_info){
+      console.log(updated_info);
+      console.log("save "+state.locale)
+      axios.post("/api/websiteinfo/key/"+state.locale,updated_info).then(
+        (res)=>{
+          state.remind_save_when_exit=false;
+        }
+      )
+    },
+    remind_save(state){
+      state.remind_save_when_exit=true
+    },
+    cancel_remind_save(state){
+      state.remind_save_when_exit=false
+    }
   },
   actions: {
 

@@ -2,40 +2,47 @@
 div.container-fluid
   .row
     .col-sm-12
-      h1 Product manage  
-  .panel.panel-primary
-    .panel-heading 方案設定
-    .panel-body
-      //.row(v-if="site_data")
-      //  editor_form(:dataset="site_data.page_product" , :level="0")
-      .row
-        editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="'方案編輯'")
+      h1 產品方案
+      button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
+  .col-sm-3
+    editor_form(:dataset="site_data.page_product" , :level="-1", panel_heading="頁面內容" , noextend="true" ,:hidden="['features','products','btn','solution_inform']")
+  .col-sm-9
+    editor_form(:dataset="site_data.page_product.features" , :level="-1", panel_heading="特色編輯", :schema="'features'")
+    editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="方案編輯", :schema="'products'")
 
-  
-  .row
-    .col-sm-12
-      .form-group
-        h3 123
-        
-  pre {{ site_data }}
-
-    
 </template>
+
 
 <script>
 import Vue from 'vue'
-import {mapState,mapMutation} from 'vuex'
+import {mapState,mapMutations} from 'vuex'
   export default {
     data(){
       return {
-        site_data: null
+        site_data: null,
       }
     },
     mounted(){
+      this.site_data=null
       this.site_data=JSON.parse(JSON.stringify(this.lang)) ;
+      this.cancel_remind_save()
+    },
+    watch: {
+      site_data: {
+        handler: function (val, oldVal) {
+          console.log("old",oldVal)
+          if (oldVal)
+            this.remind_save()
+        },
+        deep: true
+      }
+      
     },
     computed: {
       ...mapState(['lang'])
+    },
+    methods: {
+      ...mapMutations(['save_website_info','remind_save','cancel_remind_save'])
     }
   }
 

@@ -1,20 +1,17 @@
 <template lang="jade">
-div.container-fluid
+div.container-fluid(v-if="site_data")
   .row
     .col-sm-12
-      h1 關於睿田 
+      h1 導覽列設定 
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
-    .col-sm-6
-      .panel.panel-primary
-        .panel-heading 關於
-        .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about" , :level="1", :noextend="true")
-    .col-sm-6
-        .panel-heading 年表編輯
-        .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about.yearlog" , :level="1", :schema="'yearlog'")
-                  
-
+  .panel.panel-primary
+    .panel-heading 導覽列設定
+    .panel-body
+      .row(v-if="site_data")
+        .col-sm-4(v-for="(route,id) in site_data.nav_structure")
+          .form-group
+            h3 {{id+1}}. {{route.tag}}
+            editor_form(:dataset="route" , :level="0")
     
 </template>
 
@@ -60,6 +57,22 @@ import {mapState,mapMutations} from 'vuex'
   input[type="checkbox"]
     font-size: 40px
     margin-left: 10px
+
+  .curp
+    cursor: pointer
+
+  .fade-enter-active,.fade-leave-active
+    transition: .5s
+
+  .fade-enter,.fade-leave-to
+    opacity: 0
+    max-height: 0px
+    overflow: hidden
+  .fade-enter-to,.fade-leave
+    opacity: 1
+    max-height: 2500px
+
+
 
 </style>
 

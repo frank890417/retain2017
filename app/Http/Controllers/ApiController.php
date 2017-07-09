@@ -22,10 +22,16 @@ class ApiController extends Controller
 
     public function websiteinfo_save($key){
       $input = Input::all();
+
+      
       // dd($input);
       $websiteinfo = Websiteinfo::where("key",$key)->first();
+
+      // dd($websiteinfo);
       $websiteinfo->data=json_encode($input);
       $websiteinfo->save();
+
+      return ["status"=> "ok"];
     }
 
     public function upload_image(){

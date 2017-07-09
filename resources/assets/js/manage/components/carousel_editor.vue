@@ -7,7 +7,7 @@
         h4 {{c.url==""?"請選擇":""}}圖片{{ options.allow_multi?(cid+1):"" }} 
           .btn.btn-default(@click="now_carousel_data.splice(cid,1)") x
         hr
-        df_pic_selector(:output.sync="c.url")
+        df_pic_selector(:output.sync="c.url", :update_obj="{obj: c,tagkey: 'url'}")
         input.form-control(v-model="c.url" @value="set_pic(c,value)")
     .row
       .col-sm-12(v-if="options.allow_multi || now_carousel_data.length<1")
@@ -79,6 +79,7 @@
               var outdata_single=this.now_carousel_data.map(o=>o.url).filter(o=>o!="")[0];
               this.$emit("update:carousel_data",outdata_single);
               if (this.update_obj){
+                console.log(this.update_obj)
                 this.update_obj.obj[this.update_obj.tagkey]=outdata_single
               }
               return outdata_single

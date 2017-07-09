@@ -7,20 +7,18 @@ Vue.use(VueRouter);
 // Vue.component('example', require('./components/Example.vue'));
 // Vue.component('Navbar', require('../components/Navbar.vue'));
 
+var manage_nav = Vue.component('manage_nav', require('../components/manage_nav.vue'));
 var manage_index = Vue.component('manage_index', require('../components/manage_index.vue'));
 var manage_product = Vue.component('manage_product', require('../components/manage_product.vue'));
-
-
 var manage_tern = Vue.component('manage_tern', require('../components/manage_tern.vue'));
-
 var manage_about = Vue.component('manage_about', require('../components/manage_about.vue'));
 // var page_member = Vue.component('page_member', require('../components/page_member.vue'));
-// var page_news = Vue.component('page_news', require('../components/page_news.vue'));
+var manage_news = Vue.component('manage_news', require('../components/manage_news.vue'));
 // var page_product = Vue.component('page_product', require('../components/page_product.vue'));
 // var page_tech = Vue.component('page_tech', require('../components/page_tech.vue'));
 // var page_post = Vue.component('page_post', require('../components/page_post.vue'));
-// var page_job = Vue.component('page_job', require('../components/page_job.vue'));
-// var page_contact = Vue.component('page_contact', require('../components/page_contact.vue'));
+var manage_job = Vue.component('manage_job', require('../components/manage_job.vue'));
+var manage_contact = Vue.component('manage_contact', require('../components/manage_contact.vue'));
 // var page_tern = Vue.component('page_tern', require('../components/page_tern.vue'));
 
 // var section_footer = Vue.component('section_footer', require('../components/section_footer.vue'));
@@ -31,8 +29,14 @@ var manage_about = Vue.component('manage_about', require('../components/manage_a
 const routes = [
   { path: '/', component: manage_index },
   { path: '/about', component: manage_about },
+  { path: '/news', component: manage_news },
   { path: '/product', component: manage_product },
-  { path: '/tern', component: manage_tern}
+  { path: '/tern', component: manage_tern},
+  { path: '/nav', component: manage_nav},
+  { path: '/contact', component: manage_contact},
+  { path: '/job', component: manage_job},
+
+
   // { path: '/about', component: page_about },
   // { path: '/member', component: page_member },
   // { path: '/team', component: page_about },
@@ -67,7 +71,20 @@ router.beforeEach((to, from, next) => {
   }else{
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
+  if (window.store.state.remind_save_when_exit){
+    if (confirm("離開將會喪失所有未儲存變更" )){
+      window.store.state.remind_save_when_exit=false
+      next();
+    }
+  }
   next();
 });
+
+router.afterEach(route => {
+  console.log(route)
+  vm.now_route=route
+})
+
+
 
 export default router

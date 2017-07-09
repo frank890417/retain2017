@@ -43,15 +43,17 @@ if (["zh","cn","en"].indexOf(locale)==-1){
   locale="zh";
 }
 
-import router from './router'
 import store from './store'
+window.store=store
+
+import router from './router'
 // $("table").dataTable()
 var vm = new Vue({
   el: "#app", 
   store,
   router,
   data: {
-    
+    now_route: document.URL.split("/").slice(-1)[0]
 
   },
   methods:{

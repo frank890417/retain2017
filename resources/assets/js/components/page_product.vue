@@ -35,7 +35,7 @@ div.page_solution
           :class="['program_'+prog_id , program.description?'enable':'' ]")
           .program_top.flex( @click="toggleActive('.program_'+prog_id,program.description)")
             .tag
-              span {{program.tag}}
+              span {{String.fromCharCode("A".charCodeAt(0)+prog_id)}}
             h4.program_title {{program.name}}
             .btn_expand.btn_program_expand(:class="{no_content: !program.description}")
               i.fa.fa-angle-down

@@ -2,18 +2,18 @@
 div.container-fluid
   .row
     .col-sm-12
-      h1 關於睿田 
+      h1 工作 
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
-    .col-sm-6
+    .col-sm-3
       .panel.panel-primary
-        .panel-heading 關於
+        .panel-heading 頁面內容
         .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about" , :level="1", :noextend="true")
-    .col-sm-6
-        .panel-heading 年表編輯
+          editor_form(:dataset="site_data.page_job" , :level="1", :noextend="true")
+    .col-sm-9
+      .panel.panel-primary
+        .panel-heading 職位編輯
         .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about.yearlog" , :level="1", :schema="'yearlog'")
-                  
+          editor_form(:dataset="site_data.page_job.jobs" , :level="1")
 
     
 </template>

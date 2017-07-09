@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>睿軒網站後台(開發中)</title>
+    <title>睿田網站後台</title>
     <link href="/css/admin_css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/admin_css/datepicker3.css" rel="stylesheet">
     <link href="/css/admin_css/styles.css" rel="stylesheet">
@@ -66,63 +66,63 @@
             input.form-control(type='text', placeholder='Search')
         -->
         <ul class="nav menu">
-          <li data-link="">
+          <li :class="{active: now_route=='nav'}">
+            <router-link to="/nav">
+              <svg class="glyph stroked dashboard-dial">
+                <use xlink:href="#stroked-dashboard-dial"></use>
+              </svg> 導覽列
+            </router-link>
+          </li>
+          <li :class="{active: now_route==''}">
             <router-link to="/">
               <svg class="glyph stroked dashboard-dial">
                 <use xlink:href="#stroked-dashboard-dial"></use>
               </svg> 首頁與資訊
             </router-link>
           </li>
-          <li data-link="about">
+          <li :class="{active: now_route=='about'}">
             <router-link to="/about">
               <svg class="glyph stroked dashboard-dial">
                 <use xlink:href="#stroked-dashboard-dial"></use>
-              </svg> 關於睿軒
+              </svg> 關於睿田
             </router-link>
           </li>
-          <li data-link="tech">
-            <router-link to="/tech">
-              <svg class="glyph stroked calendar">
-                <use xlink:href="#stroked-calendar"></use>
-              </svg> 檢驗科技
-            </router-link>
-          </li>
-          <li data-link="product">
+          <li :class="{active: now_route=='product'}">
             <router-link to="/product">
               <svg class="glyph stroked calendar">
                 <use xlink:href="#stroked-table"></use>
               </svg> 檢測方案
             </router-link>
           </li>
-          <li data-link="news">
+          <li :class="{active: now_route=='news'}">
             <router-link to="/news">
               <svg class="glyph stroked calendar">
                 <use xlink:href="#stroked-pencil"></use>
               </svg> 最新消息
             </router-link>
           </li>
-          <li data-link="question">
-            <router-link to="/question">
+          <li :class="{active: now_route=='contact'}">
+            <router-link to="/contact">
               <svg class="glyph stroked calendar">
                 <use xlink:href="#stroked-calendar"></use>
               </svg> 聯絡與問答
             </router-link>
           </li>
-          <li data-link="tern">
+          <li :class="{active: now_route=='tern'}">
             <router-link to="/tern">
               <svg class="glyph stroked calendar">
                 <use xlink:href="#stroked-calendar"></use>
               </svg> 各項聲明
             </router-link>
           </li>
-          <li data-link="job">
+          <li :class="{active: now_route=='job'}">
             <router-link to="/job">
               <svg class="glyph stroked calendar">
                 <use xlink:href="#stroked-calendar"></use>
               </svg> 人才招募
             </router-link>
           </li>
-          <li data-link="contactrecord">
+          <li :class="{active: now_route=='contactrecord'}">
             <router-link to="/contactrecord">
               <svg class="glyph stroked calendar">
                 <use xlink:href="#stroked-calendar"></use>
@@ -447,12 +447,6 @@
   <script src="/js/admin_js/jquery-1.11.1.min.js"></script>
   <script src="/js/admin_js/bootstrap.min.js"></script>
   <script>
-    $("[data-link]").each(function(id,obj){
-      if ($(obj).attr("data-link")==document.URL.split("/").slice(-1)[0]){ 
-    
-        $(obj).addClass("active")
-      }
-    });
     var locale= document.location.host.split(".")[0];
     if (["zh","cn","en"].indexOf(locale)==-1){
       locale="zh";
