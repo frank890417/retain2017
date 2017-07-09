@@ -21,7 +21,7 @@ elixir((mix) => {
           'app.js'
         ],'public/js/app.js')
        .webpack([
-          'backstage/app.js'
+          'manage/app.js'
         ],'public/js/backstage/app.js')
        .jade({
         baseDir: './resources',

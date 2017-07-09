@@ -16,10 +16,14 @@
 // });
 
 Route::get('home','NewsController@index');
-Route::get('manage/news','NewsController@index');
 
-Route::resource('manage/news','NewsController');
-Route::resource('manage/question','QuestionController');
+$manage_routes= function(){
+  Route::get('manage/',"ManageController@index");
+  // Route::resource('manage/','NewsController');
+};
+
+Route::group(['middleware'=>'auth','middleware'=>'lang'],$manage_routes);
+
 Auth::routes();
 
 $website_routes=function(){

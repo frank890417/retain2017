@@ -30,6 +30,8 @@
     "laravel-elixir-vue-2": "^0.3.0",
     "slick": "^1.12.2",
     "slick-carousel": "^1.6.0",
+    "tinymce": "^4.6.4",
+    "tinymce-vue-2": "0.0.2",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1"
   }

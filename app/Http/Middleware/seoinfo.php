@@ -18,12 +18,12 @@ class seoinfo
     public function handle($request, Closure $next)
     {
         //default meta data for all webisite
-        $meta_title = '睿軒檢驗科技';
+        $meta_title = '睿田生技';
         $meta_cover = 'http://www.rapidsuretech.com/img/og_default.png';
         $meta_description = '在關懷台灣食品與環境安全的問題，我們看見自己的愛與責任。於是在一群熱愛這片土地的我們努力下，從學界研究走向產業應用，與國立中山大學共同開發「質譜快速檢驗平台」專利技術，於2015年成立了睿軒檢驗科技。';
         
         //page_set
-        $post_fix = ' - 睿軒檢驗科技';
+        $post_fix = ' - 睿田生技';
         // dd($request);
         // dd($request->getPathInfo());
         $current_path = $request->getPathInfo();

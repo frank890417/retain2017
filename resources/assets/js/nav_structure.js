@@ -4,27 +4,12 @@ export default [
     link: "/about" , 
     hide_navbar: false,
     childs: [
-      // {
-      //   tag: "睿軒源起", 
-      //   link: "/about#section_about_from"
-      // },
-      // {
-      //   tag: "睿軒大事紀", 
-      //   link: "/about#section_about_log"
-      // }
     ]
   },{
     tag: "管理經營" , 
     link: "/member" , 
     hide_navbar: false,
     childs: [
-      // {
-      //   tag: "快檢平台", 
-      //   link: "/tech/0"
-      // },{
-      //   tag: "技術研發", 
-      //   link: "/tech/1"
-      // }
     ]
   },{
     tag: "產品方案與研發" , 
