@@ -83,7 +83,9 @@ export default {
     },
     props: ['id'],
     computed: {
-      ...mapState(['news']),
+      news(){
+        return this.$t("page_news.news")
+      },
       newsset (){
         var vobj=this;
         return this.news.filter((n)=>(n.id==vobj.id))[0];

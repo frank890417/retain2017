@@ -96,11 +96,15 @@ export default {
       return {
         filter: "全部消息",
         head_id: 0,
-        catas: ["全部消息","睿田活動","研討會訊息","醫學新知","友善聯結"]
+        catas: this.$t("page_news.catas"),
+        show_num: 7,
+        can_load_more: true,
       }
     },
     computed: {
-      ...mapState(['news']),
+      news(){
+        return this.$t("page_news.news")
+      },
       filtered_news(){
         return this.news.filter(item=>( item.tag == this.filter || this.filter=="全部新聞"));
       },

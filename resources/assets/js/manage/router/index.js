@@ -75,6 +75,8 @@ router.beforeEach((to, from, next) => {
     if (confirm("離開將會喪失所有未儲存變更" )){
       window.store.state.remind_save_when_exit=false
       next();
+    }else{
+      return 
     }
   }
   next();

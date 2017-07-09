@@ -43,7 +43,20 @@
                       :dataset="dataset[key]", 
                       :level="level+1", 
                       :schema="key")
-          
+
+          //** multi picture editor
+          carousel_editor(:carousel_data="dataset[key]",
+                          :update_obj="{obj: dataset,tagkey: key}",
+                          v-else-if="has_option(key_info(key).options,'multi_pic')")
+
+          //** single picture editor
+          carousel_editor(
+                :carousel_data="[dataset[key]]",
+                :allow_multi="false", 
+                :update_obj="{obj: dataset,tagkey: key}", 
+                v-else-if="has_option(key_info(key).options,'single_pic')")
+
+       
           //** array editor recursive
           div.container-fluid(v-else-if="Array.isArray(data)")
             .row(v-if="!noextend" )
@@ -62,18 +75,6 @@
                 :other-props="mce_settings.other",  
                 :toolbar="mce_settings.mce_toolbar", 
                 v-else-if="has_option(key_info(key).options,'mce')")
-
-          //** multi picture editor
-          carousel_editor(:carousel_data="dataset[key]",
-                          :update_obj="{obj: dataset,tagkey: key}",
-                          v-else-if="has_option(key_info(key).options,'multi_pic')")
-
-          //** single picture editor
-          carousel_editor(
-                :carousel_data="[dataset[key]]",
-                :allow_multi="false", 
-                :update_obj="{obj: dataset,tagkey: key}", 
-                v-else-if="has_option(key_info(key).options,'single_pic')")
 
           //** btn editor
           div(v-else-if="key == 'btn'")
@@ -150,10 +151,12 @@
 
           "more / 更多",
           "questions / 常見問題",
+          "created_at / _hidden",
+          "updated_at / _hidden",
 
           "question / 問題",
           "answer / 答案",
-          "all / _hidden"
+          //"all / _hidden"
 
 
 
@@ -241,6 +244,7 @@
         return aliasdata? aliasdata : {key,as: key,options: [],hidden: ((this.hidden || []).find(h=>h==key))?true:false}
       },
       has_option(obj,key){
+        console.log(obj,key)
         return obj.find(o=>o==key)?true:false
       },
       get_schema(key){
