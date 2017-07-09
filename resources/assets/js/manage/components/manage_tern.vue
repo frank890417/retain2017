@@ -2,22 +2,12 @@
 div.container-fluid
   .row
     .col-sm-12
-      h1 Product manage  
+      h1 各項聲明 
   .panel.panel-primary
-    .panel-heading 方案設定
-    .panel-body
-      //.row(v-if="site_data")
-      //  editor_form(:dataset="site_data.page_product" , :level="0")
-      .row
-        editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="'方案編輯'")
-
-  
-  .row
-    .col-sm-12
-      .form-group
-        h3 123
-        
-  pre {{ site_data }}
+    .panel-heading 各項聲明
+    .panel-body(v-if="site_data")
+      editor_form(:dataset="site_data.page_tern.terns" , :level="1", :schema="'tern'")
+                
 
     
 </template>

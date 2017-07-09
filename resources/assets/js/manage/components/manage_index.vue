@@ -1,5 +1,5 @@
 <template lang="jade">
-div.container
+div.container-fluid
   .row
     .col-sm-12
       h1 Index manage  

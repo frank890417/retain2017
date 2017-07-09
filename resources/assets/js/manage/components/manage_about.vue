@@ -2,22 +2,17 @@
 div.container-fluid
   .row
     .col-sm-12
-      h1 Product manage  
-  .panel.panel-primary
-    .panel-heading 方案設定
-    .panel-body
-      //.row(v-if="site_data")
-      //  editor_form(:dataset="site_data.page_product" , :level="0")
-      .row
-        editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="'方案編輯'")
-
-  
-  .row
-    .col-sm-12
-      .form-group
-        h3 123
-        
-  pre {{ site_data }}
+      h1 關於 
+    .col-sm-3
+      .panel.panel-primary
+        .panel-heading 關於
+        .panel-body(v-if="site_data")
+          editor_form(:dataset="site_data.page_about" , :level="1", :noextend="true")
+    .col-sm-9
+        .panel-heading 年表編輯
+        .panel-body(v-if="site_data")
+          editor_form(:dataset="site_data.page_about.yearlog" , :level="1")
+                  
 
     
 </template>

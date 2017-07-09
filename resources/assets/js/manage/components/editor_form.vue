@@ -12,7 +12,7 @@
 
 
       
-      div.container-fluid(v-if="typeof data == 'object'")
+      div.container-fluid(v-if="typeof data == 'object' && !noextend")
         .row
           div(:class="{'col-sm-2': level==0,'col-sm-12': level==1}", v-if="level==0")
             h3 {{ key_info(key).as}}
@@ -36,7 +36,7 @@
   import {mapState,mapMutation} from 'vuex'
   export default {
     name: "editor_form",
-    props: ['dataset','level','schema','panel_heading'],
+    props: ['dataset','level','schema','panel_heading','noextend'],
     data(){
       return {
         key_alias: [
@@ -61,7 +61,10 @@
           "cover / 封面",
           "products / 方案",
           "programs / 專案",
-          "product_inform / 方案提醒"
+          "product_inform / 方案提醒",
+          "yearlog / 年表管理",
+          "blocks / 區塊",
+          "teams / 團隊"
 
 
 
@@ -97,6 +100,16 @@
           team: {
             name: "",
             logo: "",
+            link: ""
+          },
+          tern: {
+            title: "",
+            content: ""
+          },
+          yearlog: {
+            year: null,
+            date: null,
+            content: "",
             link: ""
           }
         }

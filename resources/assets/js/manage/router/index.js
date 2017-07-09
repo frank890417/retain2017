@@ -9,7 +9,11 @@ Vue.use(VueRouter);
 
 var manage_index = Vue.component('manage_index', require('../components/manage_index.vue'));
 var manage_product = Vue.component('manage_product', require('../components/manage_product.vue'));
-// var page_about = Vue.component('page_about', require('../components/page_about.vue'));
+
+
+var manage_tern = Vue.component('manage_tern', require('../components/manage_tern.vue'));
+
+var manage_about = Vue.component('manage_about', require('../components/manage_about.vue'));
 // var page_member = Vue.component('page_member', require('../components/page_member.vue'));
 // var page_news = Vue.component('page_news', require('../components/page_news.vue'));
 // var page_product = Vue.component('page_product', require('../components/page_product.vue'));
@@ -26,7 +30,9 @@ var manage_product = Vue.component('manage_product', require('../components/mana
 
 const routes = [
   { path: '/', component: manage_index },
+  { path: '/about', component: manage_about },
   { path: '/product', component: manage_product },
+  { path: '/tern', component: manage_tern}
   // { path: '/about', component: page_about },
   // { path: '/member', component: page_member },
   // { path: '/team', component: page_about },
