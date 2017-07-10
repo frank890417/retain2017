@@ -98,4 +98,5 @@
   .carousel_editor
     .preview
       background-color: #eee
+      background-position: center center
 </style>

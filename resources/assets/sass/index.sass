@@ -45,10 +45,11 @@
       border-bottom: solid 2px $color_brown
       +trans
       +flex_center
-      
+      &:before,&:after
+        display: inline-block
       &:after
         content: ">"
-        display: block
+        // display: block
         position: absolute
         right: -40px
         transform: scaleX(0.8)
