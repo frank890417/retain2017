@@ -1,12 +1,13 @@
 <template lang="jade">
-div.page_post
-  .slick
-    section.section_hero(v-if='newsset' v-for='id in 2')
-      .bg.bg_parallax(:style="bg_css('http://retain2017.dev/img/news2.jpg')") 
+div.page_post(v-if="newsset")
+  .slick(v-if="newsset.carousel")
+    section.section_hero(v-if='imgurl' v-for='imgurl in [newsset.cover]')
+      //.concat(newsset.carousel)
+      .bg.bg_parallax(:style="bg_css(imgurl)") 
       .container.flex
   
   section.section_post
-    .container.flex.column(v-if='newsset')
+    .container.flex.column
       .top
         .col_left
           h4.info
@@ -28,10 +29,10 @@ div.page_post
             p(v-html='newsset.content')
             // h5.share 分享文章
               
-      // .bottom
+      .bottom
         .container.flex.row.nav_end(v-if="preset || postset")
           .wrap
-            router-link.pre(v-if="preset" ,:to="'/news/'+preset.id",:style="bg_css(preset.cover)") 
+            router-link.pre(v-if="preset" ,:to="'/news/'+(parseInt(id)-1)",:style="bg_css(preset.cover)") 
               h3.guide_text
                 span 前一則
                 i.fa.fa-angle-left 
@@ -39,7 +40,7 @@ div.page_post
                 h6.date {{preset.date}}
                 h3 {{preset.title}}
           .wrap
-            router-link.post(v-if="postset",:to="'/news/'+postset.id" ,:style="bg_css(postset.cover)") 
+            router-link.post(v-if="postset",:to="'/news/'+(parseInt(id)+1)" ,:style="bg_css(postset.cover)") 
               h3.guide_text
                 i.fa.fa-angle-right
                 span 後一則
@@ -61,14 +62,14 @@ export default {
       var vobj=this;
       var loader = setInterval(function(){
         if (vobj.newsset){
-          $('.slick').slick({
-            autoplay: true,
-            autoplaySpeed: 5000,
-            dots: true,
-            easing: 'ease-in',
-            prevArrow: '<i class="fa fa-angle-left"></i> ',
-            nextArrow: '<i class="fa fa-angle-right"></i> '
-          });
+          // $('.slick').slick({
+          //   autoplay: true,
+          //   autoplaySpeed: 5000,
+          //   dots: true,
+          //   easing: 'ease-in',
+          //   prevArrow: '<i class="fa fa-angle-left"></i> ',
+          //   nextArrow: '<i class="fa fa-angle-right"></i> '
+          // });
           clearInterval(loader);
           console.log("news_slick_loaded");
         }
@@ -88,16 +89,16 @@ export default {
       },
       newsset (){
         var vobj=this;
-        return this.news.filter((n)=>(n.id==vobj.id))[0];
+        return this.news?this.news[parseInt(this.id)]:null;
       },
       preset(){
         var vobj=this;
-        return this.news.filter((n)=>(n.id==(vobj.id-1)))[0];
+        return this.news?this.news[parseInt(this.id)-1]:null;
 
       },
       postset(){
         var vobj=this;
-        return this.news.filter((n)=>(n.id==(parseInt(vobj.id)+1)))[0];
+        return this.news?this.news[parseInt(this.id)+1]:null;
         
       }
     }

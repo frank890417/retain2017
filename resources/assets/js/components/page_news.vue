@@ -106,11 +106,11 @@ export default {
         return this.$t("page_news.news")
       },
       filtered_news(){
-        return this.news.filter(item=>( item.tag == this.filter || this.filter=="全部新聞"));
+        return this.news.filter(item=>( item.tag == this.filter || this.filter.all));
       },
     },watch: {
       cataname(){
-        this.filter=(this.cataname=="全部新聞")?"全部新聞":this.cataname;
+        this.filter=this.catas.find(o=>o.all)
       }
     },methods: {
       change_head(id){

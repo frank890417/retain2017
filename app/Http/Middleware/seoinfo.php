@@ -37,15 +37,15 @@ class seoinfo
         }
 
 
-        // match news
-        if ( preg_match("/news\/([0-9]*?)$/",$current_path,$test) ){
-            $match_news = News::where("id", urldecode($test[1]))->first();
-            $meta_title=$match_news->title. $post_fix ;
-            $meta_cover=$match_news->cover ;
-            // $meta_title=$match_news->title. $post_fix ;
-            $meta_description= mb_substr(preg_replace("/lt/",'',$match_news->content),0,50)."...";
+        // // match news
+        // if ( preg_match("/news\/([0-9]*?)$/",$current_path,$test) ){
+        //     $match_news = News::where("id", urldecode($test[1]))->first();
+        //     $meta_title=$match_news->title. $post_fix ;
+        //     $meta_cover=$match_news->cover ;
+        //     // $meta_title=$match_news->title. $post_fix ;
+        //     $meta_description= mb_substr(preg_replace("/lt/",'',$match_news->content),0,50)."...";
 
-        }
+        // }
         // switch($request->pathInfo){
         //     case '/':
         //     case '/home':    

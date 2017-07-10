@@ -227,7 +227,7 @@
           members: {
             name: "",
             role: "",
-            cover: "",
+            cover: "/img/temp_member_icon.png",
             card_front: "",
             card_back: ""
           }
