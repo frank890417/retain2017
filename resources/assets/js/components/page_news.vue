@@ -7,7 +7,7 @@ div.page_news
         transition-group(name="fade", mode="out-in")
           div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")
             h1.title 
-              router-link(to="/news/1") {{headnews.title}}
+              router-link(:to="'/news/'+news_id") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").slice(0,100)+"..."}}
             .btn.btn-default 了解更多
       .col_right

@@ -179,28 +179,28 @@ div.page_index
             
             // console.log("slick integrated");
 
-            $('.out_pic').slick({
-              autoplay: true,
-              autoplaySpeed: 3000,
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              arrows: false,
-              fade: true,
-              dots: true,
-              easing: 'ease-in'
-            });
+            // $('.out_pic').slick({
+            //   autoplay: true,
+            //   autoplaySpeed: 3000,
+            //   slidesToShow: 1,
+            //   slidesToScroll: 1,
+            //   arrows: false,
+            //   fade: true,
+            //   dots: true,
+            //   easing: 'ease-in'
+            // });
 
-            $('.slicklogo_team').slick({
-              autoplay: true,
-              autoplaySpeed: 3000,
-              slidesToShow: 2,
-              slidesToScroll: -1,
-              arrows: false,
-              // rtl: true,
-              // fade: true,
-              // dots: true,
-              easing: 'ease-in'
-            });
+            // $('.slicklogo_team').slick({
+            //   autoplay: true,
+            //   autoplaySpeed: 3000,
+            //   slidesToShow: 2,
+            //   slidesToScroll: -1,
+            //   arrows: false,
+            //   // rtl: true,
+            //   // fade: true,
+            //   // dots: true,
+            //   easing: 'ease-in'
+            // });
 
 
             

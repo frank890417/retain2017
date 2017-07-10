@@ -2,18 +2,13 @@
 div.container-fluid
   .row
     .col-sm-12
-      h1 關於睿田 
+      h1 經營團隊 
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
-    .col-sm-6
+    .col-sm-12
       .panel.panel-primary
-        .panel-heading 關於
+        .panel-heading 團隊編輯
         .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about" , :level="1", :noextend="true")
-    .col-sm-6
-        .panel-heading 年表編輯
-        .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about.yearlog" , :level="1", :schema="'yearlog'")
-    
+          editor_form(:dataset="site_data.page_about.teams" , :level="1", :schema="'teams'")
 </template>
 
 <script>

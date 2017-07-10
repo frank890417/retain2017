@@ -137,12 +137,16 @@
           "right / 右側",
           "description / 描述 / mce",
           "cover / 封面 / single_pic",
+          "logo / 圖示 / single_pic",
           "products / 方案",
           "programs / 專案",
           "product_inform / 方案提醒",
           "yearlog / 年表管理",
           "blocks / 區塊",
           "teams / 團隊",
+          "members / 群組成員",
+          "card_front / 正面資訊 / mce",
+          "card_back / 背面資訊 / mce",
           "client / 目標對象",
           "contents / 詳細內容",
           "year / 年份",
@@ -215,6 +219,17 @@
           catas: {
             tag: "",
             all: false
+          },
+          teams: {
+            title: "",
+            members: []
+          },
+          members: {
+            name: "",
+            role: "",
+            cover: "",
+            card_front: "",
+            card_back: ""
           }
         }
 
@@ -244,7 +259,7 @@
         return aliasdata? aliasdata : {key,as: key,options: [],hidden: ((this.hidden || []).find(h=>h==key))?true:false}
       },
       has_option(obj,key){
-        console.log(obj,key)
+        //console.log(obj,key)
         return obj.find(o=>o==key)?true:false
       },
       get_schema(key){
@@ -283,6 +298,8 @@
   .type_array.level_1,.type_array.level_-1,.type_array.level_0
     div>div>.editor_label
       font-size: 20px
+  .editor_form.type_array.level_4
+    border: none
   .editor_form
     border: solid 1px #ddd
     padding: 10px

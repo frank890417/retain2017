@@ -87,6 +87,13 @@
               </svg> 關於睿田
             </router-link>
           </li>
+          <li :class="{active: now_route=='team'}">
+            <router-link to="/team">
+              <svg class="glyph stroked dashboard-dial">
+                <use xlink:href="#stroked-dashboard-dial"></use>
+              </svg> 經營團隊
+            </router-link>
+          </li>
           <li :class="{active: now_route=='product'}">
             <router-link to="/product">
               <svg class="glyph stroked calendar">
