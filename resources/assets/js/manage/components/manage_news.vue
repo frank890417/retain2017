@@ -7,7 +7,7 @@ div.container-fluid
   .panel.panel-primary.col-sm-3
     .panel-heading 類別
     .panel-body(v-if="site_data")
-      editor_form(:dataset="site_data.page_news.catas" , :level="1", :schema="'catas'")
+      editor_form(:dataset="site_data.page_news.catas" , :level="1", :schema="'catas'" , hidden="['all']")
   .panel.panel-primary.col-sm-9
     .panel-heading 新聞
     .panel-body(v-if="site_data")

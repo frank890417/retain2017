@@ -8,6 +8,7 @@
         @dragover.prevent="dragover_array", 
         @dragstart="dragstart(key)",
         @drop="drop(key,dataset)",
+        
         )
       .editor_label(v-if="(level!=0) || (typeof data != 'object') ",
             @click="array_open[key].status=!array_open[key].status",
@@ -147,7 +148,7 @@
           "members / 群組成員",
           "card_front / 正面資訊 / mce",
           "card_back / 背面資訊 / mce",
-          "client / 目標對象",
+          "client / 建議對象",
           "contents / 詳細內容",
           "year / 年份",
           "date / 日期",
