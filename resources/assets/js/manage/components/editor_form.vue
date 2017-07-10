@@ -199,8 +199,8 @@
             content: ""
           },
           yearlog: {
-            year: null,
-            date: null,
+            year: "",
+            date: "",
             content: "",
             link: ""
           },

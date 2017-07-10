@@ -40,6 +40,11 @@ div.container-fluid(v-if="site_data")
               h3 介紹-3
             .col-sm-10
               editor_form(:dataset="sec" , :level="0")
+          .row(v-for="sec in [site_data.page_index.section_6]")
+            .col-sm-2
+              h3 介紹-4
+            .col-sm-10
+              editor_form(:dataset="sec" , :level="0")
     
 </template>
 
