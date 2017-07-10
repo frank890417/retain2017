@@ -231,7 +231,8 @@
             cover: "/img/temp_member_icon.png",
             card_front: "",
             card_back: ""
-          }
+          },
+          product_inform: ""
         }
 
       }
