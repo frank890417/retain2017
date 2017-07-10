@@ -32,7 +32,7 @@ div.page_news
         ul.catalist
           li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
       .area_news
-        router-link(:to="'/news/'+a_news.id" v-for="a_news in news.slice(0,6)").news_box
+        router-link(:to="'/news/'+id" v-for="(a_news,id) in news.slice(0,6)").news_box
           i.fa.fa-search  
           .date {{a_news.date.slice(-5) }}
           h5.title {{a_news.title}}
