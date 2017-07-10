@@ -8,7 +8,7 @@ div.container-fluid
       .panel.panel-primary
         .panel-heading 關於
         .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about" , :level="1", :noextend="true")
+          editor_form(:dataset="site_data.page_about" , :level="1", :hidden="['yearlog','teams']")
     .col-sm-6
         .panel-heading 年表編輯
         .panel-body(v-if="site_data")
