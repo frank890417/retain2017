@@ -3,7 +3,7 @@ div.page_news
   section.section_hero
     .container.full.flex
       
-      .col_left
+      .col_left( :style="{'background-image': 'url('+news[head_id].cover+')'}")
         transition-group(name="fade", mode="out-in")
           div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")
             h1.title 
@@ -30,7 +30,7 @@ div.page_news
     .container.full.flex
       .catabar
         ul.catalist
-          li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata}}
+          li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
       .area_news
         router-link(:to="'/news/'+a_news.id" v-for="a_news in news.slice(0,6)").news_box
           i.fa.fa-search  
@@ -94,7 +94,7 @@ export default {
     },
     data() {
       return {
-        filter: "全部消息",
+        filter: null,
         head_id: 0,
         catas: this.$t("page_news.catas"),
         show_num: 7,
