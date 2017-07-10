@@ -13,7 +13,7 @@ div.container-fluid
       .panel.panel-primary
         .panel-heading 職位編輯
         .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_job.jobs" , :level="1")
+          editor_form(:dataset="site_data.page_job.jobs" , :level="1", :schema="'jobs'")
 
     
 </template>

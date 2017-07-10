@@ -158,6 +158,7 @@
           "questions / 常見問題",
           "created_at / _hidden",
           "updated_at / _hidden",
+          "requirement / 需求",
 
           "question / 問題",
           "answer / 答案",
@@ -232,7 +233,18 @@
             card_front: "",
             card_back: ""
           },
-          product_inform: ""
+          product_inform: "",
+          questions: {
+            question: "",
+            answer: ""
+          },
+          jobs: {
+            title: "",
+            requirement: "",
+            content: "",
+            link: ""
+
+          }
         }
 
       }
