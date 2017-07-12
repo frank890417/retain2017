@@ -19,7 +19,9 @@
         span(v-if="dataset instanceof Array")
           |  {{ key_info(key).as+1 }}. 
           | {{ data.title || data.name || data.label || data.tag || data.content || data.text || data.question}}
-        span(v-if="!(dataset instanceof Array)") 
+        span(v-if="overwrite && overwrite.find(o=>o.key==key) && overwrite.find(o=>o.key==key).as")
+          | {{ overwrite.find(o=>o.key==key).as }}
+        span(v-else-if="!(dataset instanceof Array)") 
           | {{ key_info(key).as }}
         span(v-if="schema") 
           | ({{schema}})

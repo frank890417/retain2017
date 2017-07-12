@@ -85,7 +85,8 @@ div.page_index
       .col_right
         ul.slicklogo_team
           li.item(v-for="member in $t('page_index.section_4.team')")
-            img(:src = "member.logo")
+            .team_pic(:style="{'background-image':`url(${member.logo})`}")
+            
             h5.title(v-html="member.name")
         
 

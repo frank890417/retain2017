@@ -15,7 +15,7 @@ div.container-fluid
     .panel-heading 新聞
     .panel-body(v-if="site_data")
       editor_form(:dataset="site_data.page_news.news" , :level="1", :schema="'news'",
-                   :overwrite="[{key: 'tag' , content: {type: 'select',data: site_data.page_news.catas.map(o=>o.tag)}}]" )
+                   :overwrite="[{key: 'tag',as: '新聞類別', content: {type: 'select',data: site_data.page_news.catas.map(o=>o.tag)}}]" )
   
   .row
     .col-sm-12

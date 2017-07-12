@@ -27,11 +27,15 @@ const store = new Vuex.Store({
       axios.post("/api/websiteinfo/key/"+state.locale,updated_info).then(
         (res)=>{
           state.remind_save_when_exit=false;
+          if (res.data.status=="ok"){
+            alert("儲存完成！")
+          }
+
         }
       )
     },
     remind_save(state){
-      state.remind_save_when_exit=true
+      // state.remind_save_when_exit=true
     },
     cancel_remind_save(state){
       state.remind_save_when_exit=false
