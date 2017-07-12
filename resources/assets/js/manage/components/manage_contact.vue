@@ -14,6 +14,10 @@ div.container-fluid
       editor_form(:dataset="site_data.footer.section_question" , :level="1")
                               
 
+  .row
+    .col-sm-12
+      button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
+    
     
 </template>
 

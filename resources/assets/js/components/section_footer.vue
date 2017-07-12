@@ -34,7 +34,7 @@ div.footer
 
   footer
     .container.flex
-      .info {{$t('footer.bottom.copyright')}}
+      .info Copyright {{new Date().getFullYear()}} © 睿田生技 Retain Biotech, All right reserved.
       ul.footer_nav
         li
           router-link(to="/job") 人才招募

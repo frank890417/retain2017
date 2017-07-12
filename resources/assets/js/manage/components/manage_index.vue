@@ -45,7 +45,11 @@ div.container-fluid(v-if="site_data")
               h3 介紹-4
             .col-sm-10
               editor_form(:dataset="sec" , :level="0")
-    
+  
+  .row
+    .col-sm-12
+      button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
+      
 </template>
 
 <script>

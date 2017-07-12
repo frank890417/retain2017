@@ -160,6 +160,7 @@
           "blocks / 區塊",
           "teams / 團隊",
           "members / 群組成員",
+          "role / 現職",
           "card_front / 正面資訊 / mce",
           "card_back / 背面資訊 / mce",
           "client / 建議對象",
@@ -167,6 +168,7 @@
           "year / 年份",
           "date / 日期",
           "revive_box / 子區塊",
+          "text / 文字",
 
           "more / 更多",
           "questions / 常見問題",

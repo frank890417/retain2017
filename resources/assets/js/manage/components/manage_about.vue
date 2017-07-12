@@ -16,6 +16,9 @@ div.container-fluid
       .panel-heading 年表編輯
       .panel-body(v-if="site_data")
         editor_form(:dataset="site_data.page_about.yearlog" , :level="1", :schema="'yearlog'")
+  .row
+    .col-sm-12
+      button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
     
 </template>
 

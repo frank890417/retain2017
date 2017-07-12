@@ -7,11 +7,11 @@ div.page_news
         transition-group(name="fade", mode="out-in")
           div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")
             h1.title 
-              router-link(:to="'/news/'+news_id") {{headnews.title}}
+              router-link(:to="'/news/n/'+headnews.title") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").slice(0,100)+"..."}}
             .btn.btn-default 了解更多
       .col_right
-        ul 
+        ul
           li.container.flex(v-for="(a_news,newsid) in news.slice(0,5)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
             .date {{a_news.date.slice(-5) }}
             .circle
@@ -31,8 +31,8 @@ div.page_news
       .catabar
         ul.catalist
           li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
-      .area_news
-        router-link(:to="'/news/'+id" v-for="(a_news,id) in news.slice(0,6)").news_box
+      transition-group(tag="ul" , name="fade-delay" , mode="out-in").area_news
+        router-link(:to="'/news/n/'+a_news.title" v-for="(a_news,id) in filtered_news",:key="a_news", ).news_box
           i.fa.fa-search  
           .date {{a_news.date.slice(-5) }}
           h5.title {{a_news.title}}
@@ -88,7 +88,7 @@ export default {
         }
       },100);
       if (this.cataname){
-        this.filter=this.cataname;
+        this.filter=this.catas.find(o=>o.tag==this.cataname);
       }
       // if (Ts) Ts.reload();
     },
@@ -106,7 +106,7 @@ export default {
         return this.$t("page_news.news")
       },
       filtered_news(){
-        return this.news.filter(item=>( item.tag == this.filter || this.filter.all));
+        return this.news.filter(item=>( item.tag == this.filter.tag || this.filter.all));
       },
     },watch: {
       cataname(){

@@ -12,7 +12,11 @@ div.container-fluid(v-if="site_data")
           .form-group
             h3 {{id+1}}. {{route.tag}}
             editor_form(:dataset="route" , :level="0")
-    
+  
+  .row
+    .col-sm-12
+      button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
+      
 </template>
 
 <script>

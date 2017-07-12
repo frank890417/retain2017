@@ -32,7 +32,7 @@ div.page_post(v-if="newsset")
       .bottom
         .container.flex.row.nav_end(v-if="preset || postset")
           .wrap
-            router-link.pre(v-if="preset" ,:to="'/news/'+(parseInt(id)-1)",:style="bg_css(preset.cover)") 
+            router-link.pre(v-if="preset" ,:to="'/news/n/'+preset.title",:style="bg_css(preset.cover)") 
               h3.guide_text
                 span 前一則
                 i.fa.fa-angle-left 
@@ -40,7 +40,7 @@ div.page_post(v-if="newsset")
                 h6.date {{preset.date}}
                 h3 {{preset.title}}
           .wrap
-            router-link.post(v-if="postset",:to="'/news/'+(parseInt(id)+1)" ,:style="bg_css(postset.cover)") 
+            router-link.post(v-if="postset",:to="'/news/n/'+postset.title" ,:style="bg_css(postset.cover)") 
               h3.guide_text
                 i.fa.fa-angle-right
                 span 後一則
@@ -82,23 +82,43 @@ export default {
         return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
       }
     },
-    props: ['id'],
+    props: ['id','title'],
     computed: {
       news(){
         return this.$t("page_news.news")
       },
+      now_id(){
+        return ( !isNaN(this.id) && this.id!=-1)?this.id:this.news.findIndex(o=>o.title==this.title)
+      },
+      //相同類別文章
+      same_cata_news(){
+        return this.news.filter((o)=>o.tag==this.newsset.tag)
+      },
+      //相同類別文章-當篇所在id
+      same_cata_news_now_id(){
+        return this.same_cata_news.findIndex(o=>o==this.newsset)
+      },
+      //當下新聞
       newsset (){
         var vobj=this;
-        return this.news?this.news[parseInt(this.id)]:null;
+        if ( !isNaN(this.now_id))
+          return this.news?this.news[this.now_id]:null;
+        return null
       },
+      //上一則新聞(抓同類別文章上一篇 在同類別中的位置-1)
       preset(){
         var vobj=this;
-        return this.news?this.news[parseInt(this.id)-1]:null;
+        if ( !isNaN(this.same_cata_news_now_id))
+          return this.same_cata_news?this.same_cata_news[this.same_cata_news_now_id-1]:null;
+        return null
 
       },
+      //下一則新聞(抓同類別文章下一篇 在同類別中的位置+1)
       postset(){
         var vobj=this;
-        return this.news?this.news[parseInt(this.id)+1]:null;
+        if ( !isNaN(this.same_cata_news_now_id))
+          return this.same_cata_news?this.same_cata_news[this.same_cata_news_now_id+1]:null;
+        return null
         
       }
     }

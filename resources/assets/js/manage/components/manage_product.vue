@@ -10,7 +10,11 @@ div.container-fluid
     editor_form(:dataset="site_data.page_product.features" , :level="-1", panel_heading="特色編輯", :schema="'features'")
     editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="方案編輯", :schema="'products'")
     editor_form(:dataset="site_data.page_product.product_inform.informs" , :level="-1", panel_heading="提醒編輯", :schema="'informs'")
-
+  
+  .row
+    .col-sm-12
+      button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
+    
 
 </template>
 
