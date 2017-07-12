@@ -29,17 +29,27 @@
             }
           }
         },
-        // watch: {
-        //   carousel_data(){
-        //     console.log(this.carousel_data)
-        //     if (JSON.stringify(this.now_carousel_data) !=JSON.stringify(this.carousel_data.map( (t)=>({url: t}) )) ){
-              
-        //       this.now_carousel_data=this.carousel_data.map( (t)=>({url: t}) )
-        //     }
-        //   }
-        // },
-        mounted() {
-            console.log('example mounted.')
+        watch: {
+          carousel_data(){
+
+            let delta = (typeof this.carousel_data=="string")?[this.carousel_data]:this.carousel_data
+            let nowstate = this.now_carousel_data.map(o=>o.url)
+            console.log("delta:",JSON.stringify(delta) )
+            console.log("nowstate:",JSON.stringify(nowstate))
+
+            if (JSON.stringify(delta) != JSON.stringify(nowstate)) {
+              console.log("update state")
+              if (typeof this.carousel_data == "string"){
+                this.now_carousel_data   =[this.carousel_data]
+              }else{
+                this.now_carousel_data
+                  =this.carousel_data.map( (t)=>({url: t}) )
+              }     
+            }
+          }
+        },
+        created() {
+            console.log('carousel created.')
             console.log(this.carousel_data)
             this.options.allow_multi=(typeof this.allow_multi!="undefined")?this.allow_multi:this.options.allow_multi;  
             console.log(this.options.allow_multi)
@@ -89,7 +99,7 @@
             }
             //this.$emit("update:carousel_data",outdata);
             if (this.update_obj){
-                this.update_obj.obj[this.update_obj.tagkey]=JSON.stringify(outdata)
+                this.update_obj.obj[this.update_obj.tagkey]=JSON.parse(JSON.stringify(outdata))
               }
             return JSON.stringify(outdata);
           }
