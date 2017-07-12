@@ -1,5 +1,5 @@
 <template lang="jade">
-div.container-fluid
+div.container-fluid(v-if="site_data")
   .row
     .col-sm-12
       h1 產品方案

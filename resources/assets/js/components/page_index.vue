@@ -2,7 +2,7 @@
 div.page_index
   section.page_index_main.bg_parallax
     .video_container
-      video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
+      div(v-html="$t('page_index.section_hero.embed_video').replace(/(width=.*?height=.*?\")/,'width=\"100%\" height=\"500px\"')", style="width: 100%;padding: 20vmin;")
       .btn_video_close ✕
     .container.index_slogan_area
       h1 
@@ -142,17 +142,17 @@ div.page_index
             
             $(".play_btn").click(function(){
               var target=$($(this).attr("data-target"));
-              var video=$($(this).attr("data-target")+" video")[0];
+              // var video=$($(this).attr("data-target")+" video")[0];
               target.addClass("playmovie");
-              video.currentTime=0;
-              video.play();
+              // video.currentTime=0;
+              // video.play();
               function cancel_video(e){
                 console.log("end!");
                 target.removeClass("playmovie");
-                video.currentTime=0;
-                video.pause();
+                // video.currentTime=0;
+                // video.pause();
               }
-              video.addEventListener('ended',cancel_video,false);
+              // video.addEventListener('ended',cancel_video,false);
               $($(this).attr("data-target")+" .btn_video_close").click(cancel_video);
 
             });

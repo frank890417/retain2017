@@ -18,7 +18,9 @@
           i.fa.fa-bars(style="cursor: all-scroll")  
         span(v-if="dataset instanceof Array")
           |  {{ key_info(key).as+1 }}. 
+          | {{ prepand_key ? '['+data[prepand_key]+']':'' }}
           | {{ data.title || data.name || data.label || data.tag || data.content || data.text || data.question}}
+          | {{ append_key ? '['+data[append_key]+']':'' }}
         span(v-if="overwrite && overwrite.find(o=>o.key==key) && overwrite.find(o=>o.key==key).as")
           | {{ overwrite.find(o=>o.key==key).as }}
         span(v-else-if="!(dataset instanceof Array)") 
@@ -83,7 +85,7 @@
                       :schema="key",
                       :history="history?(''+history+'.'+key):(''+key)",
                       :overwrite="overwrite",
-                      :parent="key")
+                      :parent="key",)
 
           //** content tinymce editor(toolbar only code)
           tiny-mce(
@@ -139,7 +141,7 @@
   import {mapState,mapMutation} from 'vuex'
   export default {
     name: "editor_form",
-    props: ['dataset','level','schema','panel_heading','noextend','hidden','history','overwrite','parent'],
+    props: ['dataset','level','schema','panel_heading','noextend','hidden','history','overwrite','parent','prepand_key','append_key'],
     data(){
       return {
         array_open: Array.from({length: 1000},o=>({status: false}) ),
@@ -177,7 +179,7 @@
           "card_front / 正面資訊 / mce",
           "card_back / 背面資訊 / mce",
           "client / 建議對象",
-          "contents / 詳細內容",
+          "contents / 方案內容",
           "year / 年份",
           "date / 日期",
           "revive_box / 子區塊",

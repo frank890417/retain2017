@@ -27,8 +27,8 @@ class ApiController extends Controller
       // dd($input);
       $websiteinfo = Websiteinfo::where("key",$key)->first();
 
-      // dd($websiteinfo);
-      $websiteinfo->data=json_encode($input);
+      // dd($input["update"]);
+      $websiteinfo->data=$input["update"];
       $websiteinfo->save();
 
       return ["status"=> "ok"];
