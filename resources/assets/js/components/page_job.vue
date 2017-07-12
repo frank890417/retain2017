@@ -19,7 +19,7 @@ div.page_job
           .cover.flex.column 
             p(v-html="job.content")
             // a.btn.btn-transparent(href="https://www.104.com.tw/job/?jobno=4s08f&jobsource=n104bank1") 更多資訊
-            a.logo_link_wrapper(href="#")
+            a.logo_link_wrapper(:href="job.link", v-if="job.link && job.link!=''")
               img.logo_link(src="/img/logo_link.svg")
 
       .row
