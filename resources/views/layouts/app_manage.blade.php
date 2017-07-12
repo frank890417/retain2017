@@ -87,13 +87,6 @@
               </svg> 關於睿田
             </router-link>
           </li>
-          <li :class="{active: now_route=='team'}">
-            <router-link to="/team">
-              <svg class="glyph stroked dashboard-dial">
-                <use xlink:href="#stroked-dashboard-dial"></use>
-              </svg> 經營團隊
-            </router-link>
-          </li>
           <li :class="{active: now_route=='product'}">
             <router-link to="/product">
               <svg class="glyph stroked calendar">
@@ -212,7 +205,9 @@
       <!-- /.sidebar -->
       <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
         <!-- @yield('content') -->
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <router-view :key="$route.path"></router-view>
+        </transition>
         <div class="clearfix"></div>
         <!-- /.row -->
         {{--          

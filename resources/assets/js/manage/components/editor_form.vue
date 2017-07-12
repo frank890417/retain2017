@@ -167,6 +167,7 @@
           "right / 右側",
           "description / 描述 / mce",
           "cover / 封面 / single_pic",
+          "slogan_carousel / 輪播服務",
           "logo / 圖示 / single_pic",
           "products / 方案",
           "programs / 專案",
@@ -291,6 +292,11 @@
           //產品提醒
           informs: {
             text: ""
+          },
+          //首頁輪播
+          slogan_carousel: {
+            text: "",
+            cover: ""
           }
         }
 

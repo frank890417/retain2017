@@ -94,12 +94,10 @@ div.page_index
     .container.flex.full
       .col_left
         .out_pic.slick
-          .item.item1(v-for="service in $t('page_index.section_5.carousel')", style="{'background-image': 'url('+service.cover+')'}")
+          .item(v-for="service in $t('page_index.section_5.slogan_carousel')", :style="{'background-image': 'url('+service.cover+')'}")
 
-        .slick_caption()
-          transition-group(name="fade",tag="span")
-            .title(v-for="(service,sid) in $t('page_index.section_5.carousel')",
-            v-if="sid==0") {{service.text}}
+        .slick_caption(v-if="$t('page_index.section_5.slogan_carousel')", v-for="sv in [$t('page_index.section_5.slogan_carousel')[service_slide_id]]")
+          .title {{ sv?sv.text:'' }}
           .next(onclick="$('.out_pic').slick('slickNext');")
             i.fa.fa-angle-right
       .col_right
@@ -125,6 +123,7 @@ div.page_index
 </template>
 
 <script>
+import slick from 'slick-carousel'
   import {mapState} from 'vuex'
     export default {
         data () {
@@ -133,7 +132,8 @@ div.page_index
             news_time: 0,
             news_change_time: 4000,
             arrows: false,
-            timer: null
+            timer: null,
+            service_slide_id: 0
           };
 
         },
@@ -162,46 +162,56 @@ div.page_index
 
             var vobj=this;
 
-            // this.timer=setInterval(this.news_delta,this.news_change_time);
+            this.timer=setInterval(this.news_delta,this.news_change_time);
 
-            // var loader = setInterval(function(){
-            //   if (vobj.news.length>0){
-            //     $('.slick').slick({
-            //       autoplay: false,
-            //       // dots: true,
-            //       easing: 'ease-in',
-            //       fade: true
-            //     });
-            //     clearInterval(loader);
-            //     vobj.news_delta();
-            //     Ts.reload();
-            //   }
-            // },100);
+
+            setTimeout(()=>{
+              var loader = setInterval(function(){
+                if (vobj.news.length>0){
+                  $('.slick').slick({
+                    autoplay: false,
+                    // dots: true,
+                    easing: 'ease-in',
+                    fade: true
+                  });
+                  clearInterval(loader);
+                  vobj.news_delta();
+                  Ts.reload();
+                }
+              },100);
+              
+              console.log("slick integrated");
+
+              $('.out_pic').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 1,
+                arrows: false,
+                fade: true,
+                dots: true,
+                easing: 'ease-in'
+              });
+
+
+              $('.out_pic').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                console.log(nextSlide);
+                vobj.service_slide_id=nextSlide
+              });
+
+              $('.slicklogo_team').slick({
+                autoplay: false,
+                autoplaySpeed: 3000,
+                slidesToShow: 2,
+                slidesToScroll: -1,
+                arrows: false,
+                // rtl: true,
+                // fade: true,
+                // dots: true,
+                easing: 'ease-in'
+              });
+            },1)
+
             
-            // console.log("slick integrated");
-
-            // $('.out_pic').slick({
-            //   autoplay: true,
-            //   autoplaySpeed: 3000,
-            //   slidesToShow: 1,
-            //   slidesToScroll: 1,
-            //   arrows: false,
-            //   fade: true,
-            //   dots: true,
-            //   easing: 'ease-in'
-            // });
-
-            // $('.slicklogo_team').slick({
-            //   autoplay: true,
-            //   autoplaySpeed: 3000,
-            //   slidesToShow: 2,
-            //   slidesToScroll: -1,
-            //   arrows: false,
-            //   // rtl: true,
-            //   // fade: true,
-            //   // dots: true,
-            //   easing: 'ease-in'
-            // });
 
 
             

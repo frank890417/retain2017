@@ -687,7 +687,7 @@
           margin-bottom: grid_sz(0,2)
           background-size: cover
         ul
-          width: 25vw
+          width: 100%
           display: flex
           li
             width: grid_sz(2,1)
@@ -747,16 +747,13 @@
           position: absolute
           .item
             +size(100%,100%)
-          .item1
-            background-image: url("../img/index/4f.jpg")
-          .item2
-            background-image: url("http://www.marinabaysands.com/content/dam/singapore/marinabaysands/master/main/home/hotel/deluxe1500x930.jpg")
-        
+         
       .col_right
         width: calc(50%)
         // height: calc(100% + #{grid_sz(0,4)})
         background-color: #F6F6F6
-
+        .slicklogo_team
+          width: 100%
       +rwd_md
         .col_left,.col_right
           width: 100%
@@ -893,7 +890,7 @@
     min-height: initial
     background-color: $color_grey_bg
     .item
-      width: 25%
+      width: 25vw
 
     .container
       height: auto

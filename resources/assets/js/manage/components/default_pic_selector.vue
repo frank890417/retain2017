@@ -5,7 +5,11 @@
       .btn.btn-default.btn-dropzone(:data-hash="hash") 上傳圖片
     .panel(v-show="status.open")
       .panel_body
-        div(v-for="pic in default_set.slice(now_index*16,(now_index+1)*16)",:style="css_default_block('/img/default/icon/'+pic)", @click="output_result('/img/default/'+pic)")
+        div(
+          v-for="pic in default_set.slice(now_index*16,(now_index+1)*16)",
+          :style="css_default_block('/img/default/icon/'+pic)", 
+          @click="output_result('/img/default/'+pic)"
+          )
         div
           .btn.pull_left(@click="delta(-1)") <
           .btn.pull_right(@click="delta(1)") >
@@ -15,12 +19,12 @@
 
 <script>
     export default {
-        props: ['output','update_obj'],
+        props: ['output','update_obj',"set_pic"],
         name: "default_pic_selector",
         data(){
           return {
             // carousel_data: ["/img/homepage/Solution2.jpg","/img/homepage/Post2.jpg"]
-            default_set: ["siteimage1.jpg","siteimage10.jpg","siteimage11.jpg","siteimage12.jpg","siteimage13.jpg","siteimage14.jpg","siteimage15.jpg","siteimage16.jpg","siteimage17.jpg","siteimage18.jpg","siteimage19.jpg","siteimage2.jpg","siteimage20.jpg","siteimage21.jpg","siteimage22.jpg","siteimage23.jpg","siteimage24.jpg","siteimage25.jpg","siteimage26.jpg","siteimage27.jpg","siteimage28.jpg","siteimage29.jpg","siteimage3.jpg","siteimage4.jpg","siteimage5.jpg","siteimage6.jpg","siteimage7.jpg","siteimage8.jpg","siteimage9.jpg"],
+            default_set: ["siteimage1.jpg","siteimage10.jpg","siteimage11.jpg","siteimage12.jpg","siteimage13.jpg","siteimage14.jpg","siteimage15.jpg","siteimage16.jpg","siteimage2.jpg","siteimage3.jpg","siteimage4.jpg","siteimage5.jpg","siteimage6.jpg","siteimage7.jpg","siteimage8.jpg","siteimage9.jpg"],
             status: {
               open: false
             },
@@ -73,8 +77,17 @@
           },
           output_result(url){
             // this.output.data=url
-            this.status.open=false
-            this.$emit("update:output",url)
+            this.status.open = false
+            if (this.update_obj){
+              console.log(this.update_obj.obj[this.update_obj.tagkey],url)
+              if (this.update_obj.obj[this.update_obj.tagkey]!=url){
+                this.update_obj.obj[this.update_obj.tagkey]=url
+              }
+            }
+            // this.set_pic(url)
+            // this.$emit("set_pic",url)
+            // this.$emit("update:output",url)
+
             console.log(url)
           },
           delta(d){

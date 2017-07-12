@@ -62,14 +62,14 @@ export default {
       var vobj=this;
       var loader = setInterval(function(){
         if (vobj.newsset){
-          // $('.slick').slick({
-          //   autoplay: true,
-          //   autoplaySpeed: 5000,
-          //   dots: true,
-          //   easing: 'ease-in',
-          //   prevArrow: '<i class="fa fa-angle-left"></i> ',
-          //   nextArrow: '<i class="fa fa-angle-right"></i> '
-          // });
+          $('.slick').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            dots: true,
+            easing: 'ease-in',
+            prevArrow: '<i class="fa fa-angle-left"></i> ',
+            nextArrow: '<i class="fa fa-angle-right"></i> '
+          });
           clearInterval(loader);
           console.log("news_slick_loaded");
         }

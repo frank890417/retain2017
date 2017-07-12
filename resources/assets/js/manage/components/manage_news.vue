@@ -39,17 +39,6 @@ import {mapState,mapMutations} from 'vuex'
       this.site_data=JSON.parse(JSON.stringify(this.lang)) ;
       this.cancel_remind_save()
     },
-    watch: {
-      site_data: {
-        handler: function (val, oldVal) {
-          console.log("old",oldVal)
-          if (oldVal)
-            this.remind_save()
-        },
-        deep: true
-      }
-      
-    },
     computed: {
       ...mapState(['lang'])
     },
