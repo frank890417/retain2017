@@ -65,9 +65,9 @@ div.page_solution
       .container
         h4 {{$t("page_product.product_inform.title")}}
         ul
-          li(v-for="t in $t('page_product.product_inform.content')")
+          li(v-for="t in $t('page_product.product_inform.informs')")
             i.fa.fa-info-circle
-            span {{t}}
+            span {{t.text}}
   
 </template>
 

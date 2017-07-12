@@ -1,6 +1,6 @@
 <template lang="jade">
 div.page_about
-  section.section_member#section_member(v-for="team in $t('page_about.teams')")
+  section.section_member#section_member(v-for="team in $t('page_about.teams')", v-if="team.members.length")
     h2.section_title {{team.title}}
     .container
 

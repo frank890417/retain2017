@@ -14,25 +14,27 @@
     "babel-polyfill": "^6.23.0",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^3.2.3",
-    "jquery": "^3.1.1",
+    "jquery": "^3.2.1",
     "laravel-blade-jade": "^2.0.3",
     "laravel-elixir-jade": "^0.2.4",
     "laravel-elixir-webpack-official": "^1.0.10",
-    "laravel-mix": "0.*",
+    "laravel-mix": "^0.12.1",
     "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "vue": "^2.3.4"
   },
   "dependencies": {
     "dropzone": "^4.3.0",
-    "gsap": "^1.19.1",
+    "gsap": "^1.20.2",
     "gulp": "^3.9.1",
     "laravel-elixir": "^6.0.0-15",
     "laravel-elixir-vue-2": "^0.3.0",
+    "rxjs": "^5.4.2",
     "slick": "^1.12.2",
     "slick-carousel": "^1.6.0",
     "tinymce": "^4.6.4",
     "tinymce-vue-2": "0.0.2",
-    "vue-router": "^2.5.3",
+    "vue-i18n": "^7.0.5",
+    "vue-router": "^2.7.0",
     "vuex": "^2.3.1"
   }
 }

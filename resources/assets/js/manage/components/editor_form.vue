@@ -30,10 +30,18 @@
                                  v-if="dataset instanceof Array",
                                  title="拖曳以調換順序")
       transition(name="fade")
-        div.editor_inputs(v-show="(array_open[key]?array_open[key].status:false) || !Array.isArray(dataset)")
 
+        div.editor_inputs(v-show="(array_open[key]?array_open[key].status:false) || !Array.isArray(dataset)")
+      
+          //** overwrite inputs
+          div(v-if="overwrite && overwrite.find(o=>o.key==key)")
+            div(v-for="ov in [overwrite.find(o=>o.key==key)]")
+              select(v-if="ov.content.type=='select'", v-model='dataset[key]')
+                option(:value='null', selected) 未選擇
+                option(v-for="option in ov.content.data", :value='option') {{option}}
+      
           //** object editor recursive
-          div.container-fluid(v-if="typeof data == 'object' && !Array.isArray(data)")
+          div.container-fluid(v-else-if="typeof data == 'object' && !Array.isArray(data)")
             .row(v-if="!noextend")
               div(
                     :class="{'col-sm-2': level==0,'col-sm-12': level==1}", 
@@ -43,7 +51,9 @@
                 editor_form(
                       :dataset="dataset[key]", 
                       :level="level+1", 
-                      :schema="key")
+                      :schema="key",
+                      :history="history?(''+history+'.'+key):(''+key)",
+                      :overwrite="overwrite")
 
           //** multi picture editor
           carousel_editor(:carousel_data="dataset[key]",
@@ -67,14 +77,16 @@
                 editor_form(
                       :dataset="dataset[key]", 
                       :level="level+1", 
-                      :schema="key")
+                      :schema="key",
+                      :history="history?(''+history+'.'+key):(''+key)",
+                      :overwrite="overwrite")
 
           //** content tinymce editor
           tiny-mce(
                 :id = "'tinymce_'+parseInt(Math.random()*10000000)" , 
                 v-model="dataset[key]",
                 :other-props="mce_settings.other",  
-                :toolbar="mce_settings.mce_toolbar", 
+                :toolbar="mce_settings.toolbar", 
                 v-else-if="has_option(key_info(key).options,'mce')")
 
           //** btn editor
@@ -83,7 +95,9 @@
               editor_form(
                     :dataset="dataset[key]", 
                     :level="level+1", 
-                    :schema="key")
+                    :schema="key",
+                    :history="history?(''+history+'.'+key):(''+key)",
+                    :overwrite="overwrite")
 
           //** boolean editor
           input(
@@ -112,7 +126,7 @@
   import {mapState,mapMutation} from 'vuex'
   export default {
     name: "editor_form",
-    props: ['dataset','level','schema','panel_heading','noextend','hidden'],
+    props: ['dataset','level','schema','panel_heading','noextend','hidden','history','overwrite'],
     data(){
       return {
         array_open: Array.from({length: 1000},o=>({status: false}) ),
@@ -168,12 +182,14 @@
 
         ],
         schemadatas: {
+          //產品方案
           products: {
             name: "",
             description: "",
             cover: "",
             programs: []
           },
+          //方案項目
           programs: {
             label: "",
             name: "",
@@ -181,31 +197,37 @@
             client: "",
             contents: []
           },
+          //項目內容
           contents: {
             name: "",
             description: "",
 
           },
+          //特色
           features: {
             title: "",
             content: "",
 
           },
+          //小組成員
           team: {
             name: "",
             logo: "",
             link: ""
           },
+          //條款
           tern: {
             title: "",
             content: ""
           },
+          //年表
           yearlog: {
             year: "",
             date: "",
             content: "",
             link: ""
           },
+          //新聞
           news: {
             tag: "",
             date: "",
@@ -218,14 +240,17 @@
             carousel: [],
             author_link: "",
           },
+          //新聞種類
           catas: {
             tag: "",
             all: false
           },
+          //小組
           teams: {
             title: "",
             members: []
           },
+          //成員
           members: {
             name: "",
             role: "",
@@ -233,17 +258,22 @@
             card_front: "",
             card_back: ""
           },
-          product_inform: "",
+          //問答
           questions: {
             question: "",
             answer: ""
           },
+          //職缺需求
           jobs: {
             title: "",
             requirement: "",
             content: "",
             link: ""
 
+          },
+          //產品提醒
+          informs: {
+            text: ""
           }
         }
 

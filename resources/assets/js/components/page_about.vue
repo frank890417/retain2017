@@ -63,12 +63,12 @@ div.page_about
           }
         },
         get_yearlog(year){
-          return this.computed_tearlog.filter(o=>o.year==year)
+          return this.computed_yearlog.filter(o=>o.year==year).sort((a,b)=>b.month-a.month)
         }
       },
       computed: {
         ...mapState(['about_logs']),
-        computed_tearlog(){
+        computed_yearlog(){
           return this.$t("page_about.yearlog")
                  .map( o=>({
                   year: o.year ,
@@ -79,9 +79,9 @@ div.page_about
 
                  }) )
                  .sort((a,b)=>{
-                   return (a.year >b.year) ||
-                         (a.year ==b.year && a.month>b.month)  ||
-                         (a.year ==b.year && a.month==b.month && a.day>b.day)
+                   return (b.year -a.year) ||
+                         (a.year ==b.year && b.month-a.month)  ||
+                         (a.year ==b.year && a.month==b.month && b.day-a.day)
         
                  })
 

@@ -62,6 +62,9 @@ var vm = new Vue({
   mounted(){
 
 
+  },
+  computed:{
+    
   }
 })
 window.vm=vm

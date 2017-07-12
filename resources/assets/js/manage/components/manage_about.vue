@@ -8,11 +8,14 @@ div.container-fluid
       .panel.panel-primary
         .panel-heading 關於
         .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about" , :level="1", :hidden="['yearlog','teams']")
+          editor_form(:dataset="site_data.page_about" , :level="1", :hidden="['yearlog','teams','blocks']")
     .col-sm-6
-        .panel-heading 年表編輯
-        .panel-body(v-if="site_data")
-          editor_form(:dataset="site_data.page_about.yearlog" , :level="1", :schema="'yearlog'")
+      .panel-heading 特色區塊編輯
+      .panel-body(v-if="site_data")
+        editor_form(:dataset="site_data.page_about.blocks" , :level="1",:schema="'blocks'")
+      .panel-heading 年表編輯
+      .panel-body(v-if="site_data")
+        editor_form(:dataset="site_data.page_about.yearlog" , :level="1", :schema="'yearlog'")
     
 </template>
 
