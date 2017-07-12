@@ -55,7 +55,8 @@
                       :level="level+1", 
                       :schema="key",
                       :history="history?(''+history+'.'+key):(''+key)",
-                      :overwrite="overwrite")
+                      :overwrite="overwrite",
+                      :parent="key")
 
           //** multi picture editor
           carousel_editor(:carousel_data="dataset[key]",
@@ -81,7 +82,16 @@
                       :level="level+1", 
                       :schema="key",
                       :history="history?(''+history+'.'+key):(''+key)",
-                      :overwrite="overwrite")
+                      :overwrite="overwrite",
+                      :parent="key")
+
+          //** content tinymce editor(toolbar only code)
+          tiny-mce(
+                :id = "'tinymce_'+parseInt(Math.random()*10000000)" , 
+                v-model="dataset[key]",
+                :other-props="mce_settings.other",  
+                :toolbar="['code']", 
+                v-else-if="has_option(key_info(key).options,'mce_nostyle')")
 
           //** content tinymce editor
           tiny-mce(
@@ -99,7 +109,8 @@
                     :level="level+1", 
                     :schema="key",
                     :history="history?(''+history+'.'+key):(''+key)",
-                    :overwrite="overwrite")
+                    :overwrite="overwrite",
+                    :parent="key")
 
           //** boolean editor
           input(
@@ -128,7 +139,7 @@
   import {mapState,mapMutation} from 'vuex'
   export default {
     name: "editor_form",
-    props: ['dataset','level','schema','panel_heading','noextend','hidden','history','overwrite'],
+    props: ['dataset','level','schema','panel_heading','noextend','hidden','history','overwrite','parent'],
     data(){
       return {
         array_open: Array.from({length: 1000},o=>({status: false}) ),
@@ -159,7 +170,7 @@
           "programs / 專案",
           "product_inform / 方案提醒",
           "yearlog / 年表管理",
-          "blocks / 區塊",
+          "blocks / 區塊 / mce",
           "teams / 團隊",
           "members / 群組成員",
           "role / 現職",
@@ -342,24 +353,32 @@
 </script>
 
 <style lang="sass?indentedSyntax">
-  .level_1
-  .type_array.level_1,.type_array.level_-1,.type_array.level_0
-    div>div>.editor_label
-      font-size: 20px
-  .editor_form.type_array.level_4
-    border: none
-  .editor_form
-    border: solid 1px #ddd
-    padding: 10px
-    &.panel
-      padding: 0
+@import "../../../sass/_variables"
 
-  .btn_add_new_data
-    cursor: pointer
-    background-color: #eee
-    &:hover
-      background-color: #ddd
-  i
-    font-size: 35px
-    cursor: pointer
+.level_1
+.type_array.level_1,.type_array.level_-1,.type_array.level_0
+  div>div>.editor_label
+    font-size: 20px
+.editor_form.type_array.level_4
+  border: none
+.editor_form
+  border: solid 1px #ddd
+  padding: 10px
+  &.panel
+    padding: 0
+
+.btn_add_new_data
+  cursor: pointer
+  background-color: #eee
+  &:hover
+    background-color: #ddd
+i
+  font-size: 35px
+  cursor: pointer
+
+.brown
+  color: $color_brown
+
+.theme
+  color: $color_theme
 </style>

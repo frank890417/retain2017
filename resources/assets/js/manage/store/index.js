@@ -9,7 +9,8 @@ const mce_settings = {
   toolbar_news: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | uploadpic uploadpic_url | code',
   other: {
     plugins: ['paste', 'link', 'autoresize','lists', 'advlist','code'],
-    advlist_bullet_styles: "circle"
+    advlist_bullet_styles: "circle",
+    content_style: ".brown{color: #BDB175 } .theme{color: #3FBFBB}"
   }
 }
 

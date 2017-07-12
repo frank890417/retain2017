@@ -5,7 +5,15 @@ div.container-fluid
       h1 產品方案
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
   .col-sm-3
-    editor_form(:dataset="site_data.page_product" , :level="-1", panel_heading="頁面內容" , noextend="true" ,:hidden="['features','products','btn','solution_inform']")
+    .panel.panel-primary
+      .panel-heading 頁面內容 
+      .panel-body
+        editor_form(:dataset="site_data.page_product" , :level="1", noextend="true" ,:hidden="['features','products','btn','solution_inform']")
+    .panel.panel-primary
+      .panel-heading 按鈕 
+      .panel-body
+        editor_form(:dataset="site_data.page_product.btn" , :level="1")
+
   .col-sm-9
     editor_form(:dataset="site_data.page_product.features" , :level="-1", panel_heading="特色編輯", :schema="'features'")
     editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="方案編輯", :schema="'products'")
