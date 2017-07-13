@@ -157,7 +157,7 @@
       "title": "<span class='brown'>儲於</span><span>健康</span><div class='title_span'></div><span>用於</span><span class='theme'>未來</span>",
       "eng": "Preserve in good health  apply in the future",
       "btn_more": "了解我們的服務",
-      "embed_video": ""
+      "video": "https://www.youtube.com/watch?v=NKaA0IPcD_Q"
     },
     "section_1": {
       "left": {
@@ -195,7 +195,7 @@
         "title": "服務流程介紹",
         "info": "▩ 睿田生技細胞儲存服務流程"
       },
-      "embed_video": ""
+      "video": "https://www.youtube.com/watch?v=QVGeilNsJFU"
     },
     "section_4": {
       "title": "頂尖菁英團隊",
@@ -260,6 +260,7 @@
     "title": "關於睿田",
     "eng": "about Retain Biotech",
     "feature": "當高齡化社會已成事實，我們將面臨威脅的不再只有死亡，預先儲存健康，是您最好的對策！",
+    "video": "https://www.youtube.com/watch?v=QVGeilNsJFU",
     "content": "睿田生技集結產、學、研三方資源投入，為台灣大學與永齡健康基金會共同合資的第一家生技公司，整合了台灣大學的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗、以及永齡健康基金會長期以來在預防醫學與癌症治療領域投注的龐大資源。<br><br>睿田生技從預防醫學的角度出發，由前期的幹細胞、免疫細胞儲存與高端健康管理，全方面做到個人化的健康管理，以逹到精準醫療的目標！",
     "btn": {
       "show": true,
@@ -347,6 +348,7 @@
   "page_product": {
     "title": "產品方案與研發",
     "eng": "premium solutions",
+    "video": "https://www.youtube.com/watch?v=QVGeilNsJFU",
     "content": "儲存幹細胞的用途?<br>由於幹細胞的高度分化特性，在醫學備受高度關注與研究，目前臨床上已經應用在血液移植的病人，抽取成功配對之捐贈者的周邊血幹細胞，輸注到病人體中治療白血病、淋巴瘤和骨髓瘤。<br>除了疾病治療之外，幹細胞應用在再生醫學上的研究也正蓬勃發展，例如退化性疾病(阿茲海默、退化性關節炎)修復功能、心血管疾病等。",
     "btn": {
       "show": true,

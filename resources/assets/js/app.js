@@ -17,6 +17,9 @@ import VueI18n from 'vue-i18n'
 import Rx from 'rxjs/Rx'
 
 import custom_i18n from './i18n'
+import VueYouTubeEmbed from 'vue-youtube-embed'
+Vue.use(VueYouTubeEmbed)
+
 
 const app = new Vue({
   el: "#app",

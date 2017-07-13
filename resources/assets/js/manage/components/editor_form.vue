@@ -194,6 +194,8 @@
 
           "question / 問題",
           "answer / 答案",
+
+          "video / Youtube影片連結"
           //"all / _hidden"
 
 

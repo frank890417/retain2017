@@ -1,13 +1,19 @@
 <template lang="jade">
 div.page_solution
   section.section_hero.bg_parallax
+    video_fullplayer(
+        :youtube_url = "$t('page_product.video')",
+        :player_height="500",
+        :status="video_playing",
+        @ended = "video_playing=false"
+        )
     .container.flex
       .col_left
         h1.section_title {{$t("page_product.title")}}
         h4.section_eng {{$t("page_product.eng")}}
         p.section_para(v-html="$t('page_product.content')")
         
-        .btn_full.brown(v-if="$t('page_product.btn.show')")
+        .btn_full.brown(v-if="$t('page_product.btn.show')", @click="video_playing=true")
           div.icon_inline_wrapper
             .icon_play_circle
           div {{$t("page_product.btn.label")}}
@@ -72,41 +78,46 @@ div.page_solution
 </template>
 
 <script>
-    import { mapGetter, mapActions , mapState } from 'vuex'
-    export default {
-        data(){
-          return {
-            timer_list: []
-          }
-        },
-        methods: {
-          bg_css(url){
-            return {
-              'background-image': "url("+url+")"
-            }
-          },
-          toggleActive(el,enable){
-            if (enable){
-              console.log(el);
-              $(el).toggleClass("active");
-            }
-            
+import video_fullplayer from './video_fullplayer'
+import { mapGetter, mapActions , mapState } from 'vuex'
+export default {
+    data(){
+      return {
+        timer_list: [],
+        video_playing: false
+      }
+    },
+    components: {
+      video_fullplayer
+    },
+    methods: {
+      bg_css(url){
+        return {
+          'background-image': "url("+url+")"
+        }
+      },
+      toggleActive(el,enable){
+        if (enable){
+          console.log(el);
+          $(el).toggleClass("active");
+        }
+        
 
-          }
-        },
-        mounted() {
-          
-          $(".hero_right_list li").click(function(){
-            $(".hero_right_list li").removeClass("active");
-            $(this).toggleClass("active");
-          });
-          $(".service_type .toggle_part").click(function(){
-            $(this).closest("li").toggleClass('active');
-          });
-          $(".hero_right_list li:first-child").toggleClass("active");
-        },beforeDestroy() {
-        },
-        props: ['id'],
-        computed: mapState(['solutions','products','service_infos','product_other'])
-    }
+      }
+    },
+    mounted() {
+      
+      $(".hero_right_list li").click(function(){
+        $(".hero_right_list li").removeClass("active");
+        $(this).toggleClass("active");
+      });
+      $(".service_type .toggle_part").click(function(){
+        $(this).closest("li").toggleClass('active');
+      });
+      $(".hero_right_list li:first-child").toggleClass("active");
+    },beforeDestroy() {
+    },
+    props: ['id'],
+    computed: mapState(['solutions','products','service_infos','product_other'])
+}
 </script>

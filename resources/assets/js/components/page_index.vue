@@ -1,9 +1,13 @@
 <template lang="jade">
 div.page_index
-  section.page_index_main.bg_parallax
-    .video_container
-      div(v-html="$t('page_index.section_hero.embed_video').replace(/(width=.*?height=.*?\")/,'width=\"100%\" height=\"500px\"')", style="width: 100%;padding: 20vmin;")
-      .btn_video_close ✕
+  section.page_index_main.bg_parallax(:class="{playmovie: section_hero_playing}")
+    video_fullplayer(
+        :youtube_url = "$t('page_index.section_hero.video')",:player_width="player_width", 
+        :player_height="500",
+        :status="section_hero_playing",
+        @ended = "section_hero_playing=false"
+        )
+      // video_youtube
     .container.index_slogan_area
       h1 
         span.brown 儲於
@@ -15,7 +19,7 @@ div.page_index
       h3.page_header_eng {{$t("page_index.section_hero.eng")}}
 
       
-      div.play_btn(data-target=".page_index_main")
+      div.play_btn(@click="section_hero_playing=true")
         i.fa.fa-play
       h6 {{$t("page_index.section_hero.btn_more")}}
     i.fa.fa-angle-down
@@ -49,10 +53,13 @@ div.page_index
         router-link.btn-underline(v-if="$t('page_index.section_2.btn.show')",:to="$t('page_index.section_2.btn.link')") 
           span {{$t('page_index.section_2.btn.label')}}
 
-  section.page_index_flow.bg_parallax
-    .video_container
-      video(src="https://www.w3schools.com/html/mov_bbb.mp4" controls)
-      .btn_video_close ✕
+  section.page_index_flow.bg_parallax(:class="{playmovie: section_flow_playing}")
+    video_fullplayer(
+        :youtube_url = "$t('page_index.section_3.video')",:player_width="player_width", 
+        :player_height="500",
+        :status="section_flow_playing",
+        @ended = "section_flow_playing=false"
+        )
         
     .container.flex
       .col_left
@@ -65,7 +72,7 @@ div.page_index
         .revive_box
           h1 {{$t('page_index.section_3.revive_box.eng')}}
           h4 {{$t('page_index.section_3.revive_box.title')}}
-          .play_btn(data-target=".page_index_flow")
+          .play_btn(@click="section_flow_playing=true")
             i.fa.fa-play
           .other {{$t('page_index.section_3.revive_box.info')}}
 
@@ -124,6 +131,7 @@ div.page_index
 
 <script>
 import slick from 'slick-carousel'
+import video_fullplayer from './video_fullplayer'
   import {mapState} from 'vuex'
     export default {
         data () {
@@ -133,29 +141,32 @@ import slick from 'slick-carousel'
             news_change_time: 4000,
             arrows: false,
             timer: null,
-            service_slide_id: 0
+            service_slide_id: 0,
+            player_width: $(window).outerWidth(),
+            section_hero_playing: false,
+            section_flow_playing: false
           };
 
         },
         mounted() {
 
             
-            $(".play_btn").click(function(){
-              var target=$($(this).attr("data-target"));
-              // var video=$($(this).attr("data-target")+" video")[0];
-              target.addClass("playmovie");
-              // video.currentTime=0;
-              // video.play();
-              function cancel_video(e){
-                console.log("end!");
-                target.removeClass("playmovie");
-                // video.currentTime=0;
-                // video.pause();
-              }
-              // video.addEventListener('ended',cancel_video,false);
-              $($(this).attr("data-target")+" .btn_video_close").click(cancel_video);
+            // $(".play_btn").click(function(){
+            //   var target=$($(this).attr("data-target"));
+            //   // var video=$($(this).attr("data-target")+" video")[0];
+            //   target.addClass("playmovie");
+            //   // video.currentTime=0;
+            //   // video.play();
+            //   function cancel_video(e){
+            //     console.log("end!");
+            //     target.removeClass("playmovie");
+            //     // video.currentTime=0;
+            //     // video.pause();
+            //   }
+            //   // video.addEventListener('ended',cancel_video,false);
+            //   $($(this).attr("data-target")+" .btn_video_close").click(cancel_video);
 
-            });
+            // });
 
             
 
@@ -285,6 +296,9 @@ import slick from 'slick-carousel'
           },
           bg_css(url){
             return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
+          },
+          yt_url_id(url){
+            return getIdFromURL(url)
           }
 
 
@@ -292,6 +306,9 @@ import slick from 'slick-carousel'
         computed: mapState(['news']),
         beforeDestroy() {
           clearInterval(this.timer);
+        },
+        components: {
+          video_fullplayer
         }
     }
 </script>

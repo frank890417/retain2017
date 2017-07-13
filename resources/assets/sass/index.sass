@@ -383,21 +383,8 @@
         margin-right: 0px
         // transition:  background-image 0.5s
     
-    .video_container
-      +trans
-      opacity: 0
-      +ab_full
-      top: 0
-      left: 0
-      z-index: 10
-      +flex_center
-
-      video
-        top: 0
-        left: 0
-        margin-left: auto
-        margin-right: auto
-        +size(100vmin,auto)
+   
+     
     &:before
       +pseudo_ab_full
       background-color: black
@@ -415,8 +402,9 @@
     //播放首頁的影片
     &.playmovie
       background-color: $color_grey_dark
+      
       &:before
-        opacity: 0.8
+        opacity: 1
       &:after
         color: rgba(white,1)
         transition: 0.3s 0.3s
@@ -432,6 +420,8 @@
       .video_container
         opacity: 1
         transition: 0.7s 0.7s
+
+        pointer-events: initial
 
   //-----------------------------------------------
 
@@ -468,8 +458,9 @@
       opacity: 0
       +ab_full
       +flex_center
-      video
-        +size(100vw,auto)
+
+      pointer-events: none
+
       &:before
         +pseudo_ab_full
         background-color: black
@@ -527,7 +518,7 @@
     &.playmovie
       .video_container
         &:before
-          opacity: 0.8
+          opacity: 1
       &:before
         transform: translateX(-700px)
       .revive_box,.col_left
@@ -536,6 +527,8 @@
       .video_container
         opacity: 1
         transition: 0.7s 0.7s
+
+        pointer-events: initial
     
     +rwd_sm
       padding-bottom: 0

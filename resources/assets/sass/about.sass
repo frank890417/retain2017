@@ -40,7 +40,8 @@
 
       .timelog
         position: relative
-        
+        cursor: pointer
+        user-select: none
         
 
         .month,.title
@@ -56,12 +57,23 @@
           // right: calc(100% + #{grid_sz(1,0)})
           font-weight: 300
           color: $color_grey_light
+          cursor: pointer
 
         
+        li
+          min-height: 0
+          .month,.title
+            opacity: 0
         &.active
           .title
             top:  grid_sz(0,-3)
             color: $color_theme
+          li
+            min-height: grid_sz(0,2)
+            .month,.title
+              opacity: 1
+
+          
             
         &:last-child
           li
@@ -76,7 +88,6 @@
           border-left: solid 1px $color_theme
           position: relative
           vertical-align: middle
-          min-height: grid_sz(0,2)
           span
             color: $color_grey_light
             margin-top: -10px
