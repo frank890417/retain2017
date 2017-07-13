@@ -30,7 +30,7 @@ div.page_about
                    v-for="(y,yid) in years",
                    v-if="get_yearlog(y).length>0 || y=='2015'",
                    :class = "{active: toggle_status[yid].status}")
-          h4.title(@click = "toggle_status[yid].status = !toggle_status[yid].status") {{y}}
+          h4.title(@click = "toggle_status[yid].status = get_yearlog(y).length>0?(!toggle_status[yid].status):false") {{y}}
           ul
             li(v-for= "log in get_yearlog(y)")
               span.month {{log.month}}
@@ -55,10 +55,11 @@ export default {
     data() {return {
       sel_year: "year_2016",
       years: ['2020','2019','2018','2017','2016','2015'],
-      toggle_status: Array.from({length: 10},(d,i)=>({status: i<2})),
+      toggle_status: Array.from({length: 10},(d,i)=>({status: i>3})),
       video_playing: false
     }},
     mounted() {
+       this.toggle_status[5].status=false
         console.log('about mounted.')
         $(".btn_expand").click(function(){
           console.log(this);
