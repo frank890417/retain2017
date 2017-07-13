@@ -11,7 +11,7 @@ div.page_post(v-if="newsset")
       .top
         .col_left
           h4.info
-            router-link(:to="'/news/cata/'+newsset.tag") 研討會訊息
+            router-link(:to="'/news/cata/'+newsset.tag") {{newsset.tag}}
           h4.info(v-text='newsset.date')
 
           .logos

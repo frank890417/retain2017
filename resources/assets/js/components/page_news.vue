@@ -8,7 +8,7 @@ div.page_news
           div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")
             h1.title 
               router-link(:to="'/news/n/'+headnews.title") {{headnews.title}}
-            p {{headnews.content.replace(/\<.*?\>/g,"").slice(0,100)+"..."}}
+            p {{headnews.content.replace(/\<.*?\>/g,"").replace('&nbsp;','').slice(0,100)+"..."}}
             .btn.btn-default 了解更多
       .col_right
         ul
