@@ -4,7 +4,7 @@ div.section_search
     .container.flex.column
       .input_area
         i.fa.fa-search
-        input(v-model="filter",v-on:click="show_search = true" placeholder="請輸入關鍵字(例 毒、檢測、塑化劑)... ")
+        input(v-model="filter",v-on:click="show_search = true" placeholder="請輸入關鍵字(例 幹細胞 / 尊榮)... ")
         i.fa.fa-times(v-on:click="hide_search")
       transition(name="fade")
         ul.search_list(v-if="has_match && show_search")
@@ -80,27 +80,27 @@ div.section_search
           var vobj=this;
           return [{
             type: "新聞",
-            data: this.turn_match(this.news
+            data: this.turn_match( this.$t("page_news.news")
                   .map(
                     (obj)=>(
                       {
                          id: obj.id,
                          title: obj.title,
                          content: obj.title+obj.content,
-                         link: "/news/"+obj.id
+                         link: "/news/n/"+obj.title
                       }
                     )
                   ))
                   
           },{
             type: "產品方案",
-            data: this.turn_match(this.products
+            data: this.turn_match( this.$t("page_product.products")
                   .map(
                     (obj)=>(
                       {
                          id: obj.id,
-                         title: obj.title,
-                         content: obj.name+obj.description+obj.schedule+(obj.programs.map((t)=>(t.tag+t.name+t.description+t.client))).join("   "),
+                         title: obj.name,
+                         content: obj.name+obj.description+obj.schedule+(obj.programs?obj.programs.map((t)=>(t.name+t.description+t.client+(t.contents?t.contents.map(c=>c.name+" - "+c.description).join("  "):''))):[]).join("   "),
                          link: "/solution/"+obj.id
                       }
                     )
@@ -108,7 +108,7 @@ div.section_search
                   
           },{
             type: "常見問題",
-            data: this.turn_match(this.questions
+            data: this.turn_match( this.$t("footer.section_question.questions")
                   .map(
                     (obj)=>(
                       {
