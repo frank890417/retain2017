@@ -63,14 +63,16 @@
           //** multi picture editor
           carousel_editor(:carousel_data="dataset[key]",
                           :update_obj="{obj: dataset,tagkey: key}",
-                          v-else-if="has_option(key_info(key).options,'multi_pic')")
+                          v-else-if="has_option(key_info(key).options,'multi_pic')",
+                          @update_obj_by_key="update_obj_by_key")
 
           //** single picture editor
           carousel_editor(
-                :carousel_data="[dataset[key]]",
+                :carousel_data="dataset[key]",
                 :allow_multi="false", 
                 :update_obj="{obj: dataset,tagkey: key}", 
-                v-else-if="has_option(key_info(key).options,'single_pic')")
+                v-else-if="has_option(key_info(key).options,'single_pic')",
+                @update_obj_by_key="update_obj_by_key")
 
        
           //** array editor recursive
@@ -357,6 +359,29 @@
         if (confirm("你確定要刪除這筆資料嗎？")){
           dataset.splice(key,1)
         }
+      },
+      update_obj_by_key(arg){
+        let key = arg.tagkey
+        let value = arg.value
+        let obj = arg.obj
+        let id = arg.id
+        console.log("new value:",arg.value)
+        console.log(obj)
+        console.log("key",key)
+
+        if (!arg.multi){
+          obj[key]=value
+          console.log("string!")
+
+        }else{
+          console.log(obj,key,id,value)
+          Vue.set(obj[key],id,value)
+          console.log("obj!")
+        }
+        
+        let panel = arg.update_panel
+        panel.$forceUpdate()
+        this.$forceUpdate()
       }
     }
   }

@@ -79,7 +79,7 @@ div.footer
             });
           }
         },
-        computed: mapState(['questions'])
+        computed: mapState(['questions','scrollTop'])
     }
 
 </script>

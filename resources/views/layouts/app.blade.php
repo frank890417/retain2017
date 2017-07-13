@@ -12,8 +12,10 @@
     <meta property="og:image" content="{{$metas['meta_cover']}}">
     <meta property="og:description" content="{{$metas['meta_description']}}">
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/overwrite/master.css') }}" rel="stylesheet">
+
     <!-- Scripts -->
     <script>
       window.Laravel = {!! json_encode([

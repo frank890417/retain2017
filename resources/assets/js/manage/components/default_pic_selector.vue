@@ -19,7 +19,7 @@
 
 <script>
     export default {
-        props: ['output','update_obj',"set_pic"],
+        props: ['output','update_obj',"set_pic","ar_id"],
         name: "default_pic_selector",
         data(){
           return {
@@ -56,7 +56,8 @@
              console.log(res);
              var imgurl=res;
              console.log(imgurl);
-             vobj.$emit("update:output",imgurl)
+             vobj.$emit("select_pic",{id: vobj.ar_id,imgurl})
+             // vobj.$emit("update:output",imgurl)
              if (vobj.update_obj){
                console.log(vobj.update_obj)
                vobj.update_obj.obj[vobj.update_obj.tagkey]=imgurl
@@ -76,19 +77,19 @@
             }
           },
           output_result(url){
-            // this.output.data=url
+            // // this.output.data=url
             this.status.open = false
-            if (this.update_obj){
-              console.log(this.update_obj.obj[this.update_obj.tagkey],url)
-              if (this.update_obj.obj[this.update_obj.tagkey]!=url){
-                this.update_obj.obj[this.update_obj.tagkey]=url
-              }
-            }
-            // this.set_pic(url)
-            // this.$emit("set_pic",url)
-            // this.$emit("update:output",url)
-
-            console.log(url)
+            // if (this.update_obj){
+            //   console.log(this.update_obj.obj[this.update_obj.tagkey],url)
+            //   if (this.update_obj.obj[this.update_obj.tagkey]!=url){
+            //     this.update_obj.obj[this.update_obj.tagkey]=url
+            //   }
+            // }
+            // // this.set_pic(url)
+            // // this.$emit("set_pic",url)
+            // // this.$emit("update:output",url)
+            this.$emit("select_pic",{id: this.ar_id,url})
+            // console.log(url)
           },
           delta(d){
             if (d> 0 && this.now_index<1){

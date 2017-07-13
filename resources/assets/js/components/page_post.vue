@@ -1,8 +1,8 @@
 <template lang="jade">
 div.page_post(v-if="newsset")
   .slick(v-if="newsset.carousel")
-    section.section_hero(v-if='imgurl' v-for='imgurl in [newsset.cover]')
-      //.concat(newsset.carousel)
+    section.section_hero(v-if='imgurl' v-for='imgurl in [newsset.cover].concat(newsset.carousel)')
+      //
       .bg.bg_parallax(:style="bg_css(imgurl)") 
       .container.flex
   
@@ -65,7 +65,7 @@ export default {
           $('.slick').slick({
             autoplay: true,
             autoplaySpeed: 5000,
-            dots: true,
+            dots: false,
             easing: 'ease-in',
             prevArrow: '<i class="fa fa-angle-left"></i> ',
             nextArrow: '<i class="fa fa-angle-right"></i> '
@@ -73,7 +73,7 @@ export default {
           clearInterval(loader);
           console.log("news_slick_loaded");
         }
-      },100);
+      },50);
       
       // if (Ts) Ts.reload();
     },
