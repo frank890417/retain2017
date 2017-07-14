@@ -176,12 +176,12 @@
           transform: translate(-50%,-50%)  rotate(225deg)
 
       .program_list
-        +toggle_height_active
+        +toggle_height_active(4000px)
         margin-top: grid_sz(0,1)
      
       
 
-      +toggle_height
+      +toggle_height(4000px)
       &.active
         // margin-top: grid_sz(0,1)
   
@@ -328,6 +328,11 @@
       margin-right: -60px
       +toggle_height_hide
 
+      background: linear-gradient( 90deg , white 0%, white 50%, #ECECEC 50%, #ECECEC 100% )
+
+      +rwd_sm
+        background: linear-gradient( 90deg , white 0%, white 100% )
+
       & > .container.flex
         align-items: flex-start
         padding-left: 0px
@@ -356,8 +361,10 @@
         p
           margin-bottom: 85px
       .col_right
-        background-color: #ECECEC
+        // background-color: #ECECEC
         justify-content: flex-start
+        +rwd_sm
+          background-color: #ECECEC
         .tag
           +size(20px)
           font-size: 14px
