@@ -53,9 +53,9 @@ class ApiController extends Controller
          });
 
          $path = 'img/uploaded/';
-         $img->save('storage/'.$path.$filename);
+         $img->save(storage_path('app/public/'.$path.$filename) );
          // dd($img->__toString());
-         Storage::put($path.$filename,$img->__toString());
+         //Storage::put(storage_path($path.$filename),$img->__toString());
 
 
          return '/storage/'.$path.str_replace(" ","%20",$filename);
