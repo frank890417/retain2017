@@ -74,16 +74,26 @@ html(lang="{{ config('app.locale') }}")
               svg.glyph.stroked.dashboard-dial
                 use(xlink:href='#stroked-dashboard-dial')
               |  導覽列
+          li(:class="{active: now_route=='footer'}")
+            router-link(to="/footer")
+              svg.glyph.stroked.dashboard-dial
+                use(xlink:href='#stroked-dashboard-dial')
+              |  公司資訊編輯
           li(:class="{active: now_route==''}")
             router-link(to="/")
               svg.glyph.stroked.dashboard-dial
                 use(xlink:href='#stroked-dashboard-dial')
-              |  首頁與資訊
+              |  首頁編輯
           li(:class="{active: now_route=='about'}")
             router-link(to="/about")
               svg.glyph.stroked.dashboard-dial
                 use(xlink:href='#stroked-dashboard-dial')
               |  關於睿田
+          li(:class="{active: now_route=='team'}")
+            router-link(to="/team")
+              svg.glyph.stroked.dashboard-dial
+                use(xlink:href='#stroked-dashboard-dial')
+              |  經營團隊
           li(:class="{active: now_route=='product'}")
             router-link(to="/product")
               svg.glyph.stroked.calendar

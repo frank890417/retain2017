@@ -73,11 +73,18 @@
               </svg> 導覽列
             </router-link>
           </li>
+          <li :class="{active: now_route=='footer'}">
+            <router-link to="/footer">
+              <svg class="glyph stroked dashboard-dial">
+                <use xlink:href="#stroked-dashboard-dial"></use>
+              </svg> 公司資訊編輯
+            </router-link>
+          </li>
           <li :class="{active: now_route==''}">
             <router-link to="/">
               <svg class="glyph stroked dashboard-dial">
                 <use xlink:href="#stroked-dashboard-dial"></use>
-              </svg> 首頁與資訊
+              </svg> 首頁編輯
             </router-link>
           </li>
           <li :class="{active: now_route=='about'}">
@@ -85,6 +92,13 @@
               <svg class="glyph stroked dashboard-dial">
                 <use xlink:href="#stroked-dashboard-dial"></use>
               </svg> 關於睿田
+            </router-link>
+          </li>
+          <li :class="{active: now_route=='team'}">
+            <router-link to="/team">
+              <svg class="glyph stroked dashboard-dial">
+                <use xlink:href="#stroked-dashboard-dial"></use>
+              </svg> 經營團隊
             </router-link>
           </li>
           <li :class="{active: now_route=='product'}">

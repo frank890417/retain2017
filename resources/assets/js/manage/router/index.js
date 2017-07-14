@@ -15,6 +15,7 @@ var manage_about = Vue.component('manage_about', require('../components/manage_a
 // var page_member = Vue.component('page_member', require('../components/page_member.vue'));
 var manage_news = Vue.component('manage_news', require('../components/manage_news.vue'));
 var manage_team = Vue.component('manage_team', require('../components/manage_team.vue'));
+var manage_footer = Vue.component('manage_footer', require('../components/manage_footer.vue'));
 // var page_product = Vue.component('page_product', require('../components/page_product.vue'));
 // var page_tech = Vue.component('page_tech', require('../components/page_tech.vue'));
 // var page_post = Vue.component('page_post', require('../components/page_post.vue'));
@@ -37,6 +38,7 @@ const routes = [
   { path: '/contact', component: manage_contact},
   { path: '/team', component: manage_team},
   { path: '/job', component: manage_job},
+  { path: '/footer', component: manage_footer},
 
 
   // { path: '/about', component: page_about },

@@ -164,6 +164,7 @@
           "btn / 按鈕",
           "childs / _hidden",
           "show / 顯示",
+          "section_company / 公司資訊",
           "label / 標籤",
           "left / 左側",
           "right / 右側",
@@ -171,6 +172,7 @@
           "cover / 封面 / single_pic",
           "slogan_carousel / 輪播服務",
           "logo / 圖示 / single_pic",
+          "icon / 圖示 / single_pic",
           "products / 方案",
           "programs / 專案",
           "product_inform / 方案提醒",
@@ -301,6 +303,12 @@
           slogan_carousel: {
             text: "",
             cover: ""
+          },
+
+          partners: {
+            name: "夥伴名稱",
+            icon: "",
+            link: ""
           }
         }
 
