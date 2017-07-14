@@ -96,14 +96,7 @@ div.page_index
         
 
   section.page_index_service
-    .container.flex
-      .col_left
-      .col_right
 
-        h3.section_title {{$t('page_index.section_5.title')}}
-        h4.section_feature(v-html="$t('page_index.section_5.feature')") 
-        p.section_para(v-html="$t('page_index.section_5.content')")  
-        btn.btn-underline.brown_bg(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") {{$t('page_index.section_5.btn.label')}}
     .container.flex.full
       .col_left
         .out_pic.slick
@@ -114,7 +107,16 @@ div.page_index
           .next(onclick="$('.out_pic').slick('slickNext');")
             i.fa.fa-angle-right
       .col_right
-    
+  
+    .container.flex
+      .col_left
+      .col_right
+
+        h3.section_title {{$t('page_index.section_5.title')}}
+        h4.section_feature(v-html="$t('page_index.section_5.feature')") 
+        p.section_para(v-html="$t('page_index.section_5.content')")  
+        btn.btn-underline.brown_bg(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") {{$t('page_index.section_5.btn.label')}}
+
 
   section.page_index_compaign.bg_parallax
     .container.flex.column
