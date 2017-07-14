@@ -730,6 +730,7 @@
           color: white
           padding-top: grid_sz(0,1.5)
           padding-bottom: grid_sz(0,1.5)
+          +flex_center
           border-bottom: solid 2px $color_white
           padding: grid_sz(0,1)
           font-size: 20px
@@ -741,6 +742,11 @@
           padding-right: grid_sz(0,2)
           text-align: center
           cursor: pointer
+          +trans
+    
+          &:hover
+            background-color: $color_brown
+
           +flex_center
           i
             position: relative

@@ -56,7 +56,7 @@
              console.log(res);
              var imgurl=res;
              console.log(imgurl);
-             vobj.$emit("select_pic",{id: vobj.ar_id,imgurl})
+             vobj.$emit("select_pic",{id: vobj.ar_id,url: imgurl})
              // vobj.$emit("update:output",imgurl)
              if (vobj.update_obj){
                console.log(vobj.update_obj)

@@ -369,6 +369,7 @@
         }
       },
       update_obj_by_key(arg){
+        console.log("update carousel",arg)
         let key = arg.tagkey
         let value = arg.value
         let obj = arg.obj
