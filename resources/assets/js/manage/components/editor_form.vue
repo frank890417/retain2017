@@ -19,7 +19,7 @@
         span(v-if="dataset instanceof Array")
           |  {{ key_info(key).as+1 }}. 
           | {{ prepand_key ? '['+data[prepand_key]+']':'' }}
-          | {{ data.title || data.name || data.label || data.tag || data.content || data.text || data.question}}
+          | {{ removeTag( data.title || data.name || data.label || data.tag || data.content || data.text || data.question) }}
           | {{ append_key ? '['+data[append_key]+']':'' }}
         span(v-if="overwrite && overwrite.find(o=>o.key==key) && overwrite.find(o=>o.key==key).as")
           | {{ overwrite.find(o=>o.key==key).as }}
@@ -333,6 +333,9 @@
       }
     },
     methods:{
+      removeTag(content){
+        return content.replace(/<.*?>/g,"")
+      },
       key_info(key){
         let aliasdata = this.key_alias.find(o=>o.name==key)
         return aliasdata? aliasdata : {key,as: key,options: [],hidden: ((this.hidden || []).find(h=>h==key))?true:false}
