@@ -34,12 +34,12 @@ class ApiController extends Controller
       return ["status"=> "ok"];
     }
 
+
+    //影像上傳
     public function upload_image(){
       $input = Input::all();
       if(Input::file())
        {
-
-
          $image = Input::file('file');
          // $ext = $image->getClientOriginalExtension();
          $filename  =  date('Y_m_d_h_i_s').'_'. $_FILES['file']['name'] ;

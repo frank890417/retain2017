@@ -35,54 +35,7 @@
     .section_para
       margin-bottom: grid_sz(0,3)
       padding: 0px grid_sz(0,0.5)
-    .btn-underline
-      position: relative
-      height: grid_sz(0,2)
-      background-color: transparent
-      color: $color_brown
-      font-size: 18px
-      letter-spacing: 5px
-      border-bottom: solid 2px $color_brown
-      +trans
-      +flex_center
-      &:before,&:after
-        display: inline-block
-      &:after
-        content: ">"
-        // display: block
-        position: absolute
-        right: -40px
-        transform: scaleX(0.8)
-        +trans
-      &.white
-        color: $color_white
-        border-color: $color_white
-        &:hover
-          color: $color_theme
-          background-color: $color_white
-      &.black
-        color: $color_grey_light
-        border-color: $color_grey_light
-        &:hover
-          color: $color_white
-          background-color: $color_grey_light
-      &.brown_bg
-        color: $color_white
-        border-color: transparent
-        background-color: $color_brown
-        padding-left: grid_sz(0,0.8)
-        padding-right: grid_sz(0,0.8)
-        &:after
-          color: lighten($color_brown,10)
-        &:hover
-
-          background-color: darken($color_brown,10)
-      &:hover
-        color: $color_white
-        border-color: transparent
-        background-color: $color_brown
-        padding-left: grid_sz(0,0.8)
-        padding-right: grid_sz(0,0.8)
+    
 
     +range_width(0px,800px)
       padding: 50px 0px

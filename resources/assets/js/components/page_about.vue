@@ -29,13 +29,14 @@ div.page_about
         .timelog(
                    v-for="(y,yid) in years",
                    v-if="get_yearlog(y).length>0 || y=='2015'",
-                   :class = "{active: toggle_status[yid].status}")
-          h4.title(@click = "toggle_status[yid].status = get_yearlog(y).length>0?(!toggle_status[yid].status):false") {{y}}
+                   :class = "{active: toggle_status[yid].status}",
+                   @click = "toggle_status[yid].status = get_yearlog(y).length>0?(!toggle_status[yid].status):false")
+          h4.title {{y}}
           ul
             li(v-for= "log in get_yearlog(y)")
               span.month {{log.month}}
               span.content {{log.content}} 
-            li
+            li(v-if="get_yearlog(y).length==0")
 
   section.section_blocks
     .container.flex.full

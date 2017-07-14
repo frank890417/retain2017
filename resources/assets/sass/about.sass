@@ -58,11 +58,13 @@
           font-weight: 300
           color: $color_grey_light
           cursor: pointer
+          transform: translateY(10px)
 
         
         li
           min-height: 0
 
+        //timelog:active 清單展開
         &.active
           .title
             top:  grid_sz(0,-3)
@@ -73,12 +75,17 @@
             
             .month,.title,.content
               opacity: 1
-
+            &:before
+              border: solid 0px transparent
+              +size(11px)
+              transform: translate(-6px)
+              background-color: $color_theme
           
             
         &:last-child
           li
             border-left: none
+        
 
         &:first-child
           
@@ -92,6 +99,8 @@
           // padding-bottom: grid_sz(0,1)
           padding-left: grid_sz(0.5,0)
           padding-bottom: 0
+          max-height: 0px
+
           +trans
           .month,.title,.content
             opacity: 0
@@ -112,21 +121,22 @@
           text-align: left
           
 
+          //日期的球
           &:before
             content: ''
             display: block
-            +size(10px)
-            transform: translate(-5px)
+            +size(14px)
+            transform: translate(-7px)
             border-radius: 50%
             background-color: $color_theme
             position: absolute
             left: 0
             top: 0
-            
-
-          &.active
-            span.content
-              color: $color_theme
+            background-color: #FFF
+            box-sizing: border-box
+            border: solid 3px $color_theme
+            +trans
+          
         
         h4+li
             padding-top: grid_sz(0,1)

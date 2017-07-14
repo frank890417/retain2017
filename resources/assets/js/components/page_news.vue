@@ -9,7 +9,9 @@ div.page_news
             h1.title 
               router-link(:to="'/news/n/'+headnews.title") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").replace('&nbsp;','').slice(0,100)+"..."}}
-            .btn.btn-default 了解更多
+            //.btn.btn-default 了解更多
+            btn.btn-underline.white_outline(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") 了解更多
+
       .col_right
         ul
           li.container.flex(v-for="(a_news,newsid) in news.slice(0,5)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")

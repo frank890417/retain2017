@@ -50,8 +50,7 @@ div.page_index
 
         p.section_para.text-left(v-html="$t('page_index.section_2.content')") 
  
-        router-link.btn-underline(v-if="$t('page_index.section_2.btn.show')",:to="$t('page_index.section_2.btn.link')") 
-          span {{$t('page_index.section_2.btn.label')}}
+        btn.btn-underline(v-if="$t('page_index.section_2.btn.show')",:to="$t('page_index.section_2.btn.link')") {{$t('page_index.section_2.btn.label')}}
 
   section.page_index_flow.bg_parallax(:class="{playmovie: section_flow_playing}")
     video_fullplayer(
@@ -66,8 +65,7 @@ div.page_index
         h3.section_title {{$t('page_index.section_3.title')}}
         h4.section_feature(v-html="$t('page_index.section_3.feature')") 
         p.section_para.text-left(v-html="$t('page_index.section_3.content')") 
-        router-link.btn-underline.white(v-if="$t('page_index.section_3.btn.show')",:to="$t('page_index.section_3.btn.link')") 
-          span {{$t('page_index.section_3.btn.label')}}
+        btn.btn-underline.white(v-if="$t('page_index.section_3.btn.show')",:to="$t('page_index.section_3.btn.link')") {{$t('page_index.section_3.btn.label')}}
       .col_right
         .revive_box
           h1 {{$t('page_index.section_3.revive_box.eng')}}
@@ -115,8 +113,7 @@ div.page_index
         h3.section_title {{$t('page_index.section_5.title')}}
         h4.section_feature(v-html="$t('page_index.section_5.feature')") 
         p.section_para(v-html="$t('page_index.section_5.content')")  
-        router-link.btn-underline.brown_bg(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") 
-          span {{$t('page_index.section_5.btn.label')}}
+        btn.btn-underline.brown_bg(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") {{$t('page_index.section_5.btn.label')}}
 
   section.page_index_compaign.bg_parallax
     .container.flex.column
@@ -124,8 +121,7 @@ div.page_index
       h3.section_feature(v-html="$t('page_index.section_6.feature')") 
       h4.section_para(v-html="$t('page_index.section_6.content')") 
       span
-        router-link.btn-underline.brown_bg(v-if="$t('page_index.section_6.btn.show')",:to="$t('page_index.section_6.btn.link')") 
-          span {{$t('page_index.section_6.btn.label')}}
+        btn.btn-underline.brown_bg(v-if="$t('page_index.section_6.btn.show')",:to="$t('page_index.section_6.btn.link')") {{$t('page_index.section_6.btn.label')}}
 
 </template>
 

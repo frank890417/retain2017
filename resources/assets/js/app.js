@@ -18,6 +18,10 @@ import Rx from 'rxjs/Rx'
 
 import custom_i18n from './i18n'
 import VueYouTubeEmbed from 'vue-youtube-embed'
+import btn from './components/btn'
+Vue.component('btn',btn)
+
+
 Vue.use(VueYouTubeEmbed)
 
 
