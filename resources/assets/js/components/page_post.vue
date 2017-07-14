@@ -15,9 +15,12 @@ div.page_post(v-if="newsset")
           h4.info(v-text='newsset.date')
 
           .logos
-            i.logo.fa.fa-facebook-square
-            i.logo.fa.fa-google-plus-square
-            i.logo.fa.fa-linkedin-square
+            a(:href="get_share_url('fb')",target="_blank")
+              i.logo.fa.fa-facebook-square
+            a(:href="get_share_url('gplus')",target="_blank")
+              i.logo.fa.fa-google-plus-square
+            a(:href="get_share_url('tweeter')",target="_blank")
+              i.logo.fa.fa-twitter-square 
         .col_right
           .post_box
             // h4.tag
@@ -80,6 +83,14 @@ export default {
     methods: {
       bg_css(url){
         return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
+      },
+      get_share_url(platform){
+        if (platform=="fb")
+          return 'https://www.facebook.com/sharer/sharer.php?u='+window.location.href;
+        if (platform=="gplus")
+          return 'https://plus.google.com/share?url='+window.location.href;
+        if (platform=="tweeter")
+          return "https://twitter.com/intent/tweet?url="+window.location.href;
       }
     },
     props: ['id','title'],

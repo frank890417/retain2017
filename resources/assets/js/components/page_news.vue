@@ -120,7 +120,7 @@ export default {
         return [0,6,10].indexOf(id)!=-1;
       },bg_css(url){
         return {'background-image': 'url('+url.trim().replace(' ','%20')+')'}
-      }
+      },
     },
     props: ["cataname"]
 }
