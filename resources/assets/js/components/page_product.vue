@@ -46,6 +46,7 @@ div.page_solution
             .btn_expand.btn_program_expand(:class="{no_content: !program.description}")
               i.fa.fa-angle-down
           .program_box(:class="'program_box_'+prog_id" , v-if="program.description")
+            
             .top.container.flex.strech_height
               .col_left
                 h5.program_sub_title {{$t("page_product.label_intro")}}
@@ -114,6 +115,8 @@ export default {
       $(".service_type .toggle_part").click(function(){
         $(this).closest("li").toggleClass('active');
       });
+      $(".service_type li:first-child").addClass('active');
+
       $(".hero_right_list li:first-child").toggleClass("active");
     },beforeDestroy() {
     },

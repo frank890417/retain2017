@@ -41,7 +41,7 @@ div.page_index
     img.cover.cover2(src="/img/index/2b.png")
     img.cover.cover1(src="/img/index/2a.png")
     
-    canvas.wave
+    // canvas.wave
     .container.flex
       .col_left
       .col_right

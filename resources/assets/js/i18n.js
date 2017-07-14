@@ -570,32 +570,35 @@ const messages = {
 // }
 }
 
-// //called with every property and its value
-// function process(key,value,parent) {
-//   if (typeof value=="string"){
-//     console.log(key + " : "+value);
-//     var res = (/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g).test(value) ;
-//     if (res){
-//       parent[key]=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
-//       console.log(value)
-//     }
-//     var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
-//     if (res){
-//       parent[key]=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
-//       console.log(value)
-//     }
-//   }
-// }
-// function traverse(o,func) {
-//     for (var i in o) {
-//         func.apply(this,[i,o[i],o]);  
-//         if (o[i] !== null && typeof(o[i])=="object") {
-//             //going one step down in the object tree!!
-//             traverse(o[i],func);
-//         }
-//     }
-// }
-// traverse(messages,process);
+//called with every property and its value
+function process(key,value,parent) {
+  if (typeof value=="boolean"){
+    parent[key]=value?'true':''
+    // console.log(key + " : "+value);
+    // var res = (/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g).test(value) ;
+    // if (res){
+    //   parent[key]=value.replace(/\[([\s\S]*?)\-\&gt\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+    //   console.log(value)
+    // }
+    // var res = (/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g).test(value) ;
+    // if (res){
+    //   parent[key]=value.replace(/\[([\s\S]*?)\-\>\;([\s\S]*?)\]/g,"<div style='text-align: center'><a href='javascript:;' class='btn btn-primary' onclick='event.preventDefault();router.replace(\"$2\");return false;'>$1</a></div>")
+    //   console.log(value)
+    // }
+  }
+}
+function traverse(o,func) {
+  // let temp=0;
+  for (var i in o) {
+      func.apply(this,[i,o[i],o]);  
+      if (o[i] !== null && typeof(o[i])=="object") {
+          //going one step down in the object tree!!
+          traverse(o[i],func);
+      }
+  }
+  // return temp
+}
+console.log("Edited count:",traverse(messages,process) );
 
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
