@@ -1,5 +1,5 @@
 <template lang="jade">
-div.container-fluid
+.container-fluid
   .row
     .col-sm-12
       h1 經營團隊 

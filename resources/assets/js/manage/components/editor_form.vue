@@ -8,7 +8,6 @@
         @dragover.prevent="dragover_array", 
         @dragstart="dragstart(key)",
         @drop="drop(key,dataset)",
-        
         )
       .editor_label(v-if="(level!=0) || (typeof data != 'object') ",
             @click="array_open[key].status=!array_open[key].status",
@@ -334,7 +333,10 @@
     },
     methods:{
       removeTag(content){
-        return content.replace(/<.*?>/g,"")
+        if (typeof content == "string")
+          return content.replace(/<.*?>/g,"")
+        else
+          return content
       },
       key_info(key){
         let aliasdata = this.key_alias.find(o=>o.name==key)
