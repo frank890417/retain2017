@@ -21,6 +21,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body
   line-height: 1
+  // +paragraph_size_leading(16px,30px,3px)
 
 ol, ul
   list-style: none
@@ -836,7 +837,7 @@ section.section_solution
     
     &.open
       .answer
-        max-height: 250px
+        max-height: 500px
         margin-top: $gutter_width/2
   
   .question
@@ -850,6 +851,7 @@ section.section_solution
     font-weight: 400
     margin-top: 0
     max-height: 0px
+    line-height: 30px
     overflow: hidden
     +trans
 

@@ -4,11 +4,16 @@ div.container-fluid
     .col-sm-12
       h1 各項聲明 
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
-  .panel.panel-primary
-    .panel-heading 各項聲明
-    .panel-body(v-if="site_data")
-      editor_form(:dataset="site_data.page_tern.terns" , :level="1", :schema="'tern'")
-  
+  .row
+    .panel.panel-primary.col-sm-3
+      .panel-heading 頁面文字
+      .panel-body(v-if="site_data")
+        editor_form(:dataset="site_data.page_tern" , :level="1",:hidden="['terns']")
+    .panel.panel-primary.col-sm-9
+      .panel-heading 各項聲明
+      .panel-body(v-if="site_data")
+        editor_form(:dataset="site_data.page_tern.terns" , :level="1", :schema="'tern'")
+    
   .row
     .col-sm-12
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更

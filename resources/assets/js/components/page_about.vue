@@ -35,7 +35,7 @@ div.page_about
           ul
             li(v-for= "log in get_yearlog(y)")
               span.month {{log.month}}
-              span.content(v-html="log.content") 
+              span.content(v-text="remove_tag(log.content)") 
             li(v-if="get_yearlog(y).length==0")
 
   section.section_blocks
@@ -56,7 +56,7 @@ export default {
     data() {return {
       sel_year: "year_2016",
       years: ['2020','2019','2018','2017','2016','2015'],
-      toggle_status: Array.from({length: 10},(d,i)=>({status: i>3})),
+      toggle_status: Array.from({length: 10},(d,i)=>({status: true})),
       video_playing: false
     }},
     mounted() {
@@ -79,6 +79,9 @@ export default {
       },
       get_yearlog(year){
         return this.computed_yearlog.filter(o=>o.year==year).sort((a,b)=>b.month-a.month)
+      },
+      remove_tag(text){
+        return (""+text).replace(new RegExp("<.*?>","g"),"")
       }
     },
     computed: {

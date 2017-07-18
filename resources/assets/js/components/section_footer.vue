@@ -12,7 +12,9 @@ div.footer
           p {{loc.address}}<br>{{loc.phone}}
           hr
 
-         a(v-for="social in $t('footer.section_company.social')" ,:href="social.url?social.url:'#'", target="_blank")
+         a(v-for="social in $t('footer.section_company.social')" ,
+           :href="social.url?social.url:'#'", target="_blank",
+           v-if="social.url!='' && social.url")
           i.social_icon(v-if="social.icon.indexOf('fa.')==0" ,:class="social.icon.indexOf('fa.')==0?[social.icon.split('fa.')[1],'fa']:[]")
           img.social_icon(v-else, :src="social.icon")
       .col_question
@@ -65,7 +67,7 @@ div.footer
             // if (Ts) Ts.reload();
         },data(){
           return {
-            qa_state: new Array(5).fill({}).map((d,i)=>({open: i==0}))
+            qa_state: new Array(5).fill({}).map((d,i)=>({open: false}))
           };
         },
         methods: {

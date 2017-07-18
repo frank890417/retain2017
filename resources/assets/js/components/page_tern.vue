@@ -11,7 +11,7 @@ div.page_tern
           .title(@click="toggle_open(tid)")
             .btn_expand.cross(:class="{active: item_status[tid].open}")
             span {{tern.title}}
-          p(v-html="tern.content")
+          div.tern_content(v-html="tern.content")
 </template>
 
 <script>

@@ -67,7 +67,7 @@ div.page_contact
         },
         data(){
           return {
-            qa_state: new Array(20).fill({}).map((d,i)=>({open: i==0}))
+            qa_state: new Array(20).fill({}).map((d,i)=>({open: false}))
           };
         },
         computed: mapState([]),

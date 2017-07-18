@@ -109,15 +109,17 @@ export default {
     mounted() {
       
       $(".hero_right_list li").click(function(){
-        $(".hero_right_list li").removeClass("active");
+        // $(".hero_right_list li").removeClass("active");
         $(this).toggleClass("active");
       });
       $(".service_type .toggle_part").click(function(){
         $(this).closest("li").toggleClass('active');
       });
-      $(".service_type li:first-child").addClass('active');
+      // $(".service_type li:first-child").addClass('active');
+      $(".program_list>li:first-child").addClass('active');
 
-      $(".hero_right_list li:first-child").toggleClass("active");
+  
+      // $(".hero_right_list li:first-child").toggleClass("active");
     },beforeDestroy() {
     },
     props: ['id'],
