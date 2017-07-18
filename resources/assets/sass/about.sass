@@ -66,6 +66,7 @@
 
         //timelog:active 清單展開
         &.active
+          // padding-bottom: 50px
           .title
             top:  grid_sz(0,-3)
             color: $color_theme
@@ -80,8 +81,9 @@
               +size(11px)
               transform: translate(-6px)
               background-color: $color_theme
-          
-            
+            &:last-child
+              min-height: grid_sz(1,1)
+              
         &:last-child
           li
             border-left: none
