@@ -25,6 +25,7 @@ const store = new Vuex.Store({
     save_website_info(state,updated_info){
       console.log(updated_info);
       console.log("save "+state.locale)
+      state.lang=JSON.parse(JSON.stringify(updated_info))
       axios.post("/api/websiteinfo/key/"+state.locale,{update: JSON.stringify(updated_info)} ).then(
         (res)=>{
           state.remind_save_when_exit=false;
