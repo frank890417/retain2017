@@ -61,7 +61,10 @@ div.footer
               slidesToScroll: 1,
               arrows: true,
               vertical: true,
-              dots: true,
+              dots: false,
+              prevArrow: false,
+              nextArrow: false,
+              centerPadding: '0',
               easing: 'ease-in'
             });
             // if (Ts) Ts.reload();
