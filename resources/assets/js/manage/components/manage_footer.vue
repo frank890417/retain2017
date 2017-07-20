@@ -41,7 +41,7 @@ div.container-fluid
               span 預覽:
                 a(v-for="social in site_data.footer.section_company.social" ,:href="social.url?social.url:'#'", v-if="social.url && social.url!=''", target="_blank")
                   i.social_icon(v-if="social.icon.indexOf('fa.')==0" ,:class="social.icon.indexOf('fa.')==0?[social.icon.split('fa.')[1],'fa']:[]", style="color: black;padding: 5px;")
-                  img.social_icon(v-else, :src="social.icon")
+                  img.social_icon(v-else, :src="social.icon", width="28px")
               hr
               label 平台編輯
               select(v-model="now_social_id")

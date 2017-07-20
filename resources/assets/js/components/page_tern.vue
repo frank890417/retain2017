@@ -4,7 +4,7 @@ div.page_tern
     .container.grid_sz_mx_8_7
       h1.section_title {{$t('page_tern.title')}}
       h4.section_eng {{$t('page_tern.eng')}}
-      h4.section_feature {{$t('page_tern.content')}}
+      h4.section_feature(v-html="remove_tag($t('page_tern.content'))")
       
       ul
         li(v-for="(tern,tid) in $t('page_tern.terns')" ,:class="{active: item_status[tid].open}")
@@ -18,9 +18,7 @@ div.page_tern
   import { mapGetter, mapActions , mapState } from 'vuex'
   export default {
       data() {return {
-        sel_year: "year_2016",
         item_status: Array.from({length: 7},()=>({open: true}) ),
-        
       }},
       mounted() {
           console.log('tern mounted.')
@@ -29,6 +27,9 @@ div.page_tern
       methods: {
         toggle_open(id){
           this.item_status[id].open=!this.item_status[id].open
+        },
+        remove_tag(text){
+          return (""+text).replace(new RegExp("<.*?>","g"),"")
         }
       },
       computed: mapState(['about_logs'])
