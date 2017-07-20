@@ -28,7 +28,7 @@ const routes = [
   { path: '/about', component: page_about },
   { path: '/member', component: page_member },
   { path: '/team', component: page_about },
-  { path: '/tech', component: page_tech },
+  // { path: '/tech', component: page_tech },
   { path: '/solution/:id', component: page_product , props: true},
   { path: '/solution/0', alias: '/solution'},
   { path: '/news', component: page_news },
