@@ -133,6 +133,7 @@
       flex-direction: column
       box-sizing: border-box
       width: calc(50% + #{grid_sz(5,5)})
+      +trans
 
       *
         color: $color_white
@@ -208,9 +209,11 @@
     background-size: cover
     display: flex
     min-height: 100vh
+    flex-direction: column
     align-items: center
     justify-content: center
     background-position: center 0px
+    
 
 
 

@@ -1,27 +1,28 @@
 <template lang="jade">
 div.page_index
   section.page_index_main.bg_parallax(:class="{playmovie: section_hero_playing}")
-    video_fullplayer(
-        :youtube_url = "$t('page_index.section_hero.video')",:player_width="player_width", 
-        :player_height="500",
-        :status="section_hero_playing",
-        @ended = "section_hero_playing=false"
-        )
-      // video_youtube
-    .container.index_slogan_area
-      h1 
-        span.brown 儲於
-        span 健康
-        .title_span
-        span 用於
-        span.theme 未來
-      
-      h3.page_header_eng {{$t("page_index.section_hero.eng")}}
+    .flex_column_fix
+      video_fullplayer(
+          :youtube_url = "$t('page_index.section_hero.video')",:player_width="player_width", 
+          :player_height="500",
+          :status="section_hero_playing",
+          @ended = "section_hero_playing=false"
+          )
+        // video_youtube
+      .index_slogan_area
+        h1 
+          span.brown 儲於
+          span 健康
+          .title_span
+          span 用於
+          span.theme 未來
+        
+        h3.page_header_eng {{$t("page_index.section_hero.eng")}}
 
-      
-      div.play_btn(@click="section_hero_playing=true")
-        i.fa.fa-play
-      h6 {{$t("page_index.section_hero.btn_more")}}
+        
+        div.play_btn(@click="section_hero_playing=true")
+          i.fa.fa-play
+        h6 {{$t("page_index.section_hero.btn_more")}}
     i.fa.fa-angle-down
 
   section.page_index_info
@@ -36,7 +37,7 @@ div.page_index
         h4 {{$t("page_index.section_1.right.eng")}}
       p(v-html="$t('page_index.section_1.right.content')")
 
-  section.page_index_grow
+  section.page_index_grow.flex.row
     img.cover.cover3(src="/img/index/2c.jpg")
     img.cover.cover2(src="/img/index/2b.png")
     img.cover.cover1(src="/img/index/2a.png")
@@ -49,7 +50,7 @@ div.page_index
         h4.section_feature(v-html="$t('page_index.section_2.feature')") 
 
         p.section_para.text-left(v-html="$t('page_index.section_2.content')") 
- 
+
         btn.btn-underline(v-if="$t('page_index.section_2.btn.show')",:to="$t('page_index.section_2.btn.link')") {{$t('page_index.section_2.btn.label')}}
 
   section.page_index_flow.bg_parallax(:class="{playmovie: section_flow_playing}")
