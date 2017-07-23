@@ -7,6 +7,7 @@ const store = new Vuex.Store({
     questions: [],
     big_font: false,
     search: false,
+    is_ie: false,
     products: [
       {
           name: "鴻海三心專案",
@@ -92,7 +93,10 @@ const store = new Vuex.Store({
     toggle_search(state){
       state.search=!state.search;
       console.log("toggle search");
-    }
+    },
+    set_is_ie(state, value){
+      state.is_ie=value;
+    },
   },
   actions: {
     loadWebsite(context){

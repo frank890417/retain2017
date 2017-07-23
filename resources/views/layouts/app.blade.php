@@ -24,7 +24,7 @@
     </script>
   </head>
   <body class="lang_{{$lang}} lang_all ">
-    <div id="app" :class="{big_font: big_font}">
+    <div id="app" :class="{big_font: big_font,is_ie: is_ie}">
       <navbar></navbar>
       <transition name="fade" mode="out-in">
         <router-view :key="$route.path"></router-view>

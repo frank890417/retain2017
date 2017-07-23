@@ -25,12 +25,23 @@ Vue.component('btn',btn)
 Vue.use(VueYouTubeEmbed)
 
 
+// detect ie
+function is_ie() {
+  const result = (navigator.appName == 'Microsoft Internet Explorer' || !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)) || (typeof $.browser !== 'undefined' && $.browser.msie == 1));
+
+  return !!result;
+}
+
+if (is_ie()){
+  store.commit("set_is_ie",true)
+}
+
 const app = new Vue({
   el: "#app",
   router,
   store,
   i18n: custom_i18n.i18n,
-  computed: mapState(['news','about_logs','big_font']),
+  computed: mapState(['news','about_logs','big_font','is_ie']),
   mounted(){
      // store.dispatch("loadWebsite");
   }
