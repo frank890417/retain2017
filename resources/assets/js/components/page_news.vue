@@ -119,7 +119,7 @@ export default {
         return this.news.sort((a,b)=>{
           let a_text = (""+a.date).replace(/-/g,"")
           let b_text = (""+b.date).replace(/-/g,"")
-          return parseInt(a_text)-parseInt(b_text)
+          return parseInt(b_text)-parseInt(a_text)
         })
       }
     },watch: {
