@@ -5,7 +5,7 @@ div.page_news
       
       .col_left( :style="{'background-image': 'url('+news[head_id].cover+')'}")
         transition-group(name="fade", mode="out-in")
-          div(v-for="(headnews,news_id) in news", :key='headnews', v-if="news_id == head_id")
+          div(v-for="(headnews,news_id) in sorted_news", :key='headnews', v-if="news_id == head_id")
             h1.title 
               router-link(:to="'/news/n/'+headnews.title") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").replace('&nbsp;','').slice(0,100)+"..."}}
@@ -13,12 +13,12 @@ div.page_news
             router-link.btn-underline.white_outline(v-if="$t('page_index.section_5.btn.show')",:to="'/news/n/'+headnews.title") 了解更多
       .col_right
         ul
-          li.container.flex(v-for="(a_news,newsid) in news.slice(0,5)", 
-                            :class="{active: head_id==newsid}", 
-                            v-on:mouseover=" change_head(newsid)")
-            .date {{a_news.date.slice(-5) }}
-            .circle
-            h4.title {{a_news.title}}
+          router-link(v-for="(a_news,newsid) in sorted_news.slice(0,5)", :to="'/news/n/'+a_news.title")
+            li.container.flex(:class="{active: head_id==newsid}", 
+                              v-on:mouseover=" change_head(newsid)")
+              .date {{ a_news.date.slice(-5) }}
+              .circle
+              h4.title {{a_news.title}}
           // li
             .date 10.17
             .circle
@@ -113,8 +113,11 @@ export default {
         return this.$t("page_news.news")
       },
       filtered_news(){
-        return this.news.filter(item=>( item.tag == this.filter.tag || this.filter.all));
+        return this.sorted_news.filter(item=>( item.tag == this.filter.tag || this.filter.all));
       },
+      sorted_news(){
+        return this.news.sort((a,b)=>(a.date>b.date))
+      }
     },watch: {
       cataname(){
         this.filter=this.catas.find(o=>o.all)
