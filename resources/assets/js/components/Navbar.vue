@@ -14,16 +14,17 @@ div
           li.function.func_size(@click='toggle_size')
             img.icon_big(src="/img/icon_word_big.svg", v-show="!big_font")
             img.icon_small(src="/img/icon_word_small.svg", v-show="big_font")
-        ul.main_list
+        //所有區域點擊都可以切換漢堡
+        ul.main_list(@click="toggle_open(250)")
           li(v-for="main_tag in maked_nav_structure")
             //沒有連結的主選單
             h4(v-if="main_tag.link=='#'")
               span {{main_tag.tag}}
-            h4(@click="toggle_open", v-else)
+            h4(v-else)
               router-link(v-if="",:to="main_tag.link" ) {{main_tag.tag}}
             //子項目
             ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
-              li(@click="toggle_open" v-for="sub_tag in main_tag.childs")
+              li(v-for="sub_tag in main_tag.childs")
                 router-link( :to="sub_tag.link") {{sub_tag.tag}}
 
   nav.navbar(:class="{search: search,at_top: scrollTop<=0}")
@@ -71,7 +72,7 @@ div
             img.icon_big(src="/img/icon_word_big.svg", v-show="!big_font")
             img.icon_small(src="/img/icon_word_small.svg", v-show="big_font")
 
-          li.nav_open.func_burger(@click="toggle_open")
+          li.nav_open.func_burger(@click="toggle_open(0)")
             i.fa.fa-bars
 
 </template>
@@ -110,8 +111,10 @@ div
 
         },
         methods:{
-          toggle_open(){
-            this.open_full=!this.open_full;
+          toggle_open(sec){
+            setTimeout(()=>{
+              this.open_full=!this.open_full;
+            },sec)
           },
           place_sub_nav(){
             $(".navbar-nav > li").each(function(index,obj){

@@ -1,12 +1,11 @@
 <template lang="jade">
 div.page_post(v-if="newsset")
-  .slick(v-if="newsset.carousel")
+  //.slick(v-if="newsset.carousel")
     section.section_hero(v-if='imgurl' v-for='imgurl in [newsset.cover].concat(newsset.carousel)')
-      //
       .bg.bg_parallax(:style="bg_css(imgurl)") 
       .container.flex
   
-  section.section_post
+  section.section_post(style="padding-top: 100px")
     .container.flex.column
       .top
         .col_left
@@ -27,7 +26,7 @@ div.page_post(v-if="newsset")
               router-link(v-text='newsset.tag' v-bind:to="'/news/cata/'+newsset.tag")
             h1.section_title(v-text='newsset.title')
             p.source 文章來源 
-              a(v-html='newsset.author' href="#")
+              a(v-html='newsset.author' , :href="newsset.author_link", target="_blank")
             br
             p(v-html='newsset.content')
             // h5.share 分享文章

@@ -34,7 +34,7 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.rsrapid2017.dev/manage/">中文 | </a><a href="http://en.rsrapid2017.dev/manage/">英文 | </a><a href="http://cn.rsrapid2017.dev/manage/">簡體中文</a></div>
+            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.retainbiotech.com/manage/">中文 | </a><a href="http://en.retainbiotech.com/manage/">英文 | </a><a href="http://cn.retainbiotech.com/manage/">簡體中文</a></div>
             <ul class="user-menu">
               <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                   <svg class="glyph stroked male-user">

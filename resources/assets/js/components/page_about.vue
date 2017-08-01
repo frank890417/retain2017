@@ -14,7 +14,7 @@ div.page_about
       .col_left          
         h1 {{$t("page_about.title")}}
         h4.section_eng {{$t("page_about.eng")}}
-        h4.section_feature {{$t("page_about.feature")}} 
+        h4.section_feature {{ remove_tag($t("page_about.feature"))  }} 
 
         p(v-html="$t('page_about.content')")
         hr.short.left
@@ -60,7 +60,7 @@ export default {
       video_playing: false
     }},
     mounted() {
-       this.toggle_status[5].status=false
+      //  this.toggle_status[5].status=false
         console.log('about mounted.')
         $(".btn_expand").click(function(){
           console.log(this);

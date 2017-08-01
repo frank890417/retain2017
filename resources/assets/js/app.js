@@ -36,6 +36,10 @@ if (is_ie()){
   store.commit("set_is_ie",true)
 }
 
+
+// console.log(store.state.lang.page_news.news)
+// store.state.lang.page_news.news.sort((b,a)=>b.date>a.date)
+
 const app = new Vue({
   el: "#app",
   router,
@@ -52,20 +56,20 @@ $(function(){
 
   var $window = $(window);
   var scrollTime = 1;
-  var scrollDistance = 120;
+  var scrollDistance = 50;
 
   $window.on("mousewheel DOMMouseScroll", function(event){
 
     event.preventDefault(); 
 
-    var delta = event.originalEvent.wheelDelta/100 || -event.originalEvent.detail/3;
+    var delta = event.originalEvent.wheelDelta/40 || -event.originalEvent.detail/0.5;
     var scrollTop = $window.scrollTop();
     var finalScroll = scrollTop - parseInt(delta*scrollDistance);
 
     TweenMax.to($window, scrollTime, {
       scrollTo : { y: finalScroll, autoKill:true },
         ease: Power2.easeOut,
-        overwrite: 5              
+        overwrite: 10             
       });
     // console.log(finalScroll);
   });

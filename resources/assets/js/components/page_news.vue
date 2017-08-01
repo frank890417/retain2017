@@ -10,11 +10,12 @@ div.page_news
               router-link(:to="'/news/n/'+headnews.title") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").replace('&nbsp;','').slice(0,100)+"..."}}
             //.btn.btn-default 了解更多
-            btn.btn-underline.white_outline(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") 了解更多
-
+            router-link.btn-underline.white_outline(v-if="$t('page_index.section_5.btn.show')",:to="'/news/n/'+headnews.title") 了解更多
       .col_right
         ul
-          li.container.flex(v-for="(a_news,newsid) in news.slice(0,5)", :class="{active: head_id==newsid}", v-on:mouseover=" change_head(newsid)")
+          li.container.flex(v-for="(a_news,newsid) in news.slice(0,5)", 
+                            :class="{active: head_id==newsid}", 
+                            v-on:mouseover=" change_head(newsid)")
             .date {{a_news.date.slice(-5) }}
             .circle
             h4.title {{a_news.title}}
@@ -33,8 +34,12 @@ div.page_news
       .catabar
         ul.catalist
           li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
+      
       transition-group(tag="ul" , name="fade-delay" , mode="out-in").area_news
-        router-link(:to="'/news/n/'+a_news.title" v-for="(a_news,id) in filtered_news",:key="a_news", ).news_box
+        router-link(:to="'/news/n/'+a_news.title",
+                    v-for="(a_news,id) in filtered_news",
+                    :key="a_news",
+                    :style="{'background-image':`url(${a_news.cover})`}" ).news_box
           i.fa.fa-search  
           .date {{a_news.date.slice(-5) }}
           h5.title {{a_news.title}}

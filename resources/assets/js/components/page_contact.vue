@@ -29,7 +29,7 @@ div.page_contact
             .btn.btn-primary.btn-submit 
               span {{$t('page_contact.section_form.btn_send')}}
               i.fa.fa-angle-right
-      .col_right#questions
+      .col_right#section_qa
         h4 {{$t('footer.section_question.title')}}
         ul.question_list(v-if="$t('footer.section_question.questions').length>0")
           li(v-for="(qa,id) in $t('footer.section_question.questions')" ,:class="{open: qa_state[id].open}"  @click="toggle(id)")

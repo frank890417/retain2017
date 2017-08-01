@@ -2,7 +2,7 @@
 div.container-fluid
   .row
     .col-sm-12
-      h1 管理經營 
+      h1 聯絡與問答 
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
   .panel.panel-primary.col-sm-6
     .panel-heading 聯絡我們

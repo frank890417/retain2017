@@ -1,13 +1,13 @@
 <template lang="jade">
 div.page_index
   section.page_index_main.bg_parallax(:class="{playmovie: section_hero_playing}")
+    video_fullplayer(
+      :youtube_url = "$t('page_index.section_hero.video')",:player_width="player_width", 
+      :player_height="500",
+      :status="section_hero_playing",
+      @ended = "section_hero_playing=false"
+      )
     .flex_column_fix
-      video_fullplayer(
-          :youtube_url = "$t('page_index.section_hero.video')",:player_width="player_width", 
-          :player_height="500",
-          :status="section_hero_playing",
-          @ended = "section_hero_playing=false"
-          )
         // video_youtube
       .index_slogan_area
         h1 
@@ -210,15 +210,17 @@ import video_fullplayer from './video_fullplayer'
               });
 
               $('.slicklogo_team').slick({
-                autoplay: false,
+                autoplay: true,
                 autoplaySpeed: 3000,
                 slidesToShow: 2,
-                slidesToScroll: -1,
+                infinite: true,
+                slidesToScroll: 1,
                 arrows: false,
+                // dir: "rtl",
                 // rtl: true,
                 // fade: true,
                 // dots: true,
-                easing: 'ease-in'
+                easing: 'ease-in-out'
               });
             },1)
 
