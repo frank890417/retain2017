@@ -32,7 +32,7 @@ div.page_news
   section.section_news
     .container.full.flex
       .catabar
-        ul.catalist
+        ul.catalist(v-if="catas")
           li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
       
       transition-group(tag="ul" , name="fade-delay" , mode="out-in").area_news
@@ -116,7 +116,11 @@ export default {
         return this.sorted_news.filter(item=>( item.tag == this.filter.tag || this.filter.all));
       },
       sorted_news(){
-        return this.news.sort((a,b)=>(a.date>b.date))
+        return this.news.sort((a,b)=>{
+          let a_text = (""+a.date).replace(/-/g,"")
+          let b_text = (""+b.date).replace(/-/g,"")
+          return parseInt(a_text)-parseInt(b_text)
+        })
       }
     },watch: {
       cataname(){
