@@ -20,7 +20,8 @@ div.page_about
         hr.short.left
         .btn_full.green(v-if="$t('page_about.btn.show')", @click="video_playing=true")
           div.icon_inline_wrapper
-            .icon_play_circle
+            img(src="/img/icon_play_circle.svg").icon_play_circle
+            
           div {{$t("page_about.btn.label")}}
 
 

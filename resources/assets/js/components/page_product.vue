@@ -15,7 +15,7 @@ div.page_solution
         
         .btn_full.brown(v-if="$t('page_product.btn.show')", @click="video_playing=true")
           div.icon_inline_wrapper
-            .icon_play_circle
+            img(src="/img/icon_play_circle.svg").icon_play_circle
           div {{$t("page_product.btn.label")}}
       .col_right
 

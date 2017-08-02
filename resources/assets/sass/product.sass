@@ -6,7 +6,8 @@
     background-position: left bottom
     background-repeat: no-repeat
     min-height: 100vh
-
+    .container.flex
+      align-items: flex-start
 
     .section_title
       margin-bottom: grid_sz(0,1)
@@ -22,7 +23,7 @@
     .col_right
       align-items: flex-start
       width: grid_sz(5,5)
-      padding-top: grid_sz(0,13)
+      padding-top: 234px
       text-align: left
       border-left: solid 1px $color_grey_light
       padding-left: grid_sz(1,1)
@@ -74,6 +75,7 @@
       .col_left,.col_right
         width: 100%
         min-height: 50vh
+        padding: grid_sz(0,1)
       .col_right
         border: none
         box-sizing: border-box

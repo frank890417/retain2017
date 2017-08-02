@@ -211,11 +211,14 @@ import video_fullplayer from './video_fullplayer'
 
               $('.slicklogo_team').slick({
                 autoplay: true,
-                autoplaySpeed: 3000,
+                autoplaySpeed: 2500,
                 slidesToShow: 2,
                 infinite: true,
-                slidesToScroll: 1,
+                slidesToScroll: -1,
                 arrows: false,
+                swipeToSlide: false,
+                swipe: false,
+                touchMove: false,
                 // dir: "rtl",
                 // rtl: true,
                 // fade: true,
