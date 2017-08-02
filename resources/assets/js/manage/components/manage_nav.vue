@@ -10,7 +10,8 @@ div.container-fluid(v-if="site_data")
       .row(v-if="site_data")
         .col-sm-4(v-for="(route,id) in site_data.nav_structure")
           .form-group
-            h3 {{id+1}}. {{route.tag}}
+            h3 {{id+1}}. {{route.tag}} 
+              .btn.btn-default(@click="site_data.nav_structure.splice(id,1)") 刪除
             editor_form(:dataset="route" , :level="0")
   
   .row

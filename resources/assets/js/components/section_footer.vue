@@ -40,7 +40,7 @@ div.footer
       ul.footer_nav
         li
           router-link(to="/job") 人才招募
-        li
+        // li
           a() 會員登入
         li
          router-link(to="/tern") 各項聲明
