@@ -34,7 +34,7 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://www.retainbiotech.com/manage/">中文 | </a><a href="http://en.retainbiotech.com/manage/">英文 | </a><a href="http://cn.retainbiotech.com/manage/">簡體中文</a></div>
+            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.rsrapid2017.dev/manage/" data-lang="zh">中文 | </a><a href="http://en.rsrapid2017.dev/manage/" data-lang="en">英文 | </a><a href="http://cn.rsrapid2017.dev/manage/" data-lang="cn">簡體中文</a></div>
             <ul class="user-menu">
               <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                   <svg class="glyph stroked male-user">
@@ -198,6 +198,7 @@
                   |  Sub Item 3
           --}}
           <li role="presentation" onClick="location.replace('{{ url('manage/detail_info') }}')" class="divider"></li>
+          @if(!Auth::user())
           <li><a href="/login">
               <svg class="glyph stroked male-user">
                 <use xlink:href="#stroked-male-user"></use>
@@ -207,21 +208,24 @@
               svg.glyph.stroked.male-user
                 use(xlink:href='#stroked-male-user')
               |  Register
-            
           -->
+          @else
           <li><a onclick="event.preventDefault();document.getElementById('logout-form').submit();">
               <svg class="glyph stroked male-user">
                 <use xlink:href="#stroked-male-user"></use>
-              </svg>Logout</a></li>
+              </svg>[{{Auth::user()->name}}] Logout</a></li>
+          @endif
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"><span>{{ csrf_field() }}</span></form>
         </ul>
       </div>
       <!-- /.sidebar -->
       <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-        <!-- @yield('content') -->
+         @yield('content') 
+         @if (Auth::user())
         <transition name="fade" mode="out-in">
           <router-view :key="$route.path"></router-view>
         </transition>
+         @endif
         <div class="clearfix"></div>
         <!-- /.row -->
         {{--          
@@ -454,9 +458,10 @@
   @yield('blade_pass_variables')
   {{-- Script BEFORE app.js --}}
   <script>
-    // window.locale="{{$lang}}";
+    window.locale="{{isset($lang)?$lang:null}}";
     window.lang={};
-    window.lang={!! $lang_pack !!};
+    window.lang={!! isset($lang_pack)?$lang_pack:null !!};
+    window.user={!! json_encode(Auth::user()) !!};
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
   </script>
   @yield('require_js')
@@ -467,7 +472,9 @@
     if (["zh","cn","en"].indexOf(locale)==-1){
       locale="zh";
     }
-    $("a[data-lang='locale']").addClass("active");
+    $("a[data-lang]").css("opacity","0.4");
+    $("a[data-lang='"+locale+"']").css("opacity","1");
+    
   </script>
   {{-- script(src='/js/admin_js/chart.min.js') --}}
   <script src="/js/backstage/app.js"></script>

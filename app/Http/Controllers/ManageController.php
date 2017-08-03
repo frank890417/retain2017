@@ -10,6 +10,11 @@ use App\News;
 use App\Websiteinfo;
 class ManageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    //
     /**
      * Create a new controller instance.
      *
