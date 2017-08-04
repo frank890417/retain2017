@@ -222,7 +222,7 @@
       </div>
       <!-- /.sidebar -->
       <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-        <!-- @yield('content') -->
+        @yield('content')
         <transition name="fade" mode="out-in">
           <router-view :key="$route.path"></router-view>
         </transition>
@@ -458,9 +458,9 @@
   @yield('blade_pass_variables')
   {{-- Script BEFORE app.js --}}
   <script>
-    {{-- window.locale="{{$lang?$lang:null}}";
+    window.locale="{{isset($lang)?$lang:null}}";
     window.lang={};
-    window.lang={!! $lang_pack?$lang_pack:null !!};  --}}
+    window.lang=JSON.parse({!! isset($lang_pack)?json_encode($lang_pack):null !!});
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
   </script>
   @yield('require_js')
