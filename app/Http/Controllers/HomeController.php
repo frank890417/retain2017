@@ -44,7 +44,7 @@ class HomeController extends Controller
         // if ()
         // dd($metas);
         
-        $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
+        $lang_pack= Websiteinfo::where("key", $lang=="cn"?"zh":$lang)->first()->data;
         
         if ($lang=="cn"){
             // require("ZhConvert/LaravelZhconverter.php");
