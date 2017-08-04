@@ -59,13 +59,13 @@ div
         ul.nav.navbar-nav.navbar-right
           li.function.func_lang
             a(href="#")
-              span 繁
+              span {{langtext}}
               i.fa.fa-angle-down 
             ul.lang_subnav
               .container
                 div.options
-                  li(v-for = "l in lang")
-                    a(href="#") {{l.name}}
+                  li(v-for = "l in langs")
+                    a(:href="l.link") {{l.name}}
           li.function.func_search
             i.fa.fa-search(@click="toggle_search")
           li.function.func_size(@click='toggle_size')
@@ -95,7 +95,19 @@ div
           return {
             open_full: false,
             open_lang: false,
-            lang: [{name: "繁"},{name: "简"},{name: "EN"}]
+            langs: [
+              { 
+                name: "繁",
+                link: "http://www.retainbiotech.com"
+              },
+              {
+                name: "简",
+                link: "http://cn.retainbiotech.com"
+              },
+              {
+                name: "EN",
+                link: "http://en.retainbiotech.com"
+              }]
           }
         },
         watch:{
@@ -138,10 +150,20 @@ div
           ...mapMutations(['toggle_size','toggle_search'])
         },
         computed: {
-          ...mapState(["solutions","big_font","search","scrollTop"]),
+          ...mapState(["solutions","big_font","search","scrollTop","lang"]),
 
           maked_nav_structure(){
             return this.$t("nav_structure")
+        },
+        langtext (){
+          switch(window.locale){
+            case "cn":
+              return "簡"
+            case "zh":
+              return "繁"
+            case "en":
+              return "EN"
+          }
         }
       }
   }

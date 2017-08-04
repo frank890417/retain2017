@@ -34,7 +34,9 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.rsrapid2017.dev/manage/" data-lang="zh">中文 | </a><a href="http://en.rsrapid2017.dev/manage/" data-lang="en">英文 | </a><a href="http://cn.rsrapid2017.dev/manage/" data-lang="cn">簡體中文</a></div>
+            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.retainbiotech.com/manage/" data-lang="zh">中文 | </a><a href="http://en.retainbiotech.com/manage/" data-lang="en">英文 | </a>
+              <!-- a(href="http://cn.rsrapid2017.dev/manage/", data-lang="cn") 簡體中文 -->
+            </div>
             <ul class="user-menu">
               <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                   <svg class="glyph stroked male-user">
@@ -220,12 +222,10 @@
       </div>
       <!-- /.sidebar -->
       <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
-         @yield('content') 
-         @if (Auth::user())
+        <!-- @yield('content') -->
         <transition name="fade" mode="out-in">
           <router-view :key="$route.path"></router-view>
         </transition>
-         @endif
         <div class="clearfix"></div>
         <!-- /.row -->
         {{--          
@@ -458,10 +458,9 @@
   @yield('blade_pass_variables')
   {{-- Script BEFORE app.js --}}
   <script>
-    window.locale="{{isset($lang)?$lang:null}}";
+    {{-- window.locale="{{$lang?$lang:null}}";
     window.lang={};
-    window.lang={!! isset($lang_pack)?$lang_pack:null !!};
-    window.user={!! json_encode(Auth::user()) !!};
+    window.lang={!! $lang_pack?$lang_pack:null !!};  --}}
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
   </script>
   @yield('require_js')

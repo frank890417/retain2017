@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
 use App\News;
 use App\Websiteinfo;
+
+use App\LaravelZhconverter;
 class HomeController extends Controller
 {
     /**
@@ -41,7 +43,14 @@ class HomeController extends Controller
         // dd($lang);
         // if ()
         // dd($metas);
+        
         $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
+        
+        if ($lang=="cn"){
+            // require("ZhConvert/LaravelZhconverter.php");
+            $lang_pack= LaravelZhconverter::translate($lang_pack,'CN');
+        }
+        
         return view('home')
                ->with("lang_pack",$lang_pack)
                ->with("metas",$metas)
