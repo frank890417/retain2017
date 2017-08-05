@@ -46,10 +46,10 @@ class HomeController extends Controller
         
         $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
         
-        if ($lang=="cn"){
-            // require("ZhConvert/LaravelZhconverter.php");
-            $lang_pack= LaravelZhconverter::translate($lang_pack,'CN');
-        }
+        // if ($lang=="cn"){
+        //     // require("ZhConvert/LaravelZhconverter.php");
+        //     $lang_pack= LaravelZhconverter::translate($lang_pack,'CN');
+        // }
         
         return view('home')
                ->with("lang_pack",$lang_pack)
