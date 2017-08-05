@@ -47,6 +47,7 @@ const router = new VueRouter({
   mode: "history"
 })
 
+//跳轉前設定切換標題與跳頁
 router.beforeEach((to, from, next) => {
   console.log(to);
   var waittime=600;
@@ -62,6 +63,13 @@ router.beforeEach((to, from, next) => {
     $("html, body").animate({ scrollTop: 0 }, "slow");
   }
   next();
+});
+
+//送出pageview
+router.afterEach((route) => {
+  if (window.ga){
+    ga('send', 'pageview',route.path);
+  }
 });
 
 export default router
