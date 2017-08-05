@@ -36,15 +36,16 @@ class ManageController extends Controller
         $lang = Request::get('lang');
         $is_default_lang = Request::get('is_default_lang');
 
-        if ($is_default_lang){
-            // dd(Request::getPathInfo());
-            return redirect('http://www.retain2017.dev'.Request::getPathInfo());
-        }
+        // if ($is_default_lang){
+        //     // dd(Request::getPathInfo());
+        //     return redirect('http://www.retain2017.dev'.Request::getPathInfo());
+        // }
 
         // dd($lang);
         // dd($lang);
         // if ()
         // dd($metas);
+        // dd($lang);
         $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
         return view('layouts.app_manage')
                ->with("lang_pack",$lang_pack)

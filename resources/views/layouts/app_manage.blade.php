@@ -34,9 +34,7 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#sidebar-collapse" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <div href="#" class="navbar-brand"><span>RapidSure 2017</span> Admin 編輯-  <a href="http://zh.retainbiotech.com/manage/" data-lang="zh">中文 | </a><a href="http://en.retainbiotech.com/manage/" data-lang="en">英文 | </a>
-              <!-- a(href="http://cn.rsrapid2017.dev/manage/", data-lang="cn") 簡體中文 -->
-            </div>
+            <div href="#" class="navbar-brand"><span>RetainBiotech 2017</span> Admin 編輯-  <a href="/zh/manage" data-lang="zh">中文 | </a><a href="/en/manage" data-lang="en">英文 | </a><a href="/cn/manage" data-lang="cn">簡體中文</a></div>
             <ul class="user-menu">
               <li class="dropdown pull-right"><a href="#" data-toggle="dropdown" class="dropdown-toggle">
                   <svg class="glyph stroked male-user">
@@ -467,10 +465,11 @@
   <script src="/js/admin_js/jquery-1.11.1.min.js"></script>
   <script src="/js/admin_js/bootstrap.min.js"></script>
   <script>
-    var locale= document.location.host.split(".")[0];
-    if (["zh","cn","en"].indexOf(locale)==-1){
-      locale="zh";
-    }
+    //- var locale= document.location.host.split(".")[0];
+    //- if (["zh","cn","en"].indexOf(locale)==-1){
+    //-   locale="zh";
+    //- }
+    window.locale= "{{ $lang }}";
     $("a[data-lang]").css("opacity","0.4");
     $("a[data-lang='"+locale+"']").css("opacity","1");
     

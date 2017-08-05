@@ -43,6 +43,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
+  base: "/"+window.locale+"/",
   mode: "history"
 })
 

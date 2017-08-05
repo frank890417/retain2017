@@ -12,10 +12,16 @@
     <meta property="og:image" content="{{$metas['meta_cover']}}">
     <meta property="og:description" content="{{$metas['meta_description']}}">
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/overwrite/master.css') }}" rel="stylesheet">
-
+    {{-- script(type="text/javascript" src="//typesquare.com/accessor/zh_tw/apiscript/typesquare.js?BSJind7kBHQ%3D" charset="utf-8") --}}
+    {{-- style(type="text/css" rel="stylesheet" id="dynamic_css") --}}
+    @if($lang=="cn")
+      <link href="https://fonts.googleapis.com/earlyaccess/notosanssc.css" rel="stylesheet">
+    @endif
+    @if($lang=="zh")
+      <link href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet">
+    @endif
     <!-- Scripts -->
     <script>
       window.Laravel = {!! json_encode([
@@ -24,7 +30,7 @@
     </script>
   </head>
   <body class="lang_{{$lang}} lang_all ">
-    <div id="app" :class="{big_font: big_font,is_ie: is_ie}">
+    <div id="app" :class="{big_font: big_font}">
       <navbar></navbar>
       <transition name="fade" mode="out-in">
         <router-view :key="$route.path"></router-view>
@@ -41,6 +47,19 @@
       document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
       
     </script>
+    {{-- script. --}}
+    {{-- (function(){ --}}
+    {{-- callback = function(res) { --}}
+    {{-- var css = document.getElementById('dynamic_css'); --}}
+    {{-- if (res.type == 'css') { --}}
+    {{-- css.textContent = res.data; --}}
+    {{-- } --}}
+    {{-- } --}}
+    {{-- var el = document.getElementsByTagName("BODY")[0]; --}}
+    {{-- el.style.fontFamily = 'dynamic_font'; --}}
+    {{-- Ts.dynamicCss(callback, JSON.stringify(window.lang) , '新黑體 M', 'dynamic_font', '', ''); --}}
+    {{-- })(); --}}
+    
     <script async src="/js/app.js"></script>
     {{-- Script AFTER app.js --}}
     @yield('require_js_after')

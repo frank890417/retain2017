@@ -15,14 +15,16 @@
 //     return view('welcome');
 // });
 
+$langs = ["","cn","en","zh"];
+
 Route::get('home','NewsController@index');
 
 $manage_routes= function(){
-  Route::get('manage/',"ManageController@index");
+  Route::get('/manage/{page?}',"ManageController@index");
   // Route::resource('manage/','NewsController');
 };
 
-Route::group(['middleware'=>'auth','middleware'=>'lang'],$manage_routes);
+
 
 Auth::routes();
 
@@ -44,30 +46,35 @@ $website_routes=function(){
 };
 
 
-$domains=[
-  'www.retain2017.dev',
-  'retain2017.dev',
-  'en.retain2017.dev',
-  'zh.retain2017.dev',
-  'cn.retain2017.dev',
+// $domains=[
+//   'www.retain2017.dev',
+//   'retain2017.dev',
+//   'en.retain2017.dev',
+//   'zh.retain2017.dev',
+//   'cn.retain2017.dev',
 
-  'retainbiotech.com',
-  'www.retainbiotech.com',
-  'en.retainbiotech.com',
-  'zh.retainbiotech.com',
-  'cn.retainbiotech.com',
+//   'retainbiotech.com',
+//   'www.retainbiotech.com',
+//   'en.retainbiotech.com',
+//   'zh.retainbiotech.com',
+//   'cn.retainbiotech.com',
 
 
-  'manage.retainbiotech.com',
-  'www.retainbiotech.com',
-  'en.manage.retainbiotech.com',
-  'zh.manage.retainbiotech.com',
-  'cn.manage.retainbiotech.com'
+//   'manage.retainbiotech.com',
+//   'www.retainbiotech.com',
+//   'en.manage.retainbiotech.com',
+//   'zh.manage.retainbiotech.com',
+//   'cn.manage.retainbiotech.com'
 
-];
+// ];
 
-foreach ($domains as $key => $value) {
-  Route::group(['domain'=>$value,'middleware'=>['lang','seoinfo'] ],$website_routes);
+
+
+
+
+foreach ($langs as $key => $lang) {
+  Route::group(['prefix' => $lang ,'middleware'=>['lang:'.$lang,'seoinfo:'.$lang] ],$website_routes);
+  Route::group(['prefix' => $lang ,'middleware'=>'auth','middleware'=>'lang:'.$lang],$manage_routes);
 }
 
 

@@ -17,7 +17,7 @@ class seoinfo
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$lang)
     {
         //default meta data for all webisite
         $meta_title = '睿田生技';
@@ -28,7 +28,7 @@ class seoinfo
         $post_fix = ' - 睿田生技';
         // dd($request);
         // dd($request->getPathInfo());
-        $current_path = $request->getPathInfo();
+        $current_path = preg_replace("/\/".$lang."\//","/", $request->getPathInfo());
 
         // match solution
         // if ( preg_match("/solution\/n\/(.*)/",$current_path,$test) ){
@@ -40,7 +40,7 @@ class seoinfo
         //     $meta_description=$match_solution->sub_content;
         // }
 
-
+        // dd($current_path);
         // match news
         if ( preg_match("/news\/n\/.*/",$current_path,$test) ){
             $lang = Request::get('lang');
@@ -56,10 +56,13 @@ class seoinfo
             }
             // dd($match_news);
             // $match_news = News::where("id", urldecode($test[1]))->first();
-            $meta_title=$match_news->title. $post_fix ;
-            $meta_cover=$match_news->cover ;
-            // $meta_title=$match_news->title. $post_fix ;
-            $meta_description= mb_substr(preg_replace("/lt/",'',$match_news->content),0,50)."...";
+            if (isset($match_news) ){
+                $meta_title=$match_news->title. $post_fix ;
+                $meta_cover=$match_news->cover ;
+                // $meta_title=$match_news->title. $post_fix ;
+                $meta_description= mb_substr(preg_replace("/lt/",'',$match_news->content),0,50)."...";
+                
+            }
         }
         
         // dd($request->getPathInfo());

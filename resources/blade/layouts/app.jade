@@ -12,12 +12,20 @@ html(lang="{{ config('app.locale') }}")
     meta(property="og:type" content="website")
     meta(property="og:image" content!="{{$metas['meta_cover']}}")
     meta(property="og:description" content!="{{$metas['meta_description']}}")
+    
     // Styles
     link(href="{{ asset('css/app.css') }}" rel="stylesheet")
     link(href="{{ asset('css/overwrite/master.css') }}" rel="stylesheet")
 
+    //- script(type="text/javascript" src="//typesquare.com/accessor/zh_tw/apiscript/typesquare.js?BSJind7kBHQ%3D" charset="utf-8")
+    //- style(type="text/css" rel="stylesheet" id="dynamic_css")
+    @if ($lang=="cn")
+      link(href="https://fonts.googleapis.com/earlyaccess/notosanssc.css" rel="stylesheet")
+    @endif
+    @if ($lang=="zh")
+      link(href="https://fonts.googleapis.com/earlyaccess/notosanstc.css" rel="stylesheet")
+    @endif
 
-      
     // Scripts
     script.
       window.Laravel = {!! json_encode([
@@ -40,6 +48,21 @@ html(lang="{{ config('app.locale') }}")
       window.lang={};
       window.lang.{{$lang}}={!! $lang_pack !!};
       document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
+
+    //- script.
+    //-   (function(){
+    //-     callback = function(res) {
+    //-         var css = document.getElementById('dynamic_css');
+
+    //-         if (res.type == 'css') {
+    //-             css.textContent = res.data;
+    //-         }
+    //-     }
+    //-     var el = document.getElementsByTagName("BODY")[0];
+    //-     el.style.fontFamily = 'dynamic_font';
+    //-     Ts.dynamicCss(callback, JSON.stringify(window.lang) , '新黑體 M', 'dynamic_font', '', '');
+    //-   })();
+
 
     script(async src="/js/app.js")
     {{-- Script AFTER app.js --}}

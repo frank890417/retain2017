@@ -34,17 +34,17 @@ class HomeController extends Controller
         $lang = Request::get('lang');
         $is_default_lang = Request::get('is_default_lang');
 
-        if ($is_default_lang){
-            // dd(Request::getPathInfo());
-            return redirect('http://www.retainbiotech.com'.Request::getPathInfo());
-        }
+        // if ($is_default_lang){
+        //     // dd(Request::getPathInfo());
+        //     return redirect('http://www.retainbiotech.com'.Request::getPathInfo());
+        // }
 
         // dd($lang);
         // dd($lang);
         // if ()
         // dd($metas);
         
-        $lang_pack= Websiteinfo::where("key", $lang=="cn"?"zh":$lang)->first()->data;
+        $lang_pack= Websiteinfo::where("key", $lang)->first()->data;
         
         if ($lang=="cn"){
             // require("ZhConvert/LaravelZhconverter.php");

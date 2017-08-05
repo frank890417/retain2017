@@ -35,11 +35,11 @@ html(lang="{{ config('app.locale') }}")
               span.icon-bar
               span.icon-bar
             .navbar-brand(href='#')
-              span RapidSure 2017
+              span RetainBiotech 2017
               |  Admin 編輯-  
-              a(href="http://zh.retainbiotech.com/manage/", data-lang="zh") 中文 | 
-              a(href="http://en.retainbiotech.com/manage/", data-lang="en") 英文 | 
-              //a(href="http://cn.rsrapid2017.dev/manage/", data-lang="cn") 簡體中文
+              a(href="/zh/manage", data-lang="zh") 中文 | 
+              a(href="/en/manage", data-lang="en") 英文 | 
+              a(href="/cn/manage", data-lang="cn") 簡體中文
             ul.user-menu
               li.dropdown.pull-right
                 a.dropdown-toggle(href='#', data-toggle='dropdown')
@@ -441,10 +441,11 @@ html(lang="{{ config('app.locale') }}")
   script(src='/js/admin_js/bootstrap.min.js')
   script.
     
-    var locale= document.location.host.split(".")[0];
-    if (["zh","cn","en"].indexOf(locale)==-1){
-      locale="zh";
-    }
+    //- var locale= document.location.host.split(".")[0];
+    //- if (["zh","cn","en"].indexOf(locale)==-1){
+    //-   locale="zh";
+    //- }
+    window.locale= "{{ $lang }}";
     $("a[data-lang]").css("opacity","0.4");
     $("a[data-lang='"+locale+"']").css("opacity","1");
 

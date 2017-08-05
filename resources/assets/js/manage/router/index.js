@@ -57,7 +57,8 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: "hash"
+  mode: "history",
+  base: "/"+window.locale+"/manage/"
 })
 
 router.beforeEach((to, from, next) => {
