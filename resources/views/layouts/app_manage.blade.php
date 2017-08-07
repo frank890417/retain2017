@@ -469,7 +469,7 @@
     //- if (["zh","cn","en"].indexOf(locale)==-1){
     //-   locale="zh";
     //- }
-    window.locale= "{{ $lang }}";
+    //window.locale= "{{ isset($lang)?$lang:null }}";
     $("a[data-lang]").css("opacity","0.4");
     $("a[data-lang='"+locale+"']").css("opacity","1");
     
