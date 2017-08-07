@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="WrCqF5ccfwLsmjykEL3Q4xumAkhxjZzULT8va9xzCE4">
     <title>{{$metas["meta_title"]}}</title>
     <meta property="og:title" content="{{$metas['meta_title']}}">
     <meta property="og:type" content="website">
