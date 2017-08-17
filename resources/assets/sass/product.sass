@@ -309,7 +309,7 @@
           padding-bottom: 0px //底部有more info 的文字塊
           margin-top: 50px
           .program_box
-            +toggle_height_active
+            +toggle_height_active(3000px)
             
 
             margin-top: grid_sz(0,1)
@@ -391,6 +391,7 @@
 
 
         li
+          position: relative
           .toggle_part
             height: grid_sz(0,2)
             cursor: pointer
@@ -400,9 +401,10 @@
             align-items: center
             color: white
             width: 100%
+            max-width: 100%
             padding-left: grid_sz(0,1)
             padding-right: grid_sz(0,1)
-
+            box-sizing: border-box
 
           .info_part
             padding: grid_sz(0,1)

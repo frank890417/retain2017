@@ -63,6 +63,7 @@
         
         li
           min-height: 0
+          max-width: calc(100% - 40px)
 
         //timelog:active 清單展開
         &.active
@@ -106,12 +107,13 @@
           +trans
           .month,.title,.content
             opacity: 0
-          span
+          span,.content
             color: $color_grey_light
             margin-top: -10px
             +trans
-          span.content
+          p.content
             top: -10px
+            margin: 0
 
           &:last-child
             min-height: grid_sz(1,0)

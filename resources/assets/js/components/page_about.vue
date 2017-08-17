@@ -36,7 +36,7 @@ div.page_about
           ul
             li(v-for= "log in get_yearlog(y)")
               span.month {{log.month}}
-              span.content(v-text="remove_tag(log.content)") 
+              p.content(v-text="remove_tag(log.content)") 
             li(v-if="get_yearlog(y).length==0")
 
   section.section_blocks
