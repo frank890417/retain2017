@@ -14,6 +14,7 @@ var manage_tern = Vue.component('manage_tern', require('../components/manage_ter
 var manage_about = Vue.component('manage_about', require('../components/manage_about.vue'));
 // var page_member = Vue.component('page_member', require('../components/page_member.vue'));
 var manage_news = Vue.component('manage_news', require('../components/manage_news.vue'));
+var manage_post = Vue.component('manage_post', require('../components/manage_post.vue'));
 var manage_team = Vue.component('manage_team', require('../components/manage_team.vue'));
 var manage_footer = Vue.component('manage_footer', require('../components/manage_footer.vue'));
 // var page_product = Vue.component('page_product', require('../components/page_product.vue'));
@@ -32,6 +33,7 @@ const routes = [
   { path: '/', component: manage_index },
   { path: '/about', component: manage_about },
   { path: '/news', component: manage_news },
+  { path: '/news/:id', component: manage_post ,props: true},
   { path: '/product', component: manage_product },
   { path: '/tern', component: manage_tern},
   { path: '/nav', component: manage_nav},

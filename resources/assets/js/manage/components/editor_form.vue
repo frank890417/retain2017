@@ -142,7 +142,7 @@
   import {mapState,mapMutation} from 'vuex'
   export default {
     name: "editor_form",
-    props: ['dataset','level','schema','panel_heading','noextend','hidden','history','overwrite','parent','prepand_key','append_key'],
+    props: ['dataset','level','schema','panel_heading','noextend','hidden','shown','history','overwrite','parent','prepand_key','append_key',],
     data(){
       return {
         array_open: Array.from({length: 1000},o=>({status: false}) ),
@@ -324,10 +324,11 @@
         return typeof this.dataset
       },
       key_alias(){
+   
         return this.key_alias_raw.map(o=>({
           name: o.split(" / ")[0],as: o.split(" / ")[1] , 
           options: o.split(" / ")[2]?o.split(" / ")[2].split(" "):[],
-          hidden: ((this.hidden || []).find(h=>h==o.split(" / ")[0]))?true:false
+          hidden:  this.shown? (!this.shown.find(h=>h==o.split(" / ")[0])) : ( ((this.hidden || []).find(h=>h==o.split(" / ")[0]))?true:false )
         }))
       }
     },
@@ -340,7 +341,7 @@
       },
       key_info(key){
         let aliasdata = this.key_alias.find(o=>o.name==key)
-        return aliasdata? aliasdata : {key,as: key,options: [],hidden: ((this.hidden || []).find(h=>h==key))?true:false}
+        return aliasdata? aliasdata : {key,as: key,options: [],hidden:  this.shown? (!(this.shown.find(h=>h==key))) :(((this.hidden || []).find(h=>h==key))?true:false)    }
       },
       has_option(obj,key){
         //console.log(obj,key)
@@ -407,7 +408,7 @@
 .level_1
 .type_array.level_1,.type_array.level_-1,.type_array.level_0
   div>div>.editor_label
-    font-size: 20px
+    font-size: 17px
 .editor_form.type_array.level_4
   border: none
 .editor_form
@@ -430,4 +431,5 @@ i
 
 .theme
   color: $color_theme
+
 </style>

@@ -21,6 +21,7 @@ Route::get('home','NewsController@index');
 
 $manage_routes= function(){
   Route::get('/manage/{page?}',"ManageController@index");
+  Route::get('/manage/{page?}/{para?}',"ManageController@index");
   // Route::resource('manage/','NewsController');
 };
 

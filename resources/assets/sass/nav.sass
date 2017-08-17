@@ -97,7 +97,9 @@ nav
       left: initial
       cursor: pointer
       +rwd_sm
-        right: 39px
+        position: fixed
+        right: 20px
+        top: 40px
 
 
 
@@ -270,7 +272,22 @@ nav
     .navbar-right
       margin-right: 24px
 
+  +range_width(0px,600px)
+    .navbar-search-input
+      width: 100%
+    .fa-times
+      right: 10px
 
+    .input_area
+      margin-left: 0
+      width: 100vw
+      input
+        width: 100%
+      // margin-left: grid_sz(0,1)
+
+    // padding-left: 0
+
+      
   //最小螢幕隱藏功能語言跟字大小
   +range_width(0px,400px)
     .navbar-nav

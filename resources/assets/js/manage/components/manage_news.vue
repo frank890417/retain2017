@@ -14,7 +14,26 @@ div.container-fluid
   .panel.panel-primary.col-sm-9
     .panel-heading 新聞
     .panel-body(v-if="site_data")
-      editor_form(:dataset="site_data.page_news.news" , :level="1", :schema="'news'",
+
+      vue_lazy_table(:table_data="site_data.page_news.news",
+                     :rows="tableRows",
+                     :deleteMethod="deleteNews",
+                     :editMethod="editNews")
+      //table.table
+        thead
+          th #
+          th 標題
+          th 編輯
+          th 刪除
+        tbody
+          tr(v-for="(n,nid) in site_data.page_news.news")
+            td {{nid+1}}
+            td {{n.title}}
+            td
+              router-link.btn.btn-default(:to="'/news/'+nid") 編輯
+            td
+              .btn.btn-danger(@click="deleteNews(nid)") 刪除
+      // editor_form(:dataset="site_data.page_news.news" , :level="1", :schema="'news'",
                    :overwrite="[{key: 'tag',as: '新聞類別', content: {type: 'select',data: site_data.page_news.catas.map(o=>o.tag)}}]" , :prepand_key="'date'" )
   
   .row
@@ -27,11 +46,24 @@ div.container-fluid
 
 <script>
 import Vue from 'vue'
+import vue_lazy_table from './vue_lazy_table'
 import {mapState,mapMutations} from 'vuex'
   export default {
     data(){
       return {
         site_data: null,
+        tableRows: [
+          "id -> #",
+          "tag -> 類別",
+          "title -> 標題",
+          "cover -> __hide",
+          "content -> __hide",
+          "created_at -> __hide",
+          "updated_at -> __hide",
+          "carousel -> __hide",
+          "author_link -> __hide",
+          "author -> 轉載"
+        ]
       }
     },
     mounted(){
@@ -40,10 +72,24 @@ import {mapState,mapMutations} from 'vuex'
       this.cancel_remind_save()
     },
     computed: {
-      ...mapState(['lang'])
+      ...mapState(['lang']),
+     
     },
     methods: {
       ...mapMutations(['save_website_info','remind_save','cancel_remind_save'])
+      ,
+      deleteNews(nid){
+        if (confirm("確認要刪除這則新聞嗎？")){
+          this.site_data.page_news.news.splice(nid,1);
+
+        }
+      },
+      editNews(nid){
+        this.$router.push('/news/'+nid)
+      }
+    },
+    components: {
+      vue_lazy_table
     }
   }
 
