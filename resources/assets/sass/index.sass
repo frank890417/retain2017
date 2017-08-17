@@ -806,6 +806,14 @@
   //
   .page_index_compaign
     text-align: center
+    background-image: url("../img/index/6a.jpg")
+    background-size: cover
+    text-align: center
+
+    @media (max-width: @iphone-screen) 
+      background-attachment: scroll !important
+        
+
     h3 span,h4
       font-weight: 300
 
@@ -828,6 +836,8 @@
       font-size: 30px
       letter-spacing: 4px
       margin-bottom: grid_sz(0,2)
+      +rwd_sm
+        font-size: 28px
 
     h4.section_para
       max-width: grid_sz(9,9)
@@ -836,9 +846,6 @@
       line-height: 40px
     h1,h3,h4
       text-align: center
-    background-image: url("../img/index/6a.jpg")
-    background-size: cover
-    text-align: center
 
 
     +range_width(0px,800px)
@@ -870,6 +877,8 @@
 
       mix-blend-mode: darken
 
+  
+
   +range_width(0px, 800px)
 
     section
@@ -884,7 +893,7 @@
     .page_index_main
       // min-height: 150vh
       background-size: cover
-
+      min-height: 650px
 
       .flex_column_fix
         display: none
