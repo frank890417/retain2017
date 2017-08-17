@@ -14,7 +14,7 @@ div.container-fluid
   .panel.panel-primary.col-sm-9
     .panel-heading 新聞
     .panel-body(v-if="site_data")
-
+      .btn.btn-default(@click="createNews") 新增新聞
       vue_lazy_table(:table_data="site_data.page_news.news",
                      :rows="tableRows",
                      :deleteMethod="deleteNews",
@@ -76,16 +76,34 @@ import {mapState,mapMutations} from 'vuex'
      
     },
     methods: {
-      ...mapMutations(['save_website_info','remind_save','cancel_remind_save'])
+      ...mapMutations(['save_website_info','save_website_info_silent','remind_save','cancel_remind_save'])
       ,
       deleteNews(nid){
-        if (confirm("確認要刪除這則新聞嗎？")){
+        if (confirm("確認要刪除這則新聞嗎(無法復原)？")){
           this.site_data.page_news.news.splice(nid,1);
-
+          this.save_website_info_silent(this.site_data)
         }
       },
       editNews(nid){
         this.$router.push('/news/'+nid)
+      },
+      createNews(){
+        let template = {
+            tag: "",
+            date: "",
+            title: "",
+            cover: "",
+            author: "",
+            content: "",
+            created_at: "",
+            updated_at: "",
+            carousel: [],
+            author_link: "",
+          };
+        let nid = this.site_data.page_news.news.push(template)-1
+        this.save_website_info_silent(this.site_data)
+        this.editNews(nid)
+
       }
     },
     components: {
