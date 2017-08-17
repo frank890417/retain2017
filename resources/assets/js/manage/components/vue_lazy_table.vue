@@ -19,9 +19,9 @@
              v-if = "row_name_alias(row_key)!='__hide'")
             | {{ row[row_key] }}
           td
-            .btn.btn-default(v-if="editMethod",@click="editMethod(rid)") 編輯
+            .btn.btn-default(v-if="editMethod",@click="editMethod(row.id-1)") 編輯
           td
-            .btn.btn-danger(v-if="deleteMethod",@click="deleteMethod(rid)") 刪除
+            .btn.btn-danger(v-if="deleteMethod",@click="deleteMethod(row.id-1)") 刪除
     .page_nav
       .btn.btn-default(v-if="pages.length>1",
                        v-for="p in pages",
