@@ -100,14 +100,15 @@ div
                 name: "繁",
                 link: "/zh"
               },
-              {
-                name: "简",
-                link: "/cn"
-              },
-              {
-                name: "EN",
-                link: "/en"
-              }]
+              // {
+              //   name: "简",
+              //   link: "/cn"
+              // },
+              // {
+              //   name: "EN",
+              //   link: "/en"
+              // }
+            ]
           }
         },
         watch:{
