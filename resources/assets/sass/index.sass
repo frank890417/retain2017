@@ -215,8 +215,6 @@
     background-position: center 0px
     
 
-
-
     
     .row
       position: relative
@@ -887,6 +885,9 @@
       // min-height: 150vh
       background-size: cover
 
+
+      .flex_column_fix
+        display: none
       .index_slogan_area
         // height: 70vh
         
@@ -949,10 +950,12 @@
     .col_left,.col_right
       width: 100%
     .page_index_main
-      background-position: 40% center
+      background-position: 0% center
+      height: 100vh
+      box-sizing: border-box
       .index_slogan_area
         // margin-top: 150px
-        mask-type: 25vh
+        margin-top: 18vh
         .title_span
           display: block
           width: 0px
@@ -967,6 +970,7 @@
 
     .page_index_info
       flex-direction: column
+      padding-top: 0
       // font-size: 0
       .left,.right
         width: 100%
