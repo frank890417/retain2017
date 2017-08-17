@@ -10,11 +10,11 @@
            @click = "set_sort_key(row_key)",
            v-if = "row_name_alias(row_key)!='__hide'")
           | {{ row_name_alias(row_key) }}
-          span(v-if="row_key==sort_key && sort_direction") ▼
-          span(v-if="row_key==sort_key && !sort_direction") ▲
+          span(v-if="row_key==sort_key && conf.sort_direction") ▼
+          span(v-if="row_key==sort_key && !conf.sort_direction") ▲
           span(v-if="row_key!=sort_key ") 　
       tbody
-        tr(v-for="(row,rid) in sliced_data", :key="row")
+        tr(v-for="(row,rid) in (conf.sort_direction?sliced_data:sliced_data.slice().reverse())", :key="rid")
           td(v-for = "row_key in (row_keys || default_row_keys)",
              v-if = "row_name_alias(row_key)!='__hide'")
             | {{ row[row_key] }}
@@ -38,10 +38,10 @@ export default {
   data () {
     return {
       sort_key: null,
-      sort_direction: true,
       conf: {
         show_id: true,
-        show_search: true
+        show_search: true,
+        sort_direction: true,
       },
       search_keyword: "",
       page_split_num: 10,
@@ -114,7 +114,7 @@ export default {
     },
     sliced_data(){
       let raw_sort = this.sorted_data
-      let slice_pre = (this.sort_direction?raw_sort:raw_sort.reverse());
+      let slice_pre = raw_sort;
       let slice_post = slice_pre.slice( (this.page-1)*this.page_split_num,(this.page)*this.page_split_num )
       return slice_post
     },
@@ -157,7 +157,7 @@ export default {
     set_sort_key(key){
       if (this.sort_key!=key){
       }else{
-        this.sort_direction=!this.sort_direction
+        this.conf.sort_direction=!this.conf.sort_direction
         
       }
       this.sort_key=key
