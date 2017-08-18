@@ -72,14 +72,10 @@ $website_routes=function(){
 
 
 // Route::get("/zh/", 'HomeController@index')->name("home");
-Route::get('/{any}/{anyt?}/{anyd?}', function(){
-  return redirect("/");
-});
 
 foreach ($langs as $key => $lang) {
   Route::group(['prefix' => $lang ,'middleware'=>'auth','middleware'=>'lang:'.$lang],$manage_routes);  
   Route::group(['prefix' => $lang ,'middleware'=>['lang:'.$lang,'seoinfo:'.$lang] ],$website_routes);
 }
-
 
 
