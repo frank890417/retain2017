@@ -38,7 +38,8 @@ const routes = [
   { path: '/job', component: page_job },
   { path: '/contact', component: page_contact },
   { path: '/tern', component: page_tern },
-  { path: '/search', component: section_search }
+  { path: '/search', component: section_search },
+  { path: '*', component: page_index, meta: { title: "首頁" } }
 ];
 
 const router = new VueRouter({

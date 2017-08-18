@@ -79,6 +79,7 @@ export default {
     mounted() {
       console.log('news mounted.');
       var vobj=this;
+      
       var loader = setInterval(function(){
         if (vobj.news.length>0){
           $('.slick').slick({
@@ -101,7 +102,9 @@ export default {
     },
     data() {
       return {
-        filter: null,
+        filter: {
+          tag: ""
+        },
         head_id: 0,
         catas: this.$t("page_news.catas"),
         show_num: 7,
