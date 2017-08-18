@@ -5,12 +5,34 @@ Vue.use(Vuex);
 //---------------------
 // 編輯器設定
 const mce_settings = {
-  toolbar: [ 'undo redo | bullist numlist | link image | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword | code'],
-  toolbar_news: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | uploadpic uploadpic_url | code',
+  toolbar: [ 'undo redo | bullist numlist | link | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword | code'],
+  toolbar_news: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | code',
   other: {
-    plugins: ['paste', 'link', 'autoresize','lists', 'advlist','code'],
+    plugins: ['wordcount','autolink','paste', 'link', 'autoresize','lists', 'advlist','code','image','imagetools','powerpaste'],
     advlist_bullet_styles: "circle",
-    content_style: ".brown{color: #BDB175 } .theme{color: #3FBFBB}"
+    content_style: ".brown{color: #BDB175 } .theme{color: #3FBFBB}",
+    images_upload_url: 'index.php',
+    images_upload_base_path: '/api/upload',
+    image_advtab: true,
+    // file_picker_callback: function(callback, value, meta) {
+      
+
+    //   if (meta.filetype == 'image') {
+    //     $('#upload').trigger('click');
+    //     $('#upload').on('change', function() {
+    //       var file = this.files[0];
+    //       var reader = new FileReader();
+    //       reader.onload = function(e) {
+    //         callback(e.target.result, {
+    //           alt: ''
+    //         });
+    //       };
+    //       reader.readAsDataURL(file);
+    //     });
+    //   }
+
+
+    // }
   }
 }
 

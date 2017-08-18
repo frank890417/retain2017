@@ -12,6 +12,10 @@ import 'tinymce/plugins/autoresize/plugin'
 import 'tinymce/plugins/advlist/plugin'
 import 'tinymce/plugins/lists/plugin'
 import 'tinymce/plugins/code/plugin'
+import 'tinymce/plugins/image/plugin'
+import 'tinymce/plugins/imagetools/plugin'
+
+import 'tinymce/plugins/autolink/plugin'
 
 import TinyMCE from 'tinymce-vue-2'
 

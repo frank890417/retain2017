@@ -101,7 +101,7 @@
                 :id = "'tinymce_'+parseInt(Math.random()*10000000)" , 
                 v-model="dataset[key]",
                 :other-props="mce_settings.other",  
-                :toolbar="mce_settings.toolbar", 
+                :toolbar="mce_toolbar?mce_settings.toolbar_news:mce_settings.toolbar", 
                 v-else-if="has_option(key_info(key).options,'mce')")
 
           //** btn editor
@@ -142,7 +142,7 @@
   import {mapState,mapMutation} from 'vuex'
   export default {
     name: "editor_form",
-    props: ['dataset','level','schema','panel_heading','noextend','hidden','shown','history','overwrite','parent','prepand_key','append_key',],
+    props: ['dataset','level','schema','panel_heading','noextend','hidden','shown','history','overwrite','parent','prepand_key','append_key','mce_toolbar'],
     data(){
       return {
         array_open: Array.from({length: 1000},o=>({status: false}) ),

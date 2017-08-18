@@ -25,8 +25,9 @@ div.container-fluid(v-if="site_data.page_news.news[id]")
     .panel.panel-primary.col-sm-8
       .panel-heading 內文編輯
       editor_form(:dataset="site_data.page_news.news[id]" , :level="1", :schema="'news'",
-                    :overwrite="[{key: 'tag',as: '新聞類別', content: {type: 'select',data: site_data.page_news.catas.map(o=>o.tag)}}]" , :prepand_key="'date'" ,:shown="['content']")
-  
+                    :overwrite="[{key: 'tag',as: '新聞類別', content: {type: 'select',data: site_data.page_news.catas.map(o=>o.tag)}}]" , :prepand_key="'date'" ,:shown="['content']",
+                    :mce_toolbar="true")
+    input(name="image" type="file" id="upload" style="display:hidden" onchange="")
   .row
     .col-sm-12
       button.btn.btn-danger.pull-right(@click="save_website_info(site_data)") 儲存變更
