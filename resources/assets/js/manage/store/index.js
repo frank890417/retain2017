@@ -8,7 +8,7 @@ const mce_settings = {
   toolbar: [ 'undo redo | bullist numlist | link | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword | code'],
   toolbar_news: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview media fullpage | forecolor backcolor emoticons | pastetext pasteword link image | code',
   other: {
-    plugins: ['wordcount','autolink','paste', 'link', 'autoresize','lists', 'advlist','code','image','imagetools','powerpaste'],
+    plugins: ['media','wordcount','autolink','paste', 'link', 'autoresize','lists', 'advlist','code','image','imagetools','powerpaste'],
     advlist_bullet_styles: "circle",
     content_style: ".brown{color: #BDB175 } .theme{color: #3FBFBB}",
     images_upload_url: 'index.php',
