@@ -32,15 +32,12 @@ $color_bg_grey: #F1F3F5
       width: percent_grid(7,7)
       background-color: $color_grey_dark
       text-align: left
-      // background-image: url("/img/news1.jpg")
+      background-image: url("/img/news1.jpg")
       background-size: cover
-      .headline_cover
-        +ab_full
-        transition: background-image 0.5s, background-size 0s
-        &:before
-          +pseudo_ab_full
-          background-color: rgba(#333,0.5)
       +trans
+      &:before
+        +pseudo_ab_full
+        background-color: rgba(#333,0.5)
       h1.title
         margin-top: grid_sz(0,-2)
         margin-bottom: grid_sz(0,4)

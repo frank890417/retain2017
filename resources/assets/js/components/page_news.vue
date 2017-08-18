@@ -3,8 +3,7 @@ div.page_news
   section.section_hero
     .container.full.flex
       
-      .col_left
-        .headline_cover(:style="{'background-image': 'url('+news[head_id].cover+')'}")
+      .col_left( :style="{'background-image': 'url('+news[head_id].cover+')'}")
         transition-group(name="fade", mode="out-in")
           div(v-for="(headnews,news_id) in sorted_news", :key='headnews', v-if="news_id == head_id")
             h1.title 
