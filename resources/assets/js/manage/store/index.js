@@ -11,28 +11,27 @@ const mce_settings = {
     plugins: ['media','wordcount','autolink','paste', 'link', 'autoresize','lists', 'advlist','code','image','imagetools','powerpaste'],
     advlist_bullet_styles: "circle",
     content_style: ".brown{color: #BDB175 } .theme{color: #3FBFBB}",
-    images_upload_url: 'index.php',
-    images_upload_base_path: '/api/upload',
+    images_upload_url: '/api/upload',
     image_advtab: true,
-    // file_picker_callback: function(callback, value, meta) {
-      
+    automatic_uploads: true,
+    file_picker_callback: function(callback, value, meta) {
+      if (meta.filetype == 'image') {
+        $('#upload').trigger('click');
+        $('#upload').on('change', function() {
+          var file = this.files[0];
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            // console.log(e.target.result)
+            callback(e.target.result, {
+              alt: ''
+            });
+          };
+          reader.readAsDataURL(file);
+        });
+      }
 
-    //   if (meta.filetype == 'image') {
-    //     $('#upload').trigger('click');
-    //     $('#upload').on('change', function() {
-    //       var file = this.files[0];
-    //       var reader = new FileReader();
-    //       reader.onload = function(e) {
-    //         callback(e.target.result, {
-    //           alt: ''
-    //         });
-    //       };
-    //       reader.readAsDataURL(file);
-    //     });
-    //   }
 
-
-    // }
+    }
   }
 }
 

@@ -54,7 +54,7 @@
 
           gen_dz(`.btn-dropzone[data-hash='${this.hash}']`,function(evt,res){
              console.log(res);
-             var imgurl=res;
+             var imgurl=res.location;
              console.log(imgurl);
              vobj.$emit("select_pic",{id: vobj.ar_id,url: imgurl})
              // vobj.$emit("update:output",imgurl)

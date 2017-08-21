@@ -178,7 +178,6 @@
           margin: 0
           padding: grid_sz(0,1)
           width: 100%
-          background-color: $color_grey_dark
         .col_left
           padding-top: grid_sz(0,5)
           padding-bottom: grid_sz(0,5)
@@ -186,6 +185,10 @@
           padding: grid_sz(0,1)
           padding-top: grid_sz(0,5)
           padding-left: grid_sz(1,2)
+          background-image: url("/img/about/1.jpg")
+          &:before
+            +pseudo_ab_full
+            background-color: rgba(white,0.85)
           .timelog
             width: 100%
 
@@ -278,12 +281,13 @@
         +trans
 
       .col_left
-        width: grid_sz(2,1)
+        width: grid_sz(1,1)
         padding: 0
         height: 100%
+        flex-grow: 0.5
 
       .col_right
-        width: grid_sz(4,3)
+        width: grid_sz(5,2)
         padding: grid_sz(0,2) grid_sz(0,1)
         display: block
         height: 100%
@@ -304,9 +308,9 @@
         // margin: grid_sz(0,0.5)
 
         .col_left
-          width: grid_sz(4,3)
+          width: grid_sz(3,2)
         .col_right
-          width: grid_sz(8,7)
+          width: grid_sz(9,8)
 
         +rwd_sm
           .col_left,.col_right

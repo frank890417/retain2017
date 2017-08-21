@@ -58,7 +58,7 @@ class ApiController extends Controller
          //Storage::put(storage_path($path.$filename),$img->__toString());
 
 
-         return '/storage/'.$path.str_replace(" ","%20",$filename);
+         return ['location'=>'/storage/'.$path.str_replace(" ","%20",$filename)];
      
              // Image::make($image->getRealPath())->resize(200, 200)->save($path);
              // $user->image = $filename;
