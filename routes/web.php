@@ -27,6 +27,8 @@ $manage_routes= function(){
 
 
 
+Route::resource('contact_record','Contact_recordController');
+
 Auth::routes();
 
 $website_routes=function(){
@@ -44,6 +46,7 @@ $website_routes=function(){
   Route::get('/contact', 'HomeController@index');
   Route::get('/search', 'HomeController@index');
   Route::get('/tern', 'HomeController@index');
+  
 };
 
 

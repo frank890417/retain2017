@@ -12,6 +12,7 @@ const mce_settings = {
     advlist_bullet_styles: "circle",
     content_style: ".brown{color: #BDB175 } .theme{color: #3FBFBB}",
     images_upload_url: '/api/upload',
+    relative_urls: false,
     images_upload_base_path: '/',
     image_advtab: true,
     automatic_uploads: true,

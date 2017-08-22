@@ -7,7 +7,7 @@ div.page_contact
         h4.section_eng {{$t('page_contact.eng')}}
         p.section_para(v-html="$t('page_contact.content')")
   section.section_form
-    .container.flex
+    form.container.flex#form_contact(v-on:submit.prevent="send_form")
       .col_left
         h4 {{$t('page_contact.section_form.title')}}
         .form-group
@@ -26,7 +26,7 @@ div.page_contact
           label {{$t('page_contact.section_form.label_item')}}
           .right
             textarea.form-control(rows=1 ,:placeholder="$t('page_contact.section_form.place_holder_content')")
-            .btn.btn-primary.btn-submit 
+            button(type="submit").btn.btn-primary.btn-submit 
               span {{$t('page_contact.section_form.btn_send')}}
               i.fa.fa-angle-right
       .col_right#section_qa
@@ -75,7 +75,33 @@ div.page_contact
           toggle (id){
             var item=this.qa_state.filter((d,i)=>i==id)[0];
             item.open = !item.open;
-          }
+          },
+
+          send_form(){
+            var vobj=this;
+            var send_data_array=$("#form_contact").serializeArray();
+            var send_data = {};
+            send_data_array.forEach((obj)=>{
+              send_data[obj.name]=obj.value
+            })
+            // var send_data=$("#form_contact").submit();
+            console.log(send_data);
+
+            this.sending=true;
+            axios.post("/contact_record",send_data).then((res)=>{
+              if (res.data.status=="success"){
+                alert("傳送成功！")
+                setTimeout(()=>{
+                  vobj.sending=false;
+                },1000)
+
+              }else{
+
+                alert("傳送失敗")
+              }
+            });
+
+          },
         }
     }
 </script>
