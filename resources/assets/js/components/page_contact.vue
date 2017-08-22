@@ -12,20 +12,23 @@ div.page_contact
         h4 {{$t('page_contact.section_form.title')}}
         .form-group
           label {{$t('page_contact.section_form.label_name')}}
-          input(:placeholder="$t('page_contact.section_form.place_holder_name')")
+          input(name="name", :placeholder="$t('page_contact.section_form.place_holder_name')")
         .form-group
           label {{$t('page_contact.section_form.label_mail')}}
-          input(:placeholder="$t('page_contact.section_form.place_holder_mail')")
+          input(name="email", :placeholder="$t('page_contact.section_form.place_holder_mail')")
+        .form-group
+          label {{$t('page_contact.section_form.label_phone')}}
+          input(name="phone", :placeholder="'...'")
         .form-group
           label {{$t('page_contact.section_form.label_item')}}
-          select#select_contact(:placeholder="$t('page_contact.section_form.place_holder_item')")
-            option(v-for="(p,id) in $t('page_product.products')" ,:value="id") {{p.name}} 
+          select#select_contact(name="ask_item_name", :placeholder="$t('page_contact.section_form.place_holder_item')")
+            option(v-for="(p,id) in $t('page_product.products')" ,:value="p.name") {{p.name}} 
             option(value="-1") {{$t('page_contact.section_form.option_none')}}
 
         .form-group
           label {{$t('page_contact.section_form.label_item')}}
           .right
-            textarea.form-control(rows=1 ,:placeholder="$t('page_contact.section_form.place_holder_content')")
+            textarea.form-control(name="content", rows=1 ,:placeholder="$t('page_contact.section_form.place_holder_content')")
             button(type="submit").btn.btn-primary.btn-submit 
               span {{$t('page_contact.section_form.btn_send')}}
               i.fa.fa-angle-right

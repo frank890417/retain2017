@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contact_record extends Model
 {
     //
-    protected $fillable = ["name","email","ask_item_id","content","updated_at","created_at"];
+    protected $fillable = ["name","email","ask_item_name","phone","content","updated_at","created_at"];
     
     public function ask_item()
     {
