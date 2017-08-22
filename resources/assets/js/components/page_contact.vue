@@ -18,7 +18,7 @@ div.page_contact
           input(name="email", :placeholder="$t('page_contact.section_form.place_holder_mail')")
         .form-group
           label {{$t('page_contact.section_form.label_phone')}}
-          input(name="phone", :placeholder="'...'")
+          input(name="phone", :placeholder="$t('page_contact.section_form.place_holder_phone')")
         .form-group
           label {{$t('page_contact.section_form.label_item')}}
           select#select_contact(name="ask_item_name", :placeholder="$t('page_contact.section_form.place_holder_item')")
