@@ -16,9 +16,9 @@ class Contact_recordController extends Controller
     //
     public function index(){
       $contact_record = Contact_record::orderBy('created_at','desc')->get();
-      foreach ($contact_record as $key => $value) {
-        $value->ask_item = Solution::find($value->ask_item_id);
-      }
+      //foreach ($contact_record as $key => $value) {
+      //  $value->ask_item = Solution::find($value->ask_item_id);
+      //}
       
       return $contact_record;
     }

@@ -22,4 +22,5 @@ Route::group(['middleware'=>'cors'],function(){
   Route::post('upload',"ApiController@upload_image");
   Route::get("websiteinfo/key/{key}","ApiController@websiteinfo");
   Route::post("websiteinfo/key/{key}","ApiController@websiteinfo_save");
+  Route::get("contactrecord","Contact_recordController@index");
 });
