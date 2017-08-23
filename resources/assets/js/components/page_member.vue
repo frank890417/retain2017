@@ -66,6 +66,14 @@ div.page_about
             console.log(this);
             $(this).parent().toggleClass("active");
           });
+          $(".person_box").mouseenter(function(){
+            console.log(this);
+            $(this).addClass("active");
+          });
+          $(".person_box").mouseleave(function(){
+            console.log(this);
+            $(this).removeClass("active");
+          });
           if (window.location.hash=="#section_member"){
             $("html,body").animate({scrollTop: $("#section_member").offset().top-100});
           }
