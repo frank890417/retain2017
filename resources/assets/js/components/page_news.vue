@@ -5,15 +5,15 @@ div.page_news
       
       .col_left( :style="{'background-image': 'url('+news[head_id].cover+')'}")
         transition-group(name="fade", mode="out-in")
-          div(v-for="(headnews,news_id) in sorted_news", :key='headnews', v-if="news_id == head_id")
+          div(v-for="(headnews,news_id) in filtered_news", :key='headnews', v-if="news_id == head_id")
             h1.title 
               router-link(:to="'/news/n/'+headnews.title") {{headnews.title}}
             p {{headnews.content.replace(/\<.*?\>/g,"").replace('&nbsp;','').slice(0,100)+"..."}}
             //.btn.btn-default 了解更多
             router-link.btn-underline.white_outline(v-if="$t('page_index.section_5.btn.show')",:to="'/news/n/'+headnews.title") 了解更多
-      .col_right
+      .col_right(:class="{fullnews: filtered_news.slice(0,5).length>=5 ,at_top:scrollTop<=0}")
         ul
-          router-link(v-for="(a_news,newsid) in sorted_news.slice(0,5)", :to="'/news/n/'+a_news.title")
+          router-link(v-for="(a_news,newsid) in filtered_news.slice(0,5)", :to="'/news/n/'+a_news.title")
             li.container.flex(:class="{active: head_id==newsid}", 
                               v-on:mouseover=" change_head(newsid)")
               .date {{ a_news.date.slice(-5) }}
@@ -112,6 +112,7 @@ export default {
       }
     },
     computed: {
+      ...mapState(['scrollTop']),
       news(){
         return this.$t("page_news.news")
       },

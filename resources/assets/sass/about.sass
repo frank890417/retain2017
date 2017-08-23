@@ -268,7 +268,7 @@
       position: relative
       display: flex
       text-align: left
-      height: grid_sz(0,15)
+      min-height: grid_sz(0,15)
       margin: grid_sz(0,0.5) 0
 
       
@@ -279,12 +279,14 @@
   
       .col_left,.col_right
         +trans
+        flex-grow: 1
 
       .col_left
-        width: grid_sz(1,1)
+        width: grid_sz(1,0)
         padding: 0
         height: 100%
-        flex-grow: 0.5
+        flex-grow: 0
+        flex-shrink: 0
 
       .col_right
         width: grid_sz(5,2)
@@ -298,10 +300,19 @@
       &.small
         width: grid_sz(6,5)
         
-        height: grid_sz(5,1)
+        //height: grid_sz(5,1)
         padding: 0
+        
+        .col_left
+          height: auto
+          min-height: 50px
+          min-width: 25%
+          flex-grow: 0
+          flex-shrink: 0
 
-      
+        +rwd_sm
+          width: 100%
+    
       &.big
         height: grid_sz(0,23)
         padding: 0

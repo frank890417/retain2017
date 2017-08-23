@@ -45,7 +45,7 @@ const app = new Vue({
   router,
   store,
   i18n: custom_i18n.i18n,
-  computed: mapState(['news','about_logs','big_font','is_ie']),
+  computed: mapState(['news','about_logs','big_font','is_ie', 'scrollTop']),
   mounted(){
      // store.dispatch("loadWebsite");
   }
@@ -107,9 +107,13 @@ var scroll = Rx.Observable.fromEvent(document,'scroll')
 // scroll.subscribe(obj=>console.log(obj));
 
 // Rx捲軸位置
+scroll.subscribe((t)=>{
+  store.commit("setScrollTop",t)
+})
 scroll
   .map(top => top<=0)
   .subscribe((at_top)=>{
+   
     if (at_top) 
       $("nav,.go_to_topbtn").addClass("at_top");
     else 

@@ -6,7 +6,7 @@ $color_bg_grey: #F1F3F5
   .section_hero
 
     .container.full
-      height: grid_sz(9,6)
+      height: grid_sz(9,4)
       text-align: left
       display: flex
       flex-direction: row
@@ -28,6 +28,15 @@ $color_bg_grey: #F1F3F5
       display: flex
       // padding-bottom: grid_sz(0,7)
       // height: 100%
+    .col_right
+      padding-top: 0
+      flex-direction: column
+      justify-content: center
+      padding-bottom: 0
+      &.fullnews
+        justify-content: flex-end
+      &.at_top
+        padding-top: grid_sz(0,3)
     .col_left
       width: percent_grid(7,7)
       background-color: $color_grey_dark
@@ -61,6 +70,7 @@ $color_bg_grey: #F1F3F5
       vertical-align: top
       padding-left: 0
       padding-right: 0
+      height: 100%
 
       align-items: flex-start
       background-color: #FAFAFA
@@ -91,6 +101,7 @@ $color_bg_grey: #F1F3F5
         display: flex
         align-items: center
 
+
       
     ul
       text-align: left
@@ -101,6 +112,7 @@ $color_bg_grey: #F1F3F5
         padding-top: grid_sz(0,1.5)
         padding-bottom: grid_sz(0,1.5)
         border-bottom: solid 1px rgba(black,0.05)
+        align-items: center
         &:last-child
           border-bottom: none
 

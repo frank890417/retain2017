@@ -8,6 +8,7 @@ const store = new Vuex.Store({
     big_font: false,
     search: false,
     is_ie: false,
+    scrollTop: 0,
     products: [
       {
           name: "鴻海三心專案",
@@ -97,6 +98,9 @@ const store = new Vuex.Store({
     set_is_ie(state, value){
       state.is_ie=value;
     },
+    setScrollTop(state,value){
+      state.scrollTop=value
+    }
   },
   actions: {
     loadWebsite(context){

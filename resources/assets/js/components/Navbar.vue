@@ -27,7 +27,7 @@ div
               li(v-for="sub_tag in main_tag.childs")
                 router-link( :to="sub_tag.link") {{sub_tag.tag}}
 
-  nav.navbar(:class="{search: search,at_top: scrollTop<=0}")
+  nav.navbar(:class="{search: search}")
     .container
       .row
         div.nav-leftpart
