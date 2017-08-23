@@ -215,6 +215,8 @@
     background-position: center 0px
     
 
+    @media screen and (max-height: 600px)
+      min-height: 650px
     
     .row
       position: relative
@@ -810,9 +812,12 @@
     background-size: cover
     text-align: center
 
-    +rwd_sm
+
+
+    +rwd_md
       background-attachment: scroll !important
-        
+      .container.flex.column
+        display: block
 
     h3 span,h4
       font-weight: 300
