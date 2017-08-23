@@ -250,10 +250,11 @@
           box-sizing: border-box
 
   .section_member
-  
+
     .person_area
       display: flex
       flex-wrap: wrap
+      justify-content: center
 
     .section_title
       margin-top: grid_sz(0,8)
@@ -268,8 +269,9 @@
       position: relative
       display: flex
       text-align: left
-      min-height: grid_sz(0,15)
+      height: grid_sz(0,15)
       margin: grid_sz(0,0.5) 0
+      
 
       
       
@@ -279,14 +281,14 @@
   
       .col_left,.col_right
         +trans
-        flex-grow: 1
 
       .col_left
-        width: grid_sz(1,0)
+        width: grid_sz(3,0)
         padding: 0
         height: 100%
         flex-grow: 0
         flex-shrink: 0
+        min-width: grid_sz(1,1)
 
       .col_right
         width: grid_sz(5,2)
@@ -300,19 +302,10 @@
       &.small
         width: grid_sz(6,5)
         
-        //height: grid_sz(5,1)
+        height: grid_sz(5,1)
         padding: 0
-        
-        .col_left
-          height: auto
-          min-height: 50px
-          min-width: 25%
-          flex-grow: 0
-          flex-shrink: 0
 
-        +rwd_sm
-          width: 100%
-    
+      
       &.big
         height: grid_sz(0,23)
         padding: 0
@@ -329,11 +322,13 @@
             padding: grid_sz(0,1)
             box-sizing: border-box
 
-      +rwd_sm
+      +rwd_md
         border-bottom: solid 1px rgba(0,0,0,0.1)
-       
+        
+
         &.small , &.big
           height: auto
+          width: 100%
           .col_left
             height: auto
             .cover
@@ -394,7 +389,7 @@
           letter-spacing: 2px
           font-weight: 300
     
-      &:hover
+      &.active
         .col_left,.col_right
           filter: blur(6px)
 
