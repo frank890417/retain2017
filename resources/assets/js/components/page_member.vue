@@ -35,7 +35,7 @@ div.page_about
               li 長庚醫院放射診斷科臨床助理教授級主治醫師
               li 中臺醫專放射技術科，大仁藥專藥學科、護理科兼任講師
       .person_area
-        .person_box.small.container.flex(v-for="member in team.members")
+        .person_box.small.container.flex(v-for="member in team.members", :class="{big_font: big_font}")
           .btn_expand.cross
           .col_left
             .cover(:style="`background-image: url('${member.cover}')`")
@@ -87,7 +87,7 @@ div.page_about
         },
       },
       computed: {
-        ...mapState(['about_logs']),
+        ...mapState(['about_logs','big_font']),
         
       }
 
