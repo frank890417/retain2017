@@ -22,7 +22,7 @@ class seoinfo
         //default meta data for all webisite
         $meta_title = '睿田生技';
         $meta_cover = 'http://www.retainbiotech.com/img/og_default.png';
-        $meta_description = '在關懷台灣食品與環境安全的問題，我們看見自己的愛與責任。於是在一群熱愛這片土地的我們努力下，從學界研究走向產業應用，與國立中山大學共同開發「質譜快速檢驗平台」專利技術，於2015年成立了睿軒檢驗科技。';
+        $meta_description = '睿田生技致力於建立健康守護地圖，提供個人化預防醫學健康管理服務。睿田生技集結產、學、研三方資源投入，為台大與永齡健康基金會共同合資的第一家產學新創公司，整合了台大的研發實力、台成幹細胞治療中心在幹細胞領域投入多年的豐富臨床經驗、以及永齡健康基金會長期以來在預防醫學與癌症治療領域投注的龐大資源。';
         
         //page_set
         $post_fix = ' - 睿田生技';
