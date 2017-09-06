@@ -56,7 +56,9 @@ class Contact_recordController extends Controller
       Mail::send('emails.welcome', $maildata, function($message) use ($maildata){
         $message
           ->from('service@retainbiotech.com','睿田官網服務信箱')
-          ->to('frank890417@gmail.com', '吳哲宇')->subject('睿田官網聯繫表單通知 -'. $maildata['name']);
+          ->bcc('frank890417@gmail.com', '吳哲宇')
+          ->to('rex.hong@ylhealth.org','Rex')
+          ->subject('睿田官網聯繫表單通知 -'. $maildata['name']);
       });
       $contact_record = Contact_record::Create($inputs);
       return ["status"=>"success","value"=>$contact_record] ;
