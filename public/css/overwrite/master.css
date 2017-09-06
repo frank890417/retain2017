@@ -29,3 +29,13 @@ e.g.
 .lang_cn{
 
 }
+
+/*** Temp ***/
+
+/* 0823 Hide Feature News */
+.page_news > .section_hero > .container {
+	display: none !important;
+}
+.section_news > .container {
+	padding-top:150px !important;
+}

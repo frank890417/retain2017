@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+Route::get('test','MailController@index');
+
 $langs = ["","cn","en","zh"];
 
 Route::get('home','NewsController@index');
