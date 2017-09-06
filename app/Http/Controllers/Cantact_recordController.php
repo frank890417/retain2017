@@ -57,7 +57,7 @@ class Contact_recordController extends Controller
         $message
           ->from('service@retainbiotech.com','睿田官網服務信箱')
           ->bcc('frank890417@gmail.com', '吳哲宇')
-          ->to('rex.hong@ylhealth.org','Rex')
+          ->to('service@retainbiotech.com','睿田網站客服')
           ->subject('睿田官網聯繫表單通知 -'. $maildata['name']);
       });
       $contact_record = Contact_record::Create($inputs);
