@@ -33,7 +33,7 @@ div.page_news
     .container.full.flex
       .catabar
         ul.catalist(v-if="catas")
-          li(v-for="cata in catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
+          li(v-for="cata in filtered_catas", :class="{ active :filter == cata }" , @click="filter=cata") {{cata.tag}}
       
       transition-group(tag="ul" , name="fade-delay" , mode="out-in").area_news
         router-link(:to="'/news/n/'+a_news.title",
@@ -125,6 +125,15 @@ export default {
           let b_text = (""+b.date).replace(/-/g,"")
           return parseInt(b_text)-parseInt(a_text)
         })
+      },
+      filtered_catas(){
+        //根據cata包一個物件，filter掉沒有對應新聞的分類後解開物件
+        return this.catas.map(cata=>({
+          cata: cata,
+          newscount: this.sorted_news.filter(item=>( item.tag == cata.tag || cata.all)).length
+        }))
+        .filter(item=>item.newscount)
+        .map(o=>o.cata)
       }
     },watch: {
       cataname(){
