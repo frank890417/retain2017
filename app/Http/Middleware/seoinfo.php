@@ -95,9 +95,9 @@ class seoinfo
         $request->attributes->add(
           [
             'metas' =>[
-                'meta_title'=>$meta_title,
+                'meta_title'=> preg_replace("/&#?[a-z0-9]{2,8};/i","",strip_tags($meta_title)),
                 'meta_cover'=>$meta_cover,
-                'meta_description'=>$meta_description  
+                'meta_description'=> preg_replace("/&#?[a-z0-9]{2,8};/i","",strip_tags($meta_description))
             ]
           ]
         );
