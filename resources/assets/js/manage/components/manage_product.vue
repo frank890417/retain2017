@@ -17,6 +17,7 @@ div.container-fluid(v-if="site_data")
   .col-sm-9
     editor_form(:dataset="site_data.page_product.features" , :level="-1", panel_heading="特色編輯", :schema="'features'")
     editor_form(:dataset="site_data.page_product.products" , :level="-1", panel_heading="方案編輯", :schema="'products'")
+    editor_form(:dataset="site_data.page_product.product_inform",:hidden="['informs']" , :level="-1", panel_heading="提醒編輯", :schema="'informs'")
     editor_form(:dataset="site_data.page_product.product_inform.informs" , :level="-1", panel_heading="提醒編輯", :schema="'informs'")
   
   .row

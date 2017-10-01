@@ -459,8 +459,10 @@
     window.locale="{{isset($lang)?$lang:null}}";
     window.lang={};
     window.lang=JSON.parse({!! isset($lang_pack)?json_encode($lang_pack):null !!});
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
-  </script>
+    if (document.domain.indexOf("retain2017")!=-1){
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
+    }
+    </script>
   @yield('require_js')
   <script src="/js/admin_js/jquery-1.11.1.min.js"></script>
   <script src="/js/admin_js/bootstrap.min.js"></script>

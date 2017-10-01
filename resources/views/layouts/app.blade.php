@@ -45,8 +45,9 @@
       window.locale="{{$lang}}";
       window.lang={};
       window.lang.{{$lang}}={!! $lang_pack !!};
-      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
-      
+      if (document.domain.indexOf("retain2017")!=-1){
+        document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +':35729/livereload.js?snipver=1"></' + 'script>');
+      }
     </script>
     {{-- script. --}}
     {{-- (function(){ --}}
