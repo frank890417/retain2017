@@ -24,7 +24,7 @@ div
               router-link(v-if="",:to="main_tag.link" ) {{main_tag.tag}}
             //子項目
             ul.sub_list(v-if="main_tag.childs && main_tag.childs.length>0")
-              li(v-for="sub_tag in main_tag.childs")
+              li(v-for="sub_tag in get_childs(main_tag)")
                 router-link( :to="sub_tag.link") {{sub_tag.tag}}
 
   nav.navbar(:class="{search: search}")
@@ -52,7 +52,7 @@ div
               ul.subnav(v-if = "main_tag.childs && main_tag.childs.length>0")
                 .container.flex
                   div.options
-                    li(v-for = "(sub_tag,sub_id) in main_tag.childs")
+                    li(v-for = "(sub_tag,sub_id) in get_childs(main_tag)")
                       router-link(:to = "sub_tag.link") {{sub_tag.tag}}
 
         //右半部語言跟功能選單
@@ -148,24 +148,40 @@ div
               }
             });
           },
-          ...mapMutations(['toggle_size','toggle_search'])
+          ...mapMutations(['toggle_size','toggle_search']),
+          check_news_cata_length(tag){
+            return this.news.some(n=>n.tag==tag)
+          },
+          get_childs(maintag){
+            console.log("maintag",maintag)
+            if (maintag.tag=="最新消息"){
+              return maintag.childs.filter(o=>this.check_news_cata_length(o.tag))
+            }else{
+              return maintag.childs
+            }
+
+          },
         },
         computed: {
           ...mapState(["solutions","big_font","search","scrollTop","lang"]),
 
+          news(){
+            return this.$t("page_news.news")
+          },
+
           maked_nav_structure(){
             return this.$t("nav_structure")
-        },
-        langtext (){
-          switch(window.locale){
-            case "cn":
-              return "簡"
-            case "zh":
-              return "繁"
-            case "en":
-              return "EN"
+          },
+          langtext (){
+            switch(window.locale){
+              case "cn":
+                return "簡"
+              case "zh":
+                return "繁"
+              case "en":
+                return "EN"
+            }
           }
-        }
       }
   }
 </script>

@@ -24,6 +24,7 @@ var manage_job = Vue.component('manage_job', require('../components/manage_job.v
 var manage_contact = Vue.component('manage_contact', require('../components/manage_contact.vue'));
 var manage_contactrecord = Vue.component('manage_contactrecord', require('../components/manage_contactrecord.vue'));
 // var page_tern = Vue.component('page_tern', require('../components/page_tern.vue'));
+var manage_detail = Vue.component('manage_detail', require('../components/manage_detail.vue'));
 
 // var section_footer = Vue.component('section_footer', require('../components/section_footer.vue'));
 // var section_solutions = Vue.component('section_solutions', require('../components/section_solutions.vue'));
@@ -43,6 +44,7 @@ const routes = [
   { path: '/job', component: manage_job},
   { path: '/footer', component: manage_footer},
   { path: '/contactrecord', component: manage_contactrecord},
+  { path: '/detail', component: manage_detail},
 
   
   // { path: '/about', component: page_about },

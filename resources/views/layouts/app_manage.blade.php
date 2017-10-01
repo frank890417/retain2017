@@ -197,7 +197,9 @@
                     use(xlink:href='#stroked-chevron-right')
                   |  Sub Item 3
           --}}
-          <li role="presentation" onClick="location.replace('{{ url('manage/detail_info') }}')" class="divider"></li>
+          <router-link to="/detail">
+            <li role="presentation" class="divider"></li>
+          </router-link>
           @if(!Auth::user())
           <li><a href="/login">
               <svg class="glyph stroked male-user">
