@@ -47,7 +47,7 @@ div.page_index
       .col_left
       .col_right
         h3.section_title {{$t('page_index.section_2.title')}}
-        h4.section_feature(v-html="$t('page_index.section_2.feature')") 
+        h4.section_feature(v-html="remove_tag_p($t('page_index.section_2.feature'))") 
 
         p.section_para.text-left(v-html="$t('page_index.section_2.content')") 
 
@@ -83,7 +83,7 @@ div.page_index
     .container.flex.content
       .col_left
         h3.section_title {{$t('page_index.section_4.title')}}
-        h4.section_feature(v-html="$t('page_index.section_4.feature')") 
+        h4.section_feature(v-html="remove_tag_p($t('page_index.section_4.feature'))") 
         p.section_para(v-html="$t('page_index.section_4.content')") 
         router-link.btn-underline.black(v-if="$t('page_index.section_4.btn.show')",:to="$t('page_index.section_4.btn.link')") 
           span {{$t('page_index.section_4.btn.label')}}
@@ -114,7 +114,7 @@ div.page_index
       .col_right
 
         h3.section_title {{$t('page_index.section_5.title')}}
-        h4.section_feature(v-html="$t('page_index.section_5.feature')") 
+        h4.section_feature(v-html="remove_tag_p($t('page_index.section_5.feature'))") 
         p.section_para(v-html="$t('page_index.section_5.content')")  
         btn.btn-underline.brown_bg(v-if="$t('page_index.section_5.btn.show')",:to="$t('page_index.section_5.btn.link')") {{$t('page_index.section_5.btn.label')}}
 
@@ -122,7 +122,7 @@ div.page_index
   section.page_index_compaign.bg_parallax
     .container.flex.column
       h1.section_title {{$t('page_index.section_6.title')}}
-      h3.section_feature(v-html="$t('page_index.section_6.feature')") 
+      h3.section_feature(v-html="remove_tag_p($t('page_index.section_6.feature'))") 
       h4.section_para(v-html="$t('page_index.section_6.content')") 
       span
         btn.btn-underline.brown_bg(v-if="$t('page_index.section_6.btn.show')",:to="$t('page_index.section_6.btn.link')") {{$t('page_index.section_6.btn.label')}}
@@ -304,6 +304,9 @@ import video_fullplayer from './video_fullplayer'
           },
           yt_url_id(url){
             return getIdFromURL(url)
+          },
+          remove_tag_p(text){
+            return (""+text).replace(new RegExp("<\/?p>","g"),"")
           }
 
 

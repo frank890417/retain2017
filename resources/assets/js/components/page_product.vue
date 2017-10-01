@@ -23,7 +23,7 @@ div.page_solution
           li(v-for="feature in $t('page_product.features')")
             .btn_expand.plus
             h4 {{feature.title}}
-            .detail {{feature.content}}
+            .detail {{remove_tag(feature.content) }}
 
   section.section_solution(v-for="(product,product_id) in $t('page_product.products')",:class="'section_solution_'+product_id")
     .main_info(@click="toggleActive('.section_solution_'+product_id,product.programs.length)",
@@ -104,6 +104,9 @@ export default {
         }
         
 
+      },
+      remove_tag(text){
+        return (""+text).replace(new RegExp("<.*?>","g"),"")
       }
     },
     mounted() {
