@@ -77,6 +77,10 @@ export default {
         }
       },50);
       
+      
+      if (this.newsset.title){
+        document.title=this.newsset.title
+      }
       // if (Ts) Ts.reload();
     },
     methods: {
@@ -93,6 +97,13 @@ export default {
       }
     },
     props: ['id','title'],
+    watch: {
+      "newsset.title": function(){
+        if (this.newsset.title){
+          document.title=this.newsset.title
+        }
+      }
+    },
     computed: {
       news(){
         return this.$t("page_news.news")
