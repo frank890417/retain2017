@@ -26,7 +26,7 @@ div.page_contact
             option(value="-1") {{$t('page_contact.section_form.option_none')}}
 
         .form-group
-          label {{$t('page_contact.section_form.label_item')}}
+          label {{$t('page_contact.section_form.label_content')}}
           .right
             textarea.form-control(name="content", rows=1 ,:placeholder="$t('page_contact.section_form.place_holder_content')")
             button(type="submit").btn.btn-primary.btn-submit 

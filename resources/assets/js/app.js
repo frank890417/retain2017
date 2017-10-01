@@ -58,7 +58,7 @@ if (document.domain.indexOf('dev')==-1) {
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-52977512-21', 'auto');
+  ga('create', 'UA-105154504-1', 'auto');
   ga('send', 'pageview');
 
   window.ga = ga;
