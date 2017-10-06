@@ -33,6 +33,10 @@ div.page_job
 <script>
     import { mapGetter, mapActions , mapState } from 'vuex'
     export default {
+        metaInfo: {
+          title: "人才招募",
+          titleTemplate: "%s - 睿田生技 Retain Biotech"
+        },
         mounted() {
             console.log('jobs')
         },

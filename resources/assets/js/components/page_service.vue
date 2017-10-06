@@ -49,6 +49,10 @@ div.page_service
 </template>
 
 <script>
+    metaInfo: {
+      title: "服務",
+      titleTemplate: "%s - 睿田生技 Retain Biotech"
+    },
     export default {
         mounted() {
             console.log('service mounted.');

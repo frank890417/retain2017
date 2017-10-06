@@ -57,6 +57,10 @@ div.page_about
 <script>
   import { mapGetter, mapActions , mapState } from 'vuex'
   export default {
+      metaInfo: {
+        title: "管理經營",
+        titleTemplate: "%s - 睿田生技 Retain Biotech"
+      },
       data() {return {
         sel_year: "year_2016"
       }},

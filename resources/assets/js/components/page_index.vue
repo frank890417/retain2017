@@ -134,6 +134,9 @@ import slick from 'slick-carousel'
 import video_fullplayer from './video_fullplayer'
   import {mapState} from 'vuex'
     export default {
+        metaInfo: {
+          title: "睿田生技 Retain Biotech"
+        },
         data () {
           return {
             news_id: 0,

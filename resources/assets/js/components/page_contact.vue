@@ -49,6 +49,10 @@ div.page_contact
 <script>
     import { mapGetter, mapActions , mapState } from 'vuex'
     export default {
+        metaInfo: {
+          title: "聯絡我們",
+          titleTemplate: "%s - 睿田生技 Retain Biotech"
+        },
         mounted() {
             console.log('contact mounted.');
 

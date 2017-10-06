@@ -59,6 +59,13 @@ window.$=jquery
 import slick from 'slick-carousel'
 import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
+    metaInfo() {
+      return {
+        title: this.title,
+        titleTemplate: "%s - 睿田生技 Retain Biotech"
+        
+      }
+    },
     mounted() {
       console.log('post mounted.');
       var vobj=this;
@@ -78,9 +85,9 @@ export default {
       },50);
       
       
-      if (this.newsset.title){
-        document.title=this.newsset.title
-      }
+      // if (this.newsset.title){
+      //   document.title=this.newsset.title
+      // }
       // if (Ts) Ts.reload();
     },
     methods: {
@@ -98,11 +105,11 @@ export default {
     },
     props: ['id','title'],
     watch: {
-      "newsset.title": function(){
-        if (this.newsset.title){
-          document.title=this.newsset.title
-        }
-      }
+      // "newsset.title": function(){
+      //   if (this.newsset.title){
+      //     document.title=this.newsset.title
+      //   }
+      // }
     },
     computed: {
       news(){

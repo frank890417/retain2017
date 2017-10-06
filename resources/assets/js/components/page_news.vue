@@ -76,6 +76,10 @@ window.$=jquery
 import slick from 'slick-carousel'
 import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
+    metaInfo: {
+      title: "最新消息",
+      titleTemplate: "%s - 睿田生技 Retain Biotech"
+    },
     mounted() {
       console.log('news mounted.');
       var vobj=this;

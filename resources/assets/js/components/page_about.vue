@@ -54,6 +54,10 @@ div.page_about
 import video_fullplayer from './video_fullplayer'
 import { mapGetter, mapActions , mapState } from 'vuex'
 export default {
+    metaInfo: {
+      title: "關於",
+      titleTemplate: "%s - 睿田生技 Retain Biotech"
+    },
     data() {return {
       sel_year: "year_2016",
       years: ['2020','2019','2018','2017','2016','2015'],

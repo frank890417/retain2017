@@ -17,6 +17,10 @@ div.page_tern
 <script>
   import { mapGetter, mapActions , mapState } from 'vuex'
   export default {
+    metaInfo: {
+      title: "各項聲明",
+      titleTemplate: "%s - 睿田生技 Retain Biotech"
+    },
       data() {return {
         item_status: Array.from({length: 7},()=>({open: true}) ),
       }},

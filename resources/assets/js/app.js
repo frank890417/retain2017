@@ -15,13 +15,26 @@ import ScrollToPlugin from "gsap/ScrollToPlugin"
 window.TweenMax=TweenMax
 import VueI18n from 'vue-i18n'
 import Rx from 'rxjs/Rx'
+import VueAnalytics from 'vue-analytics'
+
 
 import custom_i18n from './i18n'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import btn from './components/btn'
+
+import Meta from 'vue-meta'
+
 Vue.component('btn',btn)
 
+if (document.domain.indexOf('dev')==-1) {
+  Vue.use(VueAnalytics, {
+    id: 'UA-105154504-1',
+    router
+  })
+}
 
+// Vue.use(Router)
+Vue.use(Meta)
 Vue.use(VueYouTubeEmbed)
 
 
@@ -51,21 +64,21 @@ const app = new Vue({
   }
 });
 
-// google analysis
-if (document.domain.indexOf('dev')==-1) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+// // google analysis
+// if (document.domain.indexOf('dev')==-1) {
+//   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+//   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+//   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-105154504-1', 'auto');
-  ga('send', 'pageview');
+//   ga('create', 'UA-105154504-1', 'auto');
+//   ga('send', 'pageview');
 
-  window.ga = ga;
-  console.log('enable ga');
-} else {
-  console.log('disable ga');
-}
+//   window.ga = ga;
+//   console.log('enable ga');
+// } else {
+//   console.log('disable ga');
+// }
 
 
 
